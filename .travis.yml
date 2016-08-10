@@ -1,0 +1,13 @@
+language: node_js
+notifications:
+  email: false
+node_js:
+  - '6.0.0'
+before_install:
+  - travis_retry nvm install 6.0.0
+  - travis_retry wget https://www.dropbox.com/s/heja4ryn45bd5wt/test.tar.gz?dl=0 -O test.tar.gz && tar xfvz test.tar.gz
+env:
+  global:
+    - MERGE_TOKEN=e7de2e3472f394690b09c98998a1804d79ed172e
+script:
+  - npm test
