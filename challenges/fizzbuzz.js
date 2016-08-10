@@ -17,9 +17,10 @@
 //                     16 ]
 
 function fizzbuzz(num) {
+  // Return undefined if the input is not an integer
   if (typeof num !== 'number') return undefined;
   if (num !== Math.floor(num)) return undefined;
-  
+
   const result = [];
 
   for (let n = 1; n <= num; n++) {
