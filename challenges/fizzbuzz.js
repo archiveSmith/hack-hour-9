@@ -29,8 +29,8 @@ function fizzbuzz(num) {
       result.push(i);
     }
   }
-  if (num < 1) {
-    return "please use an integer greater than 0";
+  if (num < 1 || typeof num !== 'number') {
+    return "please use an integer greater than 0 as the input";
   }
   return result;
 }
