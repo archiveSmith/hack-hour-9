@@ -17,7 +17,24 @@
 //                     16 ]
 
 function fizzbuzz(num) {
+	const result = [];
 
+	for (let index = 0; index <=num; index++) {
+
+		if(index % 5 === 0 && index % 3 === 0) {
+			result.push('fizzbuzz');
+		} else if(index % 3 === 0) {
+		result.push('fizz');
+		} else if(index % 5 === 0) {
+		result.push('buzz');
+		}
+		else {
+			result.push(index);
+		}
+	}
+	return result;
 }
 
 module.exports = fizzbuzz;
+
+/// Updated gitconfig to fix Git Setup
