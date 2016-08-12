@@ -14,7 +14,14 @@
 */
 
 function drawStairs(n) {
+  // n must be a positive integer between 1 and 100
+  if (!Number.isInteger(n) || n < 1 || n > 100) return;
 
+  // Iterate from 1 to n, drawing each level of the staircase
+  // with the corresponding number of asterisks
+  for (let i = 1; i <= n; i++) {
+    console.log(' '.repeat(n - i) + '*'.repeat(i));
+  }
 }
 
 
