@@ -14,6 +14,11 @@
 */
 
 function drawStairs(n) {
+	let rows = n;
+	let stars = '*'
+	for (let i = 0; i < rows; i++) {
+		console.log(string);
+	}
 
 }
 
