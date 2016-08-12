@@ -12,14 +12,21 @@
 ******
 
 */
-
 function drawStairs(n) {
 	let rows = n;
-	let stars = '*'
+	let stars = '';
+	let output = '';
+	
 	for (let i = 0; i < rows; i++) {
-		console.log(string);
+		let spaces = '';
+		stars += '*';		
+		for(let j = rows; j > -1; j--) {
+			spaces += '_';
+			output = spaces + stars;
+			spaces[0] = '';
+		}
+		console.log(output)
 	}
-
 }
 
 
