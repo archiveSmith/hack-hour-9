@@ -14,7 +14,16 @@
 */
 
 function drawStairs(n) {
-
+ let space = 0;
+ let ast = 0;
+ str = '';
+	 for (let i = 0; i < n-1; i++){
+	 	str += ' ';
+	 }
+	 for (let i = 0; i < n; i++){
+	 	str += '*';
+	 }
+ console.log(str);
 }
 
 
