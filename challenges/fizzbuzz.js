@@ -17,7 +17,31 @@
 //                     16 ]
 
 function fizzbuzz(num) {
+  // Return undefined if the input is not an integer
+  if (typeof num !== 'number') return undefined;
+  if (num !== Math.floor(num)) return undefined;
 
+  const result = [];
+
+  for (let n = 1; n <= num; n++) {
+    let message = '';
+    
+    if (n % 3 === 0) {
+      message += 'fizz';
+    }
+
+    if (n % 5 === 0) {
+      message += 'buzz';
+    }
+
+    if (message === '') {
+      message = n;
+    }
+
+    result.push(message);
+  }
+
+  return result;
 }
 
 module.exports = fizzbuzz;
