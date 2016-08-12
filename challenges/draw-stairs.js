@@ -13,8 +13,39 @@
 
 */
 
-function drawStairs(n) {
+// console.log("a defined?" + (typeof a !== 'undefined'))
 
+function drawStairs(levels){
+
+	var stepperfuncwithclosure = makestep(6);
+//	var stepperfuncwithclosure = makestep(5);
+	var test = stepperfuncwithclosure(6);
+	
+	return test;
+	
+}
+
+function makestep(steplength){
+	
+	var layer = 0;
+	return function stepper(steplength){
+			let stepStars = '';
+			let stepSpace = '';
+			for(let length = 0; length < steplength - layer; length++ ){
+				
+				stepStars += "*";
+				console.log(stepStars)
+			}
+			for(let len = 5; len > 0; len--){
+				stepSpace += "i";
+				console.log(stepSpace)
+			}
+		
+		
+		layer++;
+		return stepStars;
+	}
+	
 }
 
 
