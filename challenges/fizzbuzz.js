@@ -17,6 +17,7 @@
 //                     16 ]
 
 function fizzbuzz(num) {
+    "use strict";
 	let arr = [];
 	let i;
 	for (i = 1; i <= num; i++) {
