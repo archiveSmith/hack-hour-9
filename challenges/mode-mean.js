@@ -9,9 +9,21 @@
  *
  */
 
-
+"use strict";
 function modemean(array) {
-
+	let sum = array.reduce((a, b) => {return a + b});
+	let mean = Math.floor(sum / array.length);
+	let freq = {};
+	for (let num of array) {
+		freq[num] = (freq[num] || 0) + 1;
+	}
+	let mode = freq[array[0]];
+	for (var key in freq){
+		if (freq[key] >= mode) {
+			mode = key;
+		}
+	}
+	return mean === mode;
 }
 
 module.exports = modemean;
