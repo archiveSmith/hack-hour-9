@@ -43,7 +43,7 @@ function modemean(array) {
 		
 	}
 	
-	var mean = sum / numOfElements;
+	var mean = Math.floor(sum / numOfElements);
 	
 	return mode === mean? true: false;
 
