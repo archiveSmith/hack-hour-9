@@ -14,6 +14,7 @@
 */
 
 function drawStairs(n) {
+	"use strict";
 	let i, j, str = "";
 	for (j = 1; j <= n; j++) {
 		str= "";
