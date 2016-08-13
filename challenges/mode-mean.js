@@ -9,7 +9,6 @@
  *
  */
 
-
 function modemean(array) {
 	// get the sum of all array items
 	const arraysum = array.reduce(function(sum, current, index){
@@ -20,9 +19,10 @@ function modemean(array) {
 	
 	//array to keep track of how many times array[i] appears in array
 	let itemcount = []
+	//array to be populated with a mode or multiple modes
 	let modearray = []
 	
-	//loop through array items and compare with other array items, keeping count of how many times a single value occurs (thisitemcount) -- function to be used at least twice.
+	//loop through array items and compare with other array items, keeping count of how many times a single value occurs (thisitemcount)
 
 		for(let i = 0; i < array.length; i++){
 			let thisitemcount = 0;
@@ -34,28 +34,22 @@ function modemean(array) {
 		//store a thisitemcount for each array element, so for array[i], itemcount[i] is how many times that item appears
 		itemcount.push(thisitemcount);
 		for (let k = 0; k < array.length; k++){
-			//if an item's count is highest of all the itemcounts
-			
+			//if an item's count value is highest (multiple matches)
 			if (itemcount[k] === Math.max(...itemcount)){
-				//if an item has one of the higher counts, push to mode array (it is a mode).
+				//get the values of the items with highest count
 				modearray.push(array[k]);
 			}
 		}
 	}
-	
 	//find the highest item count
-	let maxmode = Math.max(...modearray)
-		console.log("highestcount is" + maxmode)
-	
-	//find the value that has the highest item count by index
-	// --> this only works for one mode. let modeindex = itemcount.indexOf(highestcount);
-	
-
+	let maxmode = Math.max(...modearray);
+		
 	if (maxmode === mean){
 		return true;
 	}
 	else {return false;}
-
 }
+
+console.log(modemean([1,2,2,2,3]))
 
 module.exports = modemean;
