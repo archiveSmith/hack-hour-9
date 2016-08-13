@@ -16,9 +16,9 @@ if (array.length === 0 || !array.every(function(x){return typeof x === 'number'}
 	console.log('the array needs to be .length > 0 and to only contain numbers');
 	return array;
 }
-if (array.length === 1){
-	return true;
-}
+// if (array.length === 1){
+// 	return true;
+// }
 let len = array.length;
 let mean = Math.floor((array.reduce(function(acc,item){return acc+=item;}))/len);
 let table = array.reduce(function(acc,item){
@@ -40,12 +40,15 @@ for (var key in table){
 	}
 }
 console.log(s);
-return s.value === mean;
+console.log(mean,s.value);
+
+return parseInt(s.value) === mean;
 
 
 
 
 }
-let arr = [1,2,420,2,2];
+let arr = [12,420];
+
 console.log(modemean(arr));
 module.exports = modemean;
