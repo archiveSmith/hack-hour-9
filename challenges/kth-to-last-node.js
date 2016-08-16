@@ -23,8 +23,23 @@ function Node(val) {
 
 function kthToLastNode(k, head) {
 	let index = 0
-	while(head.next.next){
-		head = head.next;
+	let counter = k;
+	let current = head;
+
+	while(current.next){
+		current = current.next;
+		index++;
+	}
+	//find index of start position
+	
+	
+	if(k > index + 1) {
+		return undefined;
+	}
+
+	while(index >= k){
+		head = head.next
+		--index;
 	}
 	return head.value;
 }
