@@ -39,7 +39,7 @@ function kthToLastNode(k, head) {
     for (let i = 0; i < loopEnd; i++) {
        currentNode = currentNode.next;
     }
-    return currentNode;
+    return currentNode.value;
   }
   return undefined;
 }
