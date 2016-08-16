@@ -14,10 +14,9 @@
 */
 
 function drawStairs(n) {
-let space = " ";
-for(var str = "*"; str.length <= n; str+="*"){
-	console.log(space.repeat(n - str.length) + str);
-}
+ for(var str = "*"; str.length <= n; str+= "*") {
+	console.log(" ".repeat(n - str.length) + str);
+ }
 }
 
 
