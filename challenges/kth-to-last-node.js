@@ -49,6 +49,8 @@ while(currentNode.next) {
 	}
     
     return currentNode.value;
+
+
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
