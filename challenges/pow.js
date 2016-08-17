@@ -3,10 +3,8 @@
  */
 
 function pow(base, power) {
-  return (power > 1) ? base * pow(base, power - 1) 
-  : (power < 1) ? (1 / base) * pow(base, power + 1)
-  : (power === 1) ? base
-  : (power === -1) ? 1 / base
+  return (power > 0) ? base * pow(base, power - 1) 
+  : (power < 0) ? (1 / base) * pow(base, power + 1)
   : 1;
 }
 
