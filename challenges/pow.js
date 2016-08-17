@@ -1,19 +1,21 @@
 /* Write a function that calculates x^y, where x is given as the base and y is given as the power.
  * Use recursion!
  */
-
-function pow(base, power, current = 0) {
-  if (power >= 0) {
+function pow(base, power, current = 1) {
+  if (power >= 0 && (current >= 1 || base < 0)) {
     if (power === 0) {
       return current;
     } else {
-      pow(base, power - 1, base + current);
+      return pow(base, power - 1, base * current);
     }
   } else {
     if (current === 0) {
       current = 1;
     }
-    pow(base, power + 1, (current / base));
+    if (power == 0) {
+      return current;
+    }
+    return pow(base, power + 1, (current / base));
   }
 }
 module.exports = pow;
