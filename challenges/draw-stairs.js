@@ -15,23 +15,23 @@
 
 function drawStairs(n) {
   var outStr = '';
-  var counter = n;
   
-  
-  for (var i = 0;i < n;i++){
-    outStr += '*';
-    while(counter-1){
+  for (var i = 1;i <= n;i++){
+    var starCounter = i;
+    var spaceCounter = n;
+    
+    while(spaceCounter-i > 0){
       outStr += ' ';
+      spaceCounter--;
+    }
+    
+    while(starCounter > 0){
+      outStr += '*';
+      starCounter--;
     }
     
     outStr += '\n';
-    counter--;
   }
-  
-  console.log(outStr);
 }
-
-console.log(drawStairs(5))
-
 
 module.exports = drawStairs;
