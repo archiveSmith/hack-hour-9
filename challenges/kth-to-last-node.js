@@ -25,7 +25,7 @@ function Node(val) {
 function kthToLastNode(k, head) {
 	var current = head;
 	current.position = 0;
-	var counter = 1
+	var counter = 1;
 	while (current.next !== null){
 		counter++;
 		var prevposition = current.position;
