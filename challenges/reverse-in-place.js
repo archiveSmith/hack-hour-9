@@ -12,6 +12,11 @@
  */
 
 function reverseInPlace(array) {
+	for(var i = 0; i < array.length; i++){
+		array.splice(i,0,array[(array.length-1)]);
+		array.pop();
+	}	
+}
 
 }
 
