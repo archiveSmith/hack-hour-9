@@ -17,23 +17,23 @@ function drawStairs(n) {
   var stair = '';
   var space = n-1;
   var stars = 1;
-  var spaceString = '';
-  var starString = '';
+  var spaceString = ' ';
+  var starString = '*';
 
   for (var i = 0; i < n; i++) {
     for (var i = 0; i < space; i++) {
-      spaceString += ' ';
+      spaceString += spaceString;
     }
     for (var i = 0; i < stars; i++) {
-      starString += '*';
+      starString += starString;
     }
     stair = spaceString + starString;
-    console.log(stair \n);
+    console.log(stair);
     space--;
     stars++;
   }
 
 }
-
+drawStairs(10);
 
 module.exports = drawStairs;
