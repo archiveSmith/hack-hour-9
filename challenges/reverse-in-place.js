@@ -12,7 +12,19 @@
  */
 
 function reverseInPlace(array) {
+  if (!Array.isArray(array)) return undefined;
 
+  for (let i = 0, length = array.length; i < length/2; i++) {
+    swapArrayElements(array, i, len - 1 - i);
+  }
+
+  return array;
+}
+
+function swapArrayElements(array, i, j) {
+  const temp = array[i];
+  array[i] = array[j];
+  array[j] = temp;
 }
 
 module.exports = reverseInPlace;
