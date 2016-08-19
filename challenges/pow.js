@@ -4,7 +4,7 @@
 
 function pow(base = 1, power = 2) {
 if (typeof base !== 'number' || typeof power !== 'number'){
-	console.log('function uses numbers');
+	console.log('POW!');
 	return false;
 }
 if (power === 0){
