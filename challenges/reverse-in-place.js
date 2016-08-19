@@ -13,6 +13,14 @@
 
 function reverseInPlace(array) {
 
+    let originalLength = array.length;
+    // add values to the end of an array in reverse. 
+    for (var i = 1; i <= originalLength; i++) {
+        array.push(array[originalLength - i]);
+    }
+    //splice first half of array.
+    array.splice(0, originalLength);
 }
+
 
 module.exports = reverseInPlace;
