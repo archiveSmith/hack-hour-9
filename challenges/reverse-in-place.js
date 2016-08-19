@@ -12,7 +12,46 @@
  */
 
 function reverseInPlace(array) {
-
+	/*
+	var start = 0;
+	var end = array.length - 1;
+	
+	while(start < end) {
+		var temp = array[start];
+		array[start] = array[end];
+		array[end] = temp;
+		
+		start++;
+		end--;
+		
+	}
+	
+	return array;
+	*/
+	
+	var ptr = array.length - 1;
+	
+	while(ptr >= 0) {
+		array.push(array[ptr]);
+		array.splice(ptr, 1);
+		ptr--;
+	}
+	
+	return array;
+	
 }
+
+/* tests */
+/*
+var test1 = ['h', 'e', 'l', 'l', 'o'];
+console.log(reverseInPlace(test1));
+
+var test2 = ['h', 'a', 'l', 'o'];
+console.log(reverseInPlace(test2));
+
+console.log(reverseInPlace([]));
+console.log(reverseInPlace(['I']));
+*/
+
 
 module.exports = reverseInPlace;
