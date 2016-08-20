@@ -16,6 +16,8 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
+	s1 = JSON.stringify(s1);
+	s2 = JSON.stringify(s2);
 	s1 = s1.split("");
 	s2 = s2.split("");
 	for (let i = 0; i < s1.length; i++) {
@@ -33,6 +35,7 @@ function stringRotation(s1, s2) {
 			return true;
 		}
 	}
+
 	return false;
 }
 
