@@ -17,7 +17,8 @@ function isSubstring(s1, s2) {
 
 function stringRotation(s1, s2) {
   if (typeof s1 !== 'string' || typeof s2 !== 'string') return undefined;
-  
+  if (s1.length !== s2.length) return false;
+
   return isSubstring(s2 + s2, s1);
 }
 
