@@ -30,19 +30,11 @@ function stringRotation(s1, s2) {
 	}
 	var sliceEnd = s1.slice(index);
 	var sliceStart = s1.slice(0, index);
-console.log(sliceEnd);
-console.log(sliceStart);
+if(!isSubstring(s2, sliceStart)){
+	return false; 
+}
 
-	if(isSubstring(s1, sliceEnd)) {
-		// for(var j = 0; j < sliceStart.length; j++) {
-		// 	// console.log(s1[j]);
-		// 	// console.log(sliceStart[j]);
-		// 	if(sliceStart[j] !== s1[j]) {
-		// 		return false; 
-		// 	}
-		// }
-	}
-	// return true; 
+return true; 
 
 }
 
