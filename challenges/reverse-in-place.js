@@ -18,7 +18,13 @@ function reverseInPlace(array) {
 		delete array[i-1];
 		array.push(curItem);
 	}
+	array.forEach(function(item){
+		if
+	})
 	return array;
 }
+
+let temp = [1,2,3,4,5,6,7,8,9]
+reverseInPlace(temp)
 
 module.exports = reverseInPlace;
