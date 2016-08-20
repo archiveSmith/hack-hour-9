@@ -10,15 +10,16 @@
  * Since strings are immutable in javascript, we will be reversing an array of characters instead.
  *
  */
-
+"use strict"
 function reverseInPlace(array) {
-  let start = 0;
-  let end = array.length - 1;
-  while (start < end) {
-  	let temp = array[end];
-  	array[end--] = array[start];
-  	array[start++] = temp;
-  }
+for (var i = 0, j = array.length - 1; i < j; i++, j--) {
+	let temp = array[i];
+	array[i] = array[j];
+	array[j] = temp;
+	}
 }
 
-module.exports = reverseInPlace;
+let x = [0, 1, 2, 3, 4, 5];
+reverseInPlace(x);
+console.log(x);
+// module.exports = reverseInPlace;
