@@ -23,7 +23,8 @@ function drawStairs(n) {
 
   for (let i = 1; i < n; i++) {
     while (i < n) {
-      while (spaceCounter > 0;) {
+      console.log('i', i);
+      while (spaceCounter > 0) {
         line += space;
         spaceCounter--;
           while (starCounter < spaceCounter ) {
