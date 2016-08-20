@@ -17,7 +17,7 @@ function isSubstring(s1, s2) {
 
 function stringRotation(s1, s2) {
 	let compare = false;
-	let possibilities = []
+	let possibilities = [s1]
 	let bigStr = s1 + s1 + s1;
 
 	for(let i = 0; i < s1.length; i++) {
@@ -27,14 +27,7 @@ function stringRotation(s1, s2) {
 		}
 		possibilities.push(newS1)
 	}
-	
-	possibilities.forEach(function(item) {
-		if(item === s2){
-			compare = true;
-		}
-	})
-	
-	return compare;
+	return isSubstring(possibilities, s2)
 }
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
