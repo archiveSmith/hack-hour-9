@@ -16,14 +16,13 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-	for (var i = 0; i < s2.length; i++) {
-		let split = s2.split("")
-		split.unshift(split.pop());
-		let s2rotated = split.join("");
-		s2 = s2rotated;
-		if (s1 == s2rotated) return true;
-	}
-	return false;
+	if (!s2) return false;
+	let iFirstLetter = s2.indexOf("h")
+	if (iFirstLetter === -1) return false;
+	let firstPart = s2.slice(iFirstLetter);
+	let secondPart = s2.slice(0, iFirstLetter)
+	let secondProper = firstPart + secondPart;
+	return isSubstring(s1, secondProper);
 }
 
 
