@@ -15,9 +15,23 @@
 //                     14,
 //                     'fizzbuzz',
 //                     16 ]
-
+"use strict";
 function fizzbuzz(num) {
+	let result = [];
 
+	if (typeof num !== "number") return "input must be a number";
+	for (let i = 1; i <= num; i++){
+		if (i % 5 === 0 && i % 3 === 0) {
+			result.push("fizzbuzz");
+		} else if (i % 5 === 0) {
+			result.push("buzz");
+		} else if (i % 3 === 0) {
+			result.push("fizz");
+		} else {
+			result.push(i);
+		}
+	}
+	return result;
 }
 
 module.exports = fizzbuzz;
