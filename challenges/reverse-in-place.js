@@ -17,9 +17,7 @@ function reverseInPlace(array) {
 
   
   for (let i = 0; i < midPt; i++) {
-    let temp = array[i];
-    array[i] = array[lastItem-1-i];
-    array[lastItem-1-i] = temp;
+    [array[i], array[lastItem-1-i]] = [array[lastItem-1-i], array[i]]
   }
   
   return array;
