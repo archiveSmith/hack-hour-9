@@ -17,7 +17,6 @@ function reverseInPlace(array) {
 		array[i] = array[end - i];
 		array[end - i] = val;
 	}
-	
 	return array
 }
 
