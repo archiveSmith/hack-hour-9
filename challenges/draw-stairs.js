@@ -14,19 +14,24 @@
 */
 
 function drawStairs(n) {
-  var i;
-  var str = '';
-  for (i = 0;i < n;i++){
-    str += '*';
-    console.log(str);
-    for (var j = n-1;j > 0;j--){
-      str += ' ';
+  var outStr = '';
+  
+  for (var i = 1;i <= n;i++){
+    var starCounter = i;
+    var spaceCounter = n;
+    
+    while(spaceCounter-i > 0){
+      outStr += ' ';
+      spaceCounter--;
     }
-
+    
+    while(starCounter > 0){
+      outStr += '*';
+      starCounter--;
+    }
+    
+    outStr += '\n';
   }
-  console.log(str);
-
 }
-
 
 module.exports = drawStairs;
