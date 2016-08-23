@@ -25,11 +25,6 @@
  */
 "use strict";
 function balancedParens(input){
-	let balanced = {
-		pNum: 0,
-		bNum: 0,
-		brNum: 0
-	}
 	let balance = 0;
 	for (let char of input) {
 		if (balance < 0 || balance > 2) return false;
