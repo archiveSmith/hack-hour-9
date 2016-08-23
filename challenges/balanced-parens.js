@@ -25,18 +25,18 @@
  */
 
 function balancedParens(input){
- let queue = [], cur;
+ let stack = [], cur;
   for (let i =0, len = input.length; i<len; i++) {
     cur = input[i];
     if ((cur === '(') || (cur === '{')) {
-      queue.push(cur);
+      stack.push(cur);
     } else if (cur === ')') {
-      if (queue.pop() !== '(') return false; 
+      if (stack.pop() !== '(') return false; 
     } else if (cur ===  '}') {
-      if (queue.pop() !== '{') return false;
+      if (stack.pop() !== '{') return false;
     }
   }
-  return queue.length === 0;
+  return stack.length === 0;
 }
 
 module.exports = balancedParens;
