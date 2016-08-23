@@ -25,6 +25,28 @@
  */
 
 function balancedParens(input){
+  let brackets = {"[": "]", "{": "}", "(": ")"};
+    let cache = [];
+    let current;
+    let popped;
+
+    for (let i = 0; i < input.length; i++) {
+      if (input[i] === "(" || input[i] === '[' || input[i] === '{') {
+        current = input[i];
+        cache.push(input[i]);
+      } else {
+        popped = cache.pop();
+        //check for the matching closing bracket 
+        if (current !== brackets[popped]) {
+          return false;
+        }
+      }
+    }
+    
+    if (cache.length) {
+      return false;
+    }
+    return true;
 
 }
 
