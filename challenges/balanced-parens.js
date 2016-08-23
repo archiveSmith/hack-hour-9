@@ -27,8 +27,19 @@
 function balancedParens(input){
 	let openParens = input.match(/\(/g);
 	let closeParens = input.match(/\)/g);
-	if(input.indexOf(')') < input.indexOf('(')) return false;
-	return openParens.length === closeParens.length;
+	let openBracket = input.match(/\[/g);
+	let closeBracket = input.match(/\]/g);
+	let openCurly = input.match(/\{/g);
+	let closeCurly = input.match(/\}/g);
+
+	if(input.indexOf(')') < input.indexOf('(') ||
+		input.indexOf(']') < input.indexOf('[') ||
+		input.indexOf('}') < input.indexOf('{')) return false;
+	
+	
+	return openParens.length === closeParens.length && 
+		openBracket.length === closeBracket.length && 
+		openCurly.length === closeCurly.length;
 }
 
 
