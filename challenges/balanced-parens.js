@@ -25,7 +25,11 @@
  */
 
 function balancedParens(input){
-
+	let openParens = input.match(/\(/g);
+	let closeParens = input.match(/\)/g);
+	if(input.indexOf(')') < input.indexOf('(')) return false;
+	return openParens.length === closeParens.length;
 }
+
 
 module.exports = balancedParens;
