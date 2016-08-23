@@ -11,14 +11,14 @@
  *
  */
 
-function reverseInPlace(array) {
-  for(i = 0; i < array.length/2 - 1; i++) {
-    let tempVar;
-    tempVar = array[i];
-    array[i] = array[array.length - 1 - i];
-    array[array.length -1 - i] = tempVar;
-  }
-  return array;
-}
+ function reverseInPlace(array) {
+   for (let i = 0; i < array.length/2; i++) {
+     let tempVar;
+     tempVar = array[i];
+     array[i] = array[array.length - 1 - i];
+     array[array.length -1 - i] = tempVar;
+   }
+   return array;
+ }
 
 module.exports = reverseInPlace;
