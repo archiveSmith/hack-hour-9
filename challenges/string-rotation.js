@@ -23,7 +23,9 @@ function stringRotation(s1, s2) {
   let str2 = s2 + s2;
   return str2.indexOf(s1) >= -1;
 }
-
+str1 = 'ababa'
+str2 = 'babaa'
+str2double = 'babaababaa'
 module.exports = {
   isSubstring: isSubstring,
   stringRotation: stringRotation
