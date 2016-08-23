@@ -25,7 +25,6 @@
  */
 
 function balancedParens(input){
-	
 	let openParens = input.match(/\(/g);
 	let closeParens = input.match(/\)/g);
 	let openBracket = input.match(/\[/g);
