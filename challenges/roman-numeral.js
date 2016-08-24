@@ -19,7 +19,7 @@
 
 function romanNumeral(n) {
 	let roman = "";
-	
+
 	const romanLookup = {
 		M: 1000,
 		CM:900,
