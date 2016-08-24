@@ -25,7 +25,23 @@
  */
 
 function balancedParens(input){
+	var parensArr = ['[',']','(',')','{','}'];
+	var freq = {};
 
+	for(let index = 0; index < input.length; index++){
+	//	console.log(input[index])
+		let parense = input[index];
+		if(parensArr.includes(parense)) {
+			if(!freq[parense]){ freq[parense] = 1;}
+			else{freq[parense]++}
+		}
+	}
+	//console.log(freq)
+	
+	if(freq['['] !== freq[']'] || freq['('] !== freq[')'] || freq['{'] !== freq['}']){
+		return false;
+	}
+	return true;
 }
 
 module.exports = balancedParens;
