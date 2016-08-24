@@ -33,6 +33,20 @@ const numValues = {
 	'I': 1
 }
 
+// const romanNumeral = (n) => {
+// 	let val = n;
+// 	let res = '';
+// 	while(val > 0){
+// 		for(let numeral in numValues) {
+// 			if(val >= numValues[numeral]) {
+// 				res += numeral;
+// 				val -= numValues[numeral];
+// 			}
+// 		}				
+// 	}
+// 	return res;
+// }
+
 const romanNumeral = (n) => {
 	let val = n;
 	let res = '';
