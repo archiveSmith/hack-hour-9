@@ -28,12 +28,16 @@ function balancedParens(input){
 	let begin = 0;
 	let close = 0;
 	let str = input.replace(/\w/gi, '')
-	for(i = 0; i < str.length; i++) {
-		if(i == 0 && str[i]) == '(';
-			begin++;
-			
-
+	let check = str.split('');
+	let keys = {'(' : ')', '{': '}', '[': ']' }
+	for(let i = 0, end = check.length - 1 - i; i < check.length; i++) {
+		check[i];
+		for(check[i] in keys) {
+			if(check[end] !== keys[check[i]]);
+			return false;
+		}
 	}	
+	return true;
 
 }
 
