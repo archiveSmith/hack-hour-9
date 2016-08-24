@@ -16,26 +16,24 @@
  *      1000  ->    M
  * 
  */
-
 function romanNumeral(n) {
     //create hash of values.
     let romHash = { M: 1000, CM: 900, D: 500, CD: 400, C: 100, XC: 90, L: 50, XL: 40, X: 10, IX: 9, V: 5, IV: 4, I: 1 };
     let romStr = ""
-    //use reduce to loop through the values and reduce the value by the key. 
+
     while (n > 0) {
-    	for (key in romHash){
-    		console.log(romHash[key])
-    		n = n-romHash[key]
-    	}
-
-
+        for (key in romHash) {
+            if (n > romHash[key]) {
+                n = n - romHash[key]
+            }
+        }
     }
-
     //add the key to the return string. 
-
 
 }
 
+
+console.log(romanNumeral(3233));
 
 
 
