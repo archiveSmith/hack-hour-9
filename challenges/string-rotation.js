@@ -30,5 +30,4 @@ function stringRotation(s1, s2) {
 	let test = s2Front.join('') + s2Back.join('');
 	return isSubstring(s1, test)
 }
-
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
