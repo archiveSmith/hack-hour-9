@@ -23,7 +23,7 @@ function stringRotation(s1, s2) {
   }
   let str1Array = s1.split("");
   let str2Array = s2.split("");
-
+  let limit = str2Array.length;
   while(str1Array[0] !== str2Array[0]){
     let char = str2Array.pop();
     str2Array.unshift(char)
