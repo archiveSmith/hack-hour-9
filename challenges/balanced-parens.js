@@ -23,22 +23,46 @@
  *
  *
  */
-
+paren = false
+brack = false 
+brace = false 
+//function balancedParens(input){
+// let stack = [], cur;
+//  for (let i =0, len = input.length; i<len; i++) {
+//    cur = input[i];
+//    if ((cur === '(') || (cur === '{') || (cur === '[')) {
+//      stack.push(cur);
+//    } else if (cur === ')') {
+//      if (stack.pop() !== '(') return false; 
+//    } else if (cur ===  '}') {
+//      if (stack.pop() !== '{') return false;
+//    } else if (cur === ']') {
+//      if (stack.pop() !== '[') return false;
+//    }
+//  }
+//  return stack.length === 0;
+//}
 function balancedParens(input){
  let stack = [], cur;
   for (let i =0, len = input.length; i<len; i++) {
     cur = input[i];
     if ((cur === '(') || (cur === '{') || (cur === '[')) {
       stack.push(cur);
-    } else if (cur === ')') {
-      if (stack.pop() !== '(') return false; 
-    } else if (cur ===  '}') {
-      if (stack.pop() !== '{') return false;
-    } else if (cur === ']') {
-      if (stack.pop() !== '[') return false;
+    } else {
+      switch cur:
+        case ')':
+          if (stack.pop() !== '(') return false;
+          break;
+        case '}':
+          if (stack.pop() !== '{') return false;
+          break;
+        case ']':
+          if (stack.pop() !== '[') return false;
     }
   }
   return stack.length === 0;
 }
+
+
 
 module.exports = balancedParens;
