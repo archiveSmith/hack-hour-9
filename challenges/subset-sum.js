@@ -9,7 +9,26 @@
  */
 
 function subsetSum(array, target) {
-
+	// array.sort(	function(a,b){ return a-b}); meh. sorting not really helping.
+	let sum = 0;
+	let comboLength = 1;
+	while (sum !== target && comboLength < array.length){
+		for(var x = 0, y = (x + comboLength + 1); x < (array.length - comboLength); x ++){
+			
+				
+				var testArray = array.slice(x,y);
+				console.log(x, y)
+				console.log(testArray)
+				sum = testArray.reduce(function(all, item){all +=item; return all})
+			
+			if (sum === target){
+				return true;
+			}
+		}
+		comboLength++;
+	}
+	return false;
+	
 }
 
 module.exports = subsetSum;
