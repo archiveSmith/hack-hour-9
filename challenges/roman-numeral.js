@@ -14,6 +14,7 @@
  *      500   ->    D
  *      900   ->    CM
  *      1000  ->    M
+<<<<<<< HEAD
  *
  */
 
@@ -28,5 +29,13 @@
   }
    return roman;
  }
+=======
+ * 
+ */
+
+function romanNumeral(n) {
+
+}
+>>>>>>> fe3e3df06b6e46ead25eacbc0147272d35d0bee6
 
 module.exports = romanNumeral;
