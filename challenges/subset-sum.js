@@ -24,7 +24,7 @@ function subsetSum(array, target) {
 
 		tempArr.shift();
 	}
-
+	return true;
 }
 
 module.exports = subsetSum;
