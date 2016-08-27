@@ -9,7 +9,36 @@
  */
 
 function subsetSum(array, target) {
+	//for positive numbers
+	array.sort(function(a, b) {
+	  return b - a;
+	});
+	var sum = 0;
+	// var start = 0;
+	var combo = [];
+	for (var i = 0; i < array.length; i++) {
+		if (array[i] > target) {
+			array.shift();
+			// console.log(array);
+		}
 
+		if (target > array[i]) {
+			// start = array[i];
+			if (sum + array[i] <= target) {
+				sum += array[i];
+				combo.push(array[i]);
+				if (sum === target){
+					return true;
+				}
+				console.log("combo: ", combo);
+				console.log("sum: ", sum);
+			}
+		}
+	}
+	return false;
+	// console.log(array);
+	
 }
+
 
 module.exports = subsetSum;
