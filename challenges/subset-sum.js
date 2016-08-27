@@ -8,16 +8,11 @@
  * subsetSum([8, -2, 1, -3], 6) -> true, 8 + 1 + (-3) = 6
  */
 
-function subsetSum(a, target) {
-  if (n < 0)   return null;
-  if (n === target) return true;
+function subsetSum(array, target) {
+  if (!target) return true
+  if(!array.length) return false
 
-  a = a.slice();
-  while (a.length) {
-    var v = a.shift();
-    var s = subset_sum(n - v, a);
-    if (s) return s.concat(v);
-  }
+  return subsetSum(array.slice(1), target - array[0]) || subsetSum(array.slice(1), target);
 }
 
 console.log(subsetSum([3, 7, 4, 2], 5)); //1,2 === 7,4
