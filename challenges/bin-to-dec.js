@@ -14,7 +14,8 @@
  */
 
 function binToDec(binary) {
-
+	return parseInt(binary,2);
+	//doneson
 }
 
 module.exports = binToDec;
