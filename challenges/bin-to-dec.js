@@ -14,7 +14,17 @@
  */
 
 function binToDec(binary) {
-
+  if (typeof binary !== "string") return undefined;
+  if (binary.length < 1) return undefined;
+  if(!binary.split("").every((digit) => digit === "0" || digit === "1")) {
+    return undefined
+  }
+  
+  const len = binary.length;
+  
+  return binary.split('').map(Number).reduce((acc, next, i) => {
+    return acc + next * Math.pow(2, len - 1 - i);
+  }, 0);
 }
 
 module.exports = binToDec;
