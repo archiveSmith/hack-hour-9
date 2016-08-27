@@ -15,6 +15,20 @@
 
 function binToDec(binary) {
 
+  return parseInt(binary, 2)
+
+}
+
+function decToBin(dec) {
+
+  return dec.toString(2);
+
+}
+
+function decToHex(dec) {
+
+  return dec.toString(16);
+
 }
 
 module.exports = binToDec;
