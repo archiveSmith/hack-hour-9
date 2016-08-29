@@ -10,6 +10,33 @@
 
 function subsetSum(array, target) {
 
+	var result = false;
+
+	find(array, target);
+	
+	return result;
+	
+	// motor function
+	function find(array, target) {
+			
+		// base case - if array is empty return 0
+		if(array.length === 0) {
+			return 0;
+		}
+		
+		var temp;
+		
+		for(var i = 0; i < array.length; i++) {
+			temp = array[i] + subsetSum(array.slice(i+1), target);
+		}
+		
+		if(temp === target) {
+			result = true;
+		}
+		
+		return temp;
+	}
+	
 }
 
 module.exports = subsetSum;
