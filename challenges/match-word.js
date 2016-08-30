@@ -8,7 +8,21 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+	if (str === '') return true;
+	let inits = [];
+	let string = '';
 
+	for (let i = 0; i < str.length; i++) {
+		if(str[i].match(/[a-z]/i)) {
+			string += str[i].toLowerCase();
+		}else {
+			if(str[i - 1] !== undefined && str[i - 1].match(/[a-z]/i)){
+				inits.push(string)				
+			}
+			string = '';
+		}
+	}
+	console.log(inits)
 }
 
 module.exports = matchWord;
