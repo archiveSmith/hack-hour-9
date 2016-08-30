@@ -23,9 +23,6 @@
  *
  *
  */
-paren = false
-brack = false 
-brace = false 
 //function balancedParens(input){
 // let stack = [], cur;
 //  for (let i =0, len = input.length; i<len; i++) {
@@ -49,7 +46,7 @@ function balancedParens(input){
     if ((cur === '(') || (cur === '{') || (cur === '[')) {
       stack.push(cur);
     } else {
-      switch cur:
+      switch (cur):
         case ')':
           if (stack.pop() !== '(') return false;
           break;
