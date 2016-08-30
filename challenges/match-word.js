@@ -8,7 +8,34 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+	//all words must be closed by reverse of word
+	//not case sensitive
+	//first step, make everything the same case.
+	var upperstr = str.toUpperCase();
+	//store each new opening word
+	var lastword = [];
+	//break words into array by spaces
+	var stringArray = upperstr.match(/[^_\W]+/g);
 
+	for(let i = 0; i < stringArray.length; i++){
+		//add present word to array of last words
+		lastword.push(stringArray[i])
+		
+		//check if 2nd to last word is equal to reverse of last word
+		if (i>1 && lastword[lastword.length-2].split('').join() === lastword[lastword.length-1].split('').reverse().join()){
+			//if the last two words are reverses of one another, remove them.
+			lastword.splice(-2,2);
+			i++;
+		}
+	}
+	//if everything has been removed from lastlength, return true;
+	if(lastword.length === 0){
+		return true;
+	}
+	else {
+		return false;
+		
+	}
 }
 
 module.exports = matchWord;
