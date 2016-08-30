@@ -8,7 +8,23 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+  if (!str.match(/[a-z0-9]/i)) return true;
 
+  let words = str.replace(/[^\w]|_/g, ' ')
+         .replace(/\s+/g, ' ')
+         .replace(/^\s|\s$/g, '')
+         .toLowerCase()
+         .split(' ');
+  let wordCache = [];
+
+  for (let i = 0; i < words.length; i++) {
+    let reversed = words[i].split('').reverse().join('');
+
+    if (wordCache[wordCache.length - 1] !== reversed) wordCache.push(words[i]);
+    else wordCache.pop();
+  }
+
+  return (!wordCache.length) ? true: false;
 }
 
 module.exports = matchWord;
