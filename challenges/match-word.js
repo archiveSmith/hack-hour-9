@@ -14,12 +14,12 @@ function matchWord(str) {
       tempStr[i] = ' ';
     }
   }
-  tempStr = str.join('').split(' ');
+  tempStr = tempStr.join('').split(' ');
 
   const temp = [];
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] !== '') {
-      temp.push(str[i].toLowerCase());
+  for (let i = 0; i < tempStr.length; i++) {
+    if (tempStr[i] !== '') {
+      temp.push(tempStr[i].toLowerCase());
     }
   }
 
