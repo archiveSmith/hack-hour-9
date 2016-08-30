@@ -10,25 +10,29 @@
 function matchWord(str) {
   let reWord = /([a-zA-Z]+)/gi;
   let matchedArr = str.match(reWord);
+  let storage = [];
 
+  //base case
   if (str === '') return true;
 
-  if (matchedArr.length > 1) {
-    console.log(str.match(reWord)); 	
-    let reversedStr = matchedArr[0].split('').reverse().join('');
-    console.log(reversedStr);
-    console.log(str.match(/(*reversedStr*)/gi));
-  } 
-  //console.log(reWord.exec(str));
+  //traversing the words
+  for (let i = 0; i < matchedArr.length; i++) {
+    let reversedStr = matchedArr[i].split('').reverse().join('');
+    //checking if the reversed word is at the last position of the storage
+    //if it is, we're going to remove it
+    //if is not we're going do add to it
+    if (reversedStr == storage[storage.length-1]) {
+      storage.pop();
+    } else {
+      storage.push(matchedArr[i]);
+    }
+  }
 
-  // for (let i = 0; i < matchedArr.length; i++) {
-  //   let reversedStr = matchedArr[i].split('').reverse().join('');
-  //   for (let j = 1; j < matchedArr.length; j++) {
-  //     if (reversedStr == matchedArr[j]) {
-  //       return true;
-  //     }
-  //     console.log(matchedArr[i],reversedStr);
-  //   }
+  //at the end, if the storage is not empty is because str is balanced and with the write words
+  if (storage.length > 0) return false;
+
+  //if the storage is empty, we've hit the expected result
+  return true;
 }
 
 module.exports = matchWord;
