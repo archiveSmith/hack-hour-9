@@ -8,7 +8,27 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+  let reWord = /([a-zA-Z]+)/gi;
+  let matchedArr = str.match(reWord);
 
+  if (str === '') return true;
+
+  if (matchedArr.length > 1) {
+    console.log(str.match(reWord)); 	
+    let reversedStr = matchedArr[0].split('').reverse().join('');
+    console.log(reversedStr);
+    console.log(str.match(/(*reversedStr*)/gi));
+  } 
+  //console.log(reWord.exec(str));
+
+  // for (let i = 0; i < matchedArr.length; i++) {
+  //   let reversedStr = matchedArr[i].split('').reverse().join('');
+  //   for (let j = 1; j < matchedArr.length; j++) {
+  //     if (reversedStr == matchedArr[j]) {
+  //       return true;
+  //     }
+  //     console.log(matchedArr[i],reversedStr);
+  //   }
 }
 
 module.exports = matchWord;
