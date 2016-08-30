@@ -18,11 +18,12 @@
  */
 
 function romanNumeral(n) {
-  let digitIndex = n.toString().length;
+  let digitString = n.toString();
+  let digitIndex = digitString.length;
   let numeral = '';
 
   while (digitIndex > 0) {
-    numeral += convertDigit(n[digitIndex], digitIndex);
+    numeral += convertDigit(Number(digitString[digitIndex]), digitIndex);
     digitIndex--;
   }
 
