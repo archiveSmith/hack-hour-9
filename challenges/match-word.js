@@ -8,6 +8,7 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+  if (str.trim().length === 0) return true;
   const words = str.replace(/_/g, ' ').toLowerCase().match(/\w+/gi);
   const stack = [words[0]];
   for (let i = 1, len = words.length; i < len; i++) {
