@@ -21,8 +21,6 @@ function binToDec(binary) {
 	} else if (binary.length === 1 && binary[0] === '0'){
 		return 0;
 	}
-
-
 	for(let i = binary.length - 1; i >= 0; i--){
 		if(binary[i] !== '1' && binary[i] !== '0'){
 			return undefined;
