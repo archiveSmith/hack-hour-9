@@ -8,7 +8,22 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+  var arr = [];
+  var temp = [];
+  //match only letters, convert all to lowercase so comparisons are case-insensitive
+  var splitted = str.toLowerCase().split(/[^A-Za-z]/);
+  
+  for (var i = 0; i < splitted.length; i++) {
+    if (splitted[i] !== '') {
+      arr.push(splitted[i]);
+      if (temp.indexOf(splitted[i].split('').reverse().join('')) !== -1) {
+        temp.pop();
+      } else {
+        temp.push(splitted[i]);
+      }
+    }
+  }
+  return temp.length === 0;
 }
 
 module.exports = matchWord;
