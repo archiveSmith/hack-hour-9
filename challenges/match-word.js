@@ -8,6 +8,28 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+ if(str.length === 0) return true;
+ if(typeof str !== "string") return false;
+ 
+ str = str.toLowerCase().replace(/[^0-9a-z]/gi, ' ').split(" ").filter( (item) => {
+ 	if (item !== " ") {
+ 		return item;
+ 	}
+ });
+ 
+ let cache = [];
+ 
+ for(let i = 0; i < str.length; i++) {
+ 	let reversed = str[i].split("").reverse().join("");
+ 	if(cache[cache.length-1] !== str[i]) {
+		cache.push(reversed);
+ 	} else {
+ 		cache.pop();
+ 	}
+ }
+
+
+return cache.length ? false : true;
 
 }
 
