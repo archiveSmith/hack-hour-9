@@ -3,6 +3,9 @@
  */
 
 function highestProduct(array) {
+	if (array.length < 3) {
+		return 0;
+	}
   //sort array to order smallest to largest. 
   //reverse so largest is first. 
   //splice so only first 3 largest values are in array. 
