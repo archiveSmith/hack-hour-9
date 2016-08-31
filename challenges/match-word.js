@@ -8,13 +8,7 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-  if (!str.match(/[a-z0-9]/i)) return true;
-
-  let words = str.replace(/[^\w]|_/g, ' ')
-         .replace(/\s+/g, ' ')
-         .replace(/^\s|\s$/g, '')
-         .toLowerCase()
-         .split(' ');
+  let words = str.toLowerCase().match(/[a-z]+/g) || [];
   let wordCache = [];
 
   for (let i = 0; i < words.length; i++) {
@@ -24,7 +18,7 @@ function matchWord(str) {
     else wordCache.pop();
   }
 
-  return (!wordCache.length) ? true: false;
+  return !wordCache.length;
 }
 
 module.exports = matchWord;
