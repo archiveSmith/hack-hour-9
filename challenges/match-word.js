@@ -32,7 +32,7 @@ function matchWord(str) {
 	if(wordArray.length === 1){
 		return false;
 	}
-
+//damn this is tough
 	
 }
 
@@ -41,3 +41,4 @@ function isLowerCaseLetter(str) {
 }
 
 module.exports = matchWord;
+//hi
