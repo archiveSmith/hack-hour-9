@@ -12,33 +12,19 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-	let string = str.toLowerCase();
-	let wordArray = [];
-	let aWord = '';
-	let allLetters = '';
-	
-	for (let index = 0; index < string.length -1; index++){
-		while(isLowerCaseLetter(string[index])){
-			aWord += string[index];
-			index++;
+	var words = str.match(/[a-zA-Z]+/gm);
+	var storage = [];
+
+	for(let index = 0; index < words.length; index++){
+		let check = words[index].split('').reverse().join('');
+		if(storage.indexOf(check) === -1){
+			storage.push(words[index]);
+		} else {
+			storage.pop()
 		}
-		
-		if(aWord !== ''){
-			wordArray.push(aWord);
-		}
-		aWord = '';
 	}
-	console.log(wordArray);
-	if(wordArray.length === 1){
+	if(storage.length !== 0){
 		return false;
 	}
-//damn this is tough
-	
+	return true;
 }
-
-function isLowerCaseLetter(str) {
-    return (/[a-z]/.test(str));
-}
-
-module.exports = matchWord;
-//hi
