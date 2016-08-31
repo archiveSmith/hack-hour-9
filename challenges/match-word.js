@@ -22,7 +22,7 @@ function matchWord(str) {
       temp.push(tempStr[i].toLowerCase());
     }
   }
-
+    
   if (temp.length % 2 !== 0) return false;
   for (let i = 0; i < temp.length / 2; i++) {
     if (temp[i].length !== temp[temp.length - i - 1].length) return false;
