@@ -25,23 +25,24 @@
  */
 
 function balancedParens(input){
-	var parensArr = ['[',']','(',')','{','}'];
-	var freq = {};
+	var openArr = ['[', '(', '{']
+	var parenseArr = {'[':']','(':')','{':'}'};
+	var result = [];
 
 	for(let index = 0; index < input.length; index++){
-	//	console.log(input[index])
-		let parense = input[index];
-		if(parensArr.includes(parense)) {
-			if(!freq[parense]){ freq[parense] = 1;}
-			else{freq[parense]++}
+		if(openArr.indexOf(input[index]) !== -1){
+			result.push(input[index]);
+		}
+		else if(parenseArr[result[result.length-1]] !== input[index] ){
+			return false;
+		}
+		else {
+			result.pop();
 		}
 	}
-	//console.log(freq)
-	
-	if(freq['['] !== freq[']'] || freq['('] !== freq[')'] || freq['{'] !== freq['}']){
-		return false;
+	if(result.length === 0){
+		return true;
 	}
-	return true;
 }
 
 module.exports = balancedParens;
