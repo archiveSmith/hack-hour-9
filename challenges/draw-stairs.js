@@ -18,7 +18,6 @@
 function drawStairs(levels){
 
 	var stepperfuncwithclosure = makestep(6);
-//	var stepperfuncwithclosure = makestep(5);
 	var test = stepperfuncwithclosure(6);
 	
 	return test;
