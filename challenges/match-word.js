@@ -9,6 +9,7 @@
 
 function matchWord(str) {
 
+<<<<<<< HEAD
 let matchedAr = str.toLowerCase().match(/[A-Za-z]+/gm);
 let result = [];
 result.push(matchedAr[0]);
@@ -21,6 +22,8 @@ for(let i = 0; i < matchedAr.length - 1; i++) {
 	}
 }
 return result.length > 0 ? false : true;
+=======
+>>>>>>> 0d81f6212372a287329e07aba3b9a55c1c7112b1
 }
 
 module.exports = matchWord;
