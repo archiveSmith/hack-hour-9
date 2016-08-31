@@ -14,7 +14,7 @@
 */
 
 // console.log("a defined?" + (typeof a !== 'undefined'))
-
+console.log('hi')
 function drawStairs(levels){
 
 	var stepperfuncwithclosure = makestep(6);
