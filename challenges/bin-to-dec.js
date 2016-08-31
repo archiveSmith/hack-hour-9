@@ -13,6 +13,7 @@
  * Write a function that converts a decimal number to binary (then maybe hexadecimal)
  */
 
+<<<<<<< HEAD
  function binToDec(binary) {
    let deci = binary.split('').reverse().join('');
    let sum = 0;
@@ -24,5 +25,10 @@
    }
    return sum;
  }
+=======
+function binToDec(binary) {
+
+}
+>>>>>>> 94415590ea5334c862271baa0964233cb24487ad
 
 module.exports = binToDec;
