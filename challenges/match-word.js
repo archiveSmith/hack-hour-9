@@ -10,6 +10,9 @@
 function matchWord(str) {
 
 <<<<<<< HEAD
+if(str === ""){
+	return true;
+}
 let matchedAr = str.toLowerCase().match(/[A-Za-z]+/gm);
 let result = [];
 result.push(matchedAr[0]);
