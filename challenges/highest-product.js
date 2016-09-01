@@ -20,7 +20,6 @@ function highestProduct(array, storage = []) {
 	return maxProduct;
 }
 
-
 module.exports = highestProduct;
 // //Recursive function
 // 	function pushProducts(array, store){
