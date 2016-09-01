@@ -3,23 +3,21 @@
  */
 
 function highestProduct(array) {
-let subSet = [[]]; 
-let highest = 0; 
-	for(let i = 0; i < array.length; i++) {
-		for(let j = 0, len = subSet.length; j < len; j++) {
-			let temp = subSet[j].concat(array[i]);
-				if(temp.length === 3) {
-					let product = temp.reduce(function(x,y) { 
-  					return x * y;
-  				});
-  				if(product > highest) {
-						highest = product; 
-					}
-				}
-			subSet.push(temp);
-		}
-	}
-return highest;
+		if(array.length < 3) return 0; 
+		let sorted = array.sort(function(a,b){return b - a});
+		let	highest = sorted.slice(0, 3);
+		let negatives = sorted.slice(array.length - 2, array.length);
+		negatives.push(sorted[0]);
+		
+		let resultHigh= highest.reduce(function(prev, curr) {
+			return prev * curr;
+		});
+		
+		let resultNeg = negatives.reduce(function(prev, curr) {
+			return prev * curr;
+		});
+		
+	return resultHigh > resultNeg ? resultHigh : resultNeg;
 }
 
 
