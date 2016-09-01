@@ -14,9 +14,11 @@ function zip(l1, l2) {
 	if(!l1 || !l2){
 		return undefined;
 	}
-
 	let nextNode = l2;
 	for(let i = l1; i; i = i.next.next){
+		if(i.next === null || nextNode === null){
+			break;
+		}
 		let nextI = i.next;
 		i.next = nextNode;
 		nextNode = nextNode.next;
@@ -29,18 +31,12 @@ function zip(l1, l2) {
 // testing code
 // l1 = new Node('l10');
 // l2 = new Node('l20');
+// l1.next = new Node('l1extra');
 
-// for(let x=1, l=l1, y=l2; x<6; x++, l=l.next, y=y.next){
+// for(let x=1, l=l1, y=l2.next; x<6; x++, l=l.next, y=y.next){
 // 	l.next = new Node('l1'+x);
 // 	y.next = new Node('l2'+x);
 // }
-
-// let arr = [];
-// for(let i = l1; i.next; i = i.next){
-// 		arr.push(i);
-// 	}
-
-// 	console.log('arr',arr)
 
 // console.log('l1',l1);
 // console.log('l2',l2);
