@@ -3,6 +3,7 @@
  */
 
 function highestProduct(array) {
+<<<<<<< HEAD
   if (array.length < 3) {
     return 0;
   }
@@ -17,5 +18,10 @@ function highestProduct(array) {
 function sortNumber(a, b) {
   return a - b;
 }
+=======
+
+}
+
+>>>>>>> fcf3dc285cbe34081ee3654e9db492c0dd207dd0
 
 module.exports = highestProduct;
