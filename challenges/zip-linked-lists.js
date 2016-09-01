@@ -11,16 +11,16 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
-  newl = new Node(l1.value);
-  newl.next = new Node(l2.value);
-
-  let oldNext = newl.head.next;
-  newl.head.next = l2.head;
-  let L2OldNext = l2.head.next;
-  l2.head.next = oldNext;
-
-
-  return newl;
+  let l2Arr = [];
+  for (i = l2; i.next; i = i.next) {
+    l2Arr.push([i]);
+  }
+  for (i = l1; i.next; i = i.next) {
+    let oldNext = i.next;
+    i.next = l2Arr[i]
+    i.next.next = oldNext;
+  }
+  return l1;
 };
 
 module.exports = {
