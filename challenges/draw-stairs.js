@@ -11,41 +11,28 @@
  *****
 ******
 
-*/
-
 // console.log("a defined?" + (typeof a !== 'undefined'))
-
-function drawStairs(levels){
-
-	var stepperfuncwithclosure = makestep(6);
-//	var stepperfuncwithclosure = makestep(5);
-	var test = stepperfuncwithclosure(6);
+//console.log('hi')
+function drawStairs(input){
+	let numSteps = 0;
+	let stars = 1;
+	let spaces = input - stars; 
+	let step = '';
 	
-	return test;
+	while(numSteps < input){
 	
-}
-
-function makestep(steplength){
-	
-	var layer = 0;
-	return function stepper(steplength){
-			let stepStars = '';
-			let stepSpace = '';
-			for(let length = 0; length < steplength - layer; length++ ){
-				
-				stepStars += "*";
-				console.log(stepStars)
-			}
-			for(let len = 5; len > 0; len--){
-				stepSpace += "i";
-				console.log(stepSpace)
-			}
-		
-		
-		layer++;
-		return stepStars;
+	for(let index = 0; index < spaces; index++){
+		step += ' ';
 	}
-	
+	for(let index = 0; index< stars; index++){
+		step += '*'
+	}
+	step += "\n"
+	stars++;
+	numSteps++;
+	spaces--;
+	}
+	console.log(step)
 }
 
 
