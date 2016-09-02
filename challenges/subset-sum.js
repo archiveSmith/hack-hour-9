@@ -9,18 +9,17 @@
  */
 
 function subsetSum(a, target) {
+if (a.indexOf(target)) return true;
 const sums = {};
 sums[target] = true;
 for (let i = 0; i < a.length; i++){
 	if (sums[a[i]]) {
 		return true;
 	} else {
-		let obj = Object.keys(sums).map(function(x){return parseInt(x);});
-		for (let sum of obj) {
-			sums[parseInt(sum) - a[i]] = true;
-			console.log(sums);
+		let obj = Object.keys(sums).map((x) => parseInt(x));
+		for (let j = 0; j < obj.length; j++){
+			sums[parseInt(obj[j]) - a[i]] = true;
 		}
-		
 	}
 }
 return false;
