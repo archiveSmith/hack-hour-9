@@ -9,25 +9,21 @@
 function Stack() {
   this.storage = [];
   this.length = 0;
+  this.max = Number.NEGATIVE_INFINITY
 
   this.push = function(value) {
-  	this.storage[this.length] = value;
-  	this.length++;
-  	return this.length;
+    this.storage[this.length] = value;
+    if( value > this.max) this.max = value;
+    this.length++;
+    return this.length;
   };
 
   this.pop = function() {
-  	return this.length === 0 ? undefined : this.storage[--this.length];
+    return this.length === 0 ? undefined : this.storage[--this.length];
   };
 
   this.getMax = function() {
-  	let max = Number.NEGATIVE_INFINITY;
-  	for(var i = 0; i < this.length; i++) {
-  		if(this.storage[i] > max) {
-  			max = this.storage[i]
-  		}
-  	}
-  	return max;
+    return this.max
   };
 
 }
