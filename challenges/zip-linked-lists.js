@@ -21,25 +21,16 @@ function zip(l1, l2) {
   let currL2 = l2;
   let latestZipped;
   let zipped = l1;
-  
+
   //while 
-  while (currL1 !== null ) {
-    
-  } 
+  while (currL1 !== null) {
 
-  while (currL2 !== null ) {
-    
-  } 
+  }
 
-  
-  
-  currL1 = zipped.next;
-  zipped.next = currL2;
-  currL2 = zipped.next;
+  while (currL2 !== null) {
 
-  
-
-
+  }
+//comment
 };
 
 module.exports = { Node: Node, zip: zip };
