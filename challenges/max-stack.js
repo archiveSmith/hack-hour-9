@@ -13,5 +13,6 @@ function Stack() {
 	this.getMax = function(){
 		return Math.max(...this.newstack)};
 }
+//sjdfkjf
 
 module.exports = Stack;
