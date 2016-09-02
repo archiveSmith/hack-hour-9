@@ -16,6 +16,7 @@ function zip(l1, l2) {
     head = l2,
     nextHead = l1.next;
   do {
+    if (!head) break;
     cur.next = head;
     head = head.next;
     cur = cur.next;
@@ -23,7 +24,8 @@ function zip(l1, l2) {
     cur.next = nextHead
     nextHead = nextHead.next;
     cur = cur.next
-  } while (head && nextHead);
+  } while (head || nextHead);
   return l1;
 }
+
 module.exports = {Node: Node, zip: zip};
