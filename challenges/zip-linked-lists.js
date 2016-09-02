@@ -12,48 +12,22 @@ function Node(val) {
 
 function zip(l1, l2) {
   
-  //temp = l1.value
-
-  //First time
-  var l1HeadCopy = newNode(l1.val);
-  var l2HeadCopy = newNode(l2.val);
-  l1HeadCopy.next = l2HeadCopy;
-  l2HeadCopy.next = l1.next;
-
-  while (l1Copy = l1.next, l2Copy = l2.next; i ; l1Copy = l1Copy.next, l2Copy = l2Copy.next)
-  l1HeadCopy.next = l2Copy;
-  l2Copy.next = 
+  var current = l1; //current is full l1
+  var head = l2;    //head is full l2
+  var nextHead = l1.next; //next head is l1.next
+ 
+  //head constructor 
   
-
-  l2HeadCopy.next = l1Copy; //l2.head.next = l1.next
-  l1Copy.next = l2Copy;   //l1.next.next = l2.next
-  
-  
-
-
-
-
-  // (for i=l1.next; i;  )
-  // var l1Copy = l1.next;
-  // var l2Copy = l2.next;
-  // l1HeadCopy.next = new Node(l2NodeCopy);
-  // l2HeadCopy.next = l1Copy;
-  // l1Copy.next = l2Copy;
-
-
-
-  var l1Copy = l1.next;
-  var l2Copy = l2.next;
-  l1NodeCopy.next = new Node(l2NodeCopy);
-
-  l2NodeCopy.next = new Node(l1.next);
-  
-  
-
-  
-  
-  
-  l2
+  while(current.next) {
+    current.next = head;    // head.next = l2node
+    head = head.next;       // move l2node to next In List
+    current = current.next;   // current is old l2node
+    current.next = nextHead;  // link old l2 node to next l1node in list  
+    nextHead = nextHead.next; // 
+    current = current.next;
+  }
+  current.next = head
 };
+
 
 module.exports = {Node: Node, zip: zip};
