@@ -26,5 +26,4 @@ function zip(l1, l2) {
   } while (head && nextHead);
   return l1;
 }
-
 module.exports = {Node: Node, zip: zip};
