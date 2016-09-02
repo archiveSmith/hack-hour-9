@@ -10,6 +10,75 @@ function Node(val) {
   this.next = null;
 }
 
+function l1() {
+  this._length = 0;
+  this.head = null;
+}
+
+function l2() {
+  this._length = 0;
+  this.head = null;
+}
+
+l1.prototype.add = function(value) {
+  var node = new Node(value),
+    currentNode = this.head;
+
+  // 1st use-case: an empty list
+  if (!currentNode) {
+    this.head = node;
+    this._length++;
+
+    return node;
+  }
+
+  // 2nd use-case: a non-empty list
+  while (currentNode.next) {
+    currentNode = currentNode.next;
+  }
+
+  currentNode.next = node;
+
+  this._length++;
+
+  return node;
+};
+
+
+l2.prototype.add = function(value) {
+  var node = new Node(value),
+    currentNode = this.head;
+
+  // 1st use-case: an empty list
+  if (!currentNode) {
+    this.head = node;
+    this._length++;
+
+    return node;
+  }
+
+  // 2nd use-case: a non-empty list
+  while (currentNode.next) {
+    currentNode = currentNode.next;
+  }
+
+  currentNode.next = node;
+
+  this._length++;
+
+  return node;
+};
+
+l2.add(3);
+l2.add(3);
+l2.add(3);
+l2.add(3);
+l1.add(3);
+l1.add(3);
+l1.add(3);
+l1.add(3);
+
+
 function zip(l1, l2) {
   let l2Arr = [];
   for (i = l2; i.next; i = i.next) {
