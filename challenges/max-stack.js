@@ -18,6 +18,7 @@ Stack.prototype.push = function (val) {
   if (val > this.greatest) {
     this.greatest = val;
   }
+  return this.index;
 };
 
 Stack.prototype.pop = function () {
