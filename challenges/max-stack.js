@@ -31,14 +31,22 @@ function Stack() {
   }
 
   this.getMax = function() {
-    var greatest = top;
+    if (count === 1) {
+      return top.val;
+    }
+    if (!top) {
+      return undefined;
+    }
+    console.log(count)
+    var greatest = 0;
     while (count > 0 && top.next !== null) {
-      if (greatest.val < top.next.val) {
+      if (top.val < top.next.val) {
         greatest = top.next;
       }
       top = top.next;
       count--;
     }
+
     return greatest.val;
   }
 }
