@@ -3,7 +3,9 @@
  */
 
 function highestProduct(array) {
-		if(array.length < 3) return 0; 
+		if(array.length < 3) {
+			return 0;
+		} 
 		let sorted = array.sort(function(a,b){return b - a});
 		let	highest = sorted.slice(0, 3);
 		let negatives = sorted.slice(array.length - 2, array.length);

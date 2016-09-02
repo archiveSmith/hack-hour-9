@@ -10,7 +10,7 @@
 function matchWord(str) {
 
 <<<<<<< HEAD
-if(str === ""){
+if(str === ''){
 	return true;
 }
 let matchedAr = str.toLowerCase().match(/[A-Za-z]+/gm);
