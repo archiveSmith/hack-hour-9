@@ -35,15 +35,4 @@ Stack.prototype.getMax = function(){
   return largestValue;
 }
 
-let myStack = new Stack();
-myStack.push(5);
-myStack.push(6);
-myStack.push(7);
-
-console.log(myStack);
-
-console.log(myStack.pop());
-console.log(myStack)
-console.log(myStack.getMax());
-
 module.exports = Stack;
