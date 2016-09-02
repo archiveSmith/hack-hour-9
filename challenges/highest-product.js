@@ -10,7 +10,6 @@ function highestProduct(array) {
 		let	highest = sorted.slice(0, 3);
 		let negatives = sorted.slice(array.length - 2, array.length);
 		negatives.push(sorted[0]);
-		
 		let resultHigh= highest.reduce(function(prev, curr) {
 			return prev * curr;
 		});

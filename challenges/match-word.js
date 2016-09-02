@@ -8,7 +8,6 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
 <<<<<<< HEAD
 if(str === ''){
 	return true;
