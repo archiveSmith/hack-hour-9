@@ -28,7 +28,7 @@ this.index++;
 		this.tempMax = this.max; 
 		this.max = value; 
 	}
-return this.length; 
+return this.index; 
 };
 
 Stack.prototype.pop = function(value) {
