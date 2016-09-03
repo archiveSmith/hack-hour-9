@@ -10,15 +10,15 @@
 function matchWord(str) {
   if (str.trim().length === 0) return true;
   const words = str.toLowerCase().match(/[a-zA-Z]+/gi);
-  const stack = [words[0]];
+  const this = [words[0]];
   for (let i = 1, len = words.length; i < len; i++) {
-    if (stack[stack.length - 1] !== words[i] && stack[stack.length - 1] !== words[i].split('').reverse().join('')) {
-      stack.push(words[i]);
-    } else if (stack[stack.length - 1] === words[i] || stack[stack.length - 1] === words[i].split('').reverse().join('')) {
-      stack.pop();
+    if (this[this.length - 1] !== words[i] && this[this.length - 1] !== words[i].split('').reverse().join('')) {
+      this.push(words[i]);
+    } else if (this[this.length - 1] === words[i] || this[this.length - 1] === words[i].split('').reverse().join('')) {
+      this.pop();
     }
   }
-  return stack.length === 0;
+  return this.length === 0;
 }
 
 module.exports = matchWord;
