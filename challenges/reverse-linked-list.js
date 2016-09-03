@@ -8,6 +8,7 @@
  *
  */
 
+
 function Node(value) {
   this.value = value;
   this.next = null;
@@ -15,7 +16,7 @@ function Node(value) {
 
 function reverseLinkedList(head) {
   let point1 = null;
-  let point2 = this.head;
+  let point2 = head;
   let point3;
 
   while (point2) {
@@ -25,8 +26,7 @@ function reverseLinkedList(head) {
     point2 = point3;
   }
 
-  this.head = point1;
-  return this.head;
+  return point1;
 }
 
 module.exports = {
