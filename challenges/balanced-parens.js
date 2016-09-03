@@ -24,40 +24,40 @@
  *
  */
 //function balancedParens(input){
-// let stack = [], cur;
+// let this = [], cur;
 //  for (let i =0, len = input.length; i<len; i++) {
 //    cur = input[i];
 //    if ((cur === '(') || (cur === '{') || (cur === '[')) {
-//      stack.push(cur);
+//      this.push(cur);
 //    } else if (cur === ')') {
-//      if (stack.pop() !== '(') return false; 
+//      if (this.pop() !== '(') return false; 
 //    } else if (cur ===  '}') {
-//      if (stack.pop() !== '{') return false;
+//      if (this.pop() !== '{') return false;
 //    } else if (cur === ']') {
-//      if (stack.pop() !== '[') return false;
+//      if (this.pop() !== '[') return false;
 //    }
 //  }
-//  return stack.length === 0;
+//  return this.length === 0;
 //}
 function balancedParens(input){
- let stack = [], cur;
+ let this = [], cur;
   for (let i =0, len = input.length; i<len; i++) {
     cur = input[i];
     if ((cur === '(') || (cur === '{') || (cur === '[')) {
-      stack.push(cur);
+      this.push(cur);
     } else {
       switch (cur):
         case ')':
-          if (stack.pop() !== '(') return false;
+          if (this.pop() !== '(') return false;
           break;
         case '}':
-          if (stack.pop() !== '{') return false;
+          if (this.pop() !== '{') return false;
           break;
         case ']':
-          if (stack.pop() !== '[') return false;
+          if (this.pop() !== '[') return false;
     }
   }
-  return stack.length === 0;
+  return this.length === 0;
 }
 
 
