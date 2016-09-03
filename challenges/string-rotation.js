@@ -16,27 +16,23 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-	s1 = JSON.stringify(s1);
-	s2 = JSON.stringify(s2);
-	s1 = s1.split("");
-	s2 = s2.split("");
-	for (let i = 0; i < s1.length; i++) {
-		let testStr = [];
-		
-		for (let j = i; j < s2.length; j++) {
-			testStr.push(s2[j]);
-		}
-		
-		for (let j = 0; j < i; j++) {
-			testStr.push(s2[j]);
-		}
-		
-		if (s1.join("") === testStr.join("")){
-			return true;
-		}
-	}
-
-	return false;
+  s1 = JSON.stringify(s1);
+  s2 = JSON.stringify(s2);
+  s1 = s1.split('');
+  s2 = s2.split('');
+  for (let i = 0; i < s1.length; i++) {
+    const testStr = [];
+    for (let j = i; j < s2.length; j++) {
+      testStr.push(s2[j]);
+    }
+    for (let j = 0; j < i; j++) {
+      testStr.push(s2[j]);
+    }
+    if (s1.join('') === testStr.join('')) {
+      return true;
+    }
+  }
+  return false;
 }
 
-module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
+module.exports = { isSubstring, stringRotation };
