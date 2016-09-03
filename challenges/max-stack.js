@@ -17,7 +17,7 @@ function Stack() {
 Stack.prototype.push = function(value) {
 	this.storage[this.index] = value;
 	this.index++; 
-	if(value > this.max) {
+	if(value >= this.max) {
 		this.maxAr.push(value);
 		this.max = value;
 	}
