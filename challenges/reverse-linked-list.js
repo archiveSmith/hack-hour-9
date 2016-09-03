@@ -14,19 +14,19 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
-  let originalHead = head;
-  let i = originalHead;
-  let count = 0;
-  while (i.next) {
-    oldI = i;
-    if (count === 0) {
-      i = null;
-    }
-    i.next.next = oldI;
-    head = i.next;
-    count++;
+  let point1 = null;
+  let point2 = this.head;
+  let point3;
+
+  while (point2) {
+    point3 = point2.next;
+    point2.next = point1;
+    point1 = point2;
+    point2 = point3;
   }
-  return head;
+
+  this.head = point1;
+  return this.head;
 }
 
 module.exports = {
