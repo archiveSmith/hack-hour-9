@@ -21,36 +21,24 @@ function reverseLinkedList(head) {
   // If the list has length 1, no computation is necessary
   if (!head.next) return head;
 
-  head.forwardLink = head.next;
+  let newHead = reverseLinkedList(head.next);
+
+  let secondToLast = getTail(newHead);
+  secondToLast.next = head;
   head.next = null;
 
-  let lead = head.forwardLink;
-  let follow = head;
+  return newHead;
+}
 
-  // Ierate through nodes, setting 'next' property to
-  // the one behind and following 'forwardLink' forward
-  while(lead) {
-    lead.forwardLink = lead.next;
-    lead.next = follow;
 
-    lead = lead.forwardLink;
-    follow = follow.forwardLink;
+function getTail(head) {
+  let iterator = head;
+
+  while(iterator.next) {
+    iterator = iterator.next;
   }
 
-  // Set the new head to be the previous end
-  head = follow;
-
-  // Iterate through the newly reversed list
-  // deleting the 'forwardLink' property
-  while(follow) {
-    delete follow.forwardLink;
-
-    follow = follow.next;
-  }
-
-  return head;
-
-
+  return iterator;
 }
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
