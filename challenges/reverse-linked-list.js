@@ -8,13 +8,29 @@
  *
  */
 
-function Node(value) {
-    this.value = value;
-    this.next = null;
-}
-
 function reverseLinkedList(head) {
-
+	let currentNode = head;
+	let valuesArray = [];
+	let newLL;
+	let temp;
+	let next;
+	
+	while (currentNode !== null) {
+		valuesArray.push(currentNode.value);
+		currentNode = currentNode.next;
+	}
+ 
+	for (let i = valuesArray.length - 1; i >= 0; i--) {
+     	temp = new Node(valuesArray[i]);
+     	next = new Node(valuesArray[i+1]);
+     	temp.next = next;
+        	if (i === 0) {
+            	head = temp;
+           	}
+     }
+     
+     return temp;
+     
 }
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
