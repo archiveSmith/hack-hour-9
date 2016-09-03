@@ -11,6 +11,28 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
+  // when there's only one list its already zipped
+  if (!l1) { return l2; }
+  if (!l2) { return l1; }
+
+  // While we're not at the end of either list, add both, starting with the first
+  let theTip = l1;
+  let temp = l1;
+  let l1 = l1.next;
+  while (l2 && l1) {
+    temp.next = l2;
+    l2 = l2.next;
+    temp = temp.next;
+
+    temp.next = l1;
+    l1 = l1.next;
+    temp = temp.next;
+  }
+
+  temp.next = l2 ? l2 : l1;
+
+  return theTip;
+
 };
 
 module.exports = {Node: Node, zip: zip};

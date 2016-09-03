@@ -8,6 +8,20 @@
 
 function Stack() {
   // body...
+  this.stack = [];
+	this.max = [];
 }
+Stack.prototype.push = function(item) {
+  return this.stack.push(item);
+}
+Stack.prototype.pop = function() {
+  return this.stack.pop();
+}
+Stack.prototype.getMax = function () {
+  let sorted = this.stack;
+  sorted.sort(function (a, b) { return a - b; })
+  return sorted.pop();
+}
+
 
 module.exports = Stack;
