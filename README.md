@@ -11,10 +11,3 @@ Some later hack hours include Ruby files (.rb) as well as a JS file. For these h
 - [ ] run `gem install test-unit` from your hack-hour directory
 - [ ] run `ruby challenges/challenge-name.rb`
 
-|> 
-
-#{ 
-
-</> 
-<$>
-

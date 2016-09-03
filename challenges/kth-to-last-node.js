@@ -22,20 +22,19 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+  // in case the head of the linked list doesnt have a length variable, I am finding the length of the linked list
+  let length = 0;
+  for (let i = head; i; i = i.next) {
+    length++;
+  }
 
-	//in case the head of the linked list doesnt have a length variable, I am finding the length of the linked list
-	let length = 0;
-	for (let i = head; i; i = i.next) {
-		length++;
-	}
-
-	//for loop with two assignments, two end conditions if either is met the loop will end, and two incrementors
-	for (let i = 0, tempHead = head; i < length && tempHead; i++, tempHead = tempHead.next) {
-		if (i === length-k) {
-			return tempHead.value;
-		}
-	}
-	return undefined;
+  // for loop with two assignments, two end conditions if either is met the loop will end, and two incrementors
+  for (let i = 0, tempHead = head; i < length && tempHead; i++, tempHead = tempHead.next) {
+    if (i === length - k) {
+      return tempHead.value;
+    }
+  }
+  return undefined;
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
