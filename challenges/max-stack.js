@@ -15,7 +15,7 @@ function Stack() {
 
   this.pop = function () {
     let output = this.arr[this.arr.length - 1]
-    this.arr.length = this.arr.length - 2;
+    this.arr.length = this.arr.length - 1;
     return output;
   };
 
