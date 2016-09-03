@@ -7,7 +7,32 @@
  */
 
 function Stack() {
-  // body...
+  this.values = [];
+  this.max = undefined;
+}
+
+Stack.prototype.push = function(value) {
+  if (!this.max || value > this.max) this.max = value;
+
+  this.values.push(value);
+  return this.values.length;
+}
+
+Stack.prototype.pop = function() {
+  const popped = this.values.pop();
+
+  if (popped === this.max) {
+    this.max = -Infinity;
+    this.values.forEach(number => {
+      if (number > this.max) this.max = number;
+    });
+  }
+
+  return popped;
+}
+
+Stack.prototype.getMax = function() {
+  return this.max;
 }
 
 module.exports = Stack;
