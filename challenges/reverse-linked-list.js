@@ -5,12 +5,12 @@
  *
  * BONUS:
  * Do it in place
- *
+ *shfs
  */
 
-function Node(value) {
+function Node(value) { 
     this.value = value;
-    this.next = null;
+    this.next = null; 
 }
 
 function reverseLinkedList(head) {
