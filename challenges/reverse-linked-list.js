@@ -14,7 +14,24 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
-
+    //case for no list
+    if (!head) {return null;}
+    let llArr = [];
+    let currHead = head;
+    while(currHead){
+        llArr.push(currHead.value);
+        currHead = currHead.next;
+    }
+    let toBeReversed = llArr.reverse();
+    let revLL = new Node(toBeReversed[0]);
+    let tempHead = revLL;
+    let tempTail = revLL;
+    for (let i = 1; i < toBeReversed.length; i++){
+    	let temp = new Node(toBeReversed[i]);
+    	tempTail.next = temp;
+    	tempTail = tempTail.next;
+    }
+     return revLL;
 }
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
