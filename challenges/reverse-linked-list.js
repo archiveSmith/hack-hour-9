@@ -15,14 +15,16 @@ function Node(value, next = null) {
 
 function reverseLinkedList(head) {
   if (!head.next) return head;
+
+  // Base case - if there are only two nodes, reverse the nodes
   if (!head.next.next) {
     const curr = head.next;
     head.next = null;
     curr.next = head;
-    head = null;
     return curr;
   }
 
+  // If there are more than two nodes, reverse the linked list recursively
   const reversedList = reverseLinkedList(head.next);
   let current = reversedList;
   while (current.next) {
@@ -31,15 +33,14 @@ function reverseLinkedList(head) {
 
   head.next = null;
   current.next = head;
-  head = null;
   return reversedList;
 }
 
 module.exports = { Node, reverseLinkedList };
 
-// var node3 = new Node(3);
-// var node2 = new Node(2, node3);
-// var node1 = new Node(1, node2);
+// const node3 = new Node(3);
+// const node2 = new Node(2, node3);
+// const node1 = new Node(1, node2);
 // reverseLinkedList(node1);
 
 
@@ -62,6 +63,5 @@ module.exports = { Node, reverseLinkedList };
 //   }
 
 //   nodes[nodes.length - 1].next = null;
-//   head = null;
-//   return ndoes[0];
+//   return nodes[0];
 // }
