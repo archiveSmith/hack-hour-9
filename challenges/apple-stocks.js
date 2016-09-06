@@ -12,8 +12,23 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
-function bestProfit(stock_prices_yesterday) {
+ function bestProfit(stock_prices_yesterday) {
+ 	if (!Array.isArray(stock_prices_yesterday)) return 0;
+ 	if (!stock_prices_yesterday.every(price => typeof price === 'number')) return 0;
+ 	if (!stock_prices_yesterday.every(price => !isNaN(price))) return 0;
+ 	if (!stock_prices_yesterday.every(price => price >= 0)) return 0;
 
-}
+   let maxAfterThis = 0;
+   let bestSoFar = 0;
+
+   for (let i = stock_prices_yesterday.length - 1; i >= 0; i--) {
+     let thisPrice = stock_prices_yesterday[i];
+
+     if (thisPrice > maxAfterThis) maxAfterThis = thisPrice;
+     if (maxAfterThis - thisPrice > bestSoFar) bestSoFar = maxAfterThis - thisPrice;
+   }
+
+   return bestSoFar;
+ }
 
 module.exports = bestProfit;
