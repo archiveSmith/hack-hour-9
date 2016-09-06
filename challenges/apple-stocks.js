@@ -12,8 +12,22 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
-function bestProfit(stock_prices_yesterday) {
-
+function bestProfit(stock_prices_yesterday){
+	if(Array.isArray(stock_prices_yesterday)) {
+		let maxDiff = 0;
+		let currentDiff = 0;
+		let length = stock_prices_yesterday.length;
+		for (let i = 0; i < length; i++){
+			for (let j = i ; j < length ; j++){
+				currentDiff = stock_prices_yesterday[j] - stock_prices_yesterday[i];
+				if (currentDiff > maxDiff){
+					maxDiff = currentDiff;
+				}
+			}
+		}
+		return maxDiff;
+	}
+	else return 0;
 }
 
 module.exports = bestProfit;
