@@ -13,12 +13,12 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-  //loop through array.
-    //loop through array starting at any index after. 
-    //if diff is larger than last diff set new diff. 
+  if (!Array.isArray(stock_prices_yesterday)) {
+    return 0
+  }
 
     let profit = 0;
-    
+
     for (var i = 0; i < stock_prices_yesterday.length; i++) {
       for (var j = i; j < stock_prices_yesterday.length; j++) {
         if (stock_prices_yesterday[j]-stock_prices_yesterday[i] > profit) {
