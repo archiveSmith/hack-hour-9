@@ -13,7 +13,17 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+  if (!Array.isArray(stock_prices_yesterday)) return 0;
 
+  let profit = 0;
+  let min = Infinity;
+  for (let i = 0; i < stock_prices_yesterday.length; i++) {
+    const price = stock_prices_yesterday[i];
+    if (price < min) min = price; // Update the min value
+    if (price - min > profit) profit = price - min; // Update the best profit
+  }
+
+  return profit;
 }
 
 module.exports = bestProfit;
