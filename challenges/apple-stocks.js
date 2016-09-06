@@ -13,7 +13,25 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-
+  if (stock_prices_yesterday.constructor !== Array) {
+    return 0;
+  }
+  let Profit = -Infinity;
+  stock_prices_yesterday.forEach((price, index) => {
+    for (let j = index + 1; j < stock_prices_yesterday.length; j++) {
+      if (stock_prices_yesterday[j] - price > Profit) {
+        Profit = stock_prices_yesterday[j] - price;
+      }
+    }
+  });
+  if (Profit <= 0) {
+    return 0;
+  }
+  return Profit;
 }
+
+// testing
+// const stock_prices_yesterday = [4, 5, 7, 9, 1, 0];
+// console.log('output should be 5: ', bestProfit(stock_prices_yesterday));
 
 module.exports = bestProfit;
