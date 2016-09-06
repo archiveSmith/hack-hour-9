@@ -17,9 +17,9 @@ function reverseLinkedList(head) {
   if (!head || !head.next) {
     return head;
   }
-  var prev = null;
-  var curr = head;
-  var next;
+  let prev = null;
+  let curr = head;
+  let next;
   while (curr) {
     next = curr.next;
     curr.next = prev;
