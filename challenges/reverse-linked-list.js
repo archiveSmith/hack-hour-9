@@ -14,7 +14,7 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
-if(!head) return undefined; 
+if(head === null) return undefined; 
 let newAr = [];
 //console.log(newAr);
 let reversed = new Node();
