@@ -10,7 +10,7 @@ function highestProduct(array) {
   const highestProductPos = sortedArr[length - 1] * sortedArr[length - 2] * sortedArr[length - 3];
   const highestProductNeg = sortedArr[0] * sortedArr[1] * sortedArr[length - 1];
 
-  return highestProductPos > highestProductNeg ? highestProductPos : highestProductNeg;
+  return Math.max(highestProductPos, highestProductNeg);
 }
 
 module.exports = highestProduct;

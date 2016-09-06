@@ -8,52 +8,60 @@
  *
  */
 
-function Node(value) {
+function Node(value, next = null) {
   this.value = value;
-  this.next = null;
+  this.next = next;
 }
 
 function reverseLinkedList(head) {
-  let nodes = [];
-  let currentNode = head;
-
-  while (currentNode) {
-    nodes.push(currentNode);
-    currentNode = currentNode.next;
+  if (!head.next) return head;
+  if (!head.next.next) {
+    const curr = head.next;
+    head.next = null;
+    curr.next = head;
+    head = curr;
+    return head;
   }
 
-  nodes.reverse();
-  currentNode = nodes[nodes.length - 1];
-
-  for (let i = 0; i < nodes.length; i++) {
-    nodes[i].next = nodes[i + 1];
+  const reversedList = reverseLinkedList(head.next);
+  let current = reversedList;
+  while (current.next) {
+    current = current.next;
   }
 
-  nodes[nodes.length - 1].next = null;
-  return nodes[0];
+  head.next = null;
+  current.next = head;
+  head = reversedList;
+  return head;
 }
 
-module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
+module.exports = { Node, reverseLinkedList };
 
-// reverse linked list in place
+// var node3 = new Node(3);
+// var node2 = new Node(2, node3);
+// var node1 = new Node(1, node2);
+// reverseLinkedList(node1);
+
+
+// Original solution - store nodes in an array, reverse the array, and reassign next values
 
 // function reverseLinkedList(head) {
-//   let currentNode = head,
-//   let newHead = head;
-//   let length = 1;
-//   let index;
+//   let nodes = [];
+//   let currentNode = head;
 
-//   while (currentNode.next) {
-//     newHead = currentNode.next;
+//   while (currentNode) {
+//     nodes.push(currentNode);
 //     currentNode = currentNode.next;
-//     length++;
-//   }
-  
-//   index = length - 1;
-
-//   for (let i = 0; i < index; i++) {
-
 //   }
 
-//   return newHead;
+//   nodes.reverse();
+//   currentNode = nodes[nodes.length - 1];
+
+//   for (let i = 0; i < nodes.length; i++) {
+//     nodes[i].next = nodes[i + 1];
+//   }
+
+//   nodes[nodes.length - 1].next = null;
+//   head = nodes[0];
+//   return head;
 // }
