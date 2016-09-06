@@ -13,7 +13,22 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-
-}
+	if (stock_prices_yesterday.constructor !== Array){
+		return 0;
+	}
+	let lrgProfit = 0;
+	let currProfit = 0;
+	for (var i = 0; i < stock_prices_yesterday.length; i++) {
+		if (stock_prices_yesterday[i].constructor !== Number) {
+			return 0;
+		}
+		//... is needed since it's a max of an array
+		currProfit = Math.max(...stock_prices_yesterday.slice(i+1)) - stock_prices_yesterday[i];
+		if (currProfit > lrgProfit) {
+			lrgProfit = currProfit;
+		}
+	}
+	return lrgProfit;
+} 
 
 module.exports = bestProfit;
