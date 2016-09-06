@@ -19,8 +19,8 @@ function reverseLinkedList(head) {
     const curr = head.next;
     head.next = null;
     curr.next = head;
-    head = curr;
-    return head;
+    head = null;
+    return curr;
   }
 
   const reversedList = reverseLinkedList(head.next);
@@ -31,8 +31,8 @@ function reverseLinkedList(head) {
 
   head.next = null;
   current.next = head;
-  head = reversedList;
-  return head;
+  head = null;
+  return reversedList;
 }
 
 module.exports = { Node, reverseLinkedList };
@@ -62,6 +62,6 @@ module.exports = { Node, reverseLinkedList };
 //   }
 
 //   nodes[nodes.length - 1].next = null;
-//   head = nodes[0];
-//   return head;
+//   head = null;
+//   return ndoes[0];
 // }
