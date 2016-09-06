@@ -9,28 +9,16 @@
  */
 
 function reverseLinkedList(head) {
-	let currentNode = head;
-	let valuesArray = [];
-	let newLL;
-	let temp;
-	let next;
-	
-	while (currentNode !== null) {
-		valuesArray.push(currentNode.value);
-		currentNode = currentNode.next;
-	}
- 
-	for (let i = valuesArray.length - 1; i >= 0; i--) {
-     	temp = new Node(valuesArray[i]);
-     	next = new Node(valuesArray[i+1]);
-     	temp.next = next;
-        	if (i === 0) {
-            	head = temp;
-           	}
-     }
-     
-     return temp;
-     
+  let value = head;
+  let previous = null;
+
+  while(value) {
+    let save = value.next;
+    value.next = previous;
+    previous = value;
+    value = save;
+  }
+  return previous; 
 }
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
