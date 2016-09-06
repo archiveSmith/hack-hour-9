@@ -7,6 +7,7 @@
  * Do it in place
  *
  */
+console.log('hi')
 
 function Node(value) {
     this.value = value;
@@ -14,12 +15,19 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
-	var nodeArray = []
+	var prev = head;
+	var curr = prev.next;
+	var next = curr.next;
+	var nuhead = prev;
 	
-	for(var i = head; i; i = i.next){
-		nodeArray.push(i.value);
+	while(next){
+		curr.next = prev;
+		prev = curr
+		curr = next;
+		next = curr.next;
 	}
-	console.log(nodeArray)
+	curr.next = prev;
+	return curr;
 }
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
