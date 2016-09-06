@@ -25,7 +25,6 @@ function reverseLinkedList(head) {
     point1 = point2;
     point2 = point3;
   }
-
   return point1;
 }
 
