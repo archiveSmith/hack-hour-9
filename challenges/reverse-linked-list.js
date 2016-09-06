@@ -36,9 +36,10 @@ function reverseLinkedList(head) {
           }  
       return tail;
       }
-    }
+    
     else{
       return null;
     }
+  }
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
