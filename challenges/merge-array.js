@@ -14,24 +14,22 @@
  */
 
 function mergeArrays(arr1, arr2) {
-	array1 = arr1.slice();
-	array2 = arr2.slice()
-	if (array1.length === 0) return array2;
-	if (array2.length === 0) return array1;
-	if (!Array.isArray(array1) || !Array.isArray(array2)) return "Invalid inputs";
+	if (arr1.length === 0) return arr2;
+	if (arr2.length === 0) return arr1;
+	if (!Array.isArray(arr1) || !Array.isArray(arr2)) return "Invalid inputs";
 	let index = 0;
-	while (array2.length !== 0) {
-		let val = array2.shift();
-		if (val < array1[index]) {
-			array1.splice(index, 0, val);
+	while (arr2.length !== 0) {
+		let val = arr2.shift();
+		if (val < arr1[index]) {
+			arr1.splice(index, 0, val);
 		} else {
-			while(val > array1[index]) {
+			while(val > arr1[index]) {
 				index++;	
 			}
-			array1.splice(index, 0, val);
+			arr1.splice(index, 0, val);
 		}
 	}
-	return array1;
+	return arr1;
 }
 
 
