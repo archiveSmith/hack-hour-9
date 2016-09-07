@@ -13,20 +13,20 @@
  *
  */
 function mergeArrays(arr1, arr2) {
-    const totalLen = arr1.length + arr2.length;
-    let output = [];
-    let oneCount = 0;
-    let twoCount = 0;
-    while (output.length < totalLen) {
-        if (arr1[oneCount] > arr2[twoCount]) {
-            output.push(arr2[twoCount])
-            twoCount++
-        } else {
-            output.push(arr1[oneCount])
-            oneCount++
-        }
+  const totalLen = arr1.length + arr2.length;
+  let output = [];
+  let oneCount = 0;
+  let twoCount = 0;
+  while (output.length < totalLen) {
+    if (arr1[oneCount] > arr2[twoCount] || oneCount + 1 > arr1.length) {
+      output.push(arr2[twoCount])
+      twoCount++
+    } else {
+      output.push(arr1[oneCount])
+      oneCount++
     }
-    return output;
+  }
+  return output;
 }
 
 
