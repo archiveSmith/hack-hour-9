@@ -19,7 +19,7 @@ function mergeArrays(arr1, arr2) {
 	if (!Array.isArray(arr1) || !Array.isArray(arr2)) return "Invalid inputs";
 	let index = 0;
 	let index2 = 0;
-	while (index2 !== arr2.length - 1) {
+	while (index2 !== arr2.length) {
 		let val = arr2[index2++];
 		if (val < arr1[index]) {
 			arr1.splice(index, 0, val);
