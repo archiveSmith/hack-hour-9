@@ -12,11 +12,22 @@
  * Complete in O(n) time and O(n) space 
  *
  */
-
 function mergeArrays(arr1, arr2) {
-    return arr1.concat(arr2).sort(function(a, b) {
-        return a - b;
-    });
+    const totalLen = arr1.length + arr2.length;
+    let output = [];
+    let oneCount = 0;
+    let twoCount = 0;
+    while (output.length < totalLen) {
+        if (arr1[oneCount] > arr2[twoCount]) {
+            output.push(arr2[twoCount])
+            twoCount++
+        } else {
+            output.push(arr1[oneCount])
+            oneCount++
+        }
+    }
+    return output;
 }
+
 
 module.exports = mergeArrays;
