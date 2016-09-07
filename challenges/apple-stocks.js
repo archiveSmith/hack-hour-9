@@ -12,6 +12,7 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
+<<<<<<< HEAD
 function bestProfit(prices) {
 if(!prices) return 0; 
 let buyPoint = prices[0];
@@ -31,6 +32,10 @@ for(let i = 0; i < prices.length - 1; i++) {
 	}
 }
 return profit; 
+=======
+function bestProfit(stock_prices_yesterday) {
+
+>>>>>>> 6c6ea181e29f5fe1b354c02856baff6bd10a6d0e
 }
 
 module.exports = bestProfit;
