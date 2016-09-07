@@ -12,7 +12,7 @@ function Stack() {
   this.greatest = -Infinity;
 }
 
-Stack.prototype.push = function (val) {
+Stack.prototype.push = (val) => {
   this.store[this.index] = val;
   this.index++;
   if (val > this.greatest) {
@@ -21,7 +21,7 @@ Stack.prototype.push = function (val) {
   return this.index;
 };
 
-Stack.prototype.pop = function () {
+Stack.prototype.pop = () => {
   if (this.index === 0) {
     return undefined;
   }
@@ -35,7 +35,7 @@ Stack.prototype.pop = function () {
   return deleted;
 };
 
-Stack.prototype.getMax = function () {
+Stack.prototype.getMax = () => {
   if (this.index === 0) {
     return undefined;
   }

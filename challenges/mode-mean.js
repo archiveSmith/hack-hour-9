@@ -34,9 +34,8 @@ function modemean(array) {
   }
   if (Number(mode) === mean) {
     return true;
-  } else {
-    return false;
   }
+  return false;
 }
 
 module.exports = modemean;
