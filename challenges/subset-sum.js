@@ -9,7 +9,7 @@
  */
 
 function subsetSum(array, target) {
-	let tempArr = array;
+  let tempArr = array;
 	tempArr = tempArr.sort(function(a, b) {
 		return a-b;
 	});
@@ -18,7 +18,6 @@ function subsetSum(array, target) {
 		let temp = tempArr;
 		let sum = 0;
 		for (let i = 0; i < tempArr.length; i++) {
-			
 		}
 
 

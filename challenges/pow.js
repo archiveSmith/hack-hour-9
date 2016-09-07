@@ -18,6 +18,7 @@ function pow(base, power) {
     }
     return (pow(base, power + 1) * (1 / base));
   }
+  return undefined;
 }
 
 module.exports = pow;
