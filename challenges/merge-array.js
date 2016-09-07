@@ -14,7 +14,19 @@
  */
 
 function mergeArrays(arr1, arr2) {
+	if (arr1 === undefined && arr2 === undefined) {
+		return undefined;
+	}
+	if (arr1 === undefined || arr1.length === 0) {
+		return arr2;
+	}
+	if (arr2 === undefined || arr2.length === 0) {
+		return arr1;
+	}
 
+	return arr1.concat(arr2).sort(function(a, b) {
+	  return a - b;
+	});
 }
 
 module.exports = mergeArrays;
