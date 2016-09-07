@@ -14,7 +14,25 @@
  */
 
 function mergeArrays(arr1, arr2) {
-
+	array1 = arr1.slice();
+	array2 = arr2.slice()
+	if (array1.length === 0) return array2;
+	if (array2.length === 0) return array1;
+	if (!Array.isArray(array1) || !Array.isArray(array2)) return "Invalid inputs";
+	let index = 0;
+	while (array2.length !== 0) {
+		let val = array2.shift();
+		if (val < array1[index]) {
+			array1.splice(index, 0, val);
+		} else {
+			while(val > array1[index]) {
+				index++;	
+			}
+			array1.splice(index, 0, val);
+		}
+	}
+	return array1;
 }
+
 
 module.exports = mergeArrays;
