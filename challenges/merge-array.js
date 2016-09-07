@@ -22,14 +22,22 @@ function mergeArrays(arr1, arr2) {
 	let arr2Index = 0;
 	
 	let mergedArr = [];
-	let length =  arr1.length + arr2.length;
 	
-	while (mergedArr.length < length) {
+	while (arr1Index < arr1.length && arr2Index < arr2.length) {
 		if (arr1[arr1Index] > arr2[arr2Index]) {
 			mergedArr.push(arr2[arr2Index++]);
 		} else {
 			mergedArr.push(arr1[arr1Index++]);
 		}
+	}
+  
+	//check to see if there are any remaining elements left unpushed
+	while (arr1Index < arr1.length) {
+		mergedArr.push(arr1[arr1Index++])
+	}
+	
+	while (arr2Index < arr2.length) {
+		mergedArr.push(arr2[arr2Index++])
 	}
 	
 	return mergedArr;
