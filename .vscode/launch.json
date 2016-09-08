@@ -5,9 +5,9 @@
             "name": "Launch Chrome against localhost, with sourcemaps",
             "type": "chrome",
             "request": "launch",
-            "url": "http://localhost:8080/reverse-linked-list.js",
+            "url":  "http://localhost:3000/",
             "sourceMaps": true,
-            "webRoot": "${workspaceRoot}"
+            "webRoot": "${workspaceRoot}/challenges/fizzbuzz.js"
         },
         {
             "name": "Attach to Chrome, with sourcemaps",
@@ -15,7 +15,7 @@
             "request": "attach",
             "port": 9222,
             "sourceMaps": true,
-            "webRoot": "${workspaceRoot}"
+            "webRoot": "${workspaceRoot}/challenges/fizzbuzz.js"
         }
     ]
 }
