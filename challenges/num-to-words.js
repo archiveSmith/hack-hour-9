@@ -38,19 +38,11 @@ const REGULAR_TENS = {
   9: 'Ninety'
 }
 
+
 function numToWords(num) {
   if (num === 0) return 'Zero';
 
-  if (num < 10) {
-    return ONES_PLACE[num];
-  } else if (num < 20) {
-    return STRANGE_TENS[num];
-  }
-
-  const ones_place = num % 10;
-  const tens_place = Math.floor(num / 10);
-
-  return REGULAR_TENS[tens_place] + ONES_PLACE[ones_place];
+  return threeDigitNumToWords(num);
 }
 
 function getSmallestDigits(numberOfDigits, num) {
@@ -59,6 +51,30 @@ function getSmallestDigits(numberOfDigits, num) {
 
 function truncateLastThreeDigits(num) {
   return Math.floor(num / 1000);
+}
+
+function threeDigitNumToWords(num) {
+  if (num >= 1000) {
+    throw new Error('Only a three digit number may be processed');
+  }
+
+  let result = '';
+
+  const hundreds_place = Math.floor(num / 100);
+  const tens_place = Math.floor((num % 100) / 10);
+  const ones_place = (num % 10);
+
+  if (hundreds_place) result += `${ONES_PLACE[hundreds_place]}Hundred`;
+  if (tens_place === 1) {
+    result += `${STRANGE_TENS[10 * tens_place + ones_place]}`;
+    return result;
+  }
+
+  if (tens_place) result += `${REGULAR_TENS[tens_place]}`;
+
+  if (ones_place) result += `${ONES_PLACE[ones_place]}`;
+
+  return result;
 }
 
 numToWords.getSmallestDigits = getSmallestDigits;
