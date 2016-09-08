@@ -13,6 +13,21 @@
  */
 
 function numToWords(num) {
+	var stringNum = num.toString();
+	var length = num.toString().length;
+	var a = ['', 'One ','Two ','Three ','Four ', 'Five ','Six ','Seven ','Eight ','Nine ','Ten ','Eleven ','Twelve ','Thirteen ','Fourteen ','Fifteen ','Sixteen ','Seventeen ','Eighteen ','Nineteen '];
+	var b = ['', 'Twenty','Thirty','Forty','Fifty', 'Sixty','Seventy','Eighty','Ninety'];
+	if (num === 0){
+		return Zero;
+	}
+	if (num < 20){
+		return a[num];
+	}
+	if (length === 2){
+		return b[parseInt(stringNum[0]) - 1] + a[parseInt(stringNum[1])]
+	}
+	
+	return "ERROR";
 
 }
 
