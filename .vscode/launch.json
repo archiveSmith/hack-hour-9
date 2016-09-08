@@ -2,20 +2,17 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch Chrome against localhost, with sourcemaps",
-            "type": "chrome",
+            "name": "Launch Extension",
+            "type": "extensionHost",
             "request": "launch",
-            "url":  "http://localhost:3000/",
+            "runtimeExecutable": "${execPath}",
+            "args": [
+                "--extensionDevelopmentPath=${workspaceRoot}"
+            ],
+            "stopOnEntry": false,
             "sourceMaps": true,
-            "webRoot": "${workspaceRoot}/challenges/fizzbuzz.js"
-        },
-        {
-            "name": "Attach to Chrome, with sourcemaps",
-            "type": "chrome",
-            "request": "attach",
-            "port": 9222,
-            "sourceMaps": true,
-            "webRoot": "${workspaceRoot}/challenges/fizzbuzz.js"
+            "outDir": "${workspaceRoot}/out",
+            "preLaunchTask": "npm"
         }
     ]
 }

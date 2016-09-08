@@ -7,7 +7,7 @@
             "request": "launch",
             "url": "http://localhost:8080",
             "sourceMaps": true,
-            "webRoot": "${workspaceRoot}"
+            "webRoot": "${workspaceRoot}/fuzzbuzz.js"
         },
         {
             "name": "Attach to Chrome, with sourcemaps",
