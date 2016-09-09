@@ -10,6 +10,7 @@
  */
 
 function permPalin(str) {
+	if (typeof str !== 'string') return "not a string";
 	//every number count should be even, only one can be odd
 	let countObj = str.split('').reduce((cObj, char) => {
 		cObj[char] = cObj[char] + 1 || 1;
