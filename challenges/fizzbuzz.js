@@ -15,7 +15,6 @@
 //                     14,
 //                     'fizzbuzz',
 //                     16 ]
-'use strict';
 console.log(fizzbuzz(16));
 
 function fizzbuzz(num) {
