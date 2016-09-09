@@ -13,7 +13,24 @@
  */
 
 function numToWords(num) {
+	let result = '';
+	let single =["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+	let twoDigit = ["", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
+	let tensMult = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
+	let tensPow = ["hundred", "thousand", "million", "trillion", "quadrillion"];
+	
+	if (num.length === 1) {
+		return result += single[num]
+	}
+	
+	if (num.length === 2) {
+		if(num[0])
+	}
+	
+	return result;
 
 }
+
+numToWords(0)
 
 module.exports = numToWords;
