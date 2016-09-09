@@ -40,6 +40,4 @@ function hashCountChar(st) {
   return hashCount;
 }
 
-console.log(permPalin('cbaba'));
-
 module.exports = permPalin;
