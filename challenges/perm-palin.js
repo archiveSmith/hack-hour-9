@@ -12,6 +12,7 @@
 function permPalin(str) {
   if (str.length === 1) return true;
 
+  str = str.toLowerCase();
   let letters = {};
   
   for (let i = 0; i < str.length; i++) {
