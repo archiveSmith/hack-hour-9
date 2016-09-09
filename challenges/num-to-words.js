@@ -38,20 +38,47 @@ const REGULAR_TENS = {
   9: 'Ninety'
 }
 
+const POWERS_OF_1000 = {
+  0: '',
+  1: 'Thousand',
+  2: 'Million',
+  3: 'Billion',
+  4: 'Trillion',
+  5: 'Quadrillion',
+  6: 'Quintillion'
+}
+
 
 function numToWords(num) {
   if (num === 0) return 'Zero';
 
-  return threeDigitNumToWords(num);
+  let result = '';
+  let currentPowerOf1000 = 0;
+  let currentNum = num;
+
+  while (currentNum) {
+    console.log(currentNum);
+    result = threeDigitNumToWords(getLastThreeDigits(currentNum)) +
+             POWERS_OF_1000[currentPowerOf1000] +
+             result;
+
+    currentNum = truncateLastThreeDigits(currentNum);
+    currentPowerOf1000++;
+  }
+
+  return result;
 }
 
-function getSmallestDigits(numberOfDigits, num) {
-  return num % (Math.pow(10, numberOfDigits - 1));
+
+function getLastThreeDigits(num) {
+  return num % 1000;
 }
+
 
 function truncateLastThreeDigits(num) {
   return Math.floor(num / 1000);
 }
+
 
 function threeDigitNumToWords(num) {
   if (num >= 1000) {
@@ -76,7 +103,5 @@ function threeDigitNumToWords(num) {
 
   return result;
 }
-
-numToWords.getSmallestDigits = getSmallestDigits;
 
 module.exports = numToWords;
