@@ -12,7 +12,7 @@
  * Complete in O(n) time and O(n) space 
  *
  */
-'use strict';
+
 function mergeArrays(arr1, arr2) {
   let newArr = [];
   if (arr1.length < arr2.length) {
@@ -27,7 +27,6 @@ function mergeArrays(arr1, arr2) {
     }
     arr2 = arr2.slice(arr1.length);
     newArr = newArr.concat(arr2);
-    //newArr.push(arr2[arr2.length - 1]);
   } else {
     for (let i = 0; i < arr2.length; i++) {
       if (arr1[i] <= arr2[i]) {
@@ -43,6 +42,5 @@ function mergeArrays(arr1, arr2) {
   }
   return newArr;
 }
-
 
 module.exports = mergeArrays;
