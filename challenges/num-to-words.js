@@ -41,12 +41,14 @@ function numToWords(num) {
         console.log(nums[i][j]);
         finalString += below20[nums[i][j]];
         finalString += 'Hundred';
-      }
-      if (j === 1 && nums[i][j] !== ['0']) {
+      } else if (j === 1 && nums[i][j] !== '0') {
         finalString += below100[nums[i][j]];
-      }
-      if (j === 2 && nums[i][j] !== ['0']) {
-        finalString += below20[nums[i][j]];
+      } else if (j === 2 && nums[i][j] !== '0') {
+        if (nums[i][j - 1] !== '1') {
+          finalString += below20[nums[i][j]];
+        } else {
+          finalString += below20[Number(nums[i][j]) + 10];
+        }
       }
     }
     finalString += greater[nums.length - 1 - i];
@@ -54,6 +56,6 @@ function numToWords(num) {
   return finalString;
 }
 
-console.log(numToWords(23456789));
+console.log(numToWords(23456719));
 
 module.exports = numToWords;
