@@ -9,28 +9,28 @@
  */
 
 function Node(value) {
-    this.value = value;
-    this.next = null;
+  this.value = value;
+  this.next = null;
 }
 
 function reverseLinkedList(head) {
-	if (!head){
-		return undefined; 
-	} else if (head.next === null){
-		return head;
-	}
+  if (!head) {
+    return undefined;
+  } else if (head.next === null) {
+    return head;
+  }
 
-	let listArr = [];
-	for(let i = head; i; i = i.next){
-		listArr.push(i);
-	}
-	var newList = listArr.pop(), output = newList;
-	for(let j = listArr.length - 1; j >= 0; j--){
-		newList.next = listArr[j];
-		newList.next.next = null;
-		newList = newList.next; 
-	}
-	return output;
+  let listArr = [];
+  for (let i = head; i; i = i.next) {
+    listArr.push(i);
+  }
+  var newList = listArr.pop(), output = newList;
+  for (let j = listArr.length - 1; j >= 0; j--) {
+    newList.next = listArr[j];
+    newList.next.next = null;
+    newList = newList.next;
+  }
+  return output;
 }
 
 
@@ -51,4 +51,4 @@ function reverseLinkedList(head) {
 
 // reverseLinkedList(l1);
 
-module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
+module.exports = { Node: Node, reverseLinkedList: reverseLinkedList };
