@@ -17,7 +17,7 @@
  */
 
 function rotateGrid(grid, n) {
-
+  //wrote stuff on paper, didn't get code down yet
 }
 
 module.exports = rotateGrid;
