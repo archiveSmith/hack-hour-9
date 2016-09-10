@@ -17,7 +17,39 @@
  */
 
 function rotateGrid(grid, n) {
+  // start with not in place solution
 
+  // initialization
+  var output = [];
+  for(var k = 0; k < n; k++) {
+    output[k] = [];
+  }
+
+  for(var i = 0; i < n; i++) {
+    // process each row
+    currRow = grid[i];
+
+    for(var j = 0; j < n; j++) {
+      // translate each row to column
+      output[j].unshift(currRow[j]);
+    }
+  }
+
+  return output;
 }
+
+/* tests */
+/*
+var row1 = [1, 2, 3];
+var row2 = [4, 5, 6];
+var row3 = [7, 8, 9];
+var grid = [];
+grid.push(row1);
+grid.push(row2);
+grid.push(row3);
+
+console.log('grid before', grid);
+console.log('grid after', rotateGrid(grid, 3));
+*/
 
 module.exports = rotateGrid;
