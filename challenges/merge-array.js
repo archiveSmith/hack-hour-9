@@ -41,9 +41,9 @@ function mergeArrays(arr1, arr2, output = []) {
 }
 
 //  testing data
-// let arr1 = [3, 4, 6, 10, 11, 15, 21];
-// let arr2 = [1, 5, 8, 12, 14, 19];
+let arr1 = [3, 4, 6, 10, 11, 15, 21];
+let arr2 = [1, 5, 8, 12, 14, 19];
 
-//  mergeArrays(arr1, arr2);
+ mergeArrays(arr1, arr2);
 
 module.exports = mergeArrays;
