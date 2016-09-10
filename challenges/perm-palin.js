@@ -26,7 +26,6 @@ for(let prop in newObj) {
  }
 }
 return pal > 1 ? false : true; 
-
 }
 
 module.exports = permPalin;
