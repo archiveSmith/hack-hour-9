@@ -26,7 +26,7 @@ function modemean(array) {
     }
   }
   mean = Math.floor(mean / array.length);
-  for (k in modeObj) {
+  for(k in modeObj) {
     if (modeObj[k] >= cur) {
       mode = k;
       cur = modeObj[k];
