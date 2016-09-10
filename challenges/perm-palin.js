@@ -9,23 +9,30 @@
  *
  */
 
+
+//I misunderstood the question the first time. Permutation means any combination using all the letters must be able to be rearranged into a palindrome.
 function permPalin(str) {
 	//match only letters & numbers and make it type insensitive
-	var alphanum = str.match(/([A-Z0-9])+/gi).join('');
+	var alphanum = str.match(/([A-Z0-9])+/gi).join('').split('');
 	
-	//return true if only 1 character
-	if (alphanum.length === 1) {
-		return true;
-	}
-	//return true if any segment of 3 in alphanum is contained in the reversed
-	var reversed = alphanum.split('').reverse().join('');
-	for (var i = 0; i < str.length - 2; i++) {
-		var perm = alphanum.slice(i,i+3);
-		if (reversed.indexOf(perm) !== -1) {
-			return true;
+	//count frequency of each character
+	var obj = {};
+	var oddCounter = 0;
+	for (var i = 0; i < alphanum.length; i++) {
+		if (obj[alphanum[i]] === undefined) {
+			obj[alphanum[i]] = 1;
+		} else {
+			obj[alphanum[i]]++;
 		}
 	}
-	return false;
+	//count the amount of times a frequency is odd
+	for (var key in obj) {
+		if (obj[key] % 2 !== 0) {
+			oddCounter++;
+		}
+	}
+	//if more than 1 character has an odd frequency, a palindrome can't be made
+	return oddCounter > 1 ? false : true;
 }
 
 module.exports = permPalin;
