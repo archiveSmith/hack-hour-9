@@ -71,4 +71,5 @@ function highestProduct(array) {
 }
 
 
+
 module.exports = highestProduct;

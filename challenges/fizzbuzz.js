@@ -24,8 +24,8 @@ function fizzbuzz(num) {
   let i;
   for (i = 1; i <= num; i++) {
     i % 15 === 0 ? arr.push('fizzbuzz') :
-      (i % 5 === 0 ? arr.push('fizz') :
-        (i % 3 === 0 ? arr.push('buzz') :
+      (i % 5 === 0 ? arr.push('buzz') :
+        (i % 3 === 0 ? arr.push('fizz') :
           arr.push(i)));
   }
   return arr;
