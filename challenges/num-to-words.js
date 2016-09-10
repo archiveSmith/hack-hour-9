@@ -11,8 +11,9 @@
  * numToWords(300525151340440) -> 'ThreeHundredTrillionFiveHundredTwentyFiveBillionOneHundredFiftyOneMillionThreeHundredFortyThousandFourHundredForty'
  * numToWords(92120000000000000) -> 'NintyTwoQuadrillionOneHundredTwentyTrillion'
  */
-'use strict';
+
 function numToWords(num) {
+
   if (num === 0) return 'Zero';
   let below20 = ['', 'One', 'Two', 'Three',
     'Four', 'Five', 'Six', 'Seven',
@@ -56,6 +57,5 @@ function numToWords(num) {
   return finalString;
 }
 
-console.log(numToWords(23456719));
 
 module.exports = numToWords;
