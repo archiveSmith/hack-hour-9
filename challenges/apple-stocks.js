@@ -11,7 +11,7 @@
  *
  *  Return 0 if no profit is possible OR if input is invalid.
  */
-'use strict';
+
 function bestProfit(stock_prices_yesterday) {
   if (!Array.isArray(stock_prices_yesterday)) {
     return 0;
@@ -35,16 +35,5 @@ function bestProfit(stock_prices_yesterday) {
   }
   return greatest - smallest;
 }
-
-var stocks = [];
-
-stocks[30] = 50;
-stocks[60] = 200;
-stocks[90] = 100;
-stocks[120] = 300;
-stocks[150] = 300;
-stocks[180] = 100;
-
-console.log(bestProfit(stocks));
 
 module.exports = bestProfit;

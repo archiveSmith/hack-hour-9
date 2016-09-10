@@ -11,7 +11,6 @@
 ******
 
 */
-
 function drawStairs(n) {
   let i;
   let j;
@@ -26,7 +25,9 @@ function drawStairs(n) {
     }
     console.log(str);
   }
+  return str;
 }
+
 
 
 module.exports = drawStairs;
