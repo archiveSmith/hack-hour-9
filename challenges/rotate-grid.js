@@ -18,6 +18,20 @@
 
 function rotateGrid(grid, n) {
 
+	return grid.reverse().map( (subArr, i) => {
+		return grid.map( (row) => {
+			return row[i];
+		})
+	})
 }
+
+// let sampleGrid = [   [1, 2, 3],
+//                      [4, 5, 6],
+//                      [7, 8, 9]  ];
+
+let sampleGrid = [ [1,2],
+				   [3,4] ];
+                     
+rotateGrid(sampleGrid, 3); 
 
 module.exports = rotateGrid;
