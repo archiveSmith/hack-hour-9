@@ -17,7 +17,21 @@
  */
 
 function rotateGrid(grid, n) {
+	var bigArr = [];
+	x = 0;
+	//create n empty arrays in a big array
+	while (x < n){
+		bigArr.push([]);
+		x++;
+	}
+	//for each array in grid going backwards& for each element in each array going forwards, stick in the appropriate value
+	for (var i = grid.length-1; i >= 0; i--){
+		for (var j = 0; j < grid[i].length; j++) {
+			bigArr[j].push(grid[i][j]);
+		}
+	}
+	return bigArr;
+};
 
-}
 
 module.exports = rotateGrid;
