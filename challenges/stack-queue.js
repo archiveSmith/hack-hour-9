@@ -41,3 +41,5 @@ Queue.prototype.dequeue = function() {
 	this.index--;
 	return temp.pop();
 }
+
+module.exports = {Stack: Stack, Queue: Queue};
