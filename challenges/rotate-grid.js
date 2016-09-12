@@ -1,4 +1,4 @@
-/* You are given a NxN grid of elements represented by a 2D array. The ith nested array represents 
+/* You are given a NxN grid of elements represented by a 2D griday. The ith nested griday represents 
  * the ith row in the grid.
  * 
  * Write a function to rotate the grid 90 degrees clockwise. 
@@ -17,14 +17,16 @@
  */
 
 function rotateGrid(grid, n) {
-grid = grid.reverse();
-for (let i = 0; i < n; i++)
-  for (let j = 0; j < i; j++){
-    temp = grid[i][j];
-    grid[i][j] = grid[j][i];
-    grid[j][i] = temp;
+  for (let i = 0, len = grid.length; i < len / 2; i++) {
+    for (let j = i; j < len - i - 1; j++) {
+      let top = grid[i][j];
+      grid[i][j] = grid[len - j - 1][i];
+      grid[len - j - 1][i] = grid[len - i - 1][len - j - 1];
+      grid[len - i - 1][len - j - 1] = grid[j][len - i - 1];
+      grid[j][len - i - 1] = top;
+    }
   }
-return grid;
-}
+  return grid;
+};
 
 module.exports = rotateGrid;
