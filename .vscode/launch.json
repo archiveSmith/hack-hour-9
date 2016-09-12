@@ -1,21 +1,23 @@
 {
     "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "node",
-            "type": "node",
-            "request": "launch",
-            "url": "http://localhost:8080",
-            "sourceMaps": true,
-            "webRoot": "${workspaceRoot}/challenges/perm-palin"
+    "configurations": [{
+        "name": "Node.js Debugging",
+        "type": "node",   //Tells this that I want to do debugging via node.js (if we choose chrome then it is chrom debugging)
+        "request": "launch",
+        "program": "${workspaceRoot}/challenges/pow.js",    //Point to pow.js for debugging
+        "stopOnEntry": false,
+        "args": [],
+        "cwd": "${workspaceRoot}",
+        "preLaunchTask": null,
+        "runtimeExecutable": null,
+        "runtimeArgs": [
+            "--nolazy"
+        ],
+        "env": {
+            "NODE_ENV": "development"
         },
-        {
-            "name": "Attach to Chrome, with sourcemaps",
-            "type": "node",
-            "request": "attach",
-            "port": 9222,
-            "sourceMaps": true,
-            "webRoot": "${workspaceRoot}/challenges/perm-palin"
-        }
-    ]
+        "externalConsole": false,
+        "sourceMaps": false,
+        "outDir": null
+    }]
 }

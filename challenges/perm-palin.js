@@ -4,10 +4,11 @@
  * Example:
  * 	- permPalin('abab') => true
  * 	- permPalin('cbaba') => true
- * 	- permPalin('cbac') => false
+
  * 	- permPalin('a') => true
  *
  */
+permPalin('cbac')
 
 function permPalin(str) {
 	if(str.length === 1){ return true; }
