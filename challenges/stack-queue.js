@@ -2,70 +2,47 @@
  * Create a stack.Then create a queue using two stacks.
  */
 function Stack() {
-  this.length = 0;
-  this.empty = -1;
-  this.contents = {};
+  this.contents = [];
 }
 
 Stack.prototype.push = function (value) {
-  this.contents[this.length] = value;
-  this.length++;
-  this.empty++;
+  this.contents.push(value);
 };
 
 Stack.prototype.pop = function () {
-  if (this.empty === -1) {
-    return undefined;
-  }
-  const output = this.contents[this.length - 1];
-  delete this.contents[this.length - 1];
-  this.length--;
-  this.empty--;
-  return output;
+  return this.contents.pop();
 };
 /**
 * Queue Class
 */
 function Queue() {
-  this.length = 0;
-  this.empty = -1;
-  this.nextOut = 0;
-  this.contents = {};
+  this.in = new Stack();
+  this.out = new Stack();
 }
 
 Queue.prototype.enqueue = function (value) {
-  this.contents[this.length] = value;
-  this.length++;
-  this.empty++;
+  this.in.push(value);
 };
 
 Queue.prototype.dequeue = function () {
-  if (this.empty === -1) {
-    return undefined;
-  }
-  const output = this.contents[this.nextOut].pop();
+  let output = this.out.pop();
   if (output === undefined) {
-    this.nextOut++;
-    this.empty--;
-    return this.deQueue();
+    let currentItem = this.in.pop();
+    while (currentItem) {
+      this.out.push(currentItem);
+      currentItem = this.in.pop();
+    }
+    output = this.out.pop();
   }
   return output;
 };
 
 
 // tests
-// const stack1 = new Stack();
-// const stack2 = new Stack();
-// for (let i = 0; i < 3; i++) {
-//   stack1.push(i);
-//   stack2.push(i);
-// }
-
-// console.log(stack1, stack2);
-
 // const queue = new Queue();
-// queue.enqueue(stack1);
-// queue.enqueue(stack2);
+// for (let j = 0; j < 2; j++) {
+//   queue.enqueue(j);
+// }
 
 // console.log('queue', queue);
 // console.log(queue.deQueue());

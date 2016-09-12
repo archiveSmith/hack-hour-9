@@ -27,14 +27,14 @@ function rotateGrid(grid, n) {
 }
 
 // tests
-const sampleGrid = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9],
-];
+// const sampleGrid = [
+//   [1, 2, 3],
+//   [4, 5, 6],
+//   [7, 8, 9],
+// ];
 
-console.log(sampleGrid);
-rotateGrid(sampleGrid, 2);
+// console.log(sampleGrid);
+// rotateGrid(sampleGrid, 2);
 
 
 module.exports = rotateGrid;
