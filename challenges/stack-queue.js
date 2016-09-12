@@ -45,6 +45,9 @@ Queue.prototype.enqueue = function(val) {
 };
 
 Queue.prototype.dequeue = function() {
+  if (this.index === 0) {
+    return undefined;
+  }
   delete this.storage[0];
   let counter = 0;
   for (var key in this.storage) {
