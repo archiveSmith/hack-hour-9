@@ -12,6 +12,7 @@ function Stack() {
   this.pop = function () {
     if (this.length) {
       let item = this.items[this.length - 1]
+      delete this.items[this.length -1];
       this.length--;
       return item;
     } else {
@@ -29,11 +30,14 @@ function Stack() {
 function Queue() {
   this.stackA = new Stack();
   this.stackB = new Stack();
-  this.push = function (item) {
+  this.enqueue = function (item) {
     this.stackA.push(item);
   }
-  this.pop = function () {
+  this.dequeue = function () {
     let item = this.stackA.pop();
+    if(!item) {
+    	return item;
+    }
     while (item) {
       this.stackB.push(item);
       item = this.stackA.pop();
@@ -46,7 +50,6 @@ function Queue() {
     }
     return result;
   }
-
 }
 
 module.exports = {Stack: Stack, Queue: Queue};
