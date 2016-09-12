@@ -28,7 +28,7 @@ Queue.prototype.dequeue = function () {
   let output = this.out.pop();
   if (output === undefined) {
     let currentItem = this.in.pop();
-    while (currentItem) {
+    while (currentItem !== undefined) {
       this.out.push(currentItem);
       currentItem = this.in.pop();
     }
