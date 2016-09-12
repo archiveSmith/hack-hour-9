@@ -1,5 +1,5 @@
-webkitConvertPointFromNodeToPage// Write a function that returns an array containing the numbers 1 to NUM. Put "fizz" in place of numbers divisble by 3, "buzz" in place of numbers divisble by 5, and "fizzbuzz" in place of numbers divisble by both 3 and 5
-// fizzbuzz(16);  -> [ 1,
+//webkitConvertPointFromNodeToPage// Write a function that returns an array containing the numbers 1 to NUM. Put "fizz" in place of numbers divisble by 3, "buzz" in place of numbers divisble by 5, and "fizzbuzz" in place of numbers divisble by both 3 and 5
+//   -> [ 1,
 //                     2,
 //                     'fizz',
 //                     4,
@@ -15,6 +15,7 @@ webkitConvertPointFromNodeToPage// Write a function that returns an array contai
 //                     14,
 //                     'fizzbuzz',
 //                     16 ]
+console.log(fizzbuzz(16));
 
 function fizzbuzz(num) {
 	const result = [];

@@ -12,6 +12,13 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
+
+/* KEY IDEA
+We have to find the largest difference between 2 numbers in the array but the first number has to be lower
+*/
+
+
+
 function bestProfit(stock_prices_yesterday) {
     if(stock_prices_yesterday.length === 0) return 0;
 
@@ -39,3 +46,5 @@ function bestProfit(stock_prices_yesterday) {
 }
 
 module.exports = bestProfit;
+
+
