@@ -4,10 +4,10 @@
         "name": "Node.js Debugging",
         "type": "node",
         "request": "launch",
-        "program": "${workspaceRoot}/challenges/perm-palin",
+        "program": "${workspaceRoot}/challenges/pow.js",
         "stopOnEntry": false,
         "args": [],
-        "cwd": "${workspaceRoot}/challenges/perm-palin",
+        "cwd": "${workspaceRoot}/challenges/",
         "preLaunchTask": null,
         "runtimeExecutable": null,
         "runtimeArgs": [
