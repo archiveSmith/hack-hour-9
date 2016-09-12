@@ -39,7 +39,7 @@ Queue.prototype.enqueue = function (value) {
   this.empty++;
 };
 
-Queue.prototype.deQueue = function () {
+Queue.prototype.dequeue = function () {
   if (this.empty === -1) {
     return undefined;
   }
