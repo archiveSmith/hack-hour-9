@@ -33,6 +33,7 @@ Queue.prototype.enqueue = function(val) {
 
 
 Queue.prototype.dequeue = function() {
+	if(this.index === 0) return undefined;
 	let temp = this.storage[0];
 	let i = 1;
 	while(i < this.index) {
