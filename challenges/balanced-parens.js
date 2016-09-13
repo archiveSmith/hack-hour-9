@@ -25,26 +25,27 @@
  */
 
 function balancedParens(input) {
-    let indO = []
-    let indC = []
+  let indO = []
+  let indC = []
 
-    for (var i = 0; i < input.length; i++) {
-        if (input[i] === "(") {
-            indO.push(i);
-        } else if (input[i] === ")") {
-            indC.push(i);
-        }
+  for (var i = 0; i < input.length; i++) {
+    if (input[i] === "(") {
+      indO.push(i);
+    } else if (input[i] === ")") {
+      indC.push(i);
     }
+  }
 
-    if (indO.length !== indC.length) {
-        return false;
-    }
+  if (indO.length !== indC.length) {
+    return false;
+  }
 
-    if (indO[indo.length - 1] > indC[0]) {
-        return false
-    }
+  if (indO[indo.length - 1] > indC[0]) {
+    return false
+  }
 
-    return true
+  return true
 }
 
+console.log('testing tests')
 module.exports = balancedParens;
