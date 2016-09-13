@@ -8,7 +8,7 @@ function twoSum(arr, n) {
   for (let i = 0; i < arr.length; i++) {
     if (cache[arr[i].toString()]) return true;
     const sub = n - arr[i];
-    cache[sub.toString()] = sub;
+    cache[sub.toString()] = true;
   }
 
   return false;
