@@ -3,7 +3,8 @@
  */
 
 function twoSum(arr, n) {
-  if (Number.isInteger(n)) {
+  if (!Number.isInteger(n)) {
+    console.log('undef')
     return undefined;
   };
   arr = arr.filter(isBigEnough);
@@ -13,8 +14,8 @@ function twoSum(arr, n) {
   }
 
   for (var i = 0; i < arr.length; i++) {
-    for (var j = 0; j < array.length; j++) {
-      if (arr[i] + arr[j] === num) {
+    for (var j = 0; j < arr.length; j++) {
+      if (arr[i] + arr[j] === n) {
         return true;
       }
     }
@@ -23,6 +24,6 @@ function twoSum(arr, n) {
   return false;
 };
 
-console.log(twoSum([2, 3, 4, 6, 25, 87, 4], 15));
+console.log(twoSum([2, 3, 4, 6, 25, 87, 4], 8));
 
 module.exports = twoSum;
