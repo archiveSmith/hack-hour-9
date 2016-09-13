@@ -25,27 +25,49 @@
  */
 
 function balancedParens(input) {
-  let indO = []
-  let indC = []
 
+  input = input.replace(/[^\[,\],\{,\},\(,\)]/gi, "");
+  //   console.log('in', input);
+  let check = [];
+  //loop through string. if open bracket, find matching closed brack. if no closed bracket
   for (var i = 0; i < input.length; i++) {
-    if (input[i] === "(") {
-      indO.push(i);
-    } else if (input[i] === ")") {
-      indC.push(i);
+    if (input[i] === '[') {
+      for (var j = i; j < input.length; j++) {
+        if (input[j] === ']') {
+          input = input.replace(/[\[,\]]/gi, "");
+        };
+      }
     }
   }
 
-  if (indO.length !== indC.length) {
+  for (var i = 0; i < input.length; i++) {
+    if (input[i] === '{') {
+      for (var j = i; j < input.length; j++) {
+        if (input[j] === '}') {
+          input = input.replace(/[\{,\}]/gi, "");
+        };
+      }
+    }
+  }
+
+  for (var i = 0; i < input.length; i++) {
+    if (input[i] === '(') {
+      for (var j = i; j < input.length; j++) {
+        if (input[j] === ')') {
+          input = input.replace(/[\(,\)]/gi, "");
+        };
+      }
+    }
+  }
+
+  if (input.length > 0) {
     return false;
-  }
+  } else {
+    return true
+  };
 
-  if (indO[indo.length - 1] > indC[0]) {
-    return false
-  }
-
-  return true
 }
 
-console.log('testing tests')
+console.log(balancedParens('[d(ff]fdaf{fda)fafdsa}'));
+
 module.exports = balancedParens;
