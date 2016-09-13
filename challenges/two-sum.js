@@ -18,21 +18,32 @@
 // }
 
 // better time complexity, higher space complexity
+// function twoSum(arr, n) {
+//   const arrHash = {};
+//   for (let i = 0; i < arr.length; i++) {
+//     if (!arrHash[arr[i]]) {
+//       arrHash[arr[i]] = i;
+//     }
+//   }
+//   for (let j = 0; j < arr.length; j++) {
+//     if (arrHash[n - arr[j]]) {
+//       return true;
+//     }
+//   }
+//   return false;
+// }
+
+// best time complexity and space complexity
 function twoSum(arr, n) {
   const arrHash = {};
-  for (let i = 0; i < arr.length; i++) {
-    if (!arrHash) {
-      arrHash[arr[i]] = i;
-    }
-  }
   for (let j = 0; j < arr.length; j++) {
-    if (arrHash[n - arr[j]]) {
+    if (arrHash[arr[j]]) {
       return true;
     }
+    arrHash[n - arr[j]] = j;
   }
   return false;
 }
-
 // test data
 // let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 // twoSum(nums, 10)
