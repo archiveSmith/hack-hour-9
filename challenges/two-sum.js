@@ -3,6 +3,8 @@
  */
 
 function twoSum(arr, n) {
+    if (arr.length === 0) return false;
+    if (typeof n !== "number") return undefined;
 	const cache = {};
 	for (let num of arr) {
 		let diff = n - num;
