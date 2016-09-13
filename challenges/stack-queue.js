@@ -67,7 +67,7 @@ Queue.prototype.dequeue = function() {
 		// 	this.stack1 = new Stack();
 		// }  
 		// return this.stack2.pop(); 
-		if(!this.storage1.index && !this.storage2.index) return undefined;
+		if(!this.stack1.index && !this.stack2.index) return undefined;
 		if(!this.stack2.index) {
 			while(this.stack1.index > 0) {
 				this.stack2.push(this.stack1.pop());
