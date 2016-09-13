@@ -7,15 +7,16 @@ function Stack() {
 	this.storage = {};
 	this.index = 0;
 	this.push = function(input){
-		this.storage[++this.index] = input;
+		this.storage[this.index++] = input;
 	}
 	this.pop = function(){
-		var temp = this.storage[this.index];
+		var temp = this.storage[this.index - 1];
 		delete this.storage[this.index];
 		this.index--;
 		return temp;
 	}
 }
+
 
 
 
@@ -30,14 +31,20 @@ function Queue() {
 	
 	this.enqueue = function(input){
 		this.stack1.push(input)
-	}
+	};
+	
 	this.dequeue = function(){
-		while(this.stack1.index > 1){
+		length = this.stack1.index;
+		for(var i = 0; i < length; i++){
+			this.stack1.index
 			this.stack2.push(this.stack1.pop())
-		}
-		var returnVal = this.stack1.pop();
-		this.stack1 = this.stack2
-		return returnVal
+		}	
+		var returnval = this.stack2.pop();
+		length = this.stack2.index;
+		for(i = 0; i < length; i++){
+			this.stack1.push(this.stack2.pop())
+		}	
+		return returnval;
 	}
 	
 }
