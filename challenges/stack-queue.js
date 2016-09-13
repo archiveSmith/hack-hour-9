@@ -14,8 +14,8 @@ Stack.prototype.push = function(val) {
 }
 
 Stack.prototype.pop = function() {
-	this.stack.pop();
 	this.length--;
+	return this.stack.pop();
 }
 
 
@@ -27,7 +27,29 @@ Stack.prototype.pop = function() {
 function Queue() {
 	this.stack1 = new Stack();
 	this.stack2 = new Stack();
+}
+
+Queue.prototype.enqueue = function(val) {
+	this.stack1.push(val);
+}
+
+Queue.prototype.dequeue = function() {
+	if (!this.stack2.length) {
+		while (this.stack1.length) {
+			let popped = this.stack1.pop();
+			this.stack2.push(popped);
+		}
+	}
+	return this.stack2.pop();
 
 }
+
+var blah = new Queue();
+blah.enqueue(1);
+blah.enqueue(2);
+blah.enqueue(3);
+console.log("stack1 ", blah.stack1)
+blah.dequeue();
+console.log("stack2 ", blah.stack2)
 
 module.exports = {Stack: Stack, Queue: Queue};
