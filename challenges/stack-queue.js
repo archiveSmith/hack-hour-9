@@ -46,7 +46,6 @@ function Stack() {
 
 
 function Queue() {
-<<<<<<< HEAD
 	this.stack1 = new Stack();
 	this.stack2 = new Stack(); 
 }
@@ -75,9 +74,7 @@ Queue.prototype.dequeue = function() {
 		} 
 		return this.stack2.pop();
 };
-=======
 
-}
->>>>>>> abed993215e9f29d04f4b03654bac81ee75e358d
+
 
 module.exports = {Stack: Stack, Queue: Queue};
