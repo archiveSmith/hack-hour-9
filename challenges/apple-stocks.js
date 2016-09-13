@@ -12,29 +12,16 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 function bestProfit(stocks) {
-	let lowestPriceSoFar = stocks[0];
-	let lowestPriceIndex;
-	let biggestProfitSoFar = 0;
+	let lowestPrice = stocks[0];
+	let profit = 0;
 
-if (stocks.length > 1) {	
 	for (let i = 1; i < stocks.length; i++) {
-		//find lowest price and set it
-		if (stocks[i] < lowestPriceSoFar) {
-			lowestPriceSoFar = stocks[i];
-			lowestPriceIndex = i;
-		}
+		lowestPrice = Math.min(lowestPrice, stocks[i]);
+		profit = Math.max(profit, stocks[i] - lowestPrice);
 	}
-	//find biggest difference and set biggestProfitSoFar
-	for (let j = lowestPriceIndex+1; j < stocks.length; j++) {
-		biggestProfitSoFar = Math.max(biggestProfitSoFar, stocks[j] - lowestPriceSoFar);
-	}
-	//return biggestProfitSoFar
-	return biggestProfitSoFar;
-}
-return 0;
+	return profit;
+}  
 		
-
-}
 
 let day1 = [500, 400, 600, 700, 800, 600, 900, 200]; //500 profit
 //let day1 = [500, 400, 300, 200, 100]; //no profit
