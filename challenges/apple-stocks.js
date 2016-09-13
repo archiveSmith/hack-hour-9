@@ -30,7 +30,8 @@
 function bestProfit(stock_prices_yesterday) {
   var maxProfit = 0;
   var possibleProfit = 0;
-  var minI = 0, maxI = 0;
+  var minI = 0,
+    maxI = 0;
   if (stock_prices_yesterday) {
     //loop through array.
     for (var i = 0; i < stock_prices_yesterday.length; i++) {
@@ -53,4 +54,5 @@ function bestProfit(stock_prices_yesterday) {
   return maxProfit;
 }
 
+console.log(bestProfit([1, 2, 3, 4]));
 module.exports = bestProfit;
