@@ -54,6 +54,5 @@ function bestProfit(stock_prices_yesterday) {
   return maxProfit;
 }
 
-console.log('test');
-
+console.log(bestProfit([1, 2, 3, 4]));
 module.exports = bestProfit;
