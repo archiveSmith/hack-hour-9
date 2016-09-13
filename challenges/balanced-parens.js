@@ -41,4 +41,24 @@
 
  	return false;
  }
+ 
+//  Hack Hour Solution:
+//  function balancedParens(input){
+//   var open = '';
+
+//   const symbols = input.match(/[\[|\]|(|)|{|}]/g) || [];
+
+//   for (let i = 0; i < input.length; i++) {
+//     if (/[\[|\(|{]/.test(input[i])) open = input[i] + open;
+//     else if (/[\]|\)|}]/.test(input[i])) {
+//       if (input[i].charCodeAt(0) - open.charCodeAt(0) > 2) {
+//         return false;
+//       } else {
+//         open = open.slice(1);
+//       }
+//     }
+//   }
+//   //  If there are any openSyms left unclosed, parens are not balanced
+//   return !open;
+// }
 module.exports = balancedParens;
