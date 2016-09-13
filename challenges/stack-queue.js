@@ -43,4 +43,4 @@ Queue.prototype.dequeue = function () {
   return this.storage2.pop();
 };
 
-// module.exports = { Stack, Queue };
+module.exports = { Stack, Queue };
