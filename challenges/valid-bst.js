@@ -11,7 +11,7 @@ function BinaryTree(val) {
     this.right = null;
 }
 
-function isBST(tree){
+function validBST(tree){
    if(!tree){
      return true; 
   }
