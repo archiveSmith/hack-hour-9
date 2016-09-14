@@ -4,26 +4,41 @@
 
 function twoSum(arr, n) {
   if (!Number.isInteger(n)) {
-    console.log('undef')
     return undefined;
   };
-  arr = arr.filter(isBigEnough);
 
-  function isBigEnough(value) {
-    return n >= value;
-  }
+  // for (var i = 0; i < arr.length; i++) {
+  //   for (var j = 0; j < arr.length; j++) {
+  //     if (arr[i] + arr[j] === n) {
+  //       return true;
+  //     };
+  //   };
+  // };
 
-  for (var i = 0; i < arr.length; i++) {
-    for (var j = 0; j < arr.length; j++) {
-      if (arr[i] + arr[j] === n) {
-        return true;
-      }
+  arr = arr.sort(function(a, b) {
+    return a - b;
+  })
+
+  let counterStart = 0;
+  let counterEnd = arr.length;
+
+  while (counterStart !== counterEnd) {
+    if (arr[counterStart] + arr[counterEnd] === n) {
+      return true
+    }
+    if (arr[counterStart] + arr[counterEnd] > n) {
+      console.log('too big')
+      counterEnd--
+    }
+
+    if (arr[counterStart] + arr[counterEnd] < n) {
+      counterStart--
     }
   }
 
   return false;
 };
 
-console.log(twoSum([2, 3, 4, 6, 25, 87, 4], 8));
+console.log(twoSum([2, 3, 4, 6, 25, 87, 4], 4));
 
 module.exports = twoSum;
