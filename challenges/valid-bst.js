@@ -12,6 +12,27 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
+	// base case
+	if (tree.left == null && tree.right == null) { return true };
+
+	// false if the left value is > than it's parent value
+	if (tree.left.value > tree.value && tree.left.value !== null ) {
+		return false; 
+	}
+
+	// false if the right value is < than it's parent value
+	if (tree.right.value < tree.value && tree.right.value !== null) {
+		return false;
+	}
+
+	// false if the left or right is not a valid BST recursing down the tree
+	if (!validBST(tree.left.value) || !validBST(tree.right.value)) {
+		return false; 
+	}
+
+	// Passed all the test so it must be true
+	return true; 
+
 
 }
 
