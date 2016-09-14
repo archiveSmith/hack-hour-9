@@ -11,22 +11,6 @@ function BinaryTree(val) {
     this.right = null;
 }
 
-BinarySearchTree.prototype.add = function (value) {
-  let right = this.value < value;
-  if (right && this.right === null) {
-    this.right = new BinarySearchTree(value);
-  } else if (!right && this.left === null) {
-    this.left = new BinarySearchTree(value);
-  } else {
-    if (right) {
-      this.right.add(value);
-    } else {
-      this.left.add(value);
-    }
-  }
-
-};
-
 function validBST(tree) {
 if (tree.value === null) return true;
 if (tree.left > tree.value) return false;
