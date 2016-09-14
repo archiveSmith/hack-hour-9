@@ -18,13 +18,13 @@ function validBST(tree) {
   if (tree.left) {
     validLeft = validLeft && tree.left.value < tree.value;
     if (tree.left.left || tree.left.right) {
-      validLeft = validBST(tree.left);
+      validLeft = validLeft && validBST(tree.left);
     }
   }
   if (tree.right) {
     validRight = validRight && tree.right.value > tree.value;
     if (tree.right.left || tree.right.right) {
-      validRight = validBST(tree.right);
+      validRight = validRight && validBST(tree.right);
     }
   }
 
