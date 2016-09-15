@@ -15,10 +15,10 @@ function validBST(tree) {
   if (tree == null) 
     return true; 
      
-  if (tree.left != null && tree.left > tree.value)
+  if (tree.left != null && tree.left.value > tree.value)
     return false; 
      
-  if (tree.right != null && tree.right < tree.value) 
+  if (tree.right != null && tree.right.value < tree.value) 
     return false; 
    
   if (!validBST(tree.left) || !validBST(tree.right)) 
