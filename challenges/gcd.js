@@ -8,6 +8,18 @@
  */
 
 function gcd(a, b) {
+  const afactors = [];
+  let end = Math.sqrt(a) < Math.sqrt(b) ? Math.sqrt(a) : Math.sqrt(b);
+
+  for (let i = 1; i < end; i++) {
+    while (a % i === 0 && b % i === 0) {
+      afactors.push(i);
+      console.log("Before: \n","i: ", i ,"\na: ", a, "\nb: ", b)
+      a = a / i;
+      b = b / i;
+      console.log("a: ", a, "\nb: ", b)
+    }
+  }
 
 }
 
