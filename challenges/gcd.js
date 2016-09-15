@@ -7,7 +7,7 @@
  *
  */
 
-ffunction gcd(a, b) {
+function gcd(a, b) {
   if (a === b) return a;
   if (a === 1) return 1;
   if (b === 1) return 1;
