@@ -12,31 +12,24 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
-	function allTreeValues(tree) {
-		if (tree.left === null && tree.right === null) {
-			// console.log('tree.value', tree.value);
-			return [tree.value];
-		} else if (tree.left !== null && tree.right === null) {
-			return [tree.value].concat(allTreeValues(tree.left));
-		} else if (tree.left === null && tree.right !== null) {
-			return [tree.value].concat(allTreeValues(tree.right));
-		} else if (tree.left !== null && tree.right !== null) {
-			return [tree.value].concat(allTreeValues(tree.left)).concat(allTreeValues(tree.right))
+	let results = [];
+	function isBSTpre(tree) {
+		if (tree.left) {
+			isBSTpre(tree.left);
+		} 
+		results.push(tree.value);
+		if (tree.right) {
+			isBSTpre(tree.right);
 		}
 	}
-	
-	if (tree.left === null && tree.right === null) {
-		return true;
-	} else  {
-		let val = tree.value;
-		let leftValues = allTreeValues(tree.left);
-		let rightValues = allTreeValues(tree.right);
-		if (tree.left.value > val || Math.max(...leftValues) > val || tree.right.value < val || Math.min(...rightValues) < val) {
-			return false;
-		} else {
-			return validBST(tree.left) && validBST(tree.right)
+	isBSTpre(tree);
+	let isValid = true;
+	for (let i = 1; i < results.length; i++) {
+		if (results[i] < results[i - 1]) {
+			isValid = false;
 		}
 	}
+	return isValid;
 }
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
