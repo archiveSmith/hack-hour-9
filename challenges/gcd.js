@@ -19,7 +19,5 @@ function gcd(a, b) {
   // return gcd(b, a % b);
 }
 
-console.log(gcd(10, 100000000000000));
-
 
 module.exports = gcd;
