@@ -30,6 +30,7 @@ function gcd(a, b) {
       return i * sign;
     }
   }
+  
 }
 
 module.exports = gcd;
