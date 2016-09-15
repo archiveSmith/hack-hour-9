@@ -8,7 +8,22 @@
  */
 
 function gcd(a, b) {
-
+	let greaterNum;
+	
+	if(a > b) {
+		greaterNum = a;
+	}else {
+		greaterNum = b;
+	}
+	
+	const halfGreaterNum = Math.ceil(a / 2);
+	
+	for(let i = halfGreaterNum; i > 0; i--) {
+		if (a % i === 0 && b % i === 0) {
+			return i;
+		}
+	}
+	return null;
 }
 
 module.exports = gcd;
