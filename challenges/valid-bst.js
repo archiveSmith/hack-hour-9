@@ -12,21 +12,24 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
-  if (tree.left) {
-    if (tree.left.value < tree.value) {
-      return validBST(tree.left);
+  function depthFirstInOrder(tree) {
+    if (tree.left) {
+      depthFirstInOrder(tree.left);
     }
-    return false;
+    arr.push(tree.value);
+    if (tree.right) {
+      depthFirstInOrder(tree.right);
+    }
   }
-  if (tree.right) {
-    if (tree.right.value > tree.value) {
-      return validBST(tree.right);
+  const arr = [];
+  depthFirstInOrder(tree);
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > arr[i + 1]) {
+      return false;
     }
-    return false;
   }
   return true;
 }
-
 
 
 module.exports = { BinaryTree, validBST };
