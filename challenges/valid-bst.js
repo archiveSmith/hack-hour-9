@@ -12,39 +12,40 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
-	let root = tree.value;
-	
+    let booleanFlag = true;
 
-	function inner(innertree, root) {
-		root =  root || tree.value; 
+	if(!tree.left && !tree.right) {
+		return true;
+	}
+	
+	if(tree.left && tree.left.value > tree.value) {
+		return false;
+	}
+	
+	if(tree.right && tree.right.value < tree.value) {
+		return false;
+	}
+	
 	if(tree.left) {
-		if(innertree.left.value <= root) {
-			inner(innertree.left, innertree.left.value);
-		} else {
-			return false;
-		}
-	} 
-	
-	if(tree.right) {
-		if(innertree.right.value > root) {
-			inner(innertree.right, innertree.right.value);
-		} else {
-			return false;
-		}
+	    if (!validBST(tree.left)) {
+	        booleanFlag = false;
+	    }
 	}
-	return true;
-	}
-	inner(tree, root);
-	
 
+	if(tree.right) {
+	    if (!validBST(tree.right)) {
+	        booleanFlag = false;
+	    }
+	}
+	return booleanFlag;
+	
 }
 
 var bst = new BinaryTree(8);
-bst.left = new BinaryTree(4);
-bst.left.left = new BinaryTree(2);
+bst.left = new BinaryTree(1);
+bst.left.right = new BinaryTree(2);
 bst.right = new BinaryTree(9);
 bst.right.right = new BinaryTree(12);
-//console.log(bst);
 
 validBST(bst)
 
