@@ -8,7 +8,23 @@
  */
 
 function gcd(a, b) {
+  let hash = {}
+  for (var i = a; i >= 0; i--) {
+    if (a % i == 0) {
+      hash[i] = i;
+    }
+  }
 
-}
+  for (var i = b; i >= 0; i--) {
+    if (b % i == 0) {
+      if (hash[i]) {
+        console.log(i);
+        return i;
+      }
+    }
+  }
 
+};
+
+gcd(60, 90)
 module.exports = gcd;
