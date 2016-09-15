@@ -6,9 +6,26 @@
  * gcd(10, 9) -> 1
  *
  */
+ //A much more efficient method is the Euclidean algorithm, which uses 
+ // the observation that the gcd of two numbers also divides their difference.
 
+//WHile
 function gcd(a, b) {
-
+	while (b !== 0) {
+		var z = a % b;
+		a = b;
+		b = z;
+	}
+	return a;
 }
+	
+//REcursive
+// var gcd = function(a, b) {
+//     if ( !b) {
+//         return a;
+//     }
+//     return gcd(b, a % b);
+// };
+	
 
 module.exports = gcd;
