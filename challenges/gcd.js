@@ -8,23 +8,13 @@
  */
 
 function gcd(a, b) {
-  let hash = {}
-  for (var i = a; i >= 0; i--) {
-    if (a % i == 0) {
-      hash[i] = i;
-    }
-  }
+  let larger = Math.max(a, b);
+  let smaller = Math.min(a, b);
+  let div = larger % smaller;
 
-  for (var i = b; i >= 0; i--) {
-    if (b % i == 0) {
-      if (hash[i]) {
-        console.log(i);
-        return i;
-      }
-    }
-  }
+  return div === 0 ? smaller : gcd(div, smaller);
 
 };
 
-gcd(60, 90)
+console.log(gcd(100000000000002, 100000000000004))
 module.exports = gcd;
