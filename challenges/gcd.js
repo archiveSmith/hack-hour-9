@@ -33,4 +33,3 @@ function gcd(a, b) {
 }
 
 module.exports = gcd;
-dule.exports = gcd;
