@@ -19,10 +19,15 @@
 function rotateGrid(grid, n) {
   for (let i = 0, len = grid.length; i < len / 2; i++) {
     for (let j = i; j < len - i - 1; j++) {
+      //store top
       let top = grid[i][j];
+     //moves left to top
       grid[i][j] = grid[len - j - 1][i];
+      //move bottom to left
       grid[len - j - 1][i] = grid[len - i - 1][len - j - 1];
+     //move right to bottom
       grid[len - i - 1][len - j - 1] = grid[j][len - i - 1];
+      // move top to right
       grid[j][len - i - 1] = top;
     }
   }
