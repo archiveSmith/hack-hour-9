@@ -26,7 +26,16 @@
  */
 
 function applyIt(func, args) {
+	
+	//iterate over the args
+	return function inner() {
+		for ( let i = 0; i < args.length; i++) {
+			return func(args[i]);
+		}
+
+	}
 
 }
+
 
 module.exports = applyIt;
