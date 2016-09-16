@@ -9,7 +9,9 @@ function twoSum(arr, n) {
   if (arr.length === 0) return false;
   for (let i = 0; i < arr.length; i++){
   let diff = n - arr[i];
-  if (store[arr[i]]) return true;
+  if (store[arr[i]]) {
+    return true;
+  }
   store[diff] = true;
 }
 	return false;
