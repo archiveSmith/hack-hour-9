@@ -33,7 +33,9 @@ function applyIt(func, args) {
     argString += ',';
   }
   let callStr = 'func(' + argString + ')';
-  return eval(callStr);
+  return function() {
+  	return eval(callStr);
+  }
 }
 
 module.exports = applyIt;
