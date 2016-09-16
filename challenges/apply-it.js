@@ -25,8 +25,15 @@
  *  DO NOT USE THE BUILT IN APPLY METHOD OR THE SPREAD OPERATOR
  */
 
-function applyIt(func, args) {
 
+
+function applyIt(func, args) {
+	var newArr = [];
+	for (var i = 1; i < arguments.length; i++){
+		newArr.push(arguments[i]);
+	}
+	var answer = func(newArr);
+	return answer;
 }
 
 module.exports = applyIt;
