@@ -44,9 +44,4 @@ function applyIt(func, args) {
   };
 }
 
-var jae = function (name, age, location) {
-  return name + " is " + age + " and he lives in " + location;
-};
-
-console.log(applyIt(jae, ['will', 24, 'california'])());
 module.exports = applyIt;
