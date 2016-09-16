@@ -26,7 +26,12 @@
  */
 
 function applyIt(func, args) {
+  if (typeof func !== 'function') return undefined;
+  if (!Array.isArray(args)) return undefined;
 
+  return args.reduce((currentFunc, nextArg) => {
+    return currentFunc.bind(this, nextArg);
+  }, func);
 }
 
 module.exports = applyIt;
