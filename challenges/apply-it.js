@@ -26,7 +26,27 @@
  */
 
 function applyIt(func, args) {
-
+  let closure = 'func(';
+  for (let i = 0; i < args.length; i++) {
+    if (typeof args[i] === 'string') {
+      closure += `"${args[i]}"`;
+    } else {
+      closure += args[i];
+    }
+    if (i !== args.length - 1) {
+      closure += ', ';
+    } else {
+      closure += ')';
+    }
+  }
+  return function () {
+    return eval(closure);
+  };
 }
 
+var jae = function (name, age, location) {
+  return name + " is " + age + " and he lives in " + location;
+};
+
+console.log(applyIt(jae, ['will', 24, 'california'])());
 module.exports = applyIt;
