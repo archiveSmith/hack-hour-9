@@ -9,6 +9,8 @@
  //A much more efficient method is the Euclidean algorithm, which uses 
  // the observation that the gcd of two numbers also divides their difference.
 
+//A slight change
+
 //WHile
 function gcd(a, b) {
 	while (b !== 0) {
