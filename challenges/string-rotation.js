@@ -16,15 +16,11 @@
  }
 
  function stringRotation(s1, s2) {
- 	if(s1.length !== s2.length){
- 		return false;
- 	}
- 	let sameChar =  s1.split('').sort().join('') === s2.split('').sort().join('');
- 	if(!sameChar){
- 		return false;
- 	}
- 	return isSubstring(s1, s2);
+	 if (s1.length !== s2.length) return false;
 
+	 var s3 = s2 +s2;
+
+	 return isSubstring(s3, s1);
  }
 
 
