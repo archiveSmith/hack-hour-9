@@ -13,29 +13,19 @@
  *
  */
 
-function mergeArrays(arr1, arr2) {
-  const outArr = [];
-  const longestArr = arr1;
-  const smallestArr = arr2;
-  let counter = 0;
-
-  if (arr1.length < arr2.length) {
-    longestArr = arr2;
-    smallestArr = arr1;
-  }
-
-  for (let i = 0; i < longestArr.length; i++) {
-    for (let j = counter; j < smallestArr.length; j++) {
-      if (longestArr[i] < smallestArr[j]) {
-        outArr.push(longestArr[i]);
-        break;
-      } else {
-        outArr.push(smallestArr[j]);
-        counter++;
-      }
-    }
-  }
-  return outArr;
-}
+ unction mergeArrays(array1, array2) {
+     var newArray = [];
+     for (var i = 0; i < array1.length; i++){
+ 	if (array1[i] <= array2[i]){
+ 	    newArray.push(array1[i]);
+ 	    newArray.push(array2[i]);
+ 	}
+ 	else {
+ 	    newArray.push(array2[i]);
+             newArray.push(array1[i]);
+ 	}
+     }
+     return newArray;
+ }
 
 module.exports = mergeArrays;

@@ -28,23 +28,19 @@
 //if the last thing pushed on the openning paren array does not match the closing paren array return false
 
 function balancedParens(input){
-  let openParens = ['{','[','('];
-  let closeParens = ['}',']',')'];
-  let openParenBox = [];
-  for (let i = 0;i < input.length;i++){
-    if (openParens.indexOf(input[i]) !== -1){
-      openParenBox.push(input[i]);
-    }
-    if (closeParens.indexOf(input[i]) !== -1){
-      console.log('check to see if ',openParenBox[openParenBox.length-1], ' = ', openParens[closeParens.indexOf(input[i])])
-      if (openParenBox[openParenBox.length-1] !== openParens[closeParens.indexOf(input[i])]){
+  var matches = {'[':']', '{':'}', '(':')'};
+  var brackets = [];
+  for (var i = 0; i < input.length; i++) {
+    var char = input[i];
+    if (char in matches) {
+      brackets.push(char);
+    } else if (char === ']' || char === ')' || char === '}'){
+      if (matches[brackets.pop()] !== char){
         return false;
-      } else {
-        openParenBox.pop();
       }
     }
   }
-  return true;
+  return !brackets.length;
 }
 
 console.log(balancedParens('[](){}'))
