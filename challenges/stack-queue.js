@@ -25,27 +25,20 @@ Stack.prototype.pop = function() {
 
 
 function Queue() {
-  this.cache = {};
-  this.index = 0;
-  this.dequeueIndex = 0;
-
-  var inbox = new Stack();
-  var outbox = new Stack();
+  this.inbox = new Stack();
+  this.outbox = new Stack();
 }
 Queue.prototype.enqueue = function(value) {
-  inbox.
-  this.cache[this.index] = value;
-  this.index++;
-};
-
+  this.inbox.push(value)
+  return value;
+}
 Queue.prototype.dequeue = function() {
-  if (this.index === this.dequeueIndex){
-    return undefined;
-  } else{
-    let poppedVar = this.cache[this.dequeueIndex];
-    delete this.cache[this.dequeueIndex];
-    this.dequeueIndex++;
-    return poppedVar;
+  if(this.outbox.index === 0) {
+    if(this.inbox.index === 0) return undefined;
+    while(this.inbox.index > 0) {
+      this.outbox.push(this.inbox.pop())
+    }
   }
-};
+  return this.outbox.pop();
+}
 module.exports = {Stack: Stack, Queue: Queue};
