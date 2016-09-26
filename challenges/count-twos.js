@@ -10,7 +10,6 @@
 function count2s(n){
 	let num2s = 0;
 	for(let i = 0; i <= n; i++){
-		console.log(i)
 		let arr = JSON.stringify(i).match(/[2]/g)
 		arr ? num2s += arr.length : console.log('lolno2');
 	}
