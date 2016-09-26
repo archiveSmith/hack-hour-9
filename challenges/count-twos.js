@@ -9,8 +9,8 @@
 function countTwos(num) {
   counter = 0;
   for (var i = num; i > 0; i--) {
-    let strNum = i.toString().match(/2/g) || [];
-    counter = counter + strNum.length;
+    let strNum = (i.toString().match(/2/g) || []).length;
+    counter = counter + (i.toString().match(/2/g) || []).length
   }
 
   return counter;
