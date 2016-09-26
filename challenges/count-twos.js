@@ -8,7 +8,21 @@
 
 
 function countTwos(n) {
+	let handle2 = 0;
 	let counter = 0;
+	
+	let nStr = ''+n;
+	
+	for (let k = 0; k < nStr.length; k++) {
+		if(nStr[k] === '2') {
+			handle2++;
+		}
+	}
+	
+
+	if(handle2 === nStr.length) {
+		return handle2;
+	}
 	
 	for (let i = 1; i <= n; i++) {
 		let newStr = ''+i;
@@ -20,6 +34,7 @@ function countTwos(n) {
 	}
 	return counter;
 }
+
 
 
 module.exports = countTwos;
