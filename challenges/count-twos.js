@@ -8,7 +8,14 @@
 
 
 function countTwos(num) {
-
+  let count = 0,
+  two = /2/g,
+  twos;
+  for (let i = 0; i <= num; i++) {
+  	twos = JSON.stringify(i).match(two);
+  	count = twos ? count + twos.length : count;
+  }
+  return count;
 }
 
 module.exports = countTwos;
