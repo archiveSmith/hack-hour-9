@@ -8,7 +8,26 @@
 
 
 function countTwos(num) {
-
+  var counter = 0;
+  var splitted;
+  for (var i = 0; i <= num; i++){
+    if (i === 2){
+      counter++;
+    }
+    if (i >= 10) {
+      splitted = i.toString().split('');
+      splitted.forEach(function(x){
+        if (x === '2'){
+          counter++;
+        }
+      });
+    } 
+  }
+  return counter;
+  //increment num by 1 until you hit num
+  //split each number into single digits
+  //if one of those digits is 2, increment the counter 
+  //return counter
 }
 
 module.exports = countTwos;
