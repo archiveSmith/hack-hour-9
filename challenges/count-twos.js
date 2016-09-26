@@ -8,7 +8,16 @@
 
 
 function countTwos(num) {
+  let counter = 0;
+  var two = new RegExp("2");
+  for (let i = 0; i <= num; i++) {
+    n = i.toString();
+    if (two.test(n)) {
+      counter += (n.match(/2/g) || []).length;
+    }
 
+  }
+  return counter;
 }
 
 module.exports = countTwos;
