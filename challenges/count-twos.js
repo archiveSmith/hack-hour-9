@@ -8,7 +8,22 @@
 
 
 function countTwos(num) {
-
+	let counter = 0;
+	let twoCount = 0;
+	const re = /\d(?!.*\d)/;
+	let digitArr, digitLen;
+	while (counter <= num) {
+		digitArr = ("" + counter).split("");
+		
+		// console.log(lastDigit)
+		for (var i = 0; i < digitArr.length; i++) {
+			if (digitArr[i] == 2) {
+				twoCount += 1;
+			}
+		}
+		counter++;
+	}
+	return twoCount;
 }
 
 module.exports = countTwos;

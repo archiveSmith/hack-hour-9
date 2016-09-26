@@ -18,10 +18,10 @@
  *       return name + " is " + age + " years old!";
  *     }
  *   };
- *
+ *  
  *   var jmoney = applyIt(jasmine, ["Jasmine"]);
  *   jmoney(); //Returns "We don't know how old Jasmine is!"
- *
+ *   // regex /[\[\]']+/ to get the brackets
  *  DO NOT USE THE BUILT IN APPLY METHOD OR THE SPREAD OPERATOR
  */
 
