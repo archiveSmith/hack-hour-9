@@ -14,7 +14,48 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+	if (!l1 || !l2) return undefined;
 
+  let iterator1 = l1;
+  let iterator2 = l2;
+
+  let result;
+  let resultIterator;
+
+  let digitSum = iterator1.value + iterator2.value;
+  let carry = 0;
+
+  if (digitSum >=10) {
+    carry = 1;
+    digitSum -= 10;
+  }
+
+  result = resultIterator = new Node(digitSum);
+
+  iterator1 = iterator1.next;
+  iterator2 = iterator2.next;
+
+  while (iterator1 && iterator2) {
+    digitSum = iterator1.value + iterator2.value + carry;
+
+    if (digitSum >= 10) {
+      carry = 1;
+      digitSum -= 10;
+    } else {
+      carry = 0;
+    }
+
+    resultIterator.next = new Node(digitSum);
+
+    resultIterator = resultIterator.next;
+    iterator1 = iterator1.next;
+    iterator2 = iterator2.next;
+  }
+
+  if (iterator1) resultIterator.next = iterator1;
+  else if (iterator2) resultIterator.next = iterator2;
+
+  return result;
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
