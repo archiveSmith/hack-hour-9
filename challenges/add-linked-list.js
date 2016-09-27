@@ -14,7 +14,36 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
-
+  let output;
+  let outNext;
+  let remain = 0;
+  for (let i = l1, j = l2; i; i = i.next, j = j.next) {
+    let value = i.value + j.value + remain;
+    remain = 0;
+    if (value >= 10) {
+      value -= 10;
+      remain = 1;
+    }
+    if (!output) {
+      output = new Node(value);
+      outNext = output;
+    } else {
+      outNext.next = new Node(value);
+      outNext = outNext.next;
+    }
+  }
+  return output;
 }
+
+// test data
+// let l1 = new Node(3);
+// l1.next = new Node(1);
+// l1.next.next = new Node(5);
+
+// let l2 = new Node(5);
+// l2.next = new Node(9);
+// l2.next.next = new Node(2);
+
+// addLinkedList(l1, l2);
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
