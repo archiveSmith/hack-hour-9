@@ -38,21 +38,43 @@ function addLinkedList(l1, l2) {
       l1 = node;
     }
   }
+  let prev = l1;
   for (let i = l1, j = l2; i; i = i.next, j = j.next) {
     i.value += j.value;
     if (i.value >= 10) {
       i.value -= 10;
-      if (i.next) {
-        i.next.value += 1;
-      } else {
+      prev.value += 1;
+      if (!i.next) {
         const node = new Node(1);
         i.next = node;
         break;
       }
     }
+    prev = i;
   }
   return l1;
 }
+
+let n = new Node(2);
+let n1 = new Node(1);
+let n2 = new Node(5);
+n.next = n1;
+n1.next = n2;
+let n4 = new Node(3);
+
+// let n = new Node(9);
+// let n1 = new Node(9);
+// //let n2 = new Node(9);
+// n.next = n1;
+// //n1.next = n2;
+
+// let n3 = new Node(9);
+// let n4 = new Node(9);
+// //let n5 = new Node(9);
+// n3.next = n4;
+// //n4.next = n5;
+
+ console.log(addLinkedList(n4, n));
 
 
 module.exports = { Node, addLinkedList };
