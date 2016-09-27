@@ -14,34 +14,44 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+  let result;
+  let resultIndex;
+  let i1 = l1;
+  let i2 = l2;
+  let sum = i1.value + i2.value;
+  let numCarry = 0;
+  i1 = i1.next;
+  i2 = i2.next;
 
-  let val = 0;
-  let prev;
-  let l3;
+  if (sum >= 10) {
+    numCarry = 1;
+    sum -= 10;
+  }
 
-  while (l1 !== null || l2 !== null) {
-    if (l1) {
-      val += l1.val;
-      l1 = l1.next;
-    }
-    if (l2) {
-      val += l2.val;
-      l2 = l2.next;
-    }
-    if (prev) {
-      prev.next = new Node(val % 10);
-      prev = prev.next;
+  result = resultIndex = new Node(sum);
+
+  while (i1 && i2) {
+    sum = i1.value + i2.value + numCarry;
+
+    if (sum >= 10) {
+      sum -= 10;
+      numCarry = 1;
     } else {
-      l3 = new Node(val % 10);
-      prev = l3;
+      numCarry = 0;
     }
-    val = val / 10 | 0;
+    i1 = i1.next;
+    i2 = i2.next;
+    resultIndex.next = new Node(sum);
+    resultIndex = resultIndex.next;
   }
 
-  if (val) {
-    prev.next = new Node(val);
+  if (i1) {
+    resultIndex.next = i1;
+  } else if (i2) {
+    resultIndex.next = i2;
   }
-  return l3;
+
+  return result;
 }
 
 module.exports = {
