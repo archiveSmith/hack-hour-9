@@ -25,7 +25,3 @@ function countTwos(num) {
 
 
 module.exports = countTwos;
-(1000)
-
-
-module.exports = countTwos;
