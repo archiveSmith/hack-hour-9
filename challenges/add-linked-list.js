@@ -14,7 +14,47 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
-
+  let total = loopLL(l1) + loopLL(l2);
+  return createLL(total);
 }
 
-module.exports = {Node: Node, addLinkedList: addLinkedList};
+let loopLL = (liLi) => {
+  let pointer = liLi;
+  let arr = [];
+  while (pointer !== null) {
+    arr.push(pointer.value)
+    pointer = pointer.next;
+  };
+  output = parseInt(arr.reverse().join(''));
+  return output;
+};
+
+let createLL = (int) => {
+  let arr = int.toString().split('').reverse();
+  let last;
+  let output;
+  arr.forEach((element, index, array) => {
+    let n = new Node(element);
+    if (last == undefined) {
+      last = n;
+      output = last;
+    } else {
+      last.next = n;
+      last = n;
+    };
+  });
+  return output;
+};
+
+// let node1 = new Node(1);
+// let node2 = node1.next = new Node(2);
+// let node3 = node2.next = new Node(3);
+// let node4 = new Node(4);
+// let node5 = node4.next = new Node(5);
+// let node6 = node5.next = new Node(6);
+
+// console.log('t',addLinkedList(node1, node4));
+// console.log(node1);
+// console.log(node4);
+
+module.exports = { Node: Node, addLinkedList: addLinkedList };
