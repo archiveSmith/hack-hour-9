@@ -13,8 +13,30 @@ function Node(val) {
   this.next = null;
 }
 
-function addLinkedList(l1, l2) {
 
+function addLinkedList(l1, l2) {
+  if (!l1 || !l2) return l1 || l2;
+  function listToNum(l) {
+    let numStr = ""
+    for (let node = l; node; node = node.next) {
+      numStr += node.value.toString();
+    }
+    return Number(numStr);
+  }
+
+  function numToList(n) {
+    nodeArr = n.toString().split("").reverse().map(n => {
+      return new Node(n);
+    })
+    let head = nodeArr[0];
+    let curr = head;
+    for (let i = 1; i < nodeArr.length; i++) {
+      curr.next = nodeArr[i];
+      curr = curr.next;
+    }
+    return head;
+  }
+	return numToList(listToNum(l1) + listToNum(l2))
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
