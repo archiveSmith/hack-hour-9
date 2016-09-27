@@ -20,6 +20,14 @@ function addLinkedList(l1, l2) {
   let l3;
 
   while (l1 !== null || l2 !== null) {
+    if (l1) {
+      val += l1.val;
+      l1 = l1.next;
+    }
+    if (l2) {
+      val += l2.val;
+      l2 = l2.next;
+    }
     if (prev) {
       prev.next = new Node(val % 10);
       prev = prev.next;
@@ -29,14 +37,7 @@ function addLinkedList(l1, l2) {
     }
     val = val / 10 | 0;
   }
-  if (l1) {
-    val += l1.val;
-    l1 = l1.next;
-  }
-  if (l2) {
-    val += l2.val;
-    l2 = l2.next;
-  }
+
   if (val) {
     prev.next = new Node(val);
   }
