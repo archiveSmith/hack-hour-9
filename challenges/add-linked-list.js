@@ -14,7 +14,8 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
-	if (!l1 || !l2) return undefined;
+	if (!l1) return l2;
+  if (!l2) return l1;
 
   let iterator1 = l1;
   let iterator2 = l2;
