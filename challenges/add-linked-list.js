@@ -14,67 +14,23 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
-  let l1Length = 0;
-  let l2Length = 0;
+  let l1Str = '';
+  let l2Str = '';
   for (let i = l1; i; i = i.next) {
-    l1Length++;
+    l1Str += i.value;
   }
   for (let i = l2; i; i = i.next) {
-    l2Length++;
+    l2Str += i.value;
   }
-  if (l1Length > l2Length) {
-    const dif = l1Length - l2Length;
-    for (let i = 0; i < dif; i++) {
-      const node = new Node(0);
-      node.next = l2;
-      l2 = node;
-    }
+  let num = Number(l1Str) + Number(l2Str);
+  num = num.toString().split('');
+  const ll = new Node(+num[0]);
+  for (let i = 1, j = ll; i < num.length; i++, j = j.next) {
+    const node = new Node(+num[i]);
+    j.next = node;
   }
-  if (l2Length > l1Length) {
-    const dif = l2Length - l1Length;
-    for (let i = 0; i < dif; i++) {
-      const node = new Node(0);
-      node.next = l1;
-      l1 = node;
-    }
-  }
-  let prev = l1;
-  for (let i = l1, j = l2; i; i = i.next, j = j.next) {
-    i.value += j.value;
-    if (i.value >= 10) {
-      i.value -= 10;
-      prev.value += 1;
-      if (!i.next) {
-        const node = new Node(1);
-        i.next = node;
-        break;
-      }
-    }
-    prev = i;
-  }
-  return l1;
+  return ll;
 }
-
-// let n = new Node(2);
-// let n1 = new Node(1);
-// let n2 = new Node(5);
-// n.next = n1;
-// n1.next = n2;
-// let n4 = new Node(3);
-
-// let n = new Node(9);
-// let n1 = new Node(9);
-// //let n2 = new Node(9);
-// n.next = n1;
-// //n1.next = n2;
-
-// let n3 = new Node(9);
-// let n4 = new Node(9);
-// //let n5 = new Node(9);
-// n3.next = n4;
-// //n4.next = n5;
-
- //console.log(addLinkedList(n4, n));
 
 
 module.exports = { Node, addLinkedList };
