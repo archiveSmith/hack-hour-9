@@ -9,6 +9,13 @@
 // countTwos(11420);  -> 4483
 
 
+const twos = {
+	10: 1,
+	100: 20,
+	1000: 300,
+	10000: 4000
+}
+
 function countTwos(num) {
  let twoCount = 0;
 
