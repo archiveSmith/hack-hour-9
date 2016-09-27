@@ -14,29 +14,22 @@ function Node(val) {
 }
 
 
-function addLinkedList(l1, l2) {
-  if (!l1 || !l2) return l1 || l2;
-  function listToNum(l) {
-    let numStr = ""
-    for (let node = l; node; node = node.next) {
-      numStr += node.value.toString();
-    }
-    return Number(numStr);
-  }
 
-  function numToList(n) {
-    nodeArr = n.toString().split("").reverse().map(n => {
-      return new Node(n);
-    })
-    let head = nodeArr[0];
-    let curr = head;
-    for (let i = 1; i < nodeArr.length; i++) {
-      curr.next = nodeArr[i];
-      curr = curr.next;
-    }
-    return head;
-  }
-	return numToList(listToNum(l1) + listToNum(l2))
+function addLinkedList(l1, l2) {
+	function addList(l1, l2, carry) {
+		if (!l1 && !l2) return (carry) ? new Node(carry) : null;
+		if (!l1) return l2;
+		if (!l2) return l1;
+		l1.value = l1.value + carry;
+		let sum = l1.value + l2.value;
+		let c = Math.floor(sum / 10);
+		let rem = sum % 10;
+		let head = new Node(rem);
+		head.next = addList(l1.next, l2.next, c);
+		return head;
+	}
+	return addList(l1, l2, 0);
 }
+
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
