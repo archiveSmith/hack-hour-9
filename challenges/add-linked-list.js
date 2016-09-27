@@ -15,7 +15,14 @@ function Node(val) {
 
 function addLinkedList(l1, l2) {
   const numOne = getNum(l1), numTwo = getNum(l2);
-  return numOne ? (numTwo ? numOne + numTwo : numOne) : (numTwo ? numTwo : 0);
+  const result = numOne ? (numTwo ? numOne + numTwo : numOne) : (numTwo ? numTwo : 0);
+  const str = result.toString();
+  const head = new Node(str[str.length-1]);
+  let cur = head;
+  for (let i = str.length-2; i >= 0; i--) {
+    cur.next = new Node(Number(str[i]));
+    cur = cur.next;
+  }
   
 }
 function getNum(list) {
