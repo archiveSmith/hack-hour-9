@@ -21,6 +21,26 @@ function countTwos(num) {
   return count;
 }
 
+
+// function countTwos(num) {
+//   let count = 0;
+//   for (let i = 0; i <= num; ++i) {
+//     count += checkTwos(i);
+//   }
+//   return count;
+// }
+
+// function checkTwos(num) {
+//   let count = 0;
+//   const numString = num.toString();
+//   for (let j = 0; j < numString.length; ++j) {
+//     if (numString[j] === '2') {
+//       count++;
+//     }
+//   }
+//   return count;
+// }
+
 // test cases
 // console.log(countTwos(1000), 'should equal 300');
 // console.log(countTwos(1), 'should equal 0');
