@@ -8,25 +8,24 @@
 
 
 function countTwos(num) {
-  let numStr;
-  let count = 0;
-  for (let i = 1; i <= num; i++) {
-    numStr = i.toString();
-    numStr = numStr.split("").reverse();
-    if (numStr[0] === '2') {
-      count++;
+  let inc = 0;
+  let numCounter = 0;
+  let arr;
+  while (inc <= num) {
+    arr = ("" + inc).split("");
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === 2) {
+        numCounter += 1;
+      }
     }
-    console.log(numStr.length)
-    console.log(i)
-    if (numStr.length > 1 && 10 ** (numStr.length - 1) * 2 === i) {
-      console.log('hi')
-      count++;
-    }
+    inc++;
   }
-  return count;
+  return numCounter;
 }
 
-countTwos(1000)
+
+module.exports = countTwos;
+(1000)
 
 
 module.exports = countTwos;
