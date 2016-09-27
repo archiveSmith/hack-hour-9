@@ -22,6 +22,8 @@ function addLinkedList(l1, l2) {
   for (let i = l2; i; i = i.next) {
     l2Str += i.value;
   }
+  l1Str = l1Str.split('').reverse().join('');
+  l2Str = l2Str.split('').reverse().join('');
   let num = Number(l1Str) + Number(l2Str);
   num = num.toString().split('');
   const ll = new Node(+num[0]);
