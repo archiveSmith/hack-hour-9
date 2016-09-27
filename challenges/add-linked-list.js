@@ -31,6 +31,7 @@ function addLinkedList(l1, l2) {
     cur.next = new Node(Number(str[i]));
     cur = cur.next;
   }
+  return head;
   
 }
 // function getNum(list) {
