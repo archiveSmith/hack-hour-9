@@ -25,7 +25,13 @@ function addLinkedList(l1, l2) {
 		let c = Math.floor(sum / 10);
 		let rem = sum % 10;
 		let head = new Node(rem);
-		head.next = addList(l1.next, l2.next, c);
+		if (carry && !l1.next) {
+			head.next = addList(new Node(carry), l2.next, 0);
+		} else if (carry && !l2.next) {
+			head.next = addList(new Node(carry), l1.next, 0);
+		} else {
+			head.next = addList(l1.next, l2.next, c);
+		}
 		return head;
 	}
 	return addList(l1, l2, 0);
