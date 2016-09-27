@@ -8,7 +8,6 @@
 
 
 function countTwos(num) {
-<<<<<<< HEAD
   let inc = 0;
   let numCounter = 0;
   let arr;
@@ -26,9 +25,3 @@ function countTwos(num) {
 
 
 module.exports = countTwos;
-=======
-
-}
-
-module.exports = countTwos;
->>>>>>> 58f655c29cf821709d2e556b9f296f0af0038642
