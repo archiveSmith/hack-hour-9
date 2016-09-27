@@ -34,8 +34,10 @@ function addLinkedList(l1, l2) {
   const output = new Node();
   for (let i = 0, ss = l1l2SumStr, pointer = output; i < len; i++) {
     pointer.value = Number(ss.charAt(len - 1 - i));
-    pointer.next = new Node();
-    pointer = pointer.next;
+    if (i < len - 1) {
+      pointer.next = new Node();
+      pointer = pointer.next;
+    }
   }
   return output;
 }
