@@ -8,14 +8,37 @@
 
 
 function countTwos(num) {
-  let count = 0,
-  two = /2/g,
-  twos;
-  for (let i = 0; i <= num; i++) {
-  	twos = JSON.stringify(i).match(two);
-  	count = twos ? count + twos.length : count;
-  }
-  return count;
-}
+  
 
+}
+// function countTwos(num) {
+//   let count = 0,
+//   two = /2/g,
+//   twos;
+//   for (let i = 0; i <= num; i++) {
+//   	twos = JSON.stringify(i).match(two);
+//   	count = twos ? count + twos.length : count;
+//   }
+//   return count;
+// }
+
+// function countTwos(num) {
+//   let count = 0,
+//   two = /2/g,
+//   twos;
+//   for (let i = 0; i <= num; i++) {
+//     count += counter(i);
+//   }
+//   return count;
+// }
+// function counter(num) {
+//   let str = num.toString(),
+//     count = 0;
+//   for (let j = 0; j < str.length; j++) {
+//     if (str[j] = '2') {
+//       count++;
+//     }
+//   }
+//   return count;
+}
 module.exports = countTwos;

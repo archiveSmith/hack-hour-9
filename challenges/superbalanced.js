@@ -14,7 +14,13 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
-
+	function checkDepth(tr, depth = 0) {
+		if (!tr) return depth;
+		const leftDepth = checkDepth(tr.left, depth + 1), 
+		rightDepth = checkDepth(tr.right, depth + 1);
+		return  leftDepth > rightDepth ? leftDepth : rightDepth;
+	}
+	return Math.abs(checkDepth(tree.left) - checkDepth(tree.right)) <= 1;
 }
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
