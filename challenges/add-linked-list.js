@@ -13,8 +13,51 @@ function Node(val) {
   this.next = null;
 }
 
-function addLinkedList(l1, l2) {
-
+function Node(val) {
+  this.value = val;
+  this.next = null;
 }
 
-module.exports = {Node: Node, addLinkedList: addLinkedList};
+function addLinkedList(l1, l2) {
+
+  var current1 = l1;
+  var current2 = l2;
+  var result;
+  var summer;
+  var digitSum = current1.value + current2.value;
+  var carry = 0;
+
+  if (digitSum >= 10) {
+    carry = 1;
+    digitSum -= 10;
+  }
+
+  summer = new Node(digitSum);
+  result = summer
+
+  current1 = current1.next;
+  current2 = current2.next;
+
+  while (current1 && current2) {
+    digitSum = current.value + current2.value + carry;
+
+    if (digitSum >= 10) {
+      carry = 1;
+      digitSum -= 10;
+    } else {
+      carry = 0;
+    }
+
+    summer.next = new Node(digitSum);
+
+    summer = summer.next;
+    current1 = current1.next;
+    current2 = current2.next;
+  }
+
+
+  return result;
+}
+
+}
+module.exports = { Node: Node, addLinkedList: addLinkedList };
