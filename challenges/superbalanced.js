@@ -15,6 +15,24 @@ function BinaryTree(value) {
 
 function superbalanced(tree) {
 
+  let min = getMin(tree);
+  let max = getMax(tree);
+
+  return max > (min + 1);
 }
 
-module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
+function getMin(n) {
+  if (!n) {
+    return 0;
+  }
+  return 1 + Math.min(getMin(n.left), getMin(n.right));
+}
+
+function getMax(n) {
+  if (!n) {
+    return 0;
+  }
+  return 1 + Math.max(getMax(n.left), getMax(n.right));
+}
+
+module.exports = { BinaryTree: BinaryTree, superbalanced: superbalanced };
