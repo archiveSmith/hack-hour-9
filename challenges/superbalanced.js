@@ -14,25 +14,13 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
-
-  let min = getMin(tree);
-  let max = getMax(tree);
-
-  return max > (min + 1);
+  if (!tree) return true;
+  let logic = Math.abs(checkDepth(tree.left) - checkDepth(tree.right)) <= 1;
+  return logic && superbalanced(tree.left) && superbalanced(tree.right);
 }
-
-function getMin(n) {
-  if (!n) {
-    return 0;
-  }
-  return 1 + Math.min(getMin(n.left), getMin(n.right));
-}
-
-function getMax(n) {
-  if (!n) {
-    return 0;
-  }
-  return 1 + Math.max(getMax(n.left), getMax(n.right));
+function checkDepth(tree, depth = 0) {
+		if (!tree) return depth;
+		return Math.max(checkDepth(tree.left, depth + 1), checkDepth(tree.right, depth + 1))
 }
 
 module.exports = { BinaryTree: BinaryTree, superbalanced: superbalanced };
