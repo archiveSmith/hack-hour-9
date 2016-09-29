@@ -14,13 +14,14 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
-	function checkDepth(tr, depth = 0) {
-		if (!tr) return depth;
-		const leftDepth = checkDepth(tr.left, depth + 1), 
-		rightDepth = checkDepth(tr.right, depth + 1);
-		return  leftDepth > rightDepth ? leftDepth : rightDepth;
-	}
-	return Math.abs(checkDepth(tree.left) - checkDepth(tree.right)) <= 1;
+  if (!tree) return true;
+  return Math.abs(checkDepth(tree.left) - checkDepth(tree.right)) <= 1 && superbalanced(tree.left) && superbalanced(tree.right);
+}
+function checkDepth(tree, depth = 0) {
+		if (!tree) return depth;
+		return Math.max(checkDepth(tree.left, depth + 1), checkDepth(tree.right, depth + 1))
 }
 
-module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
+
+module.exports = { BinaryTree: BinaryTree, superbalanced: superbalanced };
+magnet:?xt=urn:btih:62235d1630b22fdb5d651257bca47ccc8d3e5d52&dn=Mr.Robot.S02E12.PROPER.HDTV.x264-KILLERS%5Bettv%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969
