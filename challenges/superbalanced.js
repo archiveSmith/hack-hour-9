@@ -14,7 +14,38 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
-
+	//get the height of the left subtree and the right subtree and compare them
+	//if difference in height is 1 or less, it's balanced; otherwise it's unbalanced
+	function height(node){
+		if (node === null) {
+			return 0;
+		} else {
+			return max(height(node.left), height(node.right)) + 1;
+		}
+	};
+	// if (tree.left === null && tree.right === null) {
+	// 	tree.height = 1;
+	// } else {
+	// 	tree.height = max(height(tree.left), height(tree.right)) + 1;
+	// }
+	if (Math.abs(height(tree.left) - height(tree.right)) >= 2) {
+		return false;
+	}
+	return true;
 }
+
+// var ten = new BinaryTree(10);
+// var five = new BinaryTree(5);
+// var four = new BinaryTree(4);
+// var eight = new BinaryTree(8);
+// var thirty = new BinaryTree(30);
+// var twentyeight = new BinaryTree(28);
+// var fortytwo = new BinaryTree(42);
+// ten.left = five;
+// five.left = four;
+// five.right = eight;
+// ten.right = thirty;
+// thirty.left = 
+// console.log(ten);
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
