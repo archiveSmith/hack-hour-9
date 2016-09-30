@@ -26,22 +26,10 @@
  */
 
 function applyIt(func, args) {
-  let newFunc = func;
   return function() {
-    for (let i = 0; i < args.length; i++) {
-      newFunc.bind(null,args[i]);
-    }
-    return newFunc();
+    return func(...args);
   };
 }
-
-var jae = function(name, age, location) {
- return name + " is " + age + " and he lives in " + location;
-};
-
-var jaero = applyIt(jae, ["Jae", 19, "South Carolina"]);
-
-console.log(jaero());
 
 
 
