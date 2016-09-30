@@ -17,10 +17,10 @@ function mergeRanges(arr) {
   sorted.forEach(time => {
     const lastTime = newArr[newArr.length - 1];
 
-    if (newArr.length === 0 || time[0] > lastMeeting[1]) {
+    if (newArr.length === 0 || time[0] > lastTime[1]) {
       newArr.push(time);
-    } else if (time[1] > lastMeeting[1]) {
-      lastMeeting[1] = time[1];
+    } else if (time[1] > lastTime[1]) {
+      lastTime[1] = time[1];
     }
   });
 
