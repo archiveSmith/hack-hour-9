@@ -11,18 +11,20 @@
 
 
 function mergeRanges(arr) {
-	let sorted = arr.sort((a,b) => a[0] - b[0])
-	let newArr = [];
-	sorted.forEach((time,idx,array) => {
-		let range = [...Array(time[1]+1).keys()].slice(time[0]);
-		if (array[idx+1] && (range.includes(array[idx+1][0]) || range.includes([array[idx+1][1]]))){
-			newArr.push([array[idx][0],array[idx+1][1]]);
-			delete array[idx+1];
-		 } else {
-		 	newArr.push(time);
-		 }
-	})
-	return newArr;
+  const newArr = [],
+        sorted = arr.sort((a, b) => a[0] - b[0]);
+
+  sorted.forEach(time => {
+    const lastTime = newArr[newArr.length - 1];
+
+    if (newArr.length === 0 || time[0] > lastMeeting[1]) {
+      newArr.push(time);
+    } else if (time[1] > lastMeeting[1]) {
+      lastMeeting[1] = time[1];
+    }
+  });
+
+  return newArr;
 }
 
 
