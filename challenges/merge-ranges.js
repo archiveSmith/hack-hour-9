@@ -18,10 +18,10 @@ function mergeRanges(array) {
       const second = array[i + 1][1];
       const inner = [first, second];
       array.splice(i, 2, inner);
+      i--;
     }
   }
   return array;
 }
-
 
 module.exports = mergeRanges;
