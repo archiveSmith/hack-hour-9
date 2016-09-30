@@ -18,7 +18,7 @@ function repeatNumbers(array) {
   });
 
   for (var key in hash) {
-    if (hash[key] === 2) {
+    if (hash[key] >= 2) {
       return hash[key];
     };
   };
