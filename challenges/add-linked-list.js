@@ -14,7 +14,6 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
-<<<<<<< HEAD
 	if(l1 === null && l2 === null) return undefined;
 	sumL1 = parseInt(reverseLinkedList(l1));
 	sumL2 = parseInt(reverseLinkedList(l2));
@@ -40,9 +39,6 @@ function reverseLinkedList(head) {
 		currentNode = currentNode.next; 
 	}
 	return newAr.reverse().join(''); 
-=======
-
->>>>>>> ed73535131c71dd086899633c223a3284482d23e
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
