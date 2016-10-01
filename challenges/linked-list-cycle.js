@@ -35,7 +35,7 @@ var Node = function (value) {
 }
 
 function hasCycle(head) {
-  return /\[Circular\]/gm.test(util.inspect(head));
+  return /\[Circular\]/gm.test(util.inspect(head, false, null, true));
 }
 
 module.exports = {Node: Node, hasCycle: hasCycle}
