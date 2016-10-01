@@ -34,13 +34,32 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
+
  let temp = head;
- while (!temp.checked) {
-   if (!temp.next) return false;
+
+ while(temp) {
+   if(temp.checked) return true;
    temp.checked = true;
    temp = temp.next
  }
- return true;
+
+ return false;
 }
 
 module.exports = {Node: Node, hasCycle: hasCycle}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
