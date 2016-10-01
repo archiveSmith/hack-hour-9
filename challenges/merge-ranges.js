@@ -21,6 +21,7 @@ function mergeRanges(array) {
   	i--;
   	}
   }
+  return array;
 
 }
 
