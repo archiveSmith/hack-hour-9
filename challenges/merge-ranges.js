@@ -22,7 +22,7 @@ function mergeRanges(array) {
 			array.splice(i, 1)
 		}
 	}
-	// console.log('reduced ', array)
+	return array;
 }
 
 module.exports = mergeRanges;
