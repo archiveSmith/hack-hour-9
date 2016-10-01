@@ -20,6 +20,16 @@ function repeatNumbers(array) {
 		}
 	}
 	return undefined; 
+
+	// let result;
+	// array.sort(function(a, b) { 
+	// 	if(a === b) {
+	// 		result = a;
+	// 	}
+	// });
+	// Or*** find the difference between the sum and the length 
+	
+	
 }
 
 module.exports = repeatNumbers;
