@@ -8,26 +8,16 @@
 
 
 function countTwos(n) {
-	let handle2 = 0;
 	let counter = 0;
 	
-	let nStr = ''+n;
-	
-	for (let k = 0; k < nStr.length; k++) {
-		if(nStr[k] === '2') {
-			handle2++;
-		}
+	if(n < 2) {
+		return 0;
 	}
 	
-
-	if(handle2 === nStr.length) {
-		return handle2;
-	}
-	
-	for (let i = 1; i <= n; i++) {
-		let newStr = ''+i;
-		for (let j = 0; j < newStr; j++) {
-			if(newStr[j] === '2') {
+	for(let i = 2; i <= n; i++) {
+		let strung = i.toString();
+		for(let j = 0; j < strung.length; j++) {
+			if(strung[j] === '2') {
 				counter++;
 			}
 		}
