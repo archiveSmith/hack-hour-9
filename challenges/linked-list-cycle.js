@@ -35,13 +35,15 @@ var Node = function(value) {
 
 function hasCycle(head) {
   let temp = head;
-  while (!temp.checked) {
-    if (!temp.next) return false;
+  while (temp) {
+    if (temp.checked) return true;
+    if (temp.next === null) return false;
     temp.checked = true;
     temp = temp.next
   }
-  return true;
+  return false;
 }
+
 //  var node1 = new Node('1');
 //  var node2 = node1.next = new Node('2');
 //  var node3 = node2.next = new Node('3');
