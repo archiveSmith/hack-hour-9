@@ -26,7 +26,7 @@ function mergeRanges(array) {
 		if(curr[0] - merged[merged.length-1][1] > 0) {
 			merged.push(curr);
 		} else {
-			merged[merged.length-1][1] = curr[1];
+			merged[merged.length-1][1] = Math.max(curr[1], merged[merged.length-1][1]);
 		}
 	}
 	
@@ -35,6 +35,8 @@ function mergeRanges(array) {
 }
 
 
-var times = [[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]];
+var times = [[0, 1], [3, 5], [4, 8], [6,7], [10, 12], [9, 10]];
+mergeRanges(times)
 //var times = [[3,5]];
+
 module.exports = mergeRanges;
