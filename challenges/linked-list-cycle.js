@@ -37,6 +37,7 @@ function hasCycle(head) {
   let temp = head;
   while (temp) {
     if (temp.checked) return true;
+    if (temp.next === null) return false;
     temp.checked = true;
     temp = temp.next
   }
