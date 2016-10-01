@@ -38,4 +38,5 @@ function mergeRanges(array) {
 var times = [[0, 1], [3, 5], [4, 8], [6,7], [10, 12], [9, 10]];
 mergeRanges(times)
 //var times = [[3,5]];
+
 module.exports = mergeRanges;
