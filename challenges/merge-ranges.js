@@ -11,7 +11,18 @@
 
 
 function mergeRanges(array) {
-
+	array = array.sort(function(a,b) { return a[0]-b[0]; });
+	let result = []; 
+	result.push(array[0])
+	for(let i = 1; i < array.length; i++) {
+		if(result[result.length - 1][1] >= array[i][0]) {
+			result[result.length - 1][1] 
+			= Math.max(array[i][1], result[result.length - 1][1]);
+		} else {
+			result.push(array[i]);
+		}
+	}
+	return result; 
 }
 
 module.exports = mergeRanges;
