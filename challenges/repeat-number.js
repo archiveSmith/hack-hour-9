@@ -11,23 +11,29 @@
  */
 
 function repeatNumbers(array) {
-	let newObj = {};
-	for(var i = 0; i < array.length; i++) {
-		if(newObj[array[i]]) {
-			return array[i];
-		} else {
-			newObj[array[i]] = 1;
+	// let newObj = {};
+	// for(var i = 0; i < array.length; i++) {
+	// 	if(newObj[array[i]]) {
+	// 		return array[i];
+	// 	} else {
+	// 		newObj[array[i]] = 1;
+	// 	}
+	// }
+	// return undefined; 
+	array.sort(function(a,b) {
+		return a - b;
+	})
+	for(let i = 0; i < array.length; i++) {
+		if(array[i] === array[i + 1]) {
+			return array[i]; 
 		}
 	}
-	return undefined; 
-
 	// let result;
 	// array.sort(function(a, b) { 
 	// 	if(a === b) {
 	// 		result = a;
 	// 	}
 	// });
-	// Or*** find the difference between the sum and the length 
 	
 	
 }
