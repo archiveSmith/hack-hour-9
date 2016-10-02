@@ -51,6 +51,11 @@ function hasCycle(head) {
 			if (a !== null && a.next === temp || temp.next === temp2){
 					return true;
 			}
+			if (a !== null){
+				if (a.next === temp.next){
+					return true;
+				}
+			}
 		}
 		curr.next = temp2;
 		temp2 = curr;
