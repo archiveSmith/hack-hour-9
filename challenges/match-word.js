@@ -9,26 +9,26 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-	if(str.length === 0){
-		return true;
-	}
+  if (str.length === 0) {
+    return true;
+  }
 
-	let arr = str.match(/[A-Za-z]+/g);
-	let que = [];
+  let arr = str.match(/[A-Za-z]+/g);
+  let que = [];
 
-	for(let i = 0; i < arr.length; i++){
-		if (que[0] === arr[i].split('').reverse().join('')) {
-			que.shift(arr[i]);
-		} else {
-			que.unshift(arr[i]);
-		}
-	}
+  for (let i = 0; i < arr.length; i++) {
+    if (que[0] === arr[i].split('').reverse().join('')) {
+      que.shift(arr[i]);
+    } else {
+      que.unshift(arr[i]);
+    }
+  }
 
-	if(que.length === 0){
-		return true;
-	} else {
-		return false;
-	}
+  if (que.length === 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 module.exports = matchWord;

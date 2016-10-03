@@ -12,19 +12,19 @@
  */
 
 function reverseInPlace(array) {
-	let curLength = array.length;
-	for(let i = array.length; i > 0; i--){
-		let curItem = array[i-1];
-		delete array[i-1];
-		array.push(curItem);
-	}
-	array.forEach(function(item){
-		if
-	})
-	return array;
+  let curLength = array.length;
+  for (let i = array.length; i > 0; i--) {
+    let curItem = array[i - 1];
+    delete array[i - 1];
+    array.push(curItem);
+  }
+  array.forEach(function (item) {
+    if
+  });
+  return array;
 }
 
-let temp = [1,2,3,4,5,6,7,8,9]
+let temp = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 reverseInPlace(temp)
 
 module.exports = reverseInPlace;
