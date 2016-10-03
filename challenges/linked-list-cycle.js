@@ -17,14 +17,6 @@
  * const node3 = node2.next = new Node('3');
  * const node4 = node3.next = new Node('4');
  * const node5 = node4.next = new Node('5');
- * hasCycle(node1); // => false
- * node5.next = node2;
- * hasCycle(node1); // => true
- *
- * Challenge 1: Do this in linear time
- * Challenge 2: Do this in constant space
- * Challenge 3: Do not mutate the original nodes in any way
- *
  */
 
 const Node = function (value) {
