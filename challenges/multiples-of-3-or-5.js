@@ -8,7 +8,7 @@ use strict';
 function sumMultiples3Or5Below1000() {
   let sum = 0;
   for (let i = 3, j = 5; i < 1000; i = i + 3, j = j + 5){
-    if (j < 1000) {
+    if (j < 1000 && j !== i) {
       sum += j;
     }
     sum += i;
@@ -23,7 +23,7 @@ function sumMultiplesXOrYBelowZ(x, y, z) {
   let large = Math.Max(x, y);
   let small = Math.min(x, y);
   for (let i = small, j = large; i < z; i = i + small, j = j + large){
-    if (j < z) {
+    if (j < z && j !== i) {
       sum += j;
     }
     sum += i;
