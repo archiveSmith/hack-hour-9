@@ -34,8 +34,8 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
- if(!head) return undefined; 
- 	
+ if(!head) return null; 
+
  	temp = head;
  	while(temp) {
  		if(temp.flag) {
