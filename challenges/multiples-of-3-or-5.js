@@ -36,4 +36,4 @@ const objectToExport = {
   sumMultiplesXOrYBelowZ,
 };
 
-module.exports = objectToExport;
+module.exports = { sumMultiples3Or5Below1000, sumMultiplesXOrYBelowZ };
