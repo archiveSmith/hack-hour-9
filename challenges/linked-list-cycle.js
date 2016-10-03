@@ -33,6 +33,7 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
+
 	
 	if(!head) {
 		return false;
@@ -56,3 +57,7 @@ function hasCycle(head) {
 }
 
 module.exports = {Node: Node, hasCycle: hasCycle}
+
+
+
+
