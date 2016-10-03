@@ -27,13 +27,21 @@
  *
  */
 
-var Node = function(value) {
+function Node(value) {
   this.value = value;
   this.next = null;
+  Node.count = Node.count + 1 || 1;
 }
 
 function hasCycle(head) {
-
+  let cur = head;
+  let count = head ? 1 : 0;
+  while (cur) {
+    cur = cur.next;
+    if (count > Node.count) return true;
+    count++;
+  }
+  return false;
 }
 
 module.exports = {Node: Node, hasCycle: hasCycle}
