@@ -33,13 +33,16 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
-  //traverse through LL.
-  //add each node to hash. 
+
+  if (head === null) {
+    return false;
+  }
 
   let cache = {};
   let current = head;
 
   while (!cache[current.value]) {
+    console.log('while')
     cache[current.value] = true;
     if (current.next === null) {
       return false;
@@ -55,6 +58,7 @@ var node2 = node1.next = new Node('2');
 var node3 = node2.next = new Node('3');
 var node4 = node3.next = new Node('4');
 var node5 = node4.next = new Node('5');
+
 console.log(hasCycle(node1));
 node5.next = node2;
 console.log(hasCycle(node1)); // => true
