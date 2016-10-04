@@ -8,32 +8,32 @@
  */
 
 function maxSubarray(arr) {
-	let length = arr.length;
-	let maxSoFar = 0;
-	let maxFromHere = 0;
-	let isAllNegative = true;
-	for(let i = 0 ; i < length ; i++){
-		if (arr[i] >= 0){
-			isAllNegative = false;
-		}
-		maxFromHere += arr[i];
-		if (maxFromHere < 0){
-			maxFromHere = 0;
-		}
-		if (maxSoFar < maxFromHere){
-			maxSoFar = maxFromHere
-		}
-	}
-	
-	if (isAllNegative){
-		Array.max = function( array ){
-		 return Math.max.apply( Math, array );
-		};
-		return Array.max(arr);
-	}
-	
-	
-	return maxSoFar;
+  let length = arr.length;
+  let maxSoFar = Number.NEGATIVE_INFINITY;
+  let maxFromHere = Number.NEGATIVE_INFINITY;
+  let isAllNegative = true;
+  for (let i = 0; i < length; i++) {
+    if (arr[i] >= 0) {
+      isAllNegative = false;
+    }
+    maxFromHere += arr[i];
+    if (maxFromHere < 0) {
+      maxFromHere = 0;
+    }
+    if (maxSoFar < maxFromHere) {
+      maxSoFar = maxFromHere
+    }
+  }
+
+  if (isAllNegative) {
+    Array.max = function (array) {
+      return Math.max.apply(Math, array);
+    };
+    return Array.max(arr);
+  }
+
+
+  return maxSoFar;
 }
 
 module.exports = maxSubarray;
