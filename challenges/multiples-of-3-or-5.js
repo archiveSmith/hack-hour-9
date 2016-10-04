@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+'use strict';
+>>>>>>> 97ceac78af93ca886d0a423d2187fe00130714f9
 // If we list all the natural numbers below 10 that are multiples of 3 or 5,
 // we get 3, 5, 6 and 9. The sum of these multiples is 23.
 
@@ -5,6 +9,7 @@
 // below 1000 and return that sum.
 
 function sumMultiples3Or5Below1000() {
+<<<<<<< HEAD
   let arr = [];
   let tot5 = 1000;
 
@@ -22,11 +27,18 @@ function sumMultiples3Or5Below1000() {
 };
 
 console.log(sumMultiples3Or5Below1000());
+=======
+  let sum = 0;
+
+  return sum;
+}
+>>>>>>> 97ceac78af93ca886d0a423d2187fe00130714f9
 
 // extension make it dynamic function that takes input x,y,z
 // and returns the sum of multiples of x and y below z
 function sumMultiplesXOrYBelowZ(x, y, z) {
   let sum = 0;
+<<<<<<< HEAD
   let arr = [];
   let tot5 = 1000;
 
@@ -44,10 +56,19 @@ function sumMultiplesXOrYBelowZ(x, y, z) {
 };
 
 console.log(sumMultiplesXOrYBelowZ(3, 5, 11));
+=======
+  
+  return sum;
+}
+>>>>>>> 97ceac78af93ca886d0a423d2187fe00130714f9
 
 const objectToExport = {
   sumMultiples3Or5Below1000,
   sumMultiplesXOrYBelowZ,
 };
 
+<<<<<<< HEAD
 module.exports = objectToExport;
+=======
+module.exports = objectToExport;
+>>>>>>> 97ceac78af93ca886d0a423d2187fe00130714f9

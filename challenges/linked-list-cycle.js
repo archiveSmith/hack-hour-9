@@ -33,6 +33,7 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
+<<<<<<< HEAD
   //traverse through LL.
   //add each node to hash. 
 
@@ -59,3 +60,9 @@ console.log(hasCycle(node1));
 node5.next = node2;
 console.log(hasCycle(node1)); // => true
 module.exports = { Node: Node, hasCycle: hasCycle }
+=======
+
+}
+
+module.exports = {Node: Node, hasCycle: hasCycle}
+>>>>>>> 97ceac78af93ca886d0a423d2187fe00130714f9
