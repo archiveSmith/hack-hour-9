@@ -27,4 +27,13 @@ function mergeRanges(arr) {
   return newArr
 };
 
+console.log(mergeRanges([
+  [0, 1],
+  [3, 5],
+  [4, 8],
+  [6, 7],
+  [9, 10],
+  [10, 12]
+]));
+
 module.exports = mergeRanges;
