@@ -8,7 +8,13 @@
  */
 
 function maxSubarray(arr) {
-
+  let prevMax = -Infinity;
+  let curMax = -Infinity;
+  arr.map((el, i, array) => {
+    prevMax = Math.max(array[i], prevMax + array[i]);
+    curMax = Math.max(curMax, prevMax);
+  });
+  return curMax;
 }
 
 module.exports = maxSubarray;
