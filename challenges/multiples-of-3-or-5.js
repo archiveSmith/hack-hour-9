@@ -1,4 +1,5 @@
-use strict';
+use strict;
+
 // If we list all the natural numbers below 10 that are multiples of 3 or 5,
 // we get 3, 5, 6 and 9. The sum of these multiples is 23.
 
@@ -20,15 +21,15 @@ function sumMultiples3Or5Below1000() {
 // and returns the sum of multiples of x and y below z
 function sumMultiplesXOrYBelowZ(x, y, z) {
   let sum = 0;
-  let large = Math.Max(x, y);
-  let small = Math.min(x, y);
-  for (let i = small, j = large; i < z; i = i + small, j = j + large){
-    if (j < z && j !== i) {
-      sum += j;
-    }
-    sum += i;
-  }
-  return sum;
+  // let large = Math.Max(x, y);
+  // let small = Math.min(x, y);
+  // for (let i = small, j = large; i < z; i = i + small, j = j + large){
+  //   if (j < z && j !== i) {
+  //     sum += j;
+  //   }
+  //   sum += i;
+  // }
+  // return sum;
 }
 
 const objectToExport = {
@@ -36,4 +37,4 @@ const objectToExport = {
   sumMultiplesXOrYBelowZ,
 };
 
-module.exports = { sumMultiples3Or5Below1000, sumMultiplesXOrYBelowZ };
+module.exports = objectToExport;
