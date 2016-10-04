@@ -9,8 +9,8 @@
 
 function maxSubarray(arr) {
   let length = arr.length;
-  let maxSoFar = Number.NEGATIVE_INFINITY;
-  let maxFromHere = Number.NEGATIVE_INFINITY;
+  let maxSoFar = 0;
+  let maxFromHere = 0;
   let isAllNegative = true;
   for (let i = 0; i < length; i++) {
     if (arr[i] >= 0) {
