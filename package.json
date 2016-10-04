@@ -9,6 +9,9 @@
   "directories": {
     "test": "test"
   },
+  "babel": {
+    "presets": ["es2015"]
+  },
   "scripts": {
     "test": "export COHORT=9; node test/run-tests.js",
     "start": "export COHORT=9; node test/index.js"
@@ -16,6 +19,7 @@
   "dependencies": {
     "async": "^1.4.2",
     "aws-sdk": "^2.2.24",
+    "chai": "^3.5.0",
     "ejs": "^2.3.4",
     "expect.js": "^0.3.1",
     "mocha": "^2.2.5",
