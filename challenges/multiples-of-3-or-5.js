@@ -37,11 +37,13 @@ function sumMultiples3Or5Below10() {
 console.log(sumMultiples3Or5Below10());
 */
 
+
 // extension make it dynamic function that takes input x,y,z
 // and returns the sum of multiples of x and y below z
 function sumMultiplesXOrYBelowZ(x, y, z) {
   let sum = 0;
   
+
   // iterate from 1 to z - 1
   for(var i = 0; i < z; i++) {
 	if((i % x === 0) || (i % y === 0)) { // if i is multiple of x or y, add to sum
@@ -60,3 +62,4 @@ const objectToExport = {
 };
 
 module.exports = objectToExport;
+
