@@ -6,7 +6,6 @@
 // below 1000 and return that sum.
 
 function sumMultiples3Or5Below1000() {
-function s() {
   let sum = 0,
     i = 0;
   for (; i * 3 <= 20; i++) {
