@@ -8,7 +8,14 @@
  */
 
 function maxSubarray(arr) {
-
+  return arr.reduce((memo, num, index) => {
+    memo.sum = memo.sum + num;
+    if (memo.sum > memo.max) {
+      memo.max = memo.sum;
+    }
+    if (memo.sum < 0) memo.sum = 0;
+    return memo;
+  }, { max: -Infinity, sum: 0 }).max;
 }
 
 module.exports = maxSubarray;
