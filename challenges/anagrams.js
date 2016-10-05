@@ -16,10 +16,13 @@ function anagrams(str) {
   var arr = str.split(''),
     len = arr.length,
     perms = [],
+    seen = {},
     rest,
     picked,
     restPerms,
+    current,
     next;
+
 
   if (len === 0)
     return [str];
@@ -32,7 +35,11 @@ function anagrams(str) {
 
     for (var j = 0, jLen = restPerms.length; j < jLen; j++) {
       next = picked.concat(restPerms[j]);
-      perms.push(next.join(''));
+      current = next.join('');
+      if (!seen[current]) {
+        seen[current] = 'something';
+        perms.push(current)
+      }
     }
   }
   return perms;
