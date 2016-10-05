@@ -13,7 +13,34 @@
   */
 
 function anagrams(string) {
+  if (string.length === 1) return [string];
 
+  const anagramObj = anagrams(string.slice(1))
+    .map(anagram => insertCharAtEachIndex(string[0], anagram))
+    .reduce((acc, next) => Object.assign(acc, stringArrayToObj(next)), {});
+
+  return Object.keys(anagramObj).sort();
+}
+
+function insertCharAtEachIndex(char, string) {
+  return range(0, string.length + 1)
+    .map(index => string.slice(0, index) + char + string.slice(index));
+}
+
+function stringArrayToObj(array) {
+  return array.reduce((acc, next) => {
+    acc[next] = true;
+    return acc;
+  }, {});
+}
+
+function range(start, stop) {
+  const result = [];
+  for (let i = start; i < stop; i++) {
+    result.push(i);
+  }
+
+  return result;
 }
 
 module.exports = anagrams;
