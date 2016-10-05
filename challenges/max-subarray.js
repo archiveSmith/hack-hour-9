@@ -33,7 +33,7 @@ function maxSubarray(arr) {
 		}
 	}
 	
-	console.log(arr)
+	return currSum;
 	
 }
 
