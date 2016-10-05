@@ -13,7 +13,25 @@
   */
 
 function anagrams(string) {
-
+  if (typeof string !== 'string') return [];
+  const strArr = string.trim().toLowerCase().split('');
+  const perms = []
+  function permutations(charArr, prev =[]) {
+    let len = charArr.length, cur, i;
+    for (i = 0; i < len; i++) {
+      cur = charArr.splice(i, 1);
+      if (charArr.length === 0) {
+        perms.push(prev.concat(cur).join(''));
+      }
+      permutations(charArr.slice(), prev.concat(cur));
+      charArr.splice(i, 0, cur[0]);
+    }
+  }
+  permutations(strArr);
+  return Object.keys(perms.reduce((memo, item) => { 
+    memo[item] = true;
+    return memo;
+  }, {}));
 }
 
 module.exports = anagrams;
