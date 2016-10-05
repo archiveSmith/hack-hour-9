@@ -17,7 +17,26 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-
+if (typeof num !== 'number'){
+	num = 100;
+	console.log('no number supplied, so we added one for you :3')
 }
+let arr = [];
+for (var i = 1; i <= num; i++){
+	let output = '';
+	
+	if( i % 3 === 0){
+		output += 'fizz';
+	}
+
+	if( i % 5 === 0){
+		output += 'buzz';
+	}
+
+	arr.push(output || i);
+}
+	return arr;
+}
+
 
 module.exports = fizzbuzz;
