@@ -14,6 +14,9 @@
 
 function anagrams(string) {
   const output = [];
+  if (!string) {
+    return output;
+  }
   const stringArr = string.split('');
   let mutableArr = Array.from(stringArr);
   output.push(string);
@@ -27,7 +30,11 @@ function anagrams(string) {
       const valueJ = mutableArr[j];
       mutableArr[i] = valueJ;
       mutableArr[j] = valueI;
-      output.push(mutableArr.join(''));
+      const newGram = mutableArr.join('');
+      if (output.includes(newGram)) {
+        continue;
+      }
+      output.push(newGram);
     }
   }
   output.push(stringArr.reverse().join(''));
