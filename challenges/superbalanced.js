@@ -14,6 +14,9 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
+  // check for left and right values of children - if null, that's the end of the branch
+    // if not null, do recursive call into children
+  // if both sides are balanced, return true
 
 }
 

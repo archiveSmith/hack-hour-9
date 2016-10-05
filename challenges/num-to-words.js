@@ -21,7 +21,7 @@ function numToWords(num) {
     const digit = Number(numString[i]);
     const place = length - i;
 
-    if 
+    if () {}
 
     wordString += convertNum(digit, place);
   }
@@ -77,6 +77,8 @@ function numToWords(num) {
     }
     return word;
   } // End of convertNum
+
+  return wordString;
 } // End of numToWords
 
 module.exports = numToWords;

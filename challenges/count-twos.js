@@ -21,3 +21,15 @@ function countTwos(num) {
 }
 
 module.exports = countTwos;
+
+// More efficient method
+// function countTwos(num) {
+//   let count = 0;
+
+//   for (let i = 1; i <= num; i++) {
+//     const digits = i.toString().match(/2/g);
+//     if (digits) count += digits.length;
+//   }
+
+//   return count;
+// }
