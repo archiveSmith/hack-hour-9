@@ -26,7 +26,16 @@
  */
 
 function applyIt(func, args) {
+  args = Array.from(args).slice(1, arguments.length);
+  let stringFunc = 'func(';
 
+  while (args.length) {
+    const val = args.shift();
+    stringFunc = stringFunc + val;
+  }
+
+  stringFunc = stringFunc + ')';
+  return eval(stringFunc);
 }
 
 module.exports = applyIt;

@@ -14,51 +14,32 @@
  *      500   ->    D
  *      900   ->    CM
  *      1000  ->    M
- * 
+ *
  */
 
 function romanNumeral(n) {
-  let digitString = n.toString();
-  let digitIndex = digitString.length;
+  const digitString = n.toString();
+  const iterations = (digitString.length > 3) ? 4 : digitString.length;
   let numeral = '';
 
-  while (digitIndex > 0) {
-    numeral += convertDigit(Number(digitString[digitIndex]), digitIndex);
-    digitIndex--;
+  const one = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IV'];
+  const ten = ['', 'X', 'XX', 'XXX', 'XL', 'L', 'LX', 'LXX', 'LXXX', 'CX'];
+  const hun = ['', 'C', 'CC', 'CCC', 'CD', 'D', 'DC', 'DCC', 'DCCC', 'CM'];
+  const tho = ['', 'M'];
+
+  for (let i = iterations - 1; i >= 0; i--) {
+    if (i === 3) {
+      const thoDigits = digitString.slice(0, digitString.length - 4);
+      for (let j = 0; j < thoDigits; j++) {
+        numeral += tho[1];
+      }
+    } else {
+      const digit = Number(digitString[i]);
+      if (i === 2) numeral += hun[digit];
+      if (i === 1) numeral += ten[digit];
+      if (i === 0) numeral += one[digit];
+    }
   }
-
-  function convertDigit(d, i) {
-    let one;
-    let five;
-    let converted;
-    switch(i) {
-      case 4: one = 'M';
-              break;
-      case 3: one = 'C';
-              five = 'D';
-              break;
-      case 2: one = 'X';
-              five = 'L';
-              break;
-      case 1: one = 'I';
-              five = 'V';
-              break;
-    }
-
-    switch(d) {
-      case 1: converted = one; break;
-      case 2: converted = one + one; break;
-      case 3: converted = one + one + one; break;
-      case 4: converted = one + five; break;
-      case 5: converted = five; break;
-      case 6: converted = five + one; break;
-      case 7: converted = five + one + one; break;
-      case 8: converted = five + one + one + one; break;
-      case 9: converted = ''; break;
-    }
-
-    return converted;
-  }  
 
   return numeral;
 }
