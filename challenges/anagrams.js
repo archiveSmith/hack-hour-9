@@ -13,7 +13,20 @@
   */
 
 function anagrams(string) {
-
+    function permute(string, prefix) {
+        if (!string.length) {
+            return [prefix];
+        } else {
+            let result = [];
+            for (let i = 0; i < string.length; i++) {
+                let first = string.slice(0, i);
+                let last = string.slice(i + 1);
+                result = result.concat(permute(first + last, string[i] + prefix));
+            }
+            return result;
+        }
+    }
+    return permute(string,"").filter((el,idx,arr) => arr.indexOf(el) === idx);
 }
 
 module.exports = anagrams;
