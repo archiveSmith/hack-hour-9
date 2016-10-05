@@ -13,7 +13,24 @@
   */
 
 function anagrams(string) {
+  const combos = [];
+  const letters = string.split('');
 
+  if (string.length === 1) return [string];
+
+  letters.forEach((el, i) => {
+    const letter = el;
+    const subsetString = string.slice(0, i).concat(string.slice(i + 1, string.length));
+    const innerCombos = anagrams(subsetString);
+
+    innerCombos.forEach((combo) => {
+      combos.push(letter + combo);
+    });
+  });
+
+  return combos;
 }
+
+// console.log(anagrams('abc'));
 
 module.exports = anagrams;
