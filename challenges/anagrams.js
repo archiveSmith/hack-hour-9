@@ -14,6 +14,7 @@
 
 function anagrams(string) {
   if (typeof string !== 'string') return [];
+  if (string.length === 0) return [''];
   const strArr = string.trim().toLowerCase().split('');
   const perms = []
   function permutations(charArr, prev =[]) {
