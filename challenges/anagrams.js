@@ -16,7 +16,7 @@ function anagrams(str, i, storage) {
     str = str.split("");
   }
   if (!i) i = 0;
-  if (!storage) storage = [];
+  if (!storage) storage = [str];
   if (i >= str.length) {
     return storage;
   }
@@ -35,4 +35,3 @@ function switchLetter(str, i1, i2) {
 }
 
 module.exports = anagrams;
-ams;
