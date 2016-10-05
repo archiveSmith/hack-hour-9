@@ -8,8 +8,8 @@
  */
 
 function maxSubarray(arr) {
-  let output = arr.reduce((a, b) => { return a + b; }, 0);
-  for (let i = 1; i < arr.length; ++i) {
+  let output = -Infinity;
+  for (let i = 0; i < arr.length; ++i) {
     for (let j = arr.length; j > 0; --j) {
       if (i === j) {
         break;
