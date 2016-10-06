@@ -21,7 +21,13 @@
  */
 
 function EventEmitter() {
-
+	this.on = (funcname, funcdef) => {
+		this[funcname] = funcdef;
+	};
+	this.trigger = (funcname, ...args) => {
+		this[funcname](...args);
+	};
 }
+
 
 module.exports = EventEmitter;
