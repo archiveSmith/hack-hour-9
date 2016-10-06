@@ -21,7 +21,18 @@
  */
 
 function EventEmitter() {
-
+  this.on = (name, func) => {
+    if (!this[name]) {
+      this[name] = [func];
+    } else {
+      this[name].push(func);
+    }
+  }
+}
+EventEmitter.prototype.trigger = function(name,...args) {
+    	for (let callback of this[name]) {
+      		callback(...args);
+	}
 }
 
 module.exports = EventEmitter;
