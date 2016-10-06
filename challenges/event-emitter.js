@@ -2,8 +2,8 @@
  * Make an EventEmitter that
  *
  * Example:
- * var instance = new EventEmitter();
- * var counter = 0;
+ * let instance = new EventEmitter();
+ * let counter = 0;
  * instance.on('increment', function() {
  *   counter++;
  * }); // counter should be 0
@@ -21,7 +21,30 @@
  */
 
 function EventEmitter() {
-
+  const output = {};
+  output.on = (str, func) => {
+    this[str] = func;
+  };
+  output.trigger = (input, ...rest) => {
+    this[input](...rest);
+  };
+  return output;
 }
+
+// testing
+// let instance = new EventEmitter();
+// let counter = 0;
+// instance.on('increment', () => {
+//   counter++;
+// }); // counter should be 0
+// instance.on('print', (str) => {
+//   console.log(str);
+// });
+// console.log('counter should be 0: ' + counter);
+// instance.trigger('increment'); // counter should be 1
+// console.log('counter should be 1: ' + counter);
+// instance.trigger('increment'); // counter should be 2
+// console.log('counter should be 2: ' + counter);
+// instance.trigger('print', 'hello');
 
 module.exports = EventEmitter;
