@@ -21,7 +21,18 @@
  */
 
 function EventEmitter() {
+  this.listeners = {};
+}
 
+EventEmitter.prototype.on = function(eventName, callback) {
+  this.listeners[eventName] = this.listeners[eventName] || [];
+  this.listeners[eventName].push(callback);
+}
+
+EventEmitter.prototype.trigger = function(eventName, ...args) {
+  this.listeners[eventName].forEach(callback => {
+    callback(...args);
+  });
 }
 
 module.exports = EventEmitter;
