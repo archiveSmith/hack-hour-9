@@ -15,7 +15,8 @@
 //                     14,
 //                     'fizzbuzz',
 //                     16 ]
-
+debugger
+fizzbuzz(20);
 function fizzbuzz(num) {
 	let newArr = [];
 	for (let i = 1; i < num+1; i++) {
