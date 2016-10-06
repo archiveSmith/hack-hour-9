@@ -13,6 +13,7 @@
   */
 
 function anagrams(string) {
+  if (string.length === 0) return [''];
   if (string.length === 1) return [string];
 
   const combos = [];
@@ -27,7 +28,11 @@ function anagrams(string) {
     });
   });
 
-  return combos;
+  const filtered = combos.reduce((accumulated, curr) => {
+    accumulated[curr] = true;
+  }, {});
+
+  return Object.keys(filtered);
 }
 
 // console.log(anagrams('abc'));

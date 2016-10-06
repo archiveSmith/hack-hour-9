@@ -22,21 +22,21 @@
 
 function EventEmitter() {
   this.events = {};
-
-  this.on = function (type, callback) {
-    if (!this.events[type]) this.events[type] = [callback];
-    else this.events[type].push(callback);
-  };
-
-  this.trigger = function (type, ...args) {
-    const storedEvents = this.events[type];
-    if (!storedEvents) return undefined;
-
-    for (let i = 0; i < storedEvents.length; i += 1) {
-      storedEvents[i](...args);
-    }
-  };
 }
+
+EventEmitter.prototype.on = function (type, callback) {
+  if (!this.events[type]) this.events[type] = [callback];
+  else this.events[type].push(callback);
+};
+
+EventEmitter.prototype.trigger = function (type, ...args) {
+  const storedEvents = this.events[type];
+  if (!storedEvents) return undefined;
+
+  for (let i = 0; i < storedEvents.length; i += 1) {
+    storedEvents[i](...args);
+  }
+};
 
 module.exports = EventEmitter;
 
