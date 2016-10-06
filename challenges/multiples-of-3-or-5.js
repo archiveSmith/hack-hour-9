@@ -27,7 +27,7 @@ function sumMultiplesXOrYBelowZ(x, y, z) {
   		sum += i;
   	} 
   }
-=======
+
 
   return sum;
 }
@@ -37,7 +37,6 @@ function sumMultiplesXOrYBelowZ(x, y, z) {
 function sumMultiplesXOrYBelowZ(x, y, z) {
   let sum = 0;
   
->>>>>>> 6c94f6f0b5d9cf8dab73336661bad5f42e943733
   return sum;
 }
 
@@ -46,8 +45,4 @@ const objectToExport = {
   sumMultiplesXOrYBelowZ,
 };
 
-<<<<<<< HEAD
 module.exports = objectToExport;
-=======
-module.exports = objectToExport;
->>>>>>> 6c94f6f0b5d9cf8dab73336661bad5f42e943733

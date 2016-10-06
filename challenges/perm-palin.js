@@ -10,7 +10,6 @@
  */
 
 function permPalin(str) {
-<<<<<<< HEAD
 if(str.length === 1) return true; 
 let newObj = {};
 for(let i = 0; i < str.length; i++) {
@@ -27,9 +26,6 @@ for(let prop in newObj) {
  }
 }
 return pal > 1 ? false : true; 
-=======
-	
->>>>>>> 80473e5c0b7462e1035a846033e00517b3792b54
 }
 
 module.exports = permPalin;

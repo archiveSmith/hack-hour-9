@@ -8,7 +8,6 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-<<<<<<< HEAD
 if(str === ''){
 	return true;
 }
@@ -24,8 +23,6 @@ for(let i = 0; i < matchedAr.length - 1; i++) {
 	}
 }
 return result.length > 0 ? false : true;
-=======
->>>>>>> 0d81f6212372a287329e07aba3b9a55c1c7112b1
 }
 
 module.exports = matchWord;
