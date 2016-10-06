@@ -21,7 +21,22 @@
  */
 
 function EventEmitter() {
-
+  this.eventListeners = {};
 }
+
+EventEmitter.prototype.on = function on(event, callback) {
+  if (this.eventListeners[event]) {
+    this.eventListeners[event].push(callback);
+  } else {
+    this.eventListeners[event] = [callback];
+  }
+};
+
+EventEmitter.prototype.trigger = function trigger(event, ...args) {
+  const eventCallbacks = this.eventListeners[event];
+  eventCallbacks.forEach((fn) => {
+    fn.apply(this, ...args);
+  });
+};
 
 module.exports = EventEmitter;
