@@ -21,7 +21,29 @@
  */
 
 function EventEmitter() {
+  this.events = {};
 
+  this.on = function (type, callback) {
+    if (!this.events[type]) this.events[type] = [callback];
+    else this.events[type].push(callback);
+  };
+
+  this.trigger = function (type, ...args) {
+    const storedEvents = this.events[type];
+    if (!storedEvents) return undefined;
+
+    for (let i = 0; i < storedEvents.length; i += 1) {
+      storedEvents[i](...args);
+    }
+  };
 }
 
 module.exports = EventEmitter;
+
+// const instance = new EventEmitter();
+// let counter = 0;
+// instance.on('increment', function() {
+//   counter++;
+// }); // counter should be 0
+// instance.trigger('increment'); // counter should be 1
+// instance.trigger('increment'); // counter should be 2
