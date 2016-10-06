@@ -23,10 +23,14 @@
 function EventEmitter() {
   const output = {};
   output.on = (str, func) => {
-    this[str] = func;
+    if (!this[str]) {
+      this[str] = [];
+    }
+    this[str].push(func);
+    console.log(this[str]);
   };
   output.trigger = (input, ...rest) => {
-    this[input](...rest);
+    this[input].forEach((fire) => fire(...rest));
   };
   return output;
 }
@@ -37,14 +41,17 @@ function EventEmitter() {
 // instance.on('increment', () => {
 //   counter++;
 // }); // counter should be 0
+// instance.on('increment', () => {
+//   counter++;
+// });
 // instance.on('print', (str) => {
 //   console.log(str);
 // });
 // console.log('counter should be 0: ' + counter);
 // instance.trigger('increment'); // counter should be 1
-// console.log('counter should be 1: ' + counter);
-// instance.trigger('increment'); // counter should be 2
 // console.log('counter should be 2: ' + counter);
+// instance.trigger('increment'); // counter should be 2
+// console.log('counter should be 4: ' + counter);
 // instance.trigger('print', 'hello');
 
 module.exports = EventEmitter;
