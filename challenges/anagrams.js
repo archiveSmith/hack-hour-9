@@ -15,7 +15,7 @@
 function anagrams(string) {
   const output = [];
   if (!string) {
-    return output;
+    return [''];
   }
   const stringArr = string.split('');
   let mutableArr = Array.from(stringArr);
