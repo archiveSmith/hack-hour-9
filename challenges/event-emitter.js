@@ -21,7 +21,36 @@
  */
 
 function EventEmitter() {
+  let events = {};
 
+  this.on = function (type, listener) {
+    if (!events[type]) {
+      events[type] = [listener];
+    } else {
+      events[type].push(listener);
+    }
+  };
+
+  this.trigger = function (type, ...args) {
+  	let event = events[type];
+  	if (!event) {
+    	return;
+  	} else {
+		  for (var i = 0; i < event.length; i++) {
+	    	event[i].apply(this, args);
+	  	}
+  	}
+  };
 }
+
+var instance = new EventEmitter();
+var counter = 0;
+instance.on('increment', function() {
+	counter++;
+}); // counter should be 0
+instance.trigger('increment'); // counter should be 1
+console.log(counter)
+instance.trigger('increment'); // counter should be 2
+console.log(counter)
 
 module.exports = EventEmitter;
