@@ -14,7 +14,12 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
-
+  let result = new Node();
+  while (l1.next) {
+    if (l1.value + l2.value < 10) {
+      
+    }
+  } 
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};

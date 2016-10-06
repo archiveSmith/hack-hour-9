@@ -28,3 +28,5 @@ function repeatNumbers(array) {
 }
 
 module.exports = repeatNumbers;
+
+console.log(repeatNumbers([1,2,4,5,6,7,7,8,68,86]));
