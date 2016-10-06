@@ -13,6 +13,8 @@
  */
 
 function anagrams(string) {
+
+  if (string === '') { return [''] };
   let str = string.split('');
   let hash = {};
   let output = [];
