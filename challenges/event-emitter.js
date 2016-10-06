@@ -20,8 +20,34 @@
  * - It is not necessary to write a way to remove listeners.
  */
 
-function EventEmitter() {
+function EventEmitter(trigger, callback) {
+  // this.hash = {};
+  // if (hash[trigger]) {
+  //   hash[trigger]();
+  // } else {
+  //     hash[trigger] = callback();
 
+  // }
+  this.on = function(trigger, callback) {
+    callback();
+  };
 }
+
+let instance = new EventEmitter;
+
+var counter = 0;
+instance.on('do',
+  function() {
+    counter++;
+  });
+
+console.log(counter);
+
+instance.on('do',
+  function() {
+    counter++;
+  });
+
+console.log(counter);
 
 module.exports = EventEmitter;
