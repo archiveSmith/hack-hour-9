@@ -10,10 +10,36 @@
  * How would you solve this problem if a temporary buffer is not allowed?
  */
 
-
+function Node(val) {
+  this.value = val;
+  this.next = null;
+}
 
 function deleteDups(head) {
-
+  const store = {};
+  let prev = null;
+  let curr = head;
+  while (curr) {
+    if (!store[curr.value]) {
+      store[curr.value] = true;
+      prev = curr;
+      curr = curr.next;
+    } else {
+      prev.next = curr.next;
+      curr.next = null;
+      curr = prev.next;
+    }
+  }
+  return head;
 }
+
+// test data
+// const node1 = new Node('3');
+// const node2 = node1.next = new Node('2');
+// const node3 = node2.next = new Node('3');
+// // const node4 = node3.next = new Node('3');
+// // const node5 = node4.next = new Node('3');
+// console.log(node1);
+// console.log(deleteDups(node1));
 
 module.exports = deleteDups;

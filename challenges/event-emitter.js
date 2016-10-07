@@ -21,22 +21,21 @@
  */
 
 function EventEmitter() {
-  const output = {};
-  output.on = (str, func) => {
-    if (!this[str]) {
-      this[str] = [];
-    }
-    this[str].push(func);
-    console.log(this[str]);
-  };
-  output.trigger = (input, ...rest) => {
-    this[input].forEach((fire) => fire(...rest));
-  };
-  return output;
 }
 
+EventEmitter.prototype.on = (str, func) => {
+  if (!this[str]) {
+    this[str] = [];
+  }
+  this[str].push(func);
+};
+
+EventEmitter.prototype.trigger = (input, ...rest) => {
+  this[input].forEach((fire) => fire(...rest));
+};
+
 // testing
-// let instance = new EventEmitter();
+// const instance = new EventEmitter();
 // let counter = 0;
 // instance.on('increment', () => {
 //   counter++;
@@ -44,14 +43,18 @@ function EventEmitter() {
 // instance.on('increment', () => {
 //   counter++;
 // });
-// instance.on('print', (str) => {
-//   console.log(str);
+// instance.on('print', (...args) => {
+//   args.forEach((str => {
+//     console.log(str);
+//   }));
 // });
-// console.log('counter should be 0: ' + counter);
+
+// console.log(`counter should be 0: ${counter}`);
 // instance.trigger('increment'); // counter should be 1
-// console.log('counter should be 2: ' + counter);
+// console.log(`counter should be 2: ${counter}`);
 // instance.trigger('increment'); // counter should be 2
-// console.log('counter should be 4: ' + counter);
+// console.log(`counter should be 4: ${counter}`);
 // instance.trigger('print', 'hello');
+// instance.trigger('print', 'hello', 'george');
 
 module.exports = EventEmitter;
