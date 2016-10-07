@@ -11,6 +11,10 @@
  */
 
 function deleteDups(head) {
+  function Node(val) {
+    this.value = val;
+    this.next = null;
+  }
   const valuesObj = {};
   const values = [];
   for (let i = head; i; i = i.next) {
