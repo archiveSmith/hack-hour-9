@@ -22,6 +22,10 @@ function deleteDups(head) {
     return vals;
   }
   function arrToList(array) {
+    function Node(val, next) {
+      this.value = val;
+      this.next = (next) ? next : null;
+    }
     let arr = array.slice();
     let head = new Node(arr.shift());
     let tail = head;
@@ -47,10 +51,7 @@ function deleteDups(head) {
 //   }
 // }
 
-// function Node(val, next) {
-//   this.value = val;
-//   this.next = (next) ? next : null;
-// }
+
 
 
 // console.log(deleteDups(l))
