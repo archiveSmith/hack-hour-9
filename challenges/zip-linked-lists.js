@@ -11,7 +11,6 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
-<<<<<<< HEAD
 if(l1 && l2) return undefined; 
 if (l1 === undefined) return list2;
 if (l2 === undefined) return list1;
@@ -32,8 +31,6 @@ if (l1 === null) { temp.next = l2; }
 if (l2 === null) { temp.next = l1; }
 
 return main;
-=======
->>>>>>> 6876ac22c2103305d110d48a30d49d8824bfcdff
 };
 
 module.exports = {Node: Node, zip: zip};
