@@ -13,7 +13,26 @@
   */
 
 function anagrams(string) {
+  const str = string.split();
+  const buffer = [];
+  let index = 0;
+
+  if (buffer >= str.length) {
+    return buffer;
+  } 
+  for (var i = index; i < str.length; i++)
+        buffer.push(ToggleLetters(str, index, i));
+    return anagrams(str, index + 1, buffer);
 
 }
+
+function ToggleLetters(str, index1, index2) {
+    var temp = str[index1];
+    str[index1] = str[index2];
+    str[index2] = temp;
+    return str.join("");
+}
+
+anagrams('abc');
 
 module.exports = anagrams;

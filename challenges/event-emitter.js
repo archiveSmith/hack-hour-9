@@ -21,7 +21,27 @@
  */
 
 function EventEmitter() {
-
+  this.events = {};
+  this.on = (action, callback) => {
+    if (!this.events[action]) {
+      this.events[action] = callback;
+    }
+  }
+  this.trigger = (action) => {
+    this.events[action]();
+  }
 }
+
+
+// var instance = new EventEmitter();
+// var counter = 0;
+// instance.on('increment', function () {
+//   counter++;
+// }); // counter should be 0
+// instance.trigger('increment'); // counter should be 1
+
+// instance.trigger('increment'); // counter should be 2
+
+
 
 module.exports = EventEmitter;
