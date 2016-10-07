@@ -30,6 +30,5 @@ function EventEmitter() {
   };
   return outputObj;
 }
-console.log(instance)
 
 module.exports = EventEmitter;
