@@ -30,10 +30,21 @@
 var Node = function(value) {
   this.value = value;
   this.next = null;
+  this.count++;
 }
+Node.prototype.count = 0;
 
 function hasCycle(head) {
-
+  let current = head;
+  let counter = 1;
+  while (current) {
+    current = current.next;
+    count++;
+    if (count > this.count) return true
+  }
 }
 
-module.exports = {Node: Node, hasCycle: hasCycle}
+module.exports = {
+  Node: Node,
+  hasCycle: hasCycle
+}

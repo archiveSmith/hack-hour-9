@@ -25,8 +25,10 @@
  *  DO NOT USE THE BUILT IN APPLY METHOD OR THE SPREAD OPERATOR
  */
 
-function applyIt(func, args) {
-
-}
+ function applyIt(func,args) {
+    let argumentStr = JSON.stringify(args.join(','))
+    let Str = ('func(' + argumentStr + ')');
+    return eval(Str);
+ }
 
 module.exports = applyIt;

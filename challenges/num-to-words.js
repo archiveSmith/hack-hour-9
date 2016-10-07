@@ -14,6 +14,18 @@
 
 function numToWords(num) {
 
-}
+  var th = ['', 'thousand', 'million', 'billion', 'trillion'];
+  var dg = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+  var tn = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
+  var tw = ['twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
 
+  let numArr = num.split('').reverse();
+
+  if (numArr.length > 15) {
+    let quadArr = numArr.splice(16, 3);
+    console.log(quadArr)
+  }
+  return quadArr
+}
+numToWords(92120000000000000) - > 'NintyTwoQuadrillionOneHundredTwentyTrillion'
 module.exports = numToWords;

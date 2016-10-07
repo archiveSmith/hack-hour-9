@@ -10,10 +10,13 @@
  * How would you solve this problem if a temporary buffer is not allowed?
  */
 
-
-
 function deleteDups(head) {
-
+  let buffer = [];
+  while (head) {
+    if (!buffer.includes(head.value)) buffer.push(head.value);
+    head = head.next
+  }
+  return buffer
 }
 
 module.exports = deleteDups;
