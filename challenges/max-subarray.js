@@ -42,7 +42,7 @@ module.exports = maxSubarray;
 //             bigArr.push(subArr)
 //             console.log(bigArr)
 //         }
-//         subArray(arr.slice(1), bigArr)
+//         subArray(arr.slice(1), bigArr)git 
 //     }
     
 //     resArr = subArray(arr,bigArr);
