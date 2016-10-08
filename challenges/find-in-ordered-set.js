@@ -10,9 +10,34 @@ findInOrderedSet(nums, 2);  -> false
  */
 
 
-function findInOrderedSet(arr, target) {
+// function findInOrderedSet(arr, target, begin = 0, end = arr.length, halfway = Math.floor((begin + end)/ 2)) {
+//   // if (begin === end) return false;
+//   //
+//   // const halfway = Math.floor((begin + end) / 2);
+//   // if (arr[halfway] === target) return true;
+//   //
+//   // // return findInOrderedSet(arr, target, begin, halfway) ||
+//   // //        findInOrderedSet(arr, target, halfway + 1, end);
+//   //const halfway = Math.floor((begin + end) / 2);
+//
+//   return begin === end ?
+//     false :
+//     arr[halfway] === target ?
+//       true :
+//       arr[halfway] > target ?
+//         findInOrderedSet(arr, target, begin, halfway) :
+//         findInOrderedSet(arr, target, halfway + 1, end);
+// }
 
-}
+const findInOrderedSet = (arr, target, begin = 0, end = arr.length,
+                          halfway = Math.floor((begin + end)/ 2) ) =>
+  begin === end ?
+    false :
+    arr[halfway] === target ?
+      true :
+      arr[halfway] > target ?
+        findInOrderedSet(arr, target, begin, halfway) :
+        findInOrderedSet(arr, target, halfway + 1, end);
 
 
 module.exports = findInOrderedSet;
