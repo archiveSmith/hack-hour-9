@@ -11,7 +11,10 @@ findInOrderedSet(nums, 2);  -> false
 
 
 function findInOrderedSet(arr, target) {
-
+  let arrSet = new Set(arr);
+  let originalLength = arrSet.size;
+  arrSet.add(target);
+  return originalLength === arrSet.size;
 }
 
 
