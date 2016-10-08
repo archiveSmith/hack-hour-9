@@ -10,8 +10,25 @@ findInOrderedSet(nums, 2);  -> false
  */
 
 
-function findInOrderedSet(arr, target) {
+function findInOrderedSet(array, number) {
+  let length = array.length;
+  let left = 0;
+  let right = length - 1;
+  let middle = null;
 
+  while (left <= right) {
+    middle = (left + right) / 2
+    if (array[middle] === number) {
+      return true
+    }
+    if (array[middle] > number) {
+      right = middle - 1
+    }
+    else {
+      left = middle + 1
+    }
+  }
+  return false
 }
 
 
