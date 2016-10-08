@@ -10,8 +10,7 @@
 function countTwos(n){
 	let num2s = 0;
 	for(let i = 0; i <= n; i++){
-		let arr = JSON.stringify(i).match(/[2]/g)
-    if (arr) num2s += arr.length;
+    i.toString().replace(/[2]/g, () => num2s++)
 	}
 	return num2s;
 }
