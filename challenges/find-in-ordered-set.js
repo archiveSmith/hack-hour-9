@@ -16,6 +16,10 @@ function findInOrderedSet(array, number) {
   let right = length - 1;
   let middle = null;
 
+  if (array[0] === number || array[right] === number){
+    return true;
+  }
+
   while (left <= right) {
     middle = (left + right) / 2
     if (array[middle] === number) {
