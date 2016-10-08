@@ -10,11 +10,9 @@
  * How would you solve this problem if a temporary buffer is not allowed?
  */
 
-
-
 function Node(val) {
 	this.value = val;
-	this.next = null; 
+	this.next = undefined; 
 }
 
 
@@ -31,11 +29,12 @@ function deleteDups(head) {
 	let temp = resultLL;
 	for(let i = 0; i < storage.length; i++) {
 		temp.value = storage[i];
-		temp.next = i === storage.length - 1 ? null : new Node();
+		temp.next = i === storage.length - 1 ? undefined : new Node();
 		temp = temp.next;
 	}
 	return resultLL;
 }
+
 
 
 module.exports = deleteDups;
