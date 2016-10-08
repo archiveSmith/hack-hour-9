@@ -18,24 +18,24 @@ function Node(val) {
 
 function deleteDups(head) {
   const vals = [];
-  const outLL = new Node(head.value);
-  let runner = outLL;
-  head = head.next;
+  let newHead = head;
+  let outLL = new Node(newHead.value);
+  const runner = outLL;
 
-  while (head) {
-    if (vals.indexOf(head.value) === -1) {
-      vals.push(head.value)
+  while (newHead) {
+    if (vals.indexOf(newHead.value) === -1) {
+      vals.push(newHead.value);
     }
-    head = head.next;
+    newHead = newHead.next;
   }
 
   while (vals.length > 0) {
     const tempNode = new Node(vals.shift());
-    runner.next = tempNode;
-    runner = runner.next;
+    outLL.next = tempNode;
+    outLL = outLL.next;
   }
 
-  return outLL;
+  return runner;
 }
 
 module.exports = deleteDups;
