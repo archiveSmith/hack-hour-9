@@ -13,7 +13,20 @@
 
 
 function deleteDups(head) {
-
+  if (!head) return head;
+  let cur = head;
+  const hist = {}
+  
+  while (cur) {
+    hist[cur.value] = cur.value;
+    while (cur.next && hist[cur.next.value]) {
+      if (cur.next && hist[cur.next.value]) {
+        cur.next = cur.next.next;
+      }
+    }  
+    cur = cur.next;
+  }
+  return head;
 }
 
 module.exports = deleteDups;
