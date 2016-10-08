@@ -31,7 +31,7 @@ function deleteDups(head) {
 	let temp = resultLL;
 	for(let i = 0; i < storage.length; i++) {
 		temp.value = storage[i];
-		temp.next = new Node();
+		temp.next = i === storage.length - 1 ? null : new Node();
 		temp = temp.next;
 	}
 	return resultLL;
