@@ -21,20 +21,21 @@ function Node(val) {
 function deleteDups(head) {
 	let storage = [];
 	let currNode = head;
-	let resultNode = new Node();
-	let temp = resultNode
-	let index = 0;
 	while(currNode) {
-		storage.push(currNode.value);
-		if(storage.indexOf(temp.value) === -1) {
-			temp.value = storage[index];
-			temp.next = new Node();
-			temp = temp.next; 
-			index++;
+		if(storage.indexOf(currNode.value) === -1) {
+			storage.push(currNode.value);
 		}
 		currNode = currNode.next;
 	}
-	return resultNode;
+	let resultLL = new Node();
+	let temp = resultLL;
+	for(let i = 0; i < storage.length; i++) {
+		temp.value = storage[i];
+		temp.next = new Node();
+		temp = temp.next;
+	}
+	return resultLL;
 }
+
 
 module.exports = deleteDups;
