@@ -28,17 +28,24 @@
  */
 
 var Node = function(value) {
+<<<<<<< HEAD
  this.value = value;
  this.next = null;
  this.checked = false;
+=======
+  this.value = value;
+  this.next = null;
+>>>>>>> d9abeb989cb40870597a2f12419e849a88751f6d
 }
 
 function hasCycle(head) {
 
+<<<<<<< HEAD
  let temp = head;
 
  while(temp) {
    if(temp.checked) return true;
+   if(!temp.next) return false;
    temp.checked = true;
    temp = temp.next
  }
@@ -63,3 +70,8 @@ module.exports = {Node: Node, hasCycle: hasCycle}
 
 
 
+=======
+}
+
+module.exports = {Node: Node, hasCycle: hasCycle}
+>>>>>>> d9abeb989cb40870597a2f12419e849a88751f6d
