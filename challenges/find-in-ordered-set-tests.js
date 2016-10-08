@@ -38,11 +38,11 @@ describe('findInOrderedSet', () => {
 
   describe('edge case handling', () => {
     it('should return false if the array is empty', () => {
-
+      expect(findInOrderedSet([], 3)).to.be.false;
     });
 
     it('should return false if a null value is given', () => {
-
+      expect(findInOrderedSet(null, 3)).to.be.false;
     });
 
     it('should return false if undefined is given', () => {

@@ -29,15 +29,16 @@ findInOrderedSet(nums, 2);  -> false
 //         findInOrderedSet(arr, target, halfway + 1, end);
 // }
 
-const findInOrderedSet = (arr, target, begin = 0, end = arr.length,
+const findInOrderedSet = (arr, target, begin = 0, end = arr ? arr.length : null,
                           halfway = Math.floor((begin + end)/ 2) ) =>
-  begin === end ?
+  !arr || begin === end ?
     false :
     arr[halfway] === target ?
       true :
       arr[halfway] > target ?
         findInOrderedSet(arr, target, begin, halfway) :
-        findInOrderedSet(arr, target, halfway + 1, end);
+        findInOrderedSet(arr, target, halfway + 1, end)
+
 
 
 module.exports = findInOrderedSet;
