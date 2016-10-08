@@ -21,7 +21,12 @@ function deleteDups(head) {
   while (curr) {
     values.push(curr.value);
     if (curr.next && values.indexOf(curr.next.value) !== -1) {
+      const temp = curr;
       curr = curr.next = curr.next.next;
+      while (curr && values.indexOf(curr.value) !== -1) {
+        curr = curr.next;
+      }
+      temp.next = curr;
     } else {
       curr = curr.next;
     }
