@@ -15,22 +15,40 @@ function Node(val) {
   this.next = null;
 }
 
+// function removeNode(prev, curr) {
+//   prev.next = curr.next;
+//   curr.next = null;
+// }
+
+// function deleteDups(head) {
+//   const store = {};
+//   let prev = null;
+//   let curr = head;
+//   while (curr) {
+//     if (!store[curr.value]) {
+//       store[curr.value] = true;
+//       prev = curr;
+//       curr = curr.next;
+//     } else {
+//       prev.next = curr.next;
+//       curr.next = null;
+//       curr = prev.next;
+//     }
+//   }
+//   return head;
+// }
+
 function deleteDups(head) {
   const store = {};
-  let prev = null;
-  let curr = head;
-  while (curr) {
-    if (!store[curr.value]) {
+  let prev;
+  for (let curr = head; curr; curr = curr.next) {
+    if (curr.value in store) {
+      prev.next = curr.next;
+    } else {
       store[curr.value] = true;
       prev = curr;
-      curr = curr.next;
-    } else {
-      prev.next = curr.next;
-      curr.next = null;
-      curr = prev.next;
     }
   }
-  return head;
 }
 
 // test data
@@ -40,6 +58,7 @@ function deleteDups(head) {
 // // const node4 = node3.next = new Node('3');
 // // const node5 = node4.next = new Node('3');
 // console.log(node1);
-// console.log(deleteDups(node1));
+// deleteDups(node1);
+// console.log(node1);
 
 module.exports = deleteDups;
