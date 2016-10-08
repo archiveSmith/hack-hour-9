@@ -11,7 +11,7 @@ findInOrderedSet(nums, 2);  -> false
 
 
 function findInOrderedSet(arr, target) {
-  console.log(arr.length);
+  if (arr[0] === target) return true;
   function checker(checkArr) {
     const check = Math.ceil(checkArr.length / 2);
     if (checkArr[check] > target) {
