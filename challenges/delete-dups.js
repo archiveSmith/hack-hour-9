@@ -12,8 +12,20 @@
 
 
 
-function deleteDups(head) {
-
-}
+ function deleteDups(head) {
+        let prev = head;
+        let current = head.next;
+        let store = {};
+        while(current) {
+            if(store[current.val] === undefined) {
+                store[current.val] = true;
+            } else {
+                prev.next = current.next;
+            }
+            prev = current;
+            current = current.next;
+        }
+        return head;
+    }
 
 module.exports = deleteDups;
