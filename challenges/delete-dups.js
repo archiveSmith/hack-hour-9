@@ -10,6 +10,9 @@
  * How would you solve this problem if a temporary buffer is not allowed?
  */
 
+// Notes - see incorrect code at the bottom:
+// Review the order of assignment of curr.next and curr in the if-truthy-condition
+// Need to reset the curr.next value, then reset the curr variable
 
 function deleteDups(head) {
   const values = [];
@@ -18,8 +21,7 @@ function deleteDups(head) {
   while (curr) {
     values.push(curr.value);
     if (curr.next && values.indexOf(curr.next.value) !== -1) {
-      curr.next = curr.next.next;
-      curr = curr.next.next;
+      curr = curr.next = curr.next.next;
     } else {
       curr = curr.next;
     }
@@ -29,7 +31,6 @@ function deleteDups(head) {
 }
 
 module.exports = deleteDups;
-
 
 // function Node(value, next) {
 //   this.value = value;
@@ -42,3 +43,10 @@ module.exports = deleteDups;
 // let node0 = new Node(0, node1);
 
 // deleteDups(node0);
+
+
+// Incorrect code:
+// if (curr.next && values.indexOf(curr.next.value) !== -1) {
+//   curr.next = curr.next.next;
+//   curr = curr.next.next; // Wrong - curr is incorrectly assigned
+// }
