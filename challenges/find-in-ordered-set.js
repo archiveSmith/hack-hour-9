@@ -11,12 +11,16 @@ findInOrderedSet(nums, 2);  -> false
 
 
 function findInOrderedSet(arr, target) {
-	let match = false;
-	arr.forEach(num => {
-		console.log(num, target)
-		if(num === target) match = true;
-	})
-	return match;
+	let half = Math.ceil(arr.length / 2);
+
+	if (target === arr[0]) return true;
+	if (target === arr[half]) return true;
+	if (arr.length === 1) return false;
+	
+	if (target < arr[half]) arr = arr.splice(0, half);
+	if (target > arr[half]) arr = arr.splice(half, arr.length);
+	
+	return findInOrderedSet(arr, target);
 }
 
 
