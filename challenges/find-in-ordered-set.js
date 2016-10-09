@@ -24,4 +24,5 @@ function findInOrderedSet(arr, target) {
   return (arr[search] != target) ? false : true;
 }
 
+
 module.exports = findInOrderedSet;
