@@ -16,7 +16,13 @@ function deleteDups(head) {
     if (!buffer.includes(head.value)) buffer.push(head.value);
     head = head.next
   }
-  return buffer
+  let j = 0
+  let currentNode = head
+  while (j < buffer.length) {
+    currentNode = buffer[j]
+    currentNode = currentNode.next
+  }
+  return head
 }
 
 module.exports = deleteDups;
