@@ -30,6 +30,8 @@ function deleteDups(linkedList) {
   for (let index = 1; index < buffer.length; index++){
     curr = curr.next = new Node(buffer[index])
   }
+  console.log(buffer)
+  console.log(head)
   return head;
 }
 
@@ -38,9 +40,7 @@ function deleteDups(linkedList) {
 //  var node2 = node1.next = new Node('2');
 //  var node3 = node2.next = new Node('2');
 //  var node4 = node3.next = new Node('4');
-//  var node5 = node4.next = new Node('4');
-//  var node6 = node5.next = new Node('9');
 
-// // deleteDups(node1)
+// deleteDups(node1)
 
 module.exports = deleteDups;
