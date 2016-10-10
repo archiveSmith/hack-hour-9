@@ -21,7 +21,14 @@
  */
 
 function EventEmitter() {
-
+  let outputObj = {};
+  outputObj.on = (event, func) => {
+    this[event] = func;
+  };
+  outputObj.trigger = (input, ...rest) => {
+    this[input](...rest);
+  };
+  return outputObj;
 }
 
 module.exports = EventEmitter;

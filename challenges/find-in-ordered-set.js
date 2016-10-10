@@ -9,9 +9,19 @@ findInOrderedSet(nums, 2);  -> false
 
  */
 
-
 function findInOrderedSet(arr, target) {
-
+  let start = 0
+  let stop = arr.length - 1
+  let search = Math.floor((arr.length - 1 + start) / 2);
+  while (arr[search] != target && start < stop) {
+    if (target < arr[search]) {
+      stop = search - 1;
+    } else if (target > arr[search]) {
+      start = search + 1;
+    }
+    search = Math.floor((stop + start) / 2);
+  }
+  return (arr[search] != target) ? false : true;
 }
 
 
