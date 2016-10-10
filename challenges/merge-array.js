@@ -14,41 +14,25 @@
  */
 
 function mergeArrays(arr1, arr2) {
-	// let result = [];
-	// let len = arr1.length + arr2.length;
-	// let index = 0;
-	// let idx1 = 0;
-	// let idx2 = 0; 
-	// while(index < len - 1) {
-	// 	if(arr1[idx1] < arr2[idx2]) {
-	// 		result.push(arr1[idx1]);
-	// 		idx1++; 
-	// 		index++;
-	// 	} else {
-	// 		result.push(arr2[idx2]);
-	// 		idx2++;
-	// 		index++; 
-	// 	}
-	// }
-	// if(idx2 !== arr2.length) return result.concat(arr2.slice(idx2));
-	// if(idx1 !== arr1.length) return result.concat(arr1.slice(idx1));
-	// return result; 
-	array.sort(function(a,b){
-    return a[0]-b[0];
-  });
-  var i = 0;
-  while (i<array.length-1){
-    if (array[i][1]>=array[i+1][0]){
-      if (array[i][1]<array[i+1][1]){
-	array[i][1] = array[i+1][1];
-      }
-      array.splice(i+1,1);
-    }
-    else{
-      i++;
-    }
-  }
-  return array;
+	let result = [];
+	let len = arr1.length + arr2.length;
+	let index = 0;
+	let idx1 = 0;
+	let idx2 = 0; 
+	while(index < len - 1) {
+		if(arr1[idx1] < arr2[idx2]) {
+			result.push(arr1[idx1]);
+			idx1++; 
+			index++;
+		} else {
+			result.push(arr2[idx2]);
+			idx2++;
+			index++; 
+		}
+	}
+	if(idx2 !== arr2.length) return result.concat(arr2.slice(idx2));
+	if(idx1 !== arr1.length) return result.concat(arr1.slice(idx1));
+	return result; 
 }
 
 module.exports = mergeArrays;
