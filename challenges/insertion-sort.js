@@ -11,15 +11,16 @@ function insertionSort(arr) {
     console.log(arr);
     let insideCounter = count;
     while (insideCounter > 0) {
-      if (arr[insideCounter] < current) {
-        arr.splice(insideCounter, 0, current);
-      } else {
-        insideCounter--
-      }
+      // if (arr[insideCounter] < current) {
+      //   arr.splice(insideCounter, 0, current);
+      // } else {
+      //   insideCounter--
+      // }
+
     }
     count++
   }
-
+  return arr;
 }
 
 var erray = [9, 7, 6, 8, 5, 3, 1, 2];
