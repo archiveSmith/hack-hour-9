@@ -13,7 +13,21 @@
 
 
 function deleteDups(head) {
-
+	var arr = [];
+	var curr = head;
+	var prev = null;
+	
+	while (curr !== null){
+		if (arr.indexOf(curr.value) === -1){
+			arr.push(curr.value);
+			prev = curr;
+			curr = curr.next;
+		} else {
+			//remove that dupe node from the linkedlist
+			prev.next = curr.next;
+			curr = curr.next;
+		}
+	}
 }
 
 module.exports = deleteDups;

@@ -12,7 +12,21 @@
  */
 
 function reverseInPlace(array) {
+	//x is the sum of the indexes of each pair that needs to be swapped
+	let x = array.length - 1;
+	let y = Math.floor(array.length -1) / 2;
 
+	//store value at index i in temp variable
+	//identify position at which that value should be swapped with
+	//swap values
+	//repeat up until Math.floor of half the array's length
+	for (var i = 0; i < y; i++) {
+		let temp = array[i];
+		array[i] = array[x - i];
+		array[x - i] = temp;
+	} 
+	return array;
 }
+
 
 module.exports = reverseInPlace;

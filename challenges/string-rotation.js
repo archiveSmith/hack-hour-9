@@ -16,7 +16,18 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-
+	var trueArr = [];	//will hold all the stringrotations of s1 (result is true if s2 is contained in trueArr)
+	var splitted = "hello".split("");
+	for (var i = 0; i < s1.length; i++){
+		
+		var shifted = splitted.shift();
+		var letterToPush = shifted;
+		var pushed = splitted.push(letterToPush);
+		trueArr.push(splitted.join(""));
+	}
+	//if s2 is contained in trueArr, s2 is a rotation of s1
+	return trueArr.indexOf(s2) !== -1;
+		
 }
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};

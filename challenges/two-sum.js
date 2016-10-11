@@ -3,7 +3,19 @@
  */
 
 function twoSum(arr, n) {
+	if (typeof n !== 'number'){
+		return undefined;
+	}
+	if (arr.length === 0){
+		return false;
+	}
 
+	for (var i = 0; i < arr.length; i++){
+		if (arr.slice(i+1).indexOf(n-arr[i]) !== -1) {
+			return true;
+		}
+	}
+	return false;
 }
 
 module.exports = twoSum;
