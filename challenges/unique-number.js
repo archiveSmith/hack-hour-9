@@ -10,7 +10,16 @@
  *
  */
 function uniqueNumber(array) {
+  let storage = {};
 
+  array.forEach((num) => {
+    if (!storage[num]) {
+      storage[num] = true;
+    } else {
+      delete storage[num];
+    }
+  });
+  return parseInt(Object.keys(storage)[0]);
 }
 
 module.exports = uniqueNumber;
