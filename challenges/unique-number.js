@@ -10,7 +10,23 @@
  *
  */
 function uniqueNumber(array) {
-
+  let cache = {};
+  for (let i = 0; i < array.length; i ++){
+    let key = array[i];
+    if(!cache[key]){
+      cache[key] = true;
+    }
+    else{
+      cache[key]++;
+    }
+  }
+  let unique;
+  for (prop in cache){
+  	if(cache[prop] === true){
+  		unique = Number(prop);
+  	}
+  }
+  return unique;
 }
 
 module.exports = uniqueNumber;
