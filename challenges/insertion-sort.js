@@ -19,6 +19,4 @@ function insertionSort(array) {
   return array;
 }
 
-console.log(insertionSort([6,2,3,1]));
-
 module.exports = insertionSort;
