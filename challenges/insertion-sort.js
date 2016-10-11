@@ -5,14 +5,15 @@
 
 
 function insertionSort(array) {
+
 	for(var i = 1; i < array.length; i++) {
-	let tempArr = array[i]; 
+	let tempNum = array[i]; 
 	let tempIndex = i; 
-	while (tempIndex > 0 && array[tempIndex - 1] > tempArr) {
+	while (tempIndex > 0 && array[tempIndex - 1] > tempNum) {
 		array[tempIndex] = array[tempIndex - 1];
 		tempIndex--; 
 	}
-	array[tempIndex] = tempArr; 
+	array[tempIndex] = tempNum; 
 	}
 	return array; 
 }
