@@ -9,8 +9,17 @@
  * Complete the challenge in O(1) space
  *
  */
-function uniqueNumber(array) {
 
+function uniqueNumber(array){
+  for (var i = 0; i < array.length; i+=2){
+    if(array[i] !== array[i+1]){
+      if(array[i] > array[i+2]){
+        return array[i];
+      } else {
+        return array[i+1];
+      }
+    } 
+  }
 }
 
 module.exports = uniqueNumber;
