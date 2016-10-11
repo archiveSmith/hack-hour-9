@@ -10,7 +10,35 @@
  *
  */
 function uniqueNumber(array) {
+  const hash = {};
+  let result = null;
+  const l = array.length;
 
+  for (var i = 0; i < l; i++) {
+    if (array[i] in hash) {
+      hash[array[i]] += 1;
+    } else {
+      hash[array[i]] = 1;
+    }
+  }
+  for (var j in hash) {
+    if (hash[j] == 1) {
+      result = j;
+    }
+  }
+
+  return result;
+  
 }
-
 module.exports = uniqueNumber;
+
+// O(n) with no space: deep into Bits for solution
+// function find_unique_xor (array) {
+//   var result = 0, n = array.length;
+
+//   for (var i = 0; i < n; i++) {
+//     result ^= array[i]; 
+//   }
+
+//   return result;
+// }
