@@ -10,7 +10,13 @@
  *
  */
 function uniqueNumber(array) {
-
+  array.sort((a, b) => a - b);
+  for (let i = 0; i < array.length; i += 2) {
+    if (array[i] !== array[i + 1]) {
+      return array[i];
+    }
+  }
+  return array[array.length - 1];
 }
 
 module.exports = uniqueNumber;
