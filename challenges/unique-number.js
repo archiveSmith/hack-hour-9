@@ -10,7 +10,13 @@
  *
  */
 function uniqueNumber(array) {
+  const max = (array.length + 1) / 2
 
+  const sumOfNonUnique = 2 * (max * (max + 1) / 2)
+
+  const sum = array.reduce((a, b) => a + b);
+
+  return sumOfNonUnique - sum;
 }
 
 module.exports = uniqueNumber;
