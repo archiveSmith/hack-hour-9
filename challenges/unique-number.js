@@ -10,7 +10,15 @@
  *
  */
 function uniqueNumber(array) {
-
+	let numStore = {};
+	array.forEach(num => {
+		if(numStore[num]) {
+			delete numStore[num];
+		} else {
+			numStore[num] = true;
+		}
+	})
+	return parseInt(Object.keys(numStore)[0]);
 }
 
 module.exports = uniqueNumber;
