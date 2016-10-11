@@ -26,6 +26,6 @@ function uniqueNumber(array) {
 
 }
 
-console.log(uniqueNumber([1, 1, 3, 3, 2]));
+// console.log(uniqueNumber([1, 1, 3, 3, 2]));
 
 module.exports = uniqueNumber;
