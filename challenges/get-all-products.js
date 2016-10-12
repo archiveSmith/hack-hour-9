@@ -9,20 +9,32 @@
  * do not use division, becuase zero might be in the array and you cannot divide by zero
  */
 function getAllProducts(array) {
-  const product = array.reduce((a, b) => {
-    if (a === 0) {
-      return b * 1;
-    } else if (b === 0) {
-      return a * 1;
+  if (array[0] === undefined) return [0];
+  const product = array.reduce((a, b) => a * b);
+  let product2;
+  let zeros = 0;
+  if (product === 0) {
+    product2 = array.reduce((a, b) => {
+      if (a === 0) {
+        zeros++;
+        return b * 1;
+      } else if (b === 0) {
+        zeros++;
+        return a * 1;
+      }
+      return a * b;
+    });
+    if (zeros > 1) {
+      return array.map((el) => el * 0);
     }
-    return a * b;
-  });
-  return array.map((el) => {
-    if (el === 0) {
-      return 0;
-    }
-    return product / el;
-  });
+    return array.map((el, i) => {
+      if (i === 0) {
+        return product2;
+      }
+      return product;
+    });
+  }
+  return array.map((el) => product / el);
 }
 
 module.exports = getAllProducts;
