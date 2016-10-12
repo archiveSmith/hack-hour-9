@@ -10,18 +10,20 @@
  *
  */
 
-function uniqueNumber(array)  {
-  var result = null, n = array.length;
-
-  for (var i = 0; i < n; i++) {
-    for (var j = i; j < n; j++) {
-      if (array[i] != array[j]) {
-        result = array[i];
+function getAllProducts(array) {
+  let results = [];
+  let tempMultiply = 1;
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array.length; j++) {
+      if (i !== j) {
+        tempMultiply = array[j] * tempMultiply;
       }
-    }
-  }
 
-  return result;
+    }
+    results.push(tempMultiply);
+    tempMultiply = 1;
+  }
+  return results;
 }
 
 module.exports = uniqueNumber;
