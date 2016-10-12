@@ -10,6 +10,9 @@
  *
  */
 function uniqueNumber(array) {
+
+	// O(nlogn) solution 
+	// other solution would be cache O(n) time and space complexity
 	array = array.sort(function(a, b) { return a - b; })
 	for(let i = 0; i < array.length; i++) {
 		
@@ -18,6 +21,7 @@ function uniqueNumber(array) {
 			return array[i];
 		} 
 	}
+
 }
 
 module.exports = uniqueNumber;
