@@ -13,19 +13,17 @@ function getAllProducts(array) {
   if (array.length === 0) return [0];
   if (array.length === 1) return array;
 
-  const combos = [];
+  const products = [];
 
   for (let i = 0; i < array.length; i++) {
     const LH = array.slice(0, i);
     const RH = array.slice(i + 1);
-    combos.push(LH.concat(RH));
+    const subArray = LH.concat(RH);
+
+    products.push(subArray.reduce((prev, curr) => prev * curr));
   }
 
-  return combos.map((arr) => {
-    return arr.reduce((prev, curr) => {
-      return prev * curr;
-    });
-  });
+  return products;
 }
 
 module.exports = getAllProducts;
