@@ -10,7 +10,11 @@
  *
  */
 function uniqueNumber(array) {
-
+	let n = (array.length + 1) / 2
+	let expectedSum = (1 + n) * n / 2;
+	let actualSum = array.reduce((a, c) => a + c);
+	return expectedSum * 2 - actualSum
 }
+
 
 module.exports = uniqueNumber;
