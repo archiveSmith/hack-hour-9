@@ -37,6 +37,4 @@ function getAllProducts(array) {
   return array.map((el) => product / el);
 }
 
-console.log(getAllProducts([1, 7, 3, 0, 4]));
-
 module.exports = getAllProducts;
