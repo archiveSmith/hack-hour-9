@@ -10,8 +10,11 @@
  */
 function getAllProducts(array) {
   let output = [];
-  if (array.length < 2){
-    return `Micky says "you're on your own with edge cases"`;
+  if (array.length === 0){
+    return [0];
+  }
+  if (array.length === 1){
+    return array;
   }
   for (let i = 0; i < array.length; i++){
     output.push(array.reduce(function(prev, curr, index){
