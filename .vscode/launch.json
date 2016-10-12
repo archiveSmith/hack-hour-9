@@ -4,7 +4,7 @@
         "name": "Node.js Debugging",
         "type": "node",   //Tells this that I want to do debugging via node.js (if we choose chrome then it is chrom debugging)
         "request": "launch",
-        "program": "${workspaceRoot}/challenges/insertion-sort.js",    //Point to pow.js for debugging
+        "program": "${workspaceRoot}/challenges/get-all-products.js",    //Point to pow.js for debugging
         "stopOnEntry": false,
         "args": [],
         "cwd": "${workspaceRoot}",
