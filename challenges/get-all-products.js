@@ -9,7 +9,7 @@
  * do not use division, becuase zero might be in the array and you cannot divide by zero
  */
 function getAllProducts(array) {
-  if (!array.length){
+  if (!array.length || array.length === 0 || array === null){
     return [0];
   }
   if(array.length === 1){
