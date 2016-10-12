@@ -13,9 +13,11 @@ function getAllProducts(array) {
 
 	var output = [];
 	
-	// check edge cases - return empty array
-	if(!array || array.length < 2) {
-		return output;
+	// check edge cases - return [0]
+	if(array.length === 0) {
+		return [0];
+	} else if(array.length === 1) {
+		return array;
 	}
 
 	// loop through the array
@@ -41,9 +43,10 @@ function getAllProducts(array) {
 /* tests */
 /*
 console.log(getAllProducts([1, 7, 3, 4])); //->  [84, 12, 28, 21]
+console.log(getAllProducts([1, 0, 3, 4])); //->  [0, 12, 0, 0]
 console.log(getAllProducts([1, 7])); //-> [7, 1]
-console.log(getAllProducts([7])); // []
-console.log(getAllProducts([])); // []
+console.log(getAllProducts([7])); // [7]
+console.log(getAllProducts([])); // [0]
 */
 
 module.exports = getAllProducts;
