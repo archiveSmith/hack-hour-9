@@ -10,7 +10,7 @@
  */
 function getAllProducts(array) {
     if (array === []){
-        return 0;
+        return [0];
     }
 	let results = [];
 	let tempMultiply = 1;
