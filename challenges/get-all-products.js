@@ -26,7 +26,12 @@
 
 function getAllProducts(arr) {
   if (arr.length === 0) return [0];
-  const total = arr.reduce((a, b) => a * b, 1);
+  const total = arr.reduce((a, b) => {
+    if (a === 0 || b === 0) {
+      return a;
+    }
+    return a * b;
+  }, 1);
   const output = [];
   arr.forEach((num) => {
     if (num === 0) {
@@ -39,8 +44,8 @@ function getAllProducts(arr) {
 }
 
 // tests
-// console.log(getAllProducts([1, 7, 3, 4]), ' = [84, 12, 28, 21]');
-// console.log(getAllProducts([1]), ' = [1]');
-// console.log(getAllProducts([]), ' = [0]');
+console.log(getAllProducts([1, 7, 3, 4, 0]), ' = [84, 12, 28, 21]');
+console.log(getAllProducts([1]), ' = [1]');
+console.log(getAllProducts([]), ' = [0]');
 
 module.exports = getAllProducts;
