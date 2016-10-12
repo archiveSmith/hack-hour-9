@@ -13,8 +13,21 @@
  *
  */
 
-function mergeArrays(arr1, arr2) {
+// look at left-most element [0], and shift the smaller element to a new array;
+// while either are not empty, continue this.
 
+function mergeArrays(arr1, arr2) {
+	let newArr = [];
+
+	while(arr1.length !== 0 || arr2.length !== 0) {
+		if (arr1[0] > arr2[0] || arr1.length === 0) { 
+			newArr.push(arr2.shift());
+		} else {
+			newArr.push(arr1.shift());
+		}
+	}
+
+	return newArr;
 }
 
 module.exports = mergeArrays;
