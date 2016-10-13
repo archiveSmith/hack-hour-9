@@ -41,12 +41,12 @@ LinkedList.prototype.remove = function(val) {
 };
 
 
-let list = new LinkedList()
-let firstNode = new Node(6);
-list.head = firstNode;
-list.tail = firstNode;
-list.add(5);
-
-list.remove(5)
+// let list = new LinkedList()
+// let firstNode = new Node(6);
+// list.head = firstNode;
+// list.tail = firstNode;
+// list.add(5);
+//
+// list.remove(5)
 
 module.exports = LinkedList;
