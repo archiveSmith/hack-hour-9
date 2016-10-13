@@ -15,7 +15,7 @@ function highestProduct(array, storage = []) {
 	highestProduct(array.slice(1), storage)
 	
     //Find and return largest product
-    storage.sort(function(a,b){return b-a})
+    storage.sort(function(a,b){return a-b})
 	var maxProduct = storage[0]
 	return maxProduct;
 }
