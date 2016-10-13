@@ -23,8 +23,12 @@ LinkedList.prototype.add = function(val) {
   }
   else {
     let holdNode = this.tail;
+    console.log('holdNode', this.tail)
     this.tail.next = new Node(val)
+    console.log('this.tail.next new node', this.tail.next)
     this.tail.next.prev = holdNode;
+    console.log('this.tail.next.prev', this.tail.next.prev)
+
     this.tail = this.tail.next
   }
 };
@@ -32,9 +36,14 @@ LinkedList.prototype.add = function(val) {
 /*
 Removes the first node with the inputted value
  */
-LinkedList.prototype.remove = function(val) {
+LinkedList.prototype.remove = function (val) {
+  if (this.head.val === val) {
+    this.head = this.head.next;
+    return
+  }
 
   for (let moveNode = this.head; moveNode.next !== null; moveNode = moveNode.next) {
+    console.log(moveNode.val)
     if (moveNode.val === val) {
      
       let prevNode = moveNode.prev;
