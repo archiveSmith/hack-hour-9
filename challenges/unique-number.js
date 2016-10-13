@@ -10,15 +10,11 @@
  *
  */
 function uniqueNumber(array) {
-	array = array.sort((a, b) => a  - b)
-
-	for(let i = 0; i < array.length; i++) {
-		if(array[i] == array[i + 1]){
-			i++	
-		} else {
-			return  array[i]
-		}
-	}
+	let n = (array.length + 1)/2,
+	realSum = n*(n + 1),
+	sum = array.reduce((a, b) => a + b);
+	
+	return realSum - sum
 }
 
 module.exports = uniqueNumber;
