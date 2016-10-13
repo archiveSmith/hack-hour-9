@@ -44,8 +44,8 @@ function getAllProducts(arr) {
 }
 
 // tests
-console.log(getAllProducts([1, 7, 3, 4, 0]), ' = [84, 12, 28, 21]');
-console.log(getAllProducts([1]), ' = [1]');
-console.log(getAllProducts([]), ' = [0]');
+// console.log(getAllProducts([1, 7, 3, 4]), ' = [84, 12, 28, 21]');
+// console.log(getAllProducts([1]), ' = [1]');
+// console.log(getAllProducts([]), ' = [0]');
 
 module.exports = getAllProducts;
