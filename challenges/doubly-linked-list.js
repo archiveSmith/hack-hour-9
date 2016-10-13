@@ -17,14 +17,46 @@ function Node(val) {
 Adds a node to the end of the list
  */
 LinkedList.prototype.add = function(val) {
-  
+  if (!this.head) {
+    this.head = new Node(val);
+    this.tail = this.head;
+  }
+  else {
+    let holdNode = this.tail;
+    this.tail.next = new Node(val)
+    this.tail.next.prev = holdNode;
+    this.tail = this.tail.next
+  }
 };
 
 /*
 Removes the first node with the inputted value
  */
 LinkedList.prototype.remove = function(val) {
-  
+
+  for (let moveNode = this.head; moveNode.next !== null; moveNode = moveNode.next) {
+    if (moveNode.val === val) {
+     
+      let prevNode = moveNode.prev;
+      let nextNode = moveNode.next;
+      console.log('movenode ', moveNode)
+      console.log('prevnode ', prevNode)
+      console.log('nextNode ', nextNode)
+       
+      prevNode.next = nextNode;
+      return
+    }
+      
+  }
 };
+// var myList = new LinkedList();
+// myList.add('a');
+// myList.add('b');
+// myList.add('c');
+// myList.add('d');
+// myList.add('e')
+// // console.log(myList)
+// myList.remove('b')
+// console.log(myList)
 
 module.exports = LinkedList;
