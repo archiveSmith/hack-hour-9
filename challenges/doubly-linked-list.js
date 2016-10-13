@@ -42,7 +42,7 @@ LinkedList.prototype.remove = function(val) {
 	//case 2: the value is the head and the list extends
 	} else if (val === curr.val && curr.next) {
 		this.head = curr.next;
-		curr.prev = null;
+		this.head.prev = null;
 	} else {
 		while (curr && curr.next) {
 			// case 3: the value is one of the rest
