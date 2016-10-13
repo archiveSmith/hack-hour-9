@@ -48,9 +48,9 @@ LinkedList.prototype.remove = function (val) {
      
       let prevNode = moveNode.prev;
       let nextNode = moveNode.next;
-      console.log('movenode ', moveNode)
-      console.log('prevnode ', prevNode)
-      console.log('nextNode ', nextNode)
+      // console.log('movenode ', moveNode)
+      // console.log('prevnode ', prevNode)
+      // console.log('nextNode ', nextNode)
        
       prevNode.next = nextNode;
       return
