@@ -42,16 +42,19 @@ LinkedList.prototype.remove = function(val) {
 	//case 2: the value is the head and the list extends
 	} else if (val === curr.val && curr.next) {
 		this.head = curr.next;
+		curr.prev = null;
 	} else {
 		while (curr && curr.next) {
 			// case 3: the value is one of the rest
 			if (curr.next.val === val && curr.next.next) {
 				curr.next = curr.next.next;
 				curr.next.prev = curr;
+				break;
 			//case 4: the value is the last node
 			}  else if (!curr.next.next) {
 				// console.log(curr.val, "this should be the second to last value")
 				curr.next = null;
+				break;
 			}
 			curr = curr.next;
 		}
