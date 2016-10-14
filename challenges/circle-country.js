@@ -34,6 +34,9 @@ function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
     if (endCircle <= r[i]) {
       borders++;
     }
+    if (startCircle <= r[i] && endCircle <= r[i]) {
+      borders -= 2;
+    }
   }
   return borders;
 }
