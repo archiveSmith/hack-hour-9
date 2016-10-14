@@ -8,6 +8,7 @@
  *
  * do not use division, becuase zero might be in the array and you cannot divide by zero
  */
+
 function getAllProducts(array) {
   if (array.length === 0 || array === null || array === undefined) return [0];
   const product = array.reduce((a, b) => a * b);
