@@ -12,14 +12,14 @@
  */
 
 
-function getProducts(array) {
+function getAllProducts(array) {
   let nums = [];
 
   nums = array.map((current, index, array) => {
     var tempArr = array.slice();
     tempArr.splice(index, 1)
-    product =  tempArr.reduce((a, b) => {
-      return a* b;
+    product = tempArr.reduce((a, b) => {
+      return a * b;
     })
     return product;
   })
@@ -27,6 +27,8 @@ function getProducts(array) {
   return nums;
 }
 
-// console.log(getProducts([1, 7, 3, 4]));
+console.log(getAllProducts([1, 7, 3, 4]));
 
-module.exports = getAllProducts
+
+module.exports = getAllProducts;
+
