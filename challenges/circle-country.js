@@ -24,6 +24,20 @@
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
 
+    for (let i = 0; i < r.length; i++) {
+        let count = 0;
+        if (start_x < x[i] + r && start_x > x[i] - r && start_x < y[i] + r && start_x > y[i] - r) {
+            if (!(end_x < x[i] + r && end_x > x[i] - r && end_x < y[i] + r && end_x > y[i] - r) {
+                count++;
+            }
+        }
+        if (!(start_x < x[i] + r && start_x > x[i] - r && start_x < y[i] + r && start_x > y[i] - r) {
+            if (end_x < x[i] + r && end_x > x[i] - r && end_x < y[i] + r && end_x > y[i] - r) {
+                count++;
+            }
+        }
+    }
+    return count++;
 }
 
 module.exports = circleCountry;
