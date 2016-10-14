@@ -18,8 +18,8 @@ function getProducts(array) {
   nums = array.map((current, index, array) => {
     var tempArr = array.slice();
     tempArr.splice(index, 1)
-    product =  tempArr.reduce((a, b) => {
-      return a* b;
+    product = tempArr.reduce((a, b) => {
+      return a * b;
     })
     return product;
   })
