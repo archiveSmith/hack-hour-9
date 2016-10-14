@@ -7,7 +7,7 @@
  * [7*3*4, 1*3*4, 1*7*4, 1*7*3]
  *
  * do not use division, becuase zero might be in the array and you cannot divide by zero
- */
+**/
 function getAllProducts(array) {
   if (array.length <= 1) return 0; 
   const totalSum = array.reduce((memo, item) => memo * item);
