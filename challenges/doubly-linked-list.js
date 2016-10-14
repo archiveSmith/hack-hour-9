@@ -45,10 +45,10 @@ LinkedList.prototype.remove = function(val) {
   			this.tail.next = null
   			break;
   		} else {
-  		past = temp.prev;
-  		past.next = temp.next;
-  		temp.next.prev = past;
-  		break;
+    		past = temp.prev;
+    		past.next = temp.next;
+    		temp.next.prev = past;
+    		break;
   		}
   	}
   	temp = temp.next
