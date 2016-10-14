@@ -17,25 +17,12 @@ function Node(val) {
 
 
 function deleteDups(head) {
-  const vals = [];
-  let newHead = head;
-  let outLL = new Node(newHead.value);
-  const runner = outLL;
+  const vals = {};
+  vals[head.value] = true;
 
-  while (newHead) {
-    if (vals.indexOf(newHead.value) === -1) {
-      vals.push(newHead.value);
-    }
-    newHead = newHead.next;
+  while(head) {
+    
   }
-
-  while (vals.length > 0) {
-    const tempNode = new Node(vals.shift());
-    outLL.next = tempNode;
-    outLL = outLL.next;
-  }
-
-  return runner;
 }
 
 module.exports = deleteDups;

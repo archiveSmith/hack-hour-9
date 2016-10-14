@@ -13,7 +13,15 @@
   */
 
 function anagrams(string) {
+  let arrString = string.split('');
 
+  let outArr = [];
+
+  // switch letters around
+  for (let i = 0; i < string.length; i++) {
+    let tempStr = string[i];
+
+  }
 }
 
 module.exports = anagrams;
