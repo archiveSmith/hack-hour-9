@@ -48,4 +48,5 @@ function getAllProducts(arr) {
 // console.log(getAllProducts([1]), ' = [1]');
 // console.log(getAllProducts([]), ' = [0]');
 
+
 module.exports = getAllProducts;
