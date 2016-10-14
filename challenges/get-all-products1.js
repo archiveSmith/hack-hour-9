@@ -8,6 +8,7 @@
  *
  * do not use division, becuase zero might be in the array and you cannot divide by zero
  */
+<<<<<<< HEAD
 function getAllProducts(array) {
     if (array.length === 0){
         return [0];
@@ -27,3 +28,11 @@ function getAllProducts(array) {
 	return results;
 }
 module.exports = getAllProducts;
+=======
+
+function getAllProducts(array) {
+
+}
+
+module.exports = getAllProducts;
+>>>>>>> 72cb4a8ff4445f50af34aba53fcf550f3e3debb9
