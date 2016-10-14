@@ -3,14 +3,16 @@
  */
 
 function twoSum(arr, n) {
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = i + 1; j < arr.length; j++) {
-      if (arr[i] + arr[j] === n) {
-        return true;
-      }
+  return function recurse(num, restArr) {
+    if (!restArr.length) {
+      return false;
     }
-  }
-  return false;
+    for (let i = 0; i < restArr.length; i++) {
+      if (num + restArr[i] === n) return true;
+    }
+    const newNum = restArr.shift();
+    return recurse(newNum, restArr);
+  };
 }
 
 module.exports = twoSum;
