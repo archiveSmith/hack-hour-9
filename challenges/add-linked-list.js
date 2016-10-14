@@ -61,20 +61,20 @@ function addLinkedList(l1, l2) {
 	}
 	
 }
-var three = new Node(5);
-var one = new Node(1);
-var five = new Node(5);
-three.next = one;
-one.next = five;
-// console.log('l1', l1);
+// var three = new Node(5);
+// var one = new Node(1);
+// var five = new Node(5);
+// three.next = one;
+// one.next = five;
+// // console.log('l1', l1);
 
-var Five = new Node(5);
-var Nine = new Node(9);
-var Two = new Node(2);
-Five.next = Nine;
-Nine.next = Two;
-// console.log('l2', Five);
+// var Five = new Node(5);
+// var Nine = new Node(9);
+// var Two = new Node(2);
+// Five.next = Nine;
+// Nine.next = Two;
+// // console.log('l2', Five);
 
-addLinkedList(three, Five);
+// addLinkedList(three, Five);
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
