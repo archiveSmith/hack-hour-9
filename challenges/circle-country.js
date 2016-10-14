@@ -24,19 +24,18 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
-  const startCir = [];
-  const endCir = [];
+  let borders = 0;
   for (let i = 0; i < x.length; ++i) {
     const startCircle = Math.sqrt(Math.pow((x[i] + start_x), 2) + Math.pow((y[i] + start_y), 2));
     const endCircle = Math.sqrt(Math.pow((x[i] + end_x), 2) + Math.pow((y[i] + end_y), 2));
     if (startCircle <= r[i]) {
-      startCir.push(i);
+      borders++;
     }
     if (endCircle <= r[i]) {
-      endCir.push(i);
+      borders++;
     }
   }
-  console.log('start', startCir, 'end', endCir);
+  return borders;
 }
 
 module.exports = circleCountry;
