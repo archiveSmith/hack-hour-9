@@ -3,7 +3,9 @@
  */
 
 function twoSum(arr, n) {
-  return function recurse(num, restArr) {
+  const firstNum = arr.shift();
+
+  function recurse(num, restArr) {
     if (!restArr.length) {
       return false;
     }
@@ -12,7 +14,11 @@ function twoSum(arr, n) {
     }
     const newNum = restArr.shift();
     return recurse(newNum, restArr);
-  };
+  }
+
+  return recurse(firstNum, arr);
 }
+
+console.log(twoSum([1,2,3,4], 8));
 
 module.exports = twoSum;
