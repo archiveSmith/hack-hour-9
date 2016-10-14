@@ -12,14 +12,16 @@
   * console.log(result); // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
   */
 
-function anagrams(string) {
-  if (string.length === 1) return [string];
+function anagrams(string, current = [string]) {
+  if (string.length === 1) return current;
 
-  const anagramObj = anagrams(string.slice(1))
+  const anagramObj = current
     .map(anagram => insertCharAtEachIndex(string[0], anagram))
     .reduce((acc, next) => Object.assign(acc, stringArrayToObj(next)), {});
 
-  return Object.keys(anagramObj).sort();
+  current = Object.keys(anagramObj).sort();
+
+  return anagrams() // Finish this
 }
 
 function insertCharAtEachIndex(char, string) {
