@@ -30,4 +30,4 @@
 // }
 
 // >>>>>>> 72cb4a8ff4445f50af34aba53fcf550f3e3debb9
-// module.exports = getAllProducts;
+module.exports = getAllProducts;
