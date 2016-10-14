@@ -43,17 +43,25 @@ LinkedList.prototype.remove = function remove(val) {
     tempNext.prev = null;
     tempHead.next = null;
     this.head = tempNext;
-    return val;
+    return true;
   }
   for (let i = this.head; i; i = i.next) {
     if (i.val === val) {
+      if (i === this.tail) {
+        const prevTemp = i.prev;
+        prevTemp.next = null;
+        i.prev = null;
+        this.tail = prevTemp;
+        return true;
+      }
       const prevTemp = i.prev;
       const nextTemp = i.next;
       prevTemp.next = nextTemp;
       nextTemp.prev = prevTemp;
-      break;
+      return true;
     }
   }
+  return false;
 };
 
 
