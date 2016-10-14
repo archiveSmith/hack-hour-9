@@ -23,7 +23,28 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
-
+  function checkIfInside(x, y, r, tx, ty) {
+    return (((tx < x + r)) && ((tx > x - r))) && (((ty < y) + r) && (ty > (y - r)));
+  }
+  //add one for every circle that the start point is in, but the destination is not
+  // add one for every circle that the end point is in, but the start is not
+  let borderCount = 0,
+    i = 0,
+    len = x.length;
+  for (; i < len; i++) {
+    borderCount += checkIfInside(x[i], y[i], r[i], start_x, start_y) ^ checkIfInside(x[i], y[i], r[i], end_x, end_y);
+  }
+  return borderCount;
 }
 
 module.exports = circleCountry;
+
+
+
+
+
+
+
+
+
+
