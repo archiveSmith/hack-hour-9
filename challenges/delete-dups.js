@@ -13,6 +13,19 @@
 
 
 function deleteDups(head) {
+	let nums = {};
+	let curr = head;
+	let prev;
+
+	while(curr) {
+		if(nums[curr.value]) {
+			prev.next = curr.next
+		} else {
+			num[curr.value] = true;
+			prev = curr
+		}
+		curr = curr.next
+	}
 
 }
 
