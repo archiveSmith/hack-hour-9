@@ -39,7 +39,7 @@ LinkedList.prototype.add = function(val) {
 Removes the first node with the inputted value
  */
 LinkedList.prototype.remove = function(val) {
-	
+	//check head
 	if(this.head.val === val) {
 		if(this.head.next) {
 			this.head = this.head.next;
@@ -50,7 +50,14 @@ LinkedList.prototype.remove = function(val) {
 			this.tail = null;
 			return true;
 		}
-	} 
+	}
+
+  //check tail
+  if(this.tail.val === val) {
+    this.tail = this.tail.prev;
+    this.tail.next = null;
+    return true;
+  } 
 	
 	let curr = this.head.next;
 	
