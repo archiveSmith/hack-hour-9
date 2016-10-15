@@ -37,7 +37,7 @@ function bubbleSort(array) {
 
 
 // test
-// let arr = [2, 6, 3, 9, 5, 1, 0];
+// let arr = [2, 6, 3, 9, 5, 1, 1, 0];
 // console.log(bubbleSort(arr));
 
 module.exports = bubbleSort;
