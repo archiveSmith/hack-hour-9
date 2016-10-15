@@ -34,7 +34,7 @@ function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
         }
       }
       else {
-        // if end coordinates are inside the circle in question
+        // if only end coordinates are inside the circle in question
         if(Math.sqrt(Math.pow((x[i]-end_x),2)+Math.pow((y[i]-end_y),2)) < r) {
           borders++;
         }
