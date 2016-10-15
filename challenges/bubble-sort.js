@@ -9,7 +9,7 @@ function bubbleSort(array) {
   let swapped = true,
     i = 0,
     len = array.length;
-  while (moved) {
+  while (swapped) {
     swapped = false;
     for (i = 0; i < len - 1; i++) {
       if (arr[i] > arr[i + 1]) {
