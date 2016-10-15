@@ -23,7 +23,27 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+ 	return x.reduce((count, _, i) => {
+ 		let circleCoords = [x[i], y[i], r[i]];
+ 		let pointsInsideThisCircle = 0;
 
+ 		if (pointIsInCircle(start_x, start_y, ...circleCoords)) {
+ 			pointsInsideThisCircle++;
+ 		}
+ 		if (pointIsInCircle(end_x, end_y, ...circleCoords)) {
+ 			pointsInsideThisCircle++;
+ 		}
+
+ 		return pointsInsideThisCircle === 1 ? count + 1 : count;
+ 	}, 0)
+}
+
+ function pointIsInCircle(x, y, circleX, circleY, circleR) {
+ 	return distance(x, y, circleX, circleY) < circleR;
+}
+
+function distance(x1, y1, x2, y2) {
+   return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
 }
 
 module.exports = circleCountry;
