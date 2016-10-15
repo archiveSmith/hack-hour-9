@@ -10,6 +10,27 @@
  */
 
 function getAllProducts(array) {
+	//result Array
+	let result = [];
+	let sliced = array.slice();
+	let products;
+	
+	//return [0] if the array is empty and return the same array if it is length 1
+	if(!array || !array.length) {
+		return [0];
+	}
+	
+	if(array.length === 1) {
+		return array;
+	}
+
+	for (let i = 0; i < array.length; i++) {
+		sliced.splice(i,1);
+		products = sliced.reduce((a,b) => a * b);
+		result.push(products);
+		sliced = array.slice();
+	}
+	return result;
 
 }
 
