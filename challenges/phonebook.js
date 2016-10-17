@@ -19,13 +19,35 @@
 */
 
 function findName(jazbook, name) {
-  
-  return number;
+  let len = jazbook.length;
+  const bookObj = {};
+  if(bookObj.name){
+    return bookObj.name;
+  }
+  for (let i = 0; i < len; i++) {
+    if(jazbook[i][0] === name){
+      bookObj.name = jazbook[i][1];
+      return jazbook[i][1];
+    }
+  }
+  return false;
 }
 
 function makeJazBookIntoARealPhoneBookObject(jazbook){
-
+  let len = jazbook.length;
+  const phonebook = {};
+  for(let i = 0; i < len; i++){
+    let name = jazbook[i][0];
+    let num = jazbook[i][1];
+    phonebook[name] = num;
+  }
   return phonebook;
+}
+makeJazBookIntoARealPhoneBookObject.prototype.add = function add(name, num){
+  phonebook[name] = num;
+}
+makeJazBookIntoARealPhoneBookObject.prototype.remove = function remove(name, num){
+  delete phonebook[name];
 }
 
 
