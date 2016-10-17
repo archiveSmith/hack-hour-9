@@ -19,19 +19,53 @@
 */
 
 function findName(jazbook, name) {
-  
-  return number;
+  let i = 0,
+    j = 0,
+    len = jazbook.length,
+    nlen,
+    nameSize = name.length,
+    number;
+  name = name.toLowerCase();
+  for (; i < len; i++) {
+    if (jazbook[i][0][0] === name[0]) {
+      nlen = jazbook[i][0].length;
+      if (nlen !== nameSize) continue;
+      for (j = 0; j < nlen; j++) {
+        if (jazbook[i][0][j] !== name[j]) break;
+      }
+      return jazbook[i][1];
+    }
+  }
+  return false;
 }
 
-function makeJazBookIntoARealPhoneBookObject(jazbook){
-
-  return phonebook;
+function makeJazBookIntoARealPhoneBookObject(jazbook) {
+  return new PhoneBook(jazbook);
 }
 
+function PhoneBook(book) {
+  this.store = book.reduce((memo, entry) => {
+    memo[entry[0]] = entry[1];
+    return memo;
+  }, {});
+}
+
+PhoneBook.prototype.add = function (entry) {
+  if (entry.length !== 2 || !entry.every((item) => typeof item === 'string')) {
+    return false;
+  }
+  this.store[entry[0]] = entry[1];
+  return true;
+}
+
+PhoneBook.prototype.remove = function (name) {
+  return delete this.store[name]
+}
 
 var objectToExport = {
   findName: findName,
   makeJazBookIntoARealPhoneBookObject: makeJazBookIntoARealPhoneBookObject
 };
 
-module.exports=objectToExport;
+module.exports = objectToExport;
+
