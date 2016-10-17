@@ -28,6 +28,8 @@ console.log(twoSum(arr1, 12));
 console.log(twoSum([], 11));
 console.log(twoSum([3], 11));
 console.log(twoSum(arr1, 8));
-*/
 
+var arr2 = [-4, 0 -1, 5, 6, 9];
+console.log(twoSum(arr2, 8));
+*/
 module.exports = twoSum;
