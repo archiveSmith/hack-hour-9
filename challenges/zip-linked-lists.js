@@ -5,12 +5,35 @@
  * BONUS: Do this in place
  */
 
-function Node(val) {
-  this.value = val;
-  this.next = null;
-}
+ function Node(val) {
+   this.value = val;
+   this.next = null;
+ }
 
-function zip(l1, l2) {
-};
+ function zip(l1, l2) {
+   let outList = l1;
+   let tempLL = l1;
+   l1 = l1.next
+
+   while (l1 !== null && l2 !== null){
+   	tempLL.next = l2;
+   	tempLL = l2;
+   	l2 = l2.next;
+
+   	tempLL.next = l1;
+   	tempLL = l1;
+   	l1 = l1.next;
+   }
+
+   if (l1 !== null){
+     tempLL.next = l1;
+   } else {
+     tempLL.next = l2;
+   }
+
+   return outList;
+ };
+
+
 
 module.exports = {Node: Node, zip: zip};

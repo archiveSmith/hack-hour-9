@@ -11,7 +11,12 @@ findInOrderedSet(nums, 2);  -> false
 
 
 function findInOrderedSet(arr, target) {
-
+  for (const num of target) {
+    if (num === target) {
+      return true;
+    }
+  }
+  return false;
 }
 
 

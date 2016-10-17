@@ -13,8 +13,15 @@
  * Write a function that converts a decimal number to binary (then maybe hexadecimal)
  */
 
-function binToDec(binary) {
-
-}
+ function binToDec(binToDecary) {
+     binToDecary = binToDecary.split('').reverse();
+     var answer = 0;
+     for (var i = 0; i < binToDecary.length; i++) {
+         if (binToDecary[i] === '1'){
+ 	    answer += Math.pow(2,i);
+ 	}
+     }
+     return answer;
+ }
 
 module.exports = binToDec;
