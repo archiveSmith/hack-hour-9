@@ -19,13 +19,27 @@
 */
 
 function findName(jazbook, name) {
-  
+	let number = false;
+	jazbook.forEach(entry => {
+  		if (entry[0] === name) {
+  			number = entry[1];
+  		}
+  	})
   return number;
 }
 
 function makeJazBookIntoARealPhoneBookObject(jazbook){
-
-  return phonebook;
+	let phonebook = {};
+	jazbook.forEach(entry => {
+		phonebook[entry[0]] = entry[1];
+	})
+	phonebook.add = function(entry) {
+		phonebook[entry[0]] = entry[1];
+	}
+	phonebook.remove = function(name) {
+		delete phonebook[name];
+	}
+ 	return phonebook;
 }
 
 
