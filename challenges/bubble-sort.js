@@ -6,29 +6,29 @@
 
 // function bubbleSort(array) {
 //   let flipped = true;
-//   let temp;
+//   const arr = array;
 //   while (flipped) {
 //     flipped = false;
 //     for (let i = 0; i < array.length; ++i) {
 //       if (array[i] > array[i + 1]) {
-//         temp = array[i];
-//         array[i] = array[i + 1];
-//         array[i + 1] = temp;
+//         const temp = array[i];
+//         arr[i] = array[i + 1];
+//         arr[i + 1] = temp;
 //         flipped = true;
 //       }
 //     }
 //   }
-//   return array;
+//   return arr;
 // }
 
 function bubbleSort(array) {
   let flipped = false;
-  let temp;
+  const arr = array;
   for (let i = 0; i < array.length; ++i) {
     if (array[i] > array[i + 1]) {
-      temp = array[i];
-      array[i] = array[i + 1];
-      array[i + 1] = temp;
+      const temp = array[i];
+      arr[i] = array[i + 1];
+      arr[i + 1] = temp;
       flipped = true;
     }
   }
@@ -37,7 +37,7 @@ function bubbleSort(array) {
 
 
 // test
-// let arr = [2, 6, 3, 9, 5, 1, 0];
+// let arr = [2, 6, 3, 9, 5, 1, 1, 0];
 // console.log(bubbleSort(arr));
 
 module.exports = bubbleSort;
