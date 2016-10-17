@@ -14,13 +14,18 @@
 
 function anagrams(string) {
 	var strArr = string.split('');
+	
+	// check edge case
+	if(strArr.length === 0) {
+		return strArr;
+	}
+	
 	var allCombos = findCombos(strArr);
 	
 	return allCombos.map(function(c, i, a) {
 		return c.join('');
 	});
 	
-
 		
 	function findCombos(arr) {
 		if(arr.length === 1) {

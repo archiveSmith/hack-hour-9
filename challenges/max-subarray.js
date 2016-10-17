@@ -8,7 +8,18 @@
  */
 
 function maxSubarray(arr) {
-
+	// track maxSum
+	var maxSum = -Infinity;
+	
+	return maxSum;
+	
+	
+	function findMax(arr) {
+		
+		
+		
+	}
+	
 }
 
 module.exports = maxSubarray;

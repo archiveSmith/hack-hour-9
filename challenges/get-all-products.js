@@ -50,3 +50,4 @@ console.log(getAllProducts([])); // [0]
 */
 
 module.exports = getAllProducts;
+

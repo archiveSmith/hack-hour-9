@@ -26,7 +26,25 @@
  */
 
 function applyIt(func, args) {
-
+	
+	// find the # of arguments that func takes
+	//console.log(func.length);
+ 
+	// call func.toString()
+	// manipulate the string
+ 
+	return function() {
+		eval(finalFuncStr);
+	};
+ 
 }
+
+var jae = function(name, age, location) {
+  return name + " is " + age + " and he lives in " + location;
+};
+
+var jaero = applyIt(jae, ["Jae", 19, "South Carolina"]);
+//jaero(); //Returns "Jae is 19 and he lives in South Carolina"
+ 
 
 module.exports = applyIt;
