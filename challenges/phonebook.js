@@ -27,36 +27,29 @@ function findName(jazbook, name) {
   return false;
 }
 
-function makeJazBookIntoARealPhoneBookObject(jazbook) {
-  const output = {};
+const makeJazBookIntoARealPhoneBookObject = function makeJazBookIntoARealPhoneBookObject(jazbook) {
   for (let i = 0; i < jazbook.length; ++i) {
-    output[jazbook[i][0]] = jazbook[i][1];
+    this[jazbook[i][0]] = jazbook[i][1];
   }
-  output.add = function(name, phoneNumber) {
-    this[name] = phoneNumber;
-  };
-  output.remove = function(name) {
-    delete this[name];
-  };
-  return output;
-}
+};
 
-// makeJazBookIntoARealPhoneBookObject.prototype.add = (name, phoneNumber) => {
-//   this[name] = phoneNumber;
-// };
+makeJazBookIntoARealPhoneBookObject.prototype.add = function(name, phoneNumber) {
+  this[name] = phoneNumber;
+};
 
-// makeJazBookIntoARealPhoneBookObject.prototype.remove = (name) => {
-//   delete this[name];
-// };
+makeJazBookIntoARealPhoneBookObject.prototype.remove = function(name) {
+  delete this[name];
+};
 
 
-var objectToExport = {
-  findName: findName,
-  makeJazBookIntoARealPhoneBookObject: makeJazBookIntoARealPhoneBookObject
+const objectToExport = {
+  findName,
+  makeJazBookIntoARealPhoneBookObject,
 };
 
 module.exports=objectToExport;
 
+// tests
 // const jazbook = [
 //   ['alex', '301-844-3421'],
 //   ['jae', '301-844-1211'],
