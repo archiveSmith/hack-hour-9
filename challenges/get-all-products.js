@@ -10,7 +10,32 @@
  */
 
 function getAllProducts(array) {
-
+  if (array.length === 0 || array === null || array === undefined) return [0];
+  const product = array.reduce((a, b) => a * b);
+  let product2;
+  let zeros = 0;
+  if (product === 0) {
+    product2 = array.reduce((a, b) => {
+      if (a === 0) {
+        zeros++;
+        return b * 1;
+      } else if (b === 0) {
+        zeros++;
+        return a * 1;
+      }
+      return a * b;
+    });
+    if (zeros > 1) {
+      return array.map((el) => el * 0);
+    }
+    return array.map((el, i) => {
+      if (i === 0) {
+        return product2;
+      }
+      return product;
+    });
+  }
+  return array.map((el) => product / el);
 }
 
 module.exports = getAllProducts;

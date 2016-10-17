@@ -27,13 +27,15 @@
  *
  */
 
-var Node = function(value) {
+const util = require('util');
+
+const Node = function Node(value) {
   this.value = value;
   this.next = null;
-}
+};
 
 function hasCycle(head) {
-
+  return /\[Circular\]/gm.test(util.inspect(head, false, null));
 }
 
-module.exports = {Node: Node, hasCycle: hasCycle}
+module.exports = { Node, hasCycle };

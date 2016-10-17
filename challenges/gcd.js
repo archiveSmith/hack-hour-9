@@ -8,7 +8,16 @@
  */
 
 function gcd(a, b) {
-
+  // non recursive working in the same manner
+  while (b !== 0) {
+    let temp = b;
+    b = a % b;
+    a = temp;
+  }
+  return a;
+  // if (!b) return a;
+  // return gcd(b, a % b);
 }
+
 
 module.exports = gcd;

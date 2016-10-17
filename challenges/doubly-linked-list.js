@@ -16,15 +16,53 @@ function Node(val) {
 /*
 Adds a node to the end of the list
  */
-LinkedList.prototype.add = function(val) {
-  
+LinkedList.prototype.add = function add(val) {
+  const newNode = new Node(val);
+  if (this.head) {
+    for (let i = this.head; i; i = i.next) {
+      if (i.next === null) {
+        i.next = newNode;
+        newNode.prev = i;
+        this.tail = newNode;
+        break;
+      }
+    }
+  } else {
+    this.head = newNode;
+    this.tail = newNode;
+  }
 };
 
 /*
 Removes the first node with the inputted value
  */
-LinkedList.prototype.remove = function(val) {
-  
+LinkedList.prototype.remove = function remove(val) {
+  if (val === this.head.val) {
+    const tempHead = this.head;
+    const tempNext = this.head.next;
+    tempNext.prev = null;
+    tempHead.next = null;
+    this.head = tempNext;
+    return true;
+  }
+  for (let i = this.head; i; i = i.next) {
+    if (i.val === val) {
+      if (i === this.tail) {
+        const prevTemp = i.prev;
+        prevTemp.next = null;
+        i.prev = null;
+        this.tail = prevTemp;
+        return true;
+      }
+      const prevTemp = i.prev;
+      const nextTemp = i.next;
+      prevTemp.next = nextTemp;
+      nextTemp.prev = prevTemp;
+      return true;
+    }
+  }
+  return false;
 };
+
 
 module.exports = LinkedList;
