@@ -18,14 +18,6 @@
 * How efficient can you make this?
 */
 
-const jazbook = [
-     ['alex', '301-844-3421'],
-    ['jae', '301-844-1211'],
-    ['david', '301-844-0978'],
-  ['travis', '301-844-8505'],
-    ['jasmine', '1800-974-4539'],
-];
-
 function findName(jazbook, name) {
   const phonebook = makeJazBookIntoARealPhoneBookObject(jazbook);
   return phonebook[name] ? phonebook[name] : false;
@@ -36,11 +28,18 @@ function makeJazBookIntoARealPhoneBookObject(jazbook) {
   jazbook.forEach((item) => {
     phonebook[item[0]] = item[1];
   });
+
+  phonebook.add = (nameNum) => {
+    if (Array.isArray(nameNum)) {
+      phonebook[nameNum[0]] = nameNum[1];
+    }
+  };
+
+  phonebook.remove = (name) => {
+    delete phonebook[name];
+  };
   return phonebook;
 }
-
-console.log(findName(jazbook, 'michael'));
-
 
 const objectToExport = {
   findName,
