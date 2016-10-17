@@ -10,8 +10,14 @@
  *
  */
 
-function repeatNumbers(array) {
-
+function repeatNumbers(array = []) {
+//return array.filter((num,idx,arr) => arr.indexOf(num) !== idx)[0];
+const sorted = array.sort((a,b) => a - b);
+for (let i = 0, len = array.length; i < len; i++){
+  if (array[i] === array[i+1]){
+    return array[i];
+  }
+}
 }
 
 module.exports = repeatNumbers;
