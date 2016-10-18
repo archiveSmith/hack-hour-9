@@ -26,3 +26,5 @@ function getAllProducts(array) {
 }
 
 module.exports = getAllProducts;
+
+}
