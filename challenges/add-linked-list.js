@@ -13,6 +13,7 @@ function Node(val) {
   this.next = null;
 }
 
+
 function addLinkedList(l1, l2) {
   const num1 = calcNumFromLinkedList(l1);
   const num2 = calcNumFromLinkedList(l2);
