@@ -3,7 +3,7 @@
  */
 
 function countStairs(n, cur = 0) {
-  if (cur > n || n === 0) return 0;
+  if (cur > n) return 0;
   if (cur === n) return 1;
   return countStairs(n, cur + 1) + countStairs(n, cur + 2)
 }
