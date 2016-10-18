@@ -19,11 +19,26 @@
 */
 
 function findName(jazbook, name) {
-  
-  return number;
+  for (let i = 0; i < jazbook.length; i++) {
+  	if (jazbook[i][0] === name) {
+  		return jazbook[i][1];
+  	} else {
+  		continue;
+  	}
+  }
+  return false;
 }
 
 function makeJazBookIntoARealPhoneBookObject(jazbook){
+	let phonebook = {};
+	
+	phonebook.add = function () {
+
+	}
+
+	phonebook.remove = function () {
+
+	}
 
   return phonebook;
 }
