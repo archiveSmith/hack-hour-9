@@ -19,13 +19,12 @@
 */
 
 function findName(jazbook, name) {
-	let phonenumber;
-	jazbook.filter( subArray => {
-	  	if(name === subArray[0]) {
-	  		phonenumber =  subArray[1];
-	  	}
-	  });
-	 return phonenumber ? phonenumber : false;
+	for (let i = 0; jazbook.length; i++) {
+		if(jazbook[i][0] === name) {
+			return jazbook[i][1];
+		}
+	}
+	return false;
 }
 
 function makeJazBookIntoARealPhoneBookObject(jazbook){
@@ -37,11 +36,16 @@ function makeJazBookIntoARealPhoneBookObject(jazbook){
 makeJazBookIntoARealPhoneBookObject.prototype.add = function(name, phonenumber) {
 	if(name && phonenumber) {
 		this.phoneBook[name] = phonenumber;
-	}
+	} else {
+    return undefined;
+  }
+	return this.phoneBook;
 }
 
 makeJazBookIntoARealPhoneBookObject.prototype.remove = function(name) {
+	let itemToDelete = this.phoneBook[name];
 	delete this.phoneBook[name];
+	return itemToDelete;
 }
 //add
 //remove
