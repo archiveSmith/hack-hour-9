@@ -19,6 +19,4 @@ const countStairs = memoize((n) => {
   return countStairs(n - 2) + countStairs(n - 1);
 });
 
-console.log(countStairs(100));
-
 module.exports = countStairs;
