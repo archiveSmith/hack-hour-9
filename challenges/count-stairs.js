@@ -4,8 +4,8 @@
 
 function countStairs(n) {
   if (n <= 1) return 1;
-  const divByTwo = Math.floor(n / 2);
-  return (1 + (divByTwo));
+  if (n === 0) return 0;
+  return countStairs(n - 1) + countStairs(n - 2);
 }
 
 module.exports = countStairs;
