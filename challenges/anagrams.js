@@ -21,7 +21,7 @@ function anagrams(string) {
     }
 
     for (let i = 0; i < end.length; i++) {
-      takein((begin + end[i]), (end.substring(0, i) + end.substring(i + 1)));
+      takeIn((begin + end[i]), (end.substring(0, i) + end.substring(i + 1)));
     }
   }
   takeIn('', string);
