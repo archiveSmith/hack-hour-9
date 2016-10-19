@@ -5,14 +5,8 @@
 'use strict';
 
 function countStairs(n) {
-
-  function innerCount(remainingSteps) {
-    if (n === 0 || remainingSteps === 0) return 1;
-    if (remainingSteps < 0) return 0;
-    return (remainingSteps - 1) + (remainingSteps - 2);
-  }
-
-  return innerCount(n, n);
+  if (n <= 1) return 1;
+  return countStairs(n - 1) + countStairs(n - 2);
 }
 
 // let count1 = countStairs(1);
