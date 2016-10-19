@@ -16,8 +16,16 @@
  * 	 
  */
 
-function newIntersections(x, y){
+function newIntersections(x, y, yArray, xArray) {
+  let counter = 0;
+  for (var i = 0; i < xArray.length; i++) {
+    if (yArray[i] === y || yArray[i] === x || xArray[i] === x || xArray[i] === y) {
+      counter++;
+    }
+  }
+  return counter;
+};
 
-}
+console.log('output', newIntersections(1, 2, yArr, xArr));
 
 module.exports = newIntersections;

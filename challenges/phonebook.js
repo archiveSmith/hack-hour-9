@@ -35,16 +35,6 @@ function makeJazBookIntoARealPhoneBookObject(jazbook) {
   return phonebook;
 }
 
-// jazbook = [
-//   ['alex', '301-844-3421'],
-//   ['jae', '301-844-1211'],
-//   ['david', '301-844-0978'],
-//   ['travis', '301-844-8505'],
-//   ['jasmine', '1800-974-4539'],
-// ];
-
-// console.log(findName(jazbook, 'travis'));
-// console.log(findName(jazbook, 'jayce'));
 
 var objectToExport = {
   findName: findName,
