@@ -37,6 +37,23 @@ function newIntersections(x, y) {
           }
         }
       }
+      if (x[j] > x[i]) {
+        for (let p = x[i]; p === x[j]; ++p) {
+          let above = false;
+          let below = false;
+          for (let newY = 0; newY < y.length; ++newY) {
+            if (x[newY] === p) {
+              if (y[newY] < y[i]) {
+                below = true;
+              }
+              if ([newY] > y[i]) {
+                above = true;
+              }
+            }
+            if (above === true && below === true) total += 1;
+          }
+        }
+      }
     }
   }
   return total;
