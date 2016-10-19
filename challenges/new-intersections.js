@@ -29,7 +29,7 @@ function newIntersections(x, y) {
               if (y[newY] < y[i]) {
                 below = true;
               }
-              if ([newY] > y[i]) {
+              if (y[newY] > y[i]) {
                 above = true;
               }
             }
@@ -46,7 +46,7 @@ function newIntersections(x, y) {
               if (y[newY] < y[i]) {
                 below = true;
               }
-              if ([newY] > y[i]) {
+              if (y[newY] > y[i]) {
                 above = true;
               }
             }
@@ -56,7 +56,7 @@ function newIntersections(x, y) {
       }
     }
   }
-  
+
   return total;
 }
 
