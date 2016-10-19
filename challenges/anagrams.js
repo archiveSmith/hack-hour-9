@@ -13,15 +13,19 @@
   */
 
 function anagrams(string) {
-  let arrString = string.split('');
+  const result = [];
 
-  let outArr = [];
+  function takeIn(begin, end) {
+    if (!end.length) {
+      result.push(begin);
+    }
 
-  // switch letters around
-  for (let i = 0; i < string.length; i++) {
-    let tempStr = string[i];
-
+    for (let i = 0; i < end.length; i++) {
+      takein((begin + end[i]), (end.substring(0, i) + end.substring(i + 1)));
+    }
   }
+  takeIn('', string);
+  return result;
 }
 
 module.exports = anagrams;
