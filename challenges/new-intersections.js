@@ -56,6 +56,7 @@ function newIntersections(x, y) {
       }
     }
   }
+  
   return total;
 }
 
