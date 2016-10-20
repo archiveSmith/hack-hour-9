@@ -12,6 +12,33 @@
 
 function knightjumps(str) {
 
+  let [x, y] = str.match(/\d/g).map(Number),
+    count = 0,
+    i;
+  if (!valid(x, y)) return 0;
+  if (valid(x + 2)) {
+    if (valid(x + 2, y + 1)) count++;
+    if (valid(x + 2, y - 1)) count++;
+  }
+  if (valid(x - 2)) {
+    if (valid(x - 2, y + 1)) count++;
+    if (valid(x - 2, y - 1)) count++;
+  }
+  if (valid(y + 2)) {
+    if (valid(x + 1, y + 2)) count++;
+    if (valid(x - 1, y + 2)) count++;
+  }
+  if (valid(y - 2)) {
+    if (valid(x + 1, y - 2)) count++;
+    if (valid(x - 1, y - 2)) count++;
+  }
+  return count;
+  function valid(x, y) {
+    if (arguments.length !== 2) {
+      return arguments[0] > 0 && arguments[0] < 9;
+    }
+    return x >= 1 && x <= 8 && y >= 1 && y <= 8;
+  }
 }
 
 module.exports = knightjumps;

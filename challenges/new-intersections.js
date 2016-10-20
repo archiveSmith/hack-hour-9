@@ -16,8 +16,53 @@
  * 	 
  */
 
-function newIntersections(x, y){
-
+function newIntersections(xArr, yArr) {
+  let count = 0;
+  let top, left, right, bottom;
+  const xCords = xArr.reduce((memo, x, index) => {
+    if (memo[x]) {
+      memo[x][yArr[index]] = index;
+    } else {
+      memo[x] = { [yArr[index]]: index };
+    }
+    if (x > memo.max) memo.max = x;
+    if (x < memo.min) memo.min = x;
+    return memo;
+  }, { max: -Infinity, min: Infinity });
+  const yCords = yArr.reduce((memo, y, index) => {
+    if (memo[y]) {
+      memo[y][xArr[index]] = index;
+    } else {
+      memo[y] = { [xArr[index]]: index };
+    }
+    if (y > memo.max) memo.max = y;
+    if (y < memo.min) memo.min = y;
+    return memo;
+  }, { max: -Infinity, min: Infinity });
+  const maxDiff = Math.abs(xCords.max - xCords.min) > Math.abs(yCords.max - yCords.min) ?
+    Math.abs(xCords.max - xCords.min) :
+    Math.abs(yCords.max - yCords.min);
+  for (let i = xCords.min + 1; i < xCords.max; i++) {
+    for (let j = yCords.min + 1; j < yCords.max; j++) {
+      top = false;
+      bottom = false;
+      right = false;
+      left = false;
+      if (xCords[i] && yCords[j]) {
+        for (let k = 1; k < maxDiff; k++) {
+          if (xCords[i + k] === j) right = true;
+          if (xCords[i - k] === j) left = true;
+          if (yCords[j + k] === i) top = true;
+          if (yCords[j - k] === i) bottom = true;
+          if (right && left && top && bottom) {
+            count++;
+            break;
+          }
+        }
+      }
+    }
+  }
+  return count;
 }
 
 module.exports = newIntersections;
