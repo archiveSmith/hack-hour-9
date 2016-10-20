@@ -12,17 +12,28 @@
 
 function knightjumps(str) {
   let numOfMoves = 0;
-  let justNums = str.replace(/[\)\)\"]+/g,'');
-  console.log(justNums);
+  const movesTried = [];
+  let justNums = str.replace(/[\(\)\"]+/g,'');
+  justNums = justNums.split(' ');
+  const x = parseInt(justNums[0]);
+  const y = parseInt(justNums[1]);
+
+  tryToMove(x, y);
 
   function tryToMove(x, y) {
-    if (x > 8 || y > 8) {
-      return 0;
+    if (x > 8 || y > 8 || x < 1 || y < 1 || movesTried.indexOf([x, y]) !== -1) {
+      return;
     }
     numOfMoves += 1;
+    const moveTried = [x, y]
+    console.log('stringify = ', moveTried);
+    movesTried.push([x, y]);
     tryToMove(x + 1, y + 2);
     tryToMove(x - 1, y + 2);
+    tryToMove(x + 2, y + 1);
+    tryToMove(x - 2, y + 1);
   }
+  return numOfMoves;
 }
 
 console.log(knightjumps("(4 5)"));
