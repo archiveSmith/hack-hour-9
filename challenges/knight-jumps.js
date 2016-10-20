@@ -11,7 +11,34 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
-
+  let numMoves = 0;
+  const arr = str.split(' ');
+  const x = Number(arr[0].replace('(', ''));
+  const y = Number(arr[1].replace(')', ''));
+  if ((x + 2) <= 8) {
+    if ((y - 1) >= 1) numMoves++;
+    if ((y + 1) <= 8) numMoves++;
+  }
+  if ((x - 2) >= 1) {
+    if ((y - 1) >= 1) numMoves++;
+    if ((y + 1) <= 8) numMoves++;
+  }
+  if ((y + 2) <= 8) {
+    if ((x - 1) >= 1) numMoves++;
+    if ((x + 1) <= 8) numMoves++;
+  }
+  if ((y - 2) >= 1) {
+    if ((x - 1) >= 1) numMoves++;
+    if ((x + 1) <= 8) numMoves++;
+  }
+  return numMoves;
 }
 
+
+// tests
+// console.log(knightjumps('(8 8)'), 'should be 2');
+// console.log(knightjumps('(4 5)'), 'should be 8');
+// console.log(knightjumps('(1 1)'), 'should be 2');
+// console.log(knightjumps('(1 8)'), 'should be 2');
+// console.log(knightjumps('(8 1)'), 'should be 2');
 module.exports = knightjumps;
