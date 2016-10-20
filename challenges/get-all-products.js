@@ -10,7 +10,13 @@
  */
 
 function getAllProducts(array) {
-
+	if (!array || array.length < 1) return [0];
+	if (array.length === 1) return array;
+	return array.map((val, i, arr) => {
+		let rest = arr.slice();
+		rest.splice(i, 1);
+		return rest.reduce((a, c) => a * c)
+	})
 }
-
 module.exports = getAllProducts;
+

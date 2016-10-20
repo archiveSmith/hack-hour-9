@@ -3,7 +3,14 @@
  */
 
 function countStairs(n) {
-
+//slowest all 1's
+//fastest all 2's
+//all permutations of 1's and twos that are less than n
+//find all two arrays, find unique permutations of those
+  if (n === 0) return 1;
+  if (n === 1) return 1;
+  if (n === 2) return 2;
+  return countStairs(n - 2) + countStairs(n - 1);
 }
 
 module.exports = countStairs;

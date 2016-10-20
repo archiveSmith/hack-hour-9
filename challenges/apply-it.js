@@ -25,8 +25,11 @@
  *  DO NOT USE THE BUILT IN APPLY METHOD OR THE SPREAD OPERATOR
  */
 
-function applyIt(func, args) {
-
+function applyIt(fn, array) {
+	for (let i = 0; i < array.length; i++) {
+		fn = fn.bind(null, array[i]);
+	}
+	return fn
 }
 
 module.exports = applyIt;

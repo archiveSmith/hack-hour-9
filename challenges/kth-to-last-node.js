@@ -16,13 +16,34 @@
  * kthToLastNode(2,a); -> returns the node with the value 'D' (the second to last node)
  */
 
+ // var a = new Node('A');
+ // var b = new Node('B');
+ // var c = new Node('C');
+ // var d = new Node('D');
+ // var e = new Node('E');
+ 
+ // a.next = b;
+ // b.next = c;
+ // c.next = d;
+ // d.next = e;
+ 
+ // kthToLastNode(2,a); 
+
 function Node(val) {
   this.value = val;
   this.next = null;
 }
 
 function kthToLastNode(k, head) {
-
+	let counter = (function count(head){
+		if (!head) return 0;
+		return 1 + count(head.next);
+	})(head);
+	let kthToLast = head;
+	for (let i = 1; i <= counter - k; i++){
+		kthToLast = kthToLast.next;
+	}
+	return kthToLast.value;
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
