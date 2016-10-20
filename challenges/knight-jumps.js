@@ -54,6 +54,4 @@ function knightjumps(str) {
 
 };
 
-console.log(knightjumps("(1 1)"));
-
 module.exports = knightjumps;
