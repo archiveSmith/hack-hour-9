@@ -11,7 +11,48 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+  let res = str.substring(1, 4);
+  let strArr = res.split(" ")
+  let numArr = [];
+  numArr[0] = parseInt(strArr[0]);
+  numArr[1] = parseInt(strArr[1]);
+  let possible = 0;
+  
+  if (numArr[0]+2 <= 8) {
+    if (numArr[1] + 1 <= 8) {
+    	possible++;
+    }
+    if (numArr[1] - 1 <= 8) {
+    	possible++;
+    }
+  }
+   if (numArr[0] - 2 <= 8) {
+    if (numArr[1] + 1 <= 8) {
+    	possible++;
+    }
+    if (numArr[1] - 1 <= 8) {
+    	possible++;
+    }
+  }
+  
+   if (numArr[1]+2 <= 8) {
+    if (numArr[0] + 1 <= 8) {
+    	possible++;
+    }
+    if (numArr[0] - 1 <= 8) {
+    	possible++;
+    }
+  }
+   if (numArr[1] - 2 <= 8) {
+    if (numArr[0] + 1 <= 8) {
+    	possible++;
+    }
+    if (numArr[0] - 1 <= 8) {
+    	possible++;
+    }
+  }
 
+  return possible;
 }
 
 module.exports = knightjumps;
