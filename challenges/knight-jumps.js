@@ -15,6 +15,7 @@ function knightjumps(str) {
   let x = parseInt(str[1]);
   let y = parseInt(str[3]);
   let result = 0;
+  if (x < 0 || x > 8 || y < 0 || y > 8) return 0;
   if (((x - 2) && (y + 1) >= 0) && ((x - 2) && (y + 1) <= 8)) result += 1;
   if (((x - 1) && (y + 2) >= 0) && ((x - 1) && (y + 2) <= 8)) result += 1;
   if (((x + 1) && (y + 2) >= 0) && ((x + 1) && (y + 2) <= 8)) result += 1;
