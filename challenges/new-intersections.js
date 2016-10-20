@@ -17,7 +17,42 @@
  */
 
 function newIntersections(x, y){
+	var vert = {};
+	var horiz = {};
+	var intersectionCount = 0;
 
+  //make objects if there are multiple x or y coordinates
+	for (var i = 0; i < x.length; i++){
+		if (x.slice(i+1).indexOf(x[i]) !== -1 || (Object.keys(vert).indexOf(JSON.stringify(x[i])) !== -1)){
+			if (!vert[x[i]]){
+				vert[x[i]] = [y[i]];
+			} else {
+				vert[x[i]].push(y[i]);
+			}
+		}
+	}
+	
+	for (var j = 0; j < y.length; j++){
+		if (y.slice(j+1).indexOf(y[j]) !== -1 || (Object.keys(horiz).indexOf(JSON.stringify(y[j])) !== -1)){
+			if (!horiz[y[j]]){
+				horiz[y[j]] = [x[j]];
+			} else {
+				horiz[y[j]].push(x[j]);
+			}
+		}
+	}
+	
+  //get min & max range of coordinates sharing same x or y. If vert's key is within the range of horiz's value & if horiz's key is within the range of vert's value, there is an intersection
+	for (var key in vert){
+		for (var k in horiz){
+			if (parseInt(key) > Math.min(...horiz[k]) && parseInt(key) < Math.max(...horiz[k])){
+				if(parseInt(k) > Math.min(...vert[key]) && parseInt(k) < Math.max(...vert[key])){
+					intersectionCount++;
+				}
+			}
+		}
+	}
+	return intersectionCount;
 }
 
 module.exports = newIntersections;
