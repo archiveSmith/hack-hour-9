@@ -39,9 +39,9 @@ function newIntersections(x, y) {
       }
       if (x[j] > x[i]) {
         for (let p = x[i]; p === x[j]; ++p) {
-          let above = false;
-          let below = false;
           for (let newY = 0; newY < y.length; ++newY) {
+            let above = false;
+            let below = false;
             if (x[newY] === p) {
               if (y[newY] < y[i]) {
                 below = true;
