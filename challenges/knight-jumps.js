@@ -11,7 +11,49 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+  let points = str.match(/[1-9]/g);
+  for (var i = 0; i < points.length; i++) {
+    points[i] = parseInt(points[i]);
+  }
 
-}
+  let counter = 0;
+
+  if (points[0] + 1 > 0 && points[1] + 3 > 0) {
+    counter++
+  };
+  if (points[0] - 1 > 0 && points[1] - 3 > 0) {
+    counter++
+  }
+  if (points[0] + 1 > 0 && points[1] - 3 > 0) {
+    counter++
+  }
+  if (points[0] - 1 > 0 && points[1] + 3 > 0) {
+    counter++
+  }
+  if (points[0] + 3 > 0 && points[1] + 1 > 0) {
+    counter++
+  };
+  if (points[0] - 3 > 0 && points[1] - 1 > 0) {
+    counter++
+  }
+  if (points[0] + 3 > 0 && points[1] - 1 > 0) {
+    counter++
+  }
+  if (points[0] - 3 > 0 && points[1] + 1 > 0) {
+    counter++
+  }
+
+  // board = [[1,3],[1,3],[1,3],[1,3],[3,1],[3,1],[3,1],[3,1],]
+
+  // for (var i = 0; i < array.length; i++) {
+  //   var element = array[i];
+
+  // }
+
+  return counter;
+
+};
+
+console.log(knightjumps("(1 1)"));
 
 module.exports = knightjumps;
