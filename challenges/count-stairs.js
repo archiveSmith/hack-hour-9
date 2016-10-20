@@ -21,5 +21,6 @@ function countStairs(n) {
   helper(0);
   return ways;
 }
+console.log(countStairs(4));
 
 module.exports = countStairs;
