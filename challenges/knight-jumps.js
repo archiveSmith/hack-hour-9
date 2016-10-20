@@ -11,7 +11,40 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+  return str
+    .slice(1, str.length - 1)
+    .split(' ')
+    .map(numString => Number(numString))
+    .map(num => num - 1)
+    .reduce((x, y) => {
+      if (x < 0 || x > 7 || y < 0 || y > 7) return 0;
 
+      if ([0, 7].includes(x)) {
+        if ([0, 7].includes(y)) {
+          return 2;
+        } else if ([1, 6].includes(y)) {
+          return 3;
+        } else {
+          return 4;
+        }
+      } else if ([1, 6].includes(x)) {
+        if ([0, 7].includes(y)) {
+          return 3;
+        } else if ([1, 6].includes(y)) {
+          return 4;
+        } else {
+          return 6;
+        }
+      } else {
+        if ([0, 7].includes(y)) {
+          return 4;
+        } else if ([1, 6].includes(y)) {
+          return 6;
+        } else {
+          return 8;
+        }
+      }
+    });
 }
 
 module.exports = knightjumps;
