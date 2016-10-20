@@ -10,8 +10,25 @@
 //  example input:
 // var str = "(4 5)"
 
-function knightjumps(str) {
+'use strict';
 
+function knightjumps(str) {
+  const x = Number(str[1]);
+  const y = Number(str[3]);
+  let count = 0;
+
+  if (x + 2 <= 8 && y + 1 <= 8) count++;
+  if (x + 2 <= 8 && y - 1 >= 1) count++;
+  if (x + 1 <= 8 && y + 2 <= 8) count++;
+  if (x + 1 <= 8 && y - 2 >= 1) count++;
+  if (x - 2 >= 1 && y + 1 <= 8) count++;
+  if (x - 2 >= 1 && y - 1 >= 1) count++;
+  if (x - 1 >= 1 && y + 2 <= 8) count++;
+  if (x - 1 >= 1 && y - 2 >= 1) count++;
+
+  return count;
 }
 
 module.exports = knightjumps;
+
+// let num = knightjumps('(4 5)');
