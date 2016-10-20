@@ -11,13 +11,13 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
-  let res = str.substring(1, 4);
-  let strArr = res.split(" ")
   let numArr = [];
-  numArr[0] = parseInt(strArr[0]);
-  numArr[1] = parseInt(strArr[1]);
+  numArr[0] = 1 * str[1];
+  numArr[1] = 1 * str[3];
+
   let possible = 0;
   
+  // Check moving x left and right.
   if (numArr[0]+2 <= 8) {
     if (numArr[1] + 1 <= 8) {
     	possible++;
@@ -34,7 +34,8 @@ function knightjumps(str) {
     	possible++;
     }
   }
-  
+
+  // Check moving y left and right.
    if (numArr[1]+2 <= 8) {
     if (numArr[0] + 1 <= 8) {
     	possible++;
