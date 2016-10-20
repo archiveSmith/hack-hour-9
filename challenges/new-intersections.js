@@ -17,7 +17,41 @@
  */
 
 function newIntersections(x, y){
+  let len = x.length;
+  let xes = {};
+  let ys = {};
+  for (let i = 0; i < len; i++) {
+    let xcoord = x[i];
+    let ycoord = y[i];
+    if(xes[xcoord]){
+      xes[xcoord].push(ycoord);
+    }
+    else {
+      xes[xcoord] = [ycoord];
+    }
+    if(ys[ycoord]){
+      ys[ycoord].push(xcoord);
+    }
+    else {
+      ys[ycoord] = [xcoord];
+    }
+  }
+  for(xc in xes){
+    if (xes[xc].length < 2){
+      delete xes[xc];
+    }
+  }
+  for (yc in ys){
+   if (ys[yc].length < 2){
+      delete ys[yc];
+    }
+  }
+
+  console.log(xes);
+  console.log(ys);
 
 }
 
-module.exports = newIntersections;
+// module.exports = newIntersections;
+
+newIntersections([2,5,6,2,3], [4,0,9,1,0]);
