@@ -22,15 +22,15 @@ function knightjumps(str) {
     if (numArr[1] + 1 <= 8) {
     	possible++;
     }
-    if (numArr[1] - 1 <= 8) {
+    if (numArr[1] - 1 > 0) {
     	possible++;
     }
   }
-   if (numArr[0] - 2 <= 8) {
+   if (numArr[0] - 2 > 0) {
     if (numArr[1] + 1 <= 8) {
     	possible++;
     }
-    if (numArr[1] - 1 <= 8) {
+    if (numArr[1] - 1  > 0) {
     	possible++;
     }
   }
@@ -39,15 +39,15 @@ function knightjumps(str) {
     if (numArr[0] + 1 <= 8) {
     	possible++;
     }
-    if (numArr[0] - 1 <= 8) {
+    if (numArr[0] - 1 > 0) {
     	possible++;
     }
   }
-   if (numArr[1] - 2 <= 8) {
+   if (numArr[1] - 2 > 0) {
     if (numArr[0] + 1 <= 8) {
     	possible++;
     }
-    if (numArr[0] - 1 <= 8) {
+    if (numArr[0] - 1  > 0) {
     	possible++;
     }
   }
