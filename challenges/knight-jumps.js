@@ -22,10 +22,12 @@ function knightjumps(str) {
   	moves.push([coords[0] + 1, coords[1] - 2])
   	moves.push([coords[0] - 1, coords[1] + 2])
   	moves.push([coords[0] - 1, coords[1] - 2])
-  	console.log(moves);
   	return moves.filter(move => {
   		return move[0] > 0 && move[0] < 10 && move[1] > 0 && move[1] < 10
   	}).length;
 }
+
+knightjumps("(2 1)");
+
 
 module.exports = knightjumps;
