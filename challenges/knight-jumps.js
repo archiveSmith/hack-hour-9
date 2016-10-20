@@ -11,7 +11,48 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
-
+  var numOnly = str.match(/[0-9-]+/g);
+  var possibleSpaces = 0;
+  var x = parseInt(numOnly[0]);
+  var y = parseInt(numOnly[1]);
+  
+  //return 0 if inputs are out of bounds
+  if(x < 1 || x > 8 || y < 1 || y > 8){
+    return 0;
+  }
+  if (x - 1 <= 8 && x - 1 >= 1){
+    if (y + 2 <= 8 && y + 2 >= 1){
+      possibleSpaces++;
+    }
+    if (y - 2 <= 8 && y - 2 >= 1){
+      possibleSpaces++;
+    }
+  }
+  if (x + 1 <= 8 && x + 1 >= 1){
+    if (y + 2 <= 8 && y + 2 >= 1){
+      possibleSpaces++;
+    }
+    if (y - 2 <= 8 && y - 2 >= 1){
+      possibleSpaces++;
+    }
+  }
+  if (x - 2 <= 8 && x - 2 >= 1){
+    if (y + 1 <= 8 && y + 1 >= 1){
+      possibleSpaces++;
+    }
+    if (y - 1 <= 8 && y - 1 >= 1){
+      possibleSpaces++;
+    }
+  }
+  if (x + 2 <= 8 && x + 2 >= 1){
+    if (y + 1 <= 8 && y + 1 >= 1){
+      possibleSpaces++;
+    }
+    if (y - 1 <= 8 && y - 1 >= 1){
+      possibleSpaces++;
+    }
+  }
+  return possibleSpaces;
 }
 
 module.exports = knightjumps;
