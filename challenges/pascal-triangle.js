@@ -32,8 +32,31 @@
   ]
 */
 
-function pascalTriangle(numRows) {
-
+function pascalTriangle(numRows, tri = []) {
+  if (tri.length >= numRows) {
+    return tri;
+  }
+  if (tri.length === 0) {
+    tri.push([1])
+  } else if (tri.length === 1) {
+    tri.push([1, 1]);
+  } else {
+    let res = [],
+      prev = tri[tri.length - 1],
+      val,
+      i,
+      len;
+    for (i = 0, len = tri[tri.length - 1].length; i <= len; i++) {
+      if (i === len || i === 0) {
+        val = 1;
+      } else {
+        val = prev[i - 1] + prev[i];
+      }
+      res.push(val);
+    }
+    tri.push(res);
+  }
+  return pascalTriangle(numRows, tri);
 }
 
 module.exports = pascalTriangle;
