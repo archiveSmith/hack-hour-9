@@ -42,7 +42,7 @@ function pascalTriangle(numRows) {
   const newRow = [];
 
   for (let i = 0; i < numRows; i++) {
-    const num = !!prevRow[i - 1] + !!prevRow[i];
+    const num = (prevRow[i - 1] || 0) + (prevRow[i] || 0);
     newRow.push(num);
   }
 
