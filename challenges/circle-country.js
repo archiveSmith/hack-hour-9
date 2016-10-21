@@ -22,7 +22,17 @@
  *
  */
 
+
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+  // let aCircleArea =
+  
+  let circle_x_range_top = x[1] + r[1];
+  let circle_x_range_bottom = x[1] - r[1];
+  
+  let circle_y_range_top = y[1] + r[1];
+  let circle_y_range_bottom = y[1] - r[1];
+  
+  
 
 }
 

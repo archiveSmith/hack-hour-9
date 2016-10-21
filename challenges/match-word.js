@@ -11,6 +11,7 @@
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
 
+
 function matchWord(str) {
 	var words = str.match(/[a-zA-Z]+/gm);
 	var storage = [];

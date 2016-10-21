@@ -40,6 +40,7 @@ module.exports = highestProduct;
 
 
 
+
 // //Recursive function
 // 	function pushProducts(array, store){
 // 		var first = array[0];

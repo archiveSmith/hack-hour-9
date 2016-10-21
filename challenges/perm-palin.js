@@ -40,6 +40,7 @@ module.exports = permPalin;
 
 
 
+
 // permPalin('abababa')
 
 // function permPalin(str) {

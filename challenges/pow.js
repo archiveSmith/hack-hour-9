@@ -16,3 +16,4 @@ function pow(base, power) {
 pow(2,3);
 
 module.exports = pow;
+

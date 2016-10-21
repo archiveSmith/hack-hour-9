@@ -25,6 +25,7 @@
  *  DO NOT USE THE BUILT IN APPLY METHOD OR THE SPREAD OPERATOR
  */
 
+
 function applyIt(func, args) {
  
     var funcshun = func;

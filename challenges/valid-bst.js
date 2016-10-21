@@ -32,6 +32,7 @@ module.exports = {BinaryTree: BinaryTree, validBST: validBST};
 //     this.right = null;
 // }
 
+
 // function validBST(tree) {
 // 	console.log(tree)
 // 	console.log(tree.value)

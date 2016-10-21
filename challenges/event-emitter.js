@@ -40,6 +40,7 @@ function EventEmitter() {
 }
 
 
+
 // var instance = new EventEmitter();
 // var counter = 0;
 // instance.on('increment', function () {
