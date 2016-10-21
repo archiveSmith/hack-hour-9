@@ -32,26 +32,34 @@
   ]
 */
 
-function pascalTriangle(numRows) {
+const pascalTriangle = memoize((numRows) => {
   if (typeof numRows !== 'number') return [];
   if (isNaN(numRows)) return [];
   if (numRows < 1) return [];
-  
-  if (numRows === 1) return [[1]];
-  
-  const result = pascalTriangle(numRows - 1);
-  const nextRow = result[result.length - 1].reduce((row, _, i, prevRow) => {
-    row.push(
-      prevRow[i + 1] ?
-        prevRow[i] + prevRow[i + 1] :
-        prevRow[i]
-    );
 
-    return row;
-  }, [1])
+  if (numRows === 1) return [[1]];
+
+  Array.prototype.end = function () {
+    return this[this.length - 1];
+  }
   
-  result.push(nextRow);
-  return result;
+  return pascalTriangle(numRows - 1)
+    .concat([
+      pascalTriangle(numRows - 1).end().reduce((row, _, i, prevRow) =>
+        row.concat([
+          prevRow[i + 1] ?
+            prevRow[i] + prevRow[i + 1] :
+            prevRow[i]
+        ]), [1])
+    ]);
+});
+
+function memoize(f) {
+  let memo = {};
+  return function (n) {
+    if (!memo[n]) memo[n] = f(n);
+    return memo[n];
+  }
 }
 
 for (let i = 1; i < 10; i++) {
