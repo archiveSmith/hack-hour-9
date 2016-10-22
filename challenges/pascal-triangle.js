@@ -33,7 +33,8 @@
 */
 
 function pascalTriangle(numRows) {
-
+  if (numRows === 0)
+    return [];
 }
 
 module.exports = pascalTriangle;
