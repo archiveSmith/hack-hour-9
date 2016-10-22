@@ -13,6 +13,9 @@
 function knightjumps(str) {
   let x = +str[1];
   let y = +str[3];
+
+  // fold x to top left quadrant location
+  // probably a better way to write this
   if (x === 8) {
     x -= 7;
   } else if (x === 7) {
@@ -22,6 +25,8 @@ function knightjumps(str) {
   } else if (x === 5) {
     x -= 1;
   }
+
+  // fold y to top left quadrant
   if (y === 8) {
     y -= 7;
   } else if (y === 7) {
@@ -31,19 +36,31 @@ function knightjumps(str) {
   } else if (y === 5) {
     y -= 1;
   }
-  let jumpCount = 0;
-  if (Math.pow((x * y), 2) === 1) {
-    jumpCount = 2;
-  } else if (Math.pow((x * y), 2) === 4) {
-    jumpCount = 3;
-  } else if (Math.pow((x * y), 2) === 9 || Math.pow((x * y), 2) === 16) {
-    jumpCount = 4;
-  } else if (Math.pow((x * y), 2) === 36 || Math.pow((x * y), 2) === 64) {
-    jumpCount = 6;
-  } else {
-    jumpCount = 8;
+
+  const product = x * y;
+  if (product >= 9) {
+    return 8;
+  } else if (product >= 6) {
+    return 6;
+  } else if (product >= 3) {
+    return 4;
+  } else if (product === 2) {
+    return 3;
   }
-  return jumpCount;
+  return 2;
+
+  /* layout of x * y in single quadrant
+  [1, 2, 3, 4]
+  [2, 4, 6, 8]
+  [3, 6, 9, 12]
+  [4, 8, 12, 16]
+  =============
+  amount of moves from each coordinate
+  [2, 3, 4, 4]
+  [2, 4, 6, 6]
+  [3, 6, 8, 8]
+  [4, 6, 8, 8]
+  */
 }
 
 module.exports = knightjumps;
