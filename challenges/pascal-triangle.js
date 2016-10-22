@@ -34,23 +34,48 @@
 
 'use strict';
 
-function pascalTriangle(numRows) {
-  if (numRows === 1) return [[1]];
+// Recursive solution (can't handle large cases):
 
-  const prevTriangle = pascalTriangle(numRows - 1);
-  const prevRow = prevTriangle[prevTriangle.length - 1];
-  const newRow = [];
+// function pascalTriangle(numRows) {
+//   if (numRows === 1) return [[1]];
 
-  for (let i = 0; i < numRows; i++) {
-    const num = (prevRow[i - 1] || 0) + (prevRow[i] || 0);
-    newRow.push(num);
-  }
+//   const prevTriangle = pascalTriangle(numRows - 1);
+//   const prevRow = prevTriangle[prevTriangle.length - 1];
+//   const newRow = [];
 
-  prevTriangle.push(newRow);
+//   for (let i = 0; i < numRows; i++) {
+//     const num = (prevRow[i - 1] || 0) + (prevRow[i] || 0);
+//     newRow.push(num);
+//   }
 
-  return prevTriangle;
-}
+//   prevTriangle.push(newRow);
+
+//   return prevTriangle;
+// }
 
 // var temp = pascalTriangle(3);
 
 module.exports = pascalTriangle;
+
+
+// Solution 2
+
+function pascalTriangle(numRows) {
+  if (numRows === 0) return [];
+  if (numRows === 1) return [[1]];
+
+  const result = [[1]];
+
+  for (let i = 0; i < numRows-1; i++) {
+      const subArr = [1];
+      const temp = result[i];
+
+      for (let j = 0; j < temp.length; j++) {
+          subArr.push(temp[j] + (temp[j+1] || 0));
+      }
+
+      result.push(subArr);
+  }
+
+  return result;
+}
