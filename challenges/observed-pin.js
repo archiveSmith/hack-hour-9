@@ -39,12 +39,37 @@ expectations = {
 
 */
 
-
-
-
 function getPINs(observed) {
-
+    let combos = new Set();
+    let neighbors = {
+        "0": ["8"],
+        "1": ["2", "4"],
+        "2": ["1", "3", "5"],
+        "3": ["2", "6"],
+        "4": ["1", "5", "7"],
+        "5": ["2", "4", "6", "8"],
+        "6": ["3", "5", "9"],
+        "7": ["4", "8"],
+        "8": ["5", "7", "9", "0"],
+        "9": ["6", "8"]
+    };
+    let strDigits = observed.toString().split(""); 
+    getCombos(strDigits, 0, "");
+    return Array.from(combos);
+    function getCombos(digits, digitIdx, curCombo) {
+        let curDigit = digits[digitIdx];
+        let candidates = new Set(neighbors[curDigit]);
+            candidates.add(curDigit);
+        if (digitIdx == digits.length - 1)
+            candidates.forEach(reachedEnd);
+        else
+            candidates.forEach(goDeeper);
+ 
+        function reachedEnd(candidate) { combos.add(curCombo + candidate); }
+        function goDeeper(candidate) {
+            getCombos(digits, digitIdx + 1, curCombo + candidate)
+        }
+    }
 }
-
 
 module.exports = getPINs
