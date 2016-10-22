@@ -4,7 +4,7 @@
         "name": "Node.js Debugging",
         "type": "node",
         "request": "launch",
-        "program": "${workspaceRoot}/challenges/pow.js",
+        "program": "${workspaceRoot}/challenges/pascal-triangle.js",
         "stopOnEntry": false,
         "args": [],
         "cwd": "${workspaceRoot}/challenges/",

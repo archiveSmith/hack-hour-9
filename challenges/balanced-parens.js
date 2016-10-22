@@ -24,6 +24,7 @@
  *
  */
 
+
 function balancedParens(input){
 	var openArr = ['[', '(', '{']
 	var parenseArr = {'[':']','(':')','{':'}'};

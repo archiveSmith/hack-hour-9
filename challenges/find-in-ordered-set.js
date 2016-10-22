@@ -9,6 +9,7 @@ findInOrderedSet(nums, 2);  -> false
  */
 
 
+
 function findInOrderedSet(arr, target) { 
   if (arr.length === 1) {
     if (arr[0] = target) return target;

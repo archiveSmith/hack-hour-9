@@ -35,3 +35,4 @@ Queue.prototype.dequeue = function(value){
 }
 
 module.exports = {Stack: Stack, Queue: Queue};
+

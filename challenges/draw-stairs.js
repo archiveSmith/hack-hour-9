@@ -19,6 +19,7 @@ function drawStairs(input){
 	let spaces = input - stars; 
 	let step = '';
 	
+	
 	while(numSteps < input){
 	
 	for(let index = 0; index < spaces; index++){

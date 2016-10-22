@@ -7,6 +7,7 @@
  */
 
 
+
 function Stack() {
 	this.contents = {};
     // this.length = 0;

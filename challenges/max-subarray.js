@@ -23,6 +23,7 @@ function maxSubarray(arr) {
 module.exports = maxSubarray;
 
 
+
 // function maxSubarray(arr) {
 //     var bigArr = [];
 //     var resArr = [];

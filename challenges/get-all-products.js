@@ -13,6 +13,7 @@
 
 
 function getAllProducts(array) {
+  if (array.length === 0) return 0;
   let nums = [];
 
   nums = array.map((current, index, array) => {
@@ -27,7 +28,8 @@ function getAllProducts(array) {
   return nums;
 }
 
-console.log(getAllProducts([1, 7, 3, 4]));
+// console.log(getAllProducts([1, 7, 3, 4]));
+
 
 
 module.exports = getAllProducts;

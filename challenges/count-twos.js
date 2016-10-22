@@ -6,6 +6,7 @@
 // countTwos(1000);  -> 300
 // countTwos(11420);  -> 4483
 
+
 function countTwos(num) {
 	var count = 0;
 	

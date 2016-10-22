@@ -7,7 +7,9 @@
  *
  * Return true or false
  *
+ *
  */
+
 
 
 function modemean(array) {
