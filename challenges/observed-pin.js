@@ -40,11 +40,61 @@ expectations = {
 */
 
 
-
+const KEYPAD = [
+  ['1', '2', '3'],
+  ['4', '5', '6'],
+  ['7', '8', '9'],
+  [null, '0', null]
+];
 
 function getPINs(observed) {
+  if (typeof observed !== 'string') return undefined;
+  if (observed.length === 0) return [];
+  
+  if (observed.length === 1) return adjacentDigits(observed, KEYPAD);
 
+  return getPINs(observed.slice(1)).reduce((result, combination) => {
+    adjacentDigits(observed[0], KEYPAD).forEach((adjacentDigit) => {
+      result.push(adjacentDigit + combination);
+    });
+
+    return result;
+  }, [])
 }
+
+function adjacentDigits(digit, keypad) {
+  if (digit === '0') return ['8'];
+
+  const [row, col] = digitToCoords(digit);
+
+  const adjacentDigits = [digit];
+  [1, -1].forEach(offset => {
+    if ([0, 1, 2].includes(row + offset)) {
+      adjacentDigits.push(coordsToDigit([row + offset, col], keypad))
+    }
+
+    if ([0, 1, 2].includes(col + offset)) {
+      adjacentDigits.push(coordsToDigit([row, col + offset], keypad))
+    }
+  });
+
+  return adjacentDigits;
+}
+
+function digitToCoords(digit) {
+  const row = Math.ceil(Number(digit) / 3) - 1;
+  const col = (Number(digit) - 1) % 3;
+
+  return [row, col];
+}
+
+function coordsToDigit(coords, keypad) {
+  const [row, col] = coords;
+  return keypad[row][col];
+}
+
+console.log(getPINs('3'))
+console.log(getPINs('34'))
 
 
 module.exports = getPINs
