@@ -53,13 +53,15 @@ function getPINs(observed) {
   
   if (observed.length === 1) return adjacentDigits(observed, KEYPAD);
 
-  return getPINs(observed.slice(1)).reduce((result, combination) => {
+  const result = [];
+
+  getPINs(observed.slice(1)).forEach((combination) => {
     adjacentDigits(observed[0], KEYPAD).forEach((adjacentDigit) => {
       result.push(adjacentDigit + combination);
     });
+  });
 
-    return result;
-  }, [])
+  return result;
 }
 
 function adjacentDigits(digit, keypad) {
@@ -95,6 +97,7 @@ function coordsToDigit(coords, keypad) {
 
 console.log(getPINs('3'))
 console.log(getPINs('34'))
+console.log(getPINs('345'))
 
 
 module.exports = getPINs
