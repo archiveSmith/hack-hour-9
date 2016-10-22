@@ -24,8 +24,22 @@
  *
  */
 
-function balancedParens(input){
-
+function balancedParens(input) {
+  // getting all parens
+  const store = { '(': ')', '[': ']', '{': '}' };
+  const stack = [];
+  for (let i = 0; i < input.length; i++) {
+    const cur = input[i];
+    if (cur in store) {
+      stack.push(cur);
+    } else if (cur === ')' || cur === ']' || cur === '}') {
+      if (store[stack.pop()] !== cur) {
+        return false;
+      }
+    }
+  }
+  return !stack.length;
 }
+
 
 module.exports = balancedParens;

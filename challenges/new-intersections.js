@@ -16,8 +16,54 @@
  * 	 
  */
 
-function newIntersections(x, y){
+function newIntersections(x, y) {
+  let numIntersections = 0;
+  let maxX = Math.max(...x);
+  let minX = Math.min(...x);
+  let maxY = Math.max(...y);
+  let minY = Math.min(...y);
+  if (minX !== 0) {
+    for (let i = 0; i < x.length; i++) {
+      x[i] -= minX;
+    }
+  }
+  if (maxY !== 0) {
+    for (let i = 0; i < y.length; i++) {
+      y[i] += maxY;
+    }
+  }
+  maxX = Math.max(...x);
+  minX = Math.min(...x);
+  maxY = Math.max(...y);
+  minY = Math.min(...y);
+  let hashMap = new Array(maxX + 1);
+  for (let i = 0; i < hashMap.length; i++) {
+    hashMap[i] = new Array(maxY + 1);
+  }
+  for (let i = 0; i < hashMap.length; i++) {
+    for (let j = 0; j < hashMap[i].length; j++) {
+      hashMap[i][j] = 'o';
+    }
+  }
+  // for (let i = 0; i < y.length; i++) {
+  //   hashMap[y[i] - 1][x[i] - 1] = 'x';
+  // }
+  for (let i = 0; i < x.length; i++) {
+    hashMap[x[i]][y[i]] = 'x';
+  }
+  for (let i = 0; i < hashMap.length; i++) {
+    for (let j = 0; j < hashMap[i].length; j++) {
+      if (hashMap[i][j] === 'x') {
 
+      }
+    }
+  }
+  return hashMap;
 }
+
+// const x = [-2, -2, 1, -1, 0, -1, 0];
+// const y = [0, 1, 1, 2, 2, -1, 0];
+
+// console.log(newIntersections(x, y));
 
 module.exports = newIntersections;

@@ -26,7 +26,22 @@
  */
 
 function applyIt(func, args) {
-
+  let closure = 'func(';
+  for (let i = 0; i < args.length; i++) {
+    if (typeof args[i] === 'string') {
+      closure += `"${args[i]}"`;
+    } else {
+      closure += args[i];
+    }
+    if (i !== args.length - 1) {
+      closure += ', ';
+    } else {
+      closure += ')';
+    }
+  }
+  return function () {
+    return eval(closure);
+  };
 }
 
 module.exports = applyIt;
