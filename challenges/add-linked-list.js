@@ -14,31 +14,7 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
-  let l1Total = [];
-  let l2Total = [];
-
-  while(l1) {
-    l1Total.push(l1.value);
-    l1 = l1.next;
-    console.log('l1 total',l1Total);
-  }
-
-  while(l2) {
-    l2Total.push(l2.value);
-    l2 = l2.next;
-    console.log('l2 total',l2Total);
-  }
-
-  console.log(l1Total)
-  console.log(l2Total)
-
-  let combArr = Number(l1Total.join('')) + Number(l2Total.join(''));
-  console.log(combArr)
-
-
-  combArr.forEach((item) => {
-
-  })
+  
 
 
 }
