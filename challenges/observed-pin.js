@@ -42,8 +42,68 @@ expectations = {
 
 
 
-function getPINs(observed) {
 
+function getPINs(observed) {
+  if (!observed || observed.length === 0) return [];
+	const pad = [[1, 2, 3],
+		   [4, 5, 6],
+		   [7, 8, 9],
+   [undefined, 0, undefined]];
+
+	function numberIndices(num) {
+		var all = [];
+		// if (num === 8) {
+		// 	all.push(5, 7, 9, 0);
+		// } else {
+		// 	all.push(num + 1, num - 1, num + 3, num - 3);
+		// 	all = all.filter(num => num > 0 && num < 10);
+		// }
+		// return all;
+		let numIndex;
+		pad.forEach((row, i) => {
+			row.forEach((col, j) => {
+				if (col === num) {
+					numIndex = [i, j];
+				}
+			})
+		})
+		return numIndex;
+	}
+	
+	function possibleNums(indices) {
+		if (!indices) return [];
+		let all = [];
+		const x = indices[0];
+		const y = indices[1];
+		all.push(pad[x][y]);
+		if (x !== 0) {
+			all.push(pad[x - 1][y]);
+		}
+		if (x !== 3) {
+			all.push(pad[x + 1][y]);
+		}
+		all.push(pad[x][y - 1]);
+		all.push(pad[x][y + 1]);
+		return all.filter(num => num !== undefined).map(String);
+	}
+	let nums = observed.split('').map(Number);
+	// console.log(possibleNums(numberIndices()))
+	let possibilities = [];
+	let result = [];
+	nums.forEach((num) => {
+		possibilities.push(possibleNums(numberIndices(num)))
+	})
+	console.log(possibilities);
+	let pins = possibilities.reduce((acc, arr) => {
+		let all = [];
+		acc.forEach(num => {
+			arr.forEach(n => {
+				all.push(num + n);
+			});
+		});
+		return all;
+	});
+	return pins;
 }
 
 
