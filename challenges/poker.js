@@ -19,7 +19,46 @@
 */
 
 function poker(hand1, hand2) {
+	let winner = {};
+	let hand1Count = {};
+	let hand2Count = {};
+	
+	hand1.forEach(card => {
+		if (hand1Count[card]) {
+			hand1Count[card]++;
+		} else {
+			hand1Count[card] = 1;	
+		}
+	})
 
+	hand2.forEach(card => {
+		if (hand2Count[card]) {
+			hand2Count[card]++;
+		} else {
+			hand2Count[card] = 1;	
+		}
+	})
+	
+	function checkKinds(hand) {
+		let max = { 
+				count: 0,
+				card: 0
+			}
+			
+		for(let currCard in hand) {
+			if (hand[currCard] > max.count) {
+				max.count = hand[currCard];
+				max.card = currCard;
+			}
+		}
+		return max;
+	}
+	
+	if (checkKinds(hand1Count).count > checkKinds(hand2Count).count) {
+		return 'Player 1 wins'
+	} else {
+		return 'Player 2 wins'
+	}
 }
 
 module.exports = poker;
