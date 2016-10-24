@@ -43,7 +43,44 @@ expectations = {
 
 
 function getPINs(observed) {
-
+	var adj = {
+		'0':['0','8'],
+		'1':['1', '2', '4'],
+		'2':['2','1','3','5'],
+		'3':['3','2','6'],
+		'4':['4','1','5','7'],
+		'5':['5','2','4','6','8'],
+		'6':['6','3','5','9'],
+		'7':['7','4','8'],
+		'8':['8','5','7','9','0'],
+		'9':['9','6','8']
+	}
+	if(observed.constructor === Number){
+		observed = JSON.stringify(observed);
+	}
+	var splitted = observed.split('');
+	// var temp = splitted;
+	console.log('splitted:', splitted);
+	// console.log('typeof:',typeof(splitted[0]));
+	var final = [];
+	// for (var key in adj){
+		// var cases = adj[splitted[k]];
+		for (var i = 0; i < splitted.length; i++){
+			var options = adj[splitted[i]];
+			// console.log('splitted:', splitted, 'temp:', temp);
+			// splitted = temp;
+			for (var j = 0; j < options.length; j++){
+				console.log('options[j]:', options[j]);
+				var temp = splitted[i];
+				splitted[i] = options[j];
+				console.log('splitted after swap:', splitted);
+				final.push(splitted.join(''));
+				splitted[i] = temp;
+			}
+			// splitted = temp;
+		// }
+	}
+	return final;
 }
 
 
