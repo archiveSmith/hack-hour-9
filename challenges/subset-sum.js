@@ -14,14 +14,11 @@ function subsetSum(array, target) {
   while (numLoops < array.length) {
     for (let i = 0; i < array.length; i++) {
       let curNum = array[i];
-
-      if (curNum = target) {
+      if (curNum === target) {
         return true;
       }
-
       for (let j = numLoops; j < array.length; j++) {
         curNum += array[j];
-
         if (curNum > target) {
           break;
         } else if (curNum === target) {
@@ -35,3 +32,6 @@ function subsetSum(array, target) {
 }
 
 module.exports = subsetSum;
+
+console.log(subsetSum([8, 2, 4, 12], 13));
+console.log(subsetSum([8, -2, 1, -3], 6));
