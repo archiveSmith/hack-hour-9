@@ -19,7 +19,32 @@
 */
 
 function poker(hand1, hand2) {
+	let handOneObj = {"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0, "13":0, '14': 0, "hand":null};
+	let handTwoObj = {"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0, "13":0, '14': 0, "hand":null};
 
+	// Four of a kind = 0
+	// full house = 1 
+	// straight = 2 
+	// 3-of-a-kind = 3
+	// 2-pair = 4 
+	// 1-pair = 5 
+	// high card = 6
+
+	for (let i = 0; i < 5; i++){
+		handOneObj[hand1[i]]++;
+	
+		if(handOneObj[hand1[i]] === 3){
+			handOneObj.hand = 3;
+		}
+		
+		if(handOneObj[hand1[i]] === 4){
+			handOneObj.hand = 0;
+		}
+		
+	}
+	
+	
+	return handOneObj;
 }
 
 module.exports = poker;
