@@ -26,6 +26,22 @@ Challange:
   ** keep in mind time complexity
 */
 function missingNum(Array) {
+	let supposedLength = Array.length + 1;
+	let actualLength = Array.length;
+	let supposedSum = 0;
+	let actualSum = 0;
+	
+	for (let i = 1; i <= supposedLength; i++) {
+		supposedSum += i;	
+	}
+	
+	for (let j = 0; j < actualLength; j++) {
+		actualSum += Array[j];
+	}
+
+	return supposedSum - actualSum;
 }
+
+missingNum([9,8,7,6,5,4,3,1])
 
 module.exports = missingNum;
