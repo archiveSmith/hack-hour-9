@@ -39,5 +39,5 @@ function missingNum(Array) {
 
 
 // tests
-// console.log(missingNum([2, 3, 5, 1]));
+// console.log(missingNum([2, 3, 5, 4]));
 module.exports = missingNum;
