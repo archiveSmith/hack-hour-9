@@ -34,6 +34,7 @@ function missingNum(Array) {
       return Array[i + 1] - 1;
     }
   }
+  return Array[Array.length - 1] + 1
 }
 
 module.exports = missingNum;
