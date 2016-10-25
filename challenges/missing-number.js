@@ -34,10 +34,12 @@ function missingNum(Array) {
     if (Array[i] > max) max = Array[i];
   }
   const maxCalc = max * ((max + 1) / 2);
-  return (maxCalc - sum);
+  if ((maxCalc - sum) <= 0) {
+    return max + 1;
+  }
+  return maxCalc - sum;
 }
 
-
 // tests
-// console.log(missingNum([2, 3, 5, 1]));
+// console.log(missingNum([2, 3, 5, 4, 1, 7, 8, 9, 6]));
 module.exports = missingNum;
