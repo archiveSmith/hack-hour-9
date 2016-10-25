@@ -19,7 +19,65 @@
 */
 
 function poker(hand1, hand2) {
+  const conversion = {
+    // methods to convert card values into a value that can be compared with other values for same match type but no overlap with better hands.
+    one: (matchcard) => { matchcard; },
+    two: (matchcard) => { (matchcard * 2) + 14; },
+    twopair: (matchcard1, matchcard2) => { (matchcard1 * 2) + (matchcard2 * 2) + 36; }, 
+    three: (matchcard) => { (matchcard * 3) + 92; },
+    straight: (args) => { args.reduce( (prev, curr) => prev + curr ) + 134;},
+    fullHouse: (matchcard3, matchcard2) => {(matchcard3 * 3) + (matchcard2 * 2) + 194; },
+    four: (matchcard) => { matchcard * 4 + 262} 
+  }
+  // figure out what matches each hand has and which is the best one.
+  let player1Max = Math.max(...hand1);
+  let player2Max = Math.max(...hand2);
 
+  const player1Hand = {};
+  const player2Hand = {};
+  //sort the cards
+  hand1 = hand1.sort(function(a,b){
+    return b-a;
+  });
+   hand2 = hand2.sort(function(a,b){
+    return b-a;
+  });
+  //figure out if it's a straight
+  if(hand1.reduce(function(prev,curr) {
+    return Math.max(prev, prev - curr);
+  }, 1) === 1){
+    console.log("it's a straight");
+  }
+  
+  // count how many of each card there are.
+  for(let i = 0; i < 5; i++){
+    if(!player1Hand[hand1[i]]){
+      player1Hand[hand1[i]] = 1;
+    }
+    else {
+      player1Hand[hand1[i]]++;
+    }
+    if(!player2Hand[hand2[i]]){
+      player2Hand[hand2[i]] = 1;
+    }
+    else {
+      player2Hand[hand2[i]]++;
+    }
+  }
+  console.log(player1Hand);
+  console.log(player2Hand);
+
+  if(player1Max > player2Max) {
+    return "Player 1 wins!";
+  }
+  else if(player2Max > player1Max) {
+    return "Player 2 wins!";
+  }
+  else if(player1Max === player2Max){
+    //draw logic whoever invented poker is evil
+  }
 }
 
-module.exports = poker;
+// module.exports = poker;
+
+console.log(poker([3,5,5,5,2], [4,6,7,8,8]))
