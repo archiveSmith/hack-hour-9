@@ -26,6 +26,22 @@ Challange:
   ** keep in mind time complexity
 */
 function missingNum(Array) {
+  const n = Array.length;
+  const upper = n+2;
+  Array = Array.sort(function(a,b){
+    return a-b;
+  });
+  for (let i = 0; i < n; i++){
+    if((Array[i] + Array[n-i-1]) < upper){
+      return Array[n-i-1]+1;
+    }
+    if((Array[i] + Array[n-i-1]) > upper){
+      return Array[i]-1;
+    }
+    if(i > (n-i)){
+      return 'no missing element found';
+    }
+  }
 }
 
 module.exports = missingNum;
