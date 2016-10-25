@@ -26,6 +26,15 @@ Challange:
   ** keep in mind time complexity
 */
 function missingNum(Array) {
+	let sum = Array.reduce((a, b) => {
+		return a + b;
+	})
+
+	let n = Array.length + 1
+
+	let compare = (0.5*n*(n + 1))
+	
+	return compare - sum
 }
 
 module.exports = missingNum;
