@@ -15,6 +15,7 @@
 //                     14,
 //                     'fizzbuzz',
 //                     16 ]
+'use strict';
 
 function fizzbuzz(num) {
   let newArr = [];

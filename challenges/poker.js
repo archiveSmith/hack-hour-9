@@ -1,4 +1,4 @@
-/*Build a function that takes in two arrays of five elements, with each
+/* Build a function that takes in two arrays of five elements, with each
 * array representing a player's hand and each element
 * representing a card from a standard deck of cards:
 * 52 cards, 2 - Ace, NO suits. (Jack = 11, Queen = 12, King = 13, Ace = 14)
@@ -23,3 +23,6 @@ function poker(hand1, hand2) {
 }
 
 module.exports = poker;
+
+
+// poker([3,5,5,5,2], [4,6,7,8,8]);
