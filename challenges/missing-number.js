@@ -38,10 +38,12 @@ function missingNum(Array) {
     if((Array[i] + Array[n-i-1]) > upper){
       return Array[i]-1;
     }
-    if(i > (n-i)){
-      return 'no missing element found';
+    if(i === n-i){
+      return Array[i-1]+1;
     }
   }
 }
+
+console.log(missingNum([1,2,3,4,6,7,8,9]));
 
 module.exports = missingNum;
