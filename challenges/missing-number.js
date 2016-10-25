@@ -27,14 +27,18 @@ Challange:
 */
 
 function missingNum(Array) {
-  Array.sort();
+  Array.sort(function (a, b) {
+    return a - b;
+  });
   let length = Array.length;
   let numbers = Array[0];
   for (let i = 0; i < length; i++) {
     if (Array[i] !== numbers++) {
       return --numbers
     }
+    return numbers;
   }
 }
+
 
 module.exports = missingNum;
