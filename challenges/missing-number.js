@@ -30,10 +30,7 @@ function missingNum(Array) {
     return a - b;
   });
   for (let i = 0; i < Array.length; i++) {
-    console.log('i', Array[i])
-    console.log('i+1', Array[i + 1])
     if (Array[i] === Array[i + 1] - 2) {
-      console.log(Array[i + 1])
       return Array[i + 1] - 1;
     }
   }
