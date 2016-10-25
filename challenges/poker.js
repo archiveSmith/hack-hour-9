@@ -20,7 +20,7 @@
 
 function findHand(cards) {
   const hand = {};
-  let output = {};
+  const output = {};
   for (let i = 0; i < cards.length; ++i) {
     if (!hand[cards[i]]) {
       hand[cards[i]] = 1;
@@ -28,31 +28,34 @@ function findHand(cards) {
       hand[cards[i]]++;
     }
   }
-  const handArr = Object.keys(hand).sort((a, b) => a - b);
+  const handArr = Object.keys(hand).sort((a, b) => b - a);
   if (handArr.length === 3) {
     for (let i = 0; i < handArr.length; ++i) {
       if (hand[handArr[i]] === 3) {
         output.kind = 4;
+        output.hand = handArr;
         break;
       } else if (hand[handArr[i]] === 2) {
         output.kind = 3;
+        output.hand = handArr;
         break;
       }
-      output.hand = handArr;
     }
   } else if (handArr.length === 2) {
     for (let i = 0; i < handArr.length; ++i) {
       if (hand[handArr[i]] === 4) {
         output.kind = 7;
+        output.hand = handArr;
+        break;
       }
       if (hand[handArr[i]] === 3) {
         output.kind = 6;
+        output.hand = handArr;
+        break;
       }
-      output.hand = handArr;
     }
   } else if (handArr.length === 5) {
-    const check = handArr.sort((a, b) => b - a);
-    const striaght = check.every((num, i) => i === check.length - 1 || num < check[i + 1])
+    const striaght = handArr.every((num, i) => i === handArr.length - 1 || num < handArr[i + 1]);
     if (striaght) {
       output.kind = 5;
       output.hand = handArr;
@@ -70,9 +73,9 @@ function poker(hand1, hand2) {
   if (Player1.kind > Player2.kind) {
     return 'Player 1 wins';
   } else if (Player1.kind === Player2.kind) {
-    if (Player1.handArr[0] > Player2.handArr[0]) {
+    if (Player1.hand[0] > Player2.hand[0]) {
       return 'Player 1 wins';
-    } else if (Player2.handArr[0] > Player1.handArr[0]) {
+    } else if (Player2.hand[0] > Player1.hand[0]) {
       return 'Player 2 wins';
     }
     return 'Draw';
@@ -80,6 +83,10 @@ function poker(hand1, hand2) {
   return 'Player 2 wins';
 }
 
+// tests
+// console.log(poker([3, 5, 5, 5, 2], [4, 6, 7, 8, 8]), 'should = Player 1 wins');
+// console.log(poker([4, 6, 7, 8, 8], [3, 5, 5, 5, 2]), 'should = Player 2 wins');
+// console.log(poker([3, 5, 5, 5, 2], [3, 5, 5, 5, 2]), 'should = Draw');
+// console.log(poker([6, 5, 5, 5, 2], [3, 5, 5, 5, 2]), 'should = Player 1 wins');
 
-console.log(poker([3, 5, 5, 5, 2], [4, 6, 7, 8, 8]));
 module.exports = poker;
