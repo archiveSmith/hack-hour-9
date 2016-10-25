@@ -26,6 +26,22 @@ Challange:
   ** keep in mind time complexity
 */
 function missingNum(Array) {
+  //sums up the values of the actual input array
+	var actualSum = Array.reduce(function(prev, curr, index, array){
+		return prev + curr;
+	});
+
+	var lastNum = Array.length + 1;
+  //sums up every number from 1 to length + 1
+	var sumItShouldBe = Math.floor(lastNum / 2) * (1 + lastNum);
+
+	if(lastNum % 2 !== 0){
+		sumItShouldBe += Math.ceil(lastNum/2);
+	}
+	
+  //the difference between the sum it should be and actual sum is the missing number
+	var result = sumItShouldBe - actualSum;
+	return result;
 }
 
 module.exports = missingNum;
