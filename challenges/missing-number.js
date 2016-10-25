@@ -26,10 +26,12 @@ Challange:
   ** keep in mind time complexity
 */
 function missingNum(Array) {
-  Array.sort();
+  Array.sort(function (a, b) {
+    return a - b;
+  });
   for (let i = 0; i < Array.length; i++) {
-    if (Array[i] === Array[i+1] - 2) {
-      return Array[i+1]-1;
+    if (Array[i] === Array[i + 1] - 2) {
+      return Array[i + 1] - 1;
     }
   }
 }
