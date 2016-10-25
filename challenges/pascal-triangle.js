@@ -44,10 +44,7 @@ function pascalTriangle(numRows) {
  	let temp = result[i]
  	for(let j = 0; j < temp.length; j++) {
  		let tempJ = temp[j+1];
- 		if(!tempJ) {
- 			tempJ = 0;
- 		}
- 		subArr.push(temp[j] + tempJ);
+ 		subArr.push(temp[j] + (tempJ || 0));
  	}
  	result.push(subArr);
  }
