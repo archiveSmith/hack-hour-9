@@ -51,7 +51,7 @@ function findHand(cards) {
       output.hand = handArr;
     }
   } else if (handArr.length === 5) {
-    const check = handArr.sort((a, b) => a - b);
+    const check = handArr.sort((a, b) => b - a);
     const striaght = check.every((num, i) => i === check.length - 1 || num < check[i + 1])
     if (striaght) {
       output.kind = 5;
@@ -69,10 +69,17 @@ function poker(hand1, hand2) {
   const Player2 = findHand(hand2);
   if (Player1.kind > Player2.kind) {
     return 'Player 1 wins';
+  } else if (Player1.kind === Player2.kind) {
+    if (Player1.handArr[0] > Player2.handArr[0]) {
+      return 'Player 1 wins';
+    } else if (Player2.handArr[0] > Player1.handArr[0]) {
+      return 'Player 2 wins';
+    }
+    return 'Draw';
   }
   return 'Player 2 wins';
 }
 
 
-console.log(poker([4, 6, 7, 8, 8], [3, 5, 5, 5, 2]));
+console.log(poker([3, 5, 5, 5, 2], [4, 6, 7, 8, 8]));
 module.exports = poker;
