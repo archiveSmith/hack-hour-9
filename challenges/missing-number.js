@@ -28,20 +28,16 @@ Challange:
 
 function missingNum(Array) {
   let max = Array[0];
-  let min = Array[0];
   let sum = 0;
   for (let i = 0; i < Array.length; ++i) {
     sum += Array[i];
     if (Array[i] > max) max = Array[i];
-    if (Array[i] < min) min = Array[i];
   }
   const maxCalc = max * ((max + 1) / 2);
-  const minCalc = (min - 1) * ((min - 1) + 1);
-  const calcSum = maxCalc - minCalc;
-  return (calcSum - sum);
+  return (maxCalc - sum);
 }
 
 
 // tests
-// console.log(missingNum([2, 3, 1, 5, 4, 7]));
+// console.log(missingNum([2, 3, 5, 1]));
 module.exports = missingNum;
