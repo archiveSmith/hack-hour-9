@@ -26,6 +26,20 @@ Challange:
   ** keep in mind time complexity
 */
 function missingNum(Array) {
+	let nums = {};
+	for (let i = 0; i < Array.length; i++) {
+		nums[i+1] = false;
+	}
+	
+	for (let i = 0; i < Array.length; i++) {
+		nums[Array[i]] = true;
+	}
+	
+	for (let num in nums) {
+		if (nums[num] === false) {
+			return num;
+		}
+	}
 }
 
 module.exports = missingNum;
