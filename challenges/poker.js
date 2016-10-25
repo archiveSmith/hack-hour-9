@@ -38,53 +38,72 @@ function poker(hand1, hand2) {
 		}
 		return true;
 	}
+	
+	function highestCard(arr){
+		var max = Math.max(...arr);
+		return max;
+	}
+
 	//findDupes of each arr
 	var dupes1 = findDupes(hand1);
 	var dupes2 = findDupes(hand2);
+	console.log('dupes1:', dupes1, 'dupes2:', dupes2);
 	var totals1 = [];
 	var totals2 = [];
 	for (var key1 in dupes1){
 		totals1.push(dupes1[key1]);
 	}
-	// console.log('totals1:', totals1);
+	console.log('totals1:', totals1);
 	for (var key2 in dupes2){
 		totals2.push(dupes2[key2]);
 	}
-	// console.log('totals2:', totals2);
+	console.log('totals2:', totals2);
 	//if there are no dupes, run isItStraight
-	//test win cases and do points
-	//greater points wins
-	// console.log(findDupes([5,5,6,3,4]));
+
 	var outcomes = [];
 	outcomes.push(totals1, totals2);
-	// console.log('outcomes:', outcomes);
+	console.log('outcomes:', outcomes);
 	var scores = {};
 	for (var i = 0; i < outcomes.length; i++){
 		if(outcomes[i].includes(4)){
-			scores[outcomes[i]] = 6;
+			scores[outcomes[i]] = 7;
 			console.log('four of a kind: ', outcomes[i]);
 		} else if (outcomes[i].includes(3)){
-			//if it also contains 2, it's a full house (score: 5)
+			//if it also contains 2, it's a full house (score: 6)
 			if(outcomes[i].includes(2)){
-				scores[outcomes[i]] = 5;
+				scores[outcomes[i]] = 6;
 			} else {
-				//if it also contains a 1, it's a 3 of a kind (score: 3)
-				scores[outcomes[i]] = 3;
+				//if it also contains a 1, it's a 3 of a kind (score: 4)
+				scores[outcomes[i]] = 4;
 			}
-			
-			
-		} else if (outcomes[i].includes(2)){
-			//if it contains 2 sets of 2, it's a pair (score: 2)
-			scores[outcomes[i]] = 2;
+		} else if (outcomes[i].includes(2) ){
+			//if it contains 2 sets of 2, it's 2 pairs (score: 3)
+			if(outcomes[i].includes(1)){
+				scores[outcomes[i]] = 3;
+			} else {
+				//if it contains 1 set of 2, it's a pair(score:2)
+				scores[outcomes[i]] = 2;
+			}
 		} else if(isItStraight(outcomes[i])){
-			//it's a straight (score: 4)
-			scores[outcomes[i]] = 4;
-		} else {
+			//it's a straight (score: 5)
+			scores[outcomes[i]] = 5;
+		}else {
 			//high card (score: 1)
-			scores[outcomes[i]] = 1;
+			scores[outcomes[i]] = 0;
 		}
 	}
-	// console.log('scores:', scores);
+	console.log('scores:', scores);
+	
+	if ((scores[totals1] === 0 && scores[totals2] === 0)){
+		if (highestCard(hand1) > highestCard(hand2)){
+			return "Player 1 wins";
+		} else if (highestCard(hand1) < highestCard(hand2)){
+			return "Player 2 wins";
+		} else {
+			return "Draw";
+		}
+	}
+	
 	if(scores[totals1] === scores[totals2]){
 		//break the tie. if unable to break the tie, return draw
 		return "Draw"
