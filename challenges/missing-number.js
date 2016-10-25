@@ -27,20 +27,19 @@ Challange:
 
 
 function missingNum(array) {
-  const cache = {};
-  const length = array.length;
+	const sum = array.reduce((prev, curr) => prev + curr);
 
-  array.forEach((el) => {
-    cache[el] = true;
-  });
+	let expectedSum = 0;
 
-  let missing;
-  Object.keys(cache).forEach((el, i) => {
-    if (i === length - 1) return;
-    if (Number(el) !== Number(cache[i - 1] + 1)) missing = Number(cache[i - 1]);
-  });
+	for (let i = 1; i <= array.length + 1; i++) {
+		expectedSum += i;
+	}
 
-  return missing;
+	return expectedSum - sum;
 }
+
+// const array = [1,2,9,8,6,7,3,4];
+
+// missingNum(array);
 
 module.exports = missingNum;
