@@ -33,11 +33,13 @@ function missingNum(Array) {
   let length = Array.length;
   let numbers = Array[0];
   for (let i = 0; i < length; i++) {
-    if (Array[i] !== numbers++) {
-      return --numbers
+    if (Array[i] !== numbers) {
+      return numbers
     }
-    return numbers;
+    numbers++
+
   }
+  return numbers;
 }
 
 
