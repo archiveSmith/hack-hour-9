@@ -25,8 +25,19 @@
  *  DO NOT USE THE BUILT IN APPLY METHOD OR THE SPREAD OPERATOR
  */
 
-function applyIt(func, args) {
 
+function applyIt(func, args) {
+ 
+    var funcshun = func;
+    
+    args.forEach((arrayArgument) => {
+        funcshun = funcshun.bind(null, arrayArgument);
+    });
+
+    return function(){
+    	return funcshun();	
+    }
 }
+
 
 module.exports = applyIt;

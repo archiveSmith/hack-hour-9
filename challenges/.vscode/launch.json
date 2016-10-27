@@ -1,0 +1,23 @@
+{
+    "version": "0.2.0",
+    "configurations": [{
+        "name": "Node.js Debugging",
+        "type": "node",
+        "request": "launch",
+        "program": "${workspaceRoot}/challenges/pascal-triangle.js",
+        "stopOnEntry": false,
+        "args": [],
+        "cwd": "${workspaceRoot}/challenges/",
+        "preLaunchTask": null,
+        "runtimeExecutable": null,
+        "runtimeArgs": [
+            "--nolazy"
+        ],
+        "env": {
+            "NODE_ENV": "development"
+        },
+        "externalConsole": false,
+        "sourceMaps": false,
+        "outDir": null
+    }]
+}

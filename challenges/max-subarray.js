@@ -8,7 +8,51 @@
  */
 
 function maxSubarray(arr) {
-
+    var bigArr = [];
+    function subArray(arr, bigArr){
+        
+        for(var i = 0; i < arr.length; i++){
+            for(var index = 0; index <= i; index++){
+                var subArr = [] 
+                subArr.push(arr[i]);
+            }
+        }
+    }
 }
 
 module.exports = maxSubarray;
+
+
+
+// function maxSubarray(arr) {
+//     var bigArr = [];
+//     var resArr = [];
+    
+//     function subArray(arr, bigArr){
+       	
+//        	if(bigArr.length === 0){
+//        		return bigArr;
+//        	}
+       	
+//         for(var i = 0; i < arr.length; i++){
+//         	var subArr = [] 
+//             for(var index = 0; index <= i; index++){
+//                 subArr.push(arr[index]);
+//                 console.log("subarr ", subArr)
+//             }
+//             bigArr.push(subArr)
+//             console.log(bigArr)
+//         }
+//         subArray(arr.slice(1), bigArr)git 
+//     }
+    
+//     resArr = subArray(arr,bigArr);
+//     console.log(resArr)
+    
+    
+// }
+    
+//     var arr = [15,20,-5,10]
+//     // console.log(arr.slice(1))
+//     // bigArr = [];
+//     maxSubarray(arr)

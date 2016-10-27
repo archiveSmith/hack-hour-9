@@ -10,7 +10,14 @@
  *
  */
 function uniqueNumber(array) {
+  array.sort((a, b) => { return a - b });
+  
+  console.log(array)
+
 
 }
 
+uniqueNumber([1,2,1,3,3]);
+
 module.exports = uniqueNumber;
+

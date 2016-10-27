@@ -10,6 +10,25 @@
 
 function subsetSum(array, target) {
 
+	if(array.length === 1 && array[0] !== target){
+		return false;
+	}
+	
+	//function sumPermutations(array, target) {
+	// for(let i = 0; i < array.length; i++){
+		let a = array[0] + array[1];
+			
+			if(a === target){ 
+				return true 
+			}
+			
+			else{
+				array[1] = a;
+				array.shift()
+				subsetSum(array, target)
+			}
+		}
 }
 
 module.exports = subsetSum;
+

@@ -11,7 +11,15 @@
  */
 
 function repeatNumbers(array) {
-
+     var freq = {};
+	
+	   for(let i = 0; i<array.length; i++){
+	   		if(!freq[array[i]]) {freq[array[i]] = 1}
+	   		else {
+	   			return array[i];
+	   		}
+	   }
 }
 
 module.exports = repeatNumbers;
+
