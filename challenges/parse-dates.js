@@ -38,9 +38,78 @@
 // - you can assume the provided day of month will be valid if it's a month string
 //   (i.e. the function will not be called with 'Jul 84th 1:00 PM') since that's not a real date
 // - if any part of the date string is missing then you can consider it an invalid date
+var MONTHS = {
+  Jan: 0,
+  Feb: 1,
+  Mar: 2,
+  Apr: 3,
+  May: 4,
+  Jun: 5,
+  Jul: 6,
+  Aug: 7,
+  Sep: 8,
+  Oct: 9,
+  Nov: 10,
+  Dec: 11
+};
 
-function parseDates(str) {
-  
+var DAYS = {
+	Sunday: 0,
+	Monday: 1,
+	Tuesday: 2,
+	Wednesday: 3,
+	Thursday: 4,
+	Friday: 5,
+	Saturday: 6
 }
 
-module.exports = parseDates;
+function parseDates(str) {
+  const inputData = str.split(' ')
+  const now = new Date()
+
+  return inputData.length === 3 ?
+    parseLength3Date(inputData, now) :
+    parseLength4Date(inputData, now) 
+}
+
+function parseLength3Date(inputData, now) {
+  const [dayName, time, ampm] = inputData
+    
+  const [date, month] = dayName === 'Today' ?
+    [now.getDate(), now.getMonth()] :
+    [dayToDate(dayName, now), now.getMonth()]
+    
+  const monthStr = Object.keys(MONTHS).reduce((curr, next) => 
+    MONTHS[curr] === month ? curr : next)
+    
+  return parseDates([monthStr, date, time, ampm].join(' '))
+}
+
+function parseLength4Date(inputData, now) {
+  const year = now.getYear() + 1900
+  const month = MONTHS[inputData[0]]
+  const date = Number(inputData[1].match(/^\d+/)[0])
+
+  const time = inputData[2]
+  let [hours, minutes] = time.split(':').map(Number)
+
+  const isPM = inputData[3] === 'PM'
+  if (isPM) hours += 12
+
+  return new Date(year, month, date - 1, hours, minutes)
+}
+
+
+function dayToDate(dayName, now) {
+	let day = DAYS[dayName]
+	let date = now.getDate() - now.getDay() + day
+	
+	return now.getDay() <= day ?
+		date - 7 :
+		date
+}
+
+const d = parseDates('Today 12:39 PM')
+console.log(d.toString())
+
+module.exports = parseDates
