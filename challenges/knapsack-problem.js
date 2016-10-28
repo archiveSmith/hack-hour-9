@@ -11,16 +11,16 @@
 
 function solveKnapsack(items, weightAvailable) {
   let maxValue = 0;
-  function findMaxValue(items, weightLeft, curValue) {
+  function findMaxValue(index, weightLeft, curValue) {
     if (weightLeft < 0) return;
-    if (items.length === 0) {
+    if (!items[index]) {
       if (curValue > maxValue) maxValue = curValue;
       return;
     }
-    findMaxValue(items.slice(1), weightLeft - items[0].weight, curValue + items[0].value);
-    findMaxValue(items.slice(1), weightLeft, curValue);
+    findMaxValue(index + 1, weightLeft - items[index].weight, curValue + items[index].value);
+    findMaxValue(index + 1, weightLeft, curValue);
   }
-  findMaxValue(items, weightAvailable, 0);
+  findMaxValue(0, weightAvailable, 0);
   return maxValue;
 }
 
