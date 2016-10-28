@@ -10,7 +10,25 @@
 */
 
 function solveKnapsack(items, weightAvailable) {
-
-};
+  let output = 0;
+  for (let i = 0; i < items.length; ++i) {
+    let weightleft = weightAvailable - items[i].weight;
+    let totalValue = items[i].value;
+    for (let j = i + 1; j < items.length; ++j) {
+      if (weightleft >= items[j].weight) {
+        totalValue += items[j].value;
+        weightleft -= items[j].weight;
+      }
+    }
+    if (totalValue > output) output = totalValue;
+  }
+  return output;
+}
 
 module.exports = solveKnapsack;
+
+
+// tests
+// const items = [{ weight: 1, value: 3 }, { weight: 2, value: 4 }, { weight: 3, value: 5 }];
+// console.log(solveKnapsack(items, 3), 'should be 7');
+// console.log(solveKnapsack(items, 5), 'should be 9');
