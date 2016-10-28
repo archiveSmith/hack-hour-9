@@ -10,14 +10,18 @@
 */
 
 function solveKnapsack(items, weightAvailable) {
+  let maxValue = 0;
   function findMaxValue(items, weightLeft, curValue) {
-    if (weightLeft < 0) return 0;
-    if (items.length === 0) return curValue;
-    return Math.max(
-      findMaxValue(items.slice(1), weightLeft - items[0].weight, curValue + items[0].value),
-      findMaxValue(items.slice(1), weightLeft, curValue));
+    if (weightLeft < 0) return;
+    if (items.length === 0) {
+      if (curValue > maxValue) maxValue = curValue;
+      return;
+    }
+    findMaxValue(items.slice(1), weightLeft - items[0].weight, curValue + items[0].value);
+    findMaxValue(items.slice(1), weightLeft, curValue);
   }
-  return findMaxValue(items, weightAvailable, 0);
+  findMaxValue(items, weightAvailable, 0);
+  return maxValue;
 }
 
 module.exports = solveKnapsack;
