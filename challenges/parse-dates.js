@@ -40,7 +40,10 @@
 // - if any part of the date string is missing then you can consider it an invalid date
 
 function parseDates(str) {
-  
+  const monthCheck = /(jan)|(feb)|(mar)|(apr)|(may)|(jun)|(jul)|(aug)|(sep)|(oct)|(nov)|(dec)/gi;
+  const dayCheck = /(monday)|(tuesday)|(wednesday)|(Thursday)|(Friday)|(saturday)|(sunday)|(today)|/gi
+  dayCheck
+  test.(str)
 }
 
 module.exports = parseDates;
