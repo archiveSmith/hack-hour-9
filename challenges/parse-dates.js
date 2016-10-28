@@ -40,7 +40,24 @@
 // - if any part of the date string is missing then you can consider it an invalid date
 
 function parseDates(str) {
-  
+   const DOW = {
+    "Sun": -4,
+    "Mon": -3,
+    "Tue": -2,
+    "Wed": -1,
+    "Thu": -7,
+    "Fri": -5,
+    "Sat": -6,
+  }
+   //see if first 3 letters are a day of week.
+  if(!!DOW[(str[0]+str[1]+str[2])]){
+    console.log('day of week');
+  }
+  else{
+    console.log('not day of week');
+  }
 }
 
-module.exports = parseDates;
+parseDates('Wed');
+
+// module.exports = parseDates;
