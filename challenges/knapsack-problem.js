@@ -9,19 +9,28 @@
   solveKnapsack(items, 5); // returns 9 (from items[1] and items[2])
 */
 
-function solveKnapsack(items, weightAvailable) {
-  let maxValue = 0;
-  function findMaxValue(index, weightLeft, curValue) {
-    if (weightLeft < 0) return;
-    if (!items[index]) {
-      if (curValue > maxValue) maxValue = curValue;
-      return;
-    }
-    findMaxValue(index + 1, weightLeft - items[index].weight, curValue + items[index].value);
-    findMaxValue(index + 1, weightLeft, curValue);
-  }
-  findMaxValue(0, weightAvailable, 0);
-  return maxValue;
+//not passing for large arrays
+
+// function solveKnapsack(items, weightAvailable) {
+//   let maxValue = 0;
+//   function findMaxValue(index, weightLeft, curValue) {
+//     if (weightLeft < 0) return;
+//     if (!items[index]) {
+//       if (curValue > maxValue) maxValue = curValue;
+//       return;
+//     }
+//     findMaxValue(index + 1, weightLeft - items[index].weight, curValue + items[index].value);
+//     findMaxValue(index + 1, weightLeft, curValue);
+//   }
+//   findMaxValue(0, weightAvailable, 0);
+//   return maxValue;
+// }
+function solveKnapsack(items, weightAvailable, curValue = 0, index = 0) {
+  if (weightLeft < 0) return 0;
+  if (!items[index]) return curValue
+  return Math.max(
+    solveKnapsack(items, weightAvailable - items[index].weight, curValue + items[index].value, index + 1),
+    solveKnapsack(items, weightAvailable, curValue, index + 1));
 }
 
 module.exports = solveKnapsack;
