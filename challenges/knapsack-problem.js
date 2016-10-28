@@ -26,7 +26,7 @@
 //   return maxValue;
 // }
 function solveKnapsack(items, weightAvailable, curValue = 0, index = 0) {
-  if (weightLeft < 0) return 0;
+  if (weightAvailable < 0) return 0;
   if (!items[index]) return curValue
   return Math.max(
     solveKnapsack(items, weightAvailable - items[index].weight, curValue + items[index].value, index + 1),
