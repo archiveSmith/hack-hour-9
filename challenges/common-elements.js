@@ -35,7 +35,7 @@ function commonElements(...args) {
 		return "Nothing in Common!";
 	}
 
-	return fourElements
+	return getUnique(fourElements)
 }
 
 function getUnique(arr) {
