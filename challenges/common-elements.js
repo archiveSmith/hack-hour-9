@@ -34,6 +34,7 @@ function commonElements(array1, array2, array3, array4){
 			result.push(item);
 		}
 	}
+	if(result.length === 0) return 'Nothing in Common!';
 	return result;
 }
 
