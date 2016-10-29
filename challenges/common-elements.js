@@ -13,26 +13,13 @@
 // if there are no common numbers or strings return the string "Nothing in Common!"
 
 function commonElements(array1, array2, array3, array4) {
-  //return [array1, array2, array3, array4]
-  const result = array1
-    .filter(element => {
-      return (
-        array2.includes(element) &&
-        array3.includes(element) &&
-        array4.includes(element)
-      )
-    })
-    .reduce((acc, element) => {
-      if (!acc.includes(element)) acc.push(element);
-      return acc;
-    }, [])
-  
-  return result.length === 0 ?
-    "Nothing in Common!" :
-    result
+  return [array1, array2, array3, array4]
+    .reduce((inCommon, next) => inCommon.filter(el => next.includes(el)))
+    .filter((el, i, arr) => arr.indexOf(el) === i)
+    .reduce((_, __, ___, arr) => arr, 'Nothing in Common!');
 }
 
-var array1 = [1,4,6,7,99,2000,'dog','dog',99,1000];
+var array1 = [1,4,6,7,99,2000,'dog','dog',99,1000, 'ferret', 12];
 var array2  = [15,9,9,'ferret',9,26,12,12,'dog'];
 var array3 = [23,12,12,77,'ferret',9,88,100,'dog'];
 var array4 = ['ferret',12,12,45,9,66,77,78,2000];
