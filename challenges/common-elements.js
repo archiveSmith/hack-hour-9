@@ -28,7 +28,8 @@ function commonElements(array1, array2, array3, array4) {
 
     // loop thru each array
     for (let j = 0; j < currentArr.length; j++) {
-      if (i === 0 || commonValues.includes(currentArr[j])) {
+
+      if ((i === 0 || commonValues.includes(currentArr[j])) && !currentValues.includes(currentArr[j])) {
         currentValues.push(currentArr[j]);
       }
     }
@@ -36,6 +37,9 @@ function commonElements(array1, array2, array3, array4) {
     commonValues = currentValues;
   }
 
+  if (commonValues.length === 0) {
+    return 'Nothing in Common!';
+  }
   return commonValues;
 }
 
