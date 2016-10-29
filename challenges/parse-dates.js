@@ -40,7 +40,11 @@
 // - if any part of the date string is missing then you can consider it an invalid date
 
 function parseDates(str) {
-  
+  let dateArr = str.split(' ');
+  for (let i = 0; i < dateArr.length; i++){
+      numbers = questionText.replace(/[a-b]/g, '');
+  }
+
 }
 
 module.exports = parseDates;
