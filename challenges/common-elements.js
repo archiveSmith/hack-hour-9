@@ -13,9 +13,18 @@
 // if there are no common numbers or strings return the string "Nothing in Common!"
 
 function commonElements(array1, array2, array3, array4){
-  const longestArray = Math.max(array1.length, array2.length, array3.length, array4.length);
-  console.log(longestArray);
-  return 'Nothing in Common';
+  const allTheArrays = [array1, array2, array3, array4];
+  const outArr = [];
+  for (let i = 0; i < allTheArrays; i++) {
+    allTheArrays.forEach((item) => {
+      if (array1.indexOf(item) !== -1 && array2.indexOf(item) !== -1 && array3.indexOf(item) !== -1 && array4.indexOf(item) !== -1) {
+        if (outArr.indexOf(item) === -1) {
+          outArr.push(item);
+        }
+      }
+    });
+  }
+  outArr.length < 1 ? return 'Nothing in Common' : return outArr;
 }
 
 console.log(commonElements(array1, array2, array3, array4))
