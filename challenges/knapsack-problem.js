@@ -10,7 +10,37 @@
 */
 
 function solveKnapsack(items, weightAvailable) {
+  //check items exist
+ if (!items.length || !weightAvailable) {
+   return 0;
+ }
+ const numsCombo = Math.pow(2, items.length);
+ let maxVal = 0;
+ //iterate through every combo of objects
+ for (let i = 0; i < numsCombo; i++) {
+   //check weight if weight <= maxweight && that curr val > max val
+   let binNum = padWithZeros(i.toString(2), items.length);
+   let currVal = 0;
+   let currWeight = 0;
+   for (let j = 0; j < items.length; j++) {
+     if (binNum[j] === '1') {
+       currVal += items[j].value;
+       currWeight += items[j].weight;
+     }
+   }
+   //update max val
+   if (currWeight <= weightAvailable && currVal > maxVal) {
+     maxVal = currVal;
+   }
+ }
+ return maxVal;
+}
 
-};
+function padWithZeros(baseNum, length) {
+ while (baseNum.length < length) {
+   baseNum = '0' + baseNum;
+ }
+ return baseNum;
+}
 
 module.exports = solveKnapsack;
