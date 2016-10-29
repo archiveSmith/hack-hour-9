@@ -2,23 +2,23 @@
 // The function will return the number of 2s encountered when counting
 // from 1 to n (inclusive). 2222 counts as having 4 2s.
 
-console.log(countTwos(1)); //  -> 0
-console.log(countTwos(3)); //  -> 1
-console.log(countTwos(13)); // -> 2
-console.log(countTwos(1000)); // -> 300
-//console.log(countTwos(107653400376320956));  // -> 4483
+// console.log(countTwos(1)); //  -> 0
+// console.log(countTwos(3)); //  -> 1
+// console.log(countTwos(13)); // -> 2
+// console.log(countTwos(1000)); // -> 300
+// console.log(countTwos(10760));  // -> 4483
 
 
 function countTwos(num) {
-  let twos = 0;
-  for (let i = 0; i <= num; i++) {
-    i.toString().replace(/2/g, () => {
-      twos++;
-    });
-  }
-  return twos;
+  return range(num)
+    .reduce((a, b) => a.toString() + b.toString())
+    .split('')
+    .filter((el) => el === '2').length;
 }
-
-
+function range(number, prev = []) {
+  return number === 0 ?
+    prev :
+    range(number - 1, prev.concat(number));
+}
 
 module.exports = countTwos;
