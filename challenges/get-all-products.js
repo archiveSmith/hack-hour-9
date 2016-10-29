@@ -10,7 +10,21 @@
  */
 
 function getAllProducts(array) {
+  if array.length <= 1 return [0];
+  let resultArr = [];
 
+  for (let i = 0; i < array.length; i++) {
+    let copyArr = array.slice();
+    copyArr.splice(copyArr.indexOf(array[i]), 1);
+    let product = 1;
+    for (let j =  0; j < copyArr.length; j++) {
+      product *= copyArr[j];
+    }
+    resultArr.push(product);
+  }
+  return resultArr;
 }
 
 module.exports = getAllProducts;
+
+}

@@ -12,6 +12,21 @@
 
 function repeatNumbers(array) {
 
+  let result = {};
+  let numResult = Infinity;
+  
+  array.forEach((num) => {
+  	if (!result[num]) {
+  		result[num] = 1;
+  	} else {
+  		numResult = num;;
+  	}
+  });
+  
+  return numResult;  
+
 }
 
 module.exports = repeatNumbers;
+
+console.log(repeatNumbers([1,2,4,5,6,7,7,8,68,86]));

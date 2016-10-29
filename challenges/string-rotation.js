@@ -16,7 +16,31 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
+  let s1Arr = s1.split('');
+  let s2Arr = s2.split('');
+  let tempArr = [];
+  let result = false;
+  let lenCounter = s2Arr.length - 1;
 
+
+  if (s1Arr.length === s2Arr.length) {
+  	while (lenCounter >= 0) {
+      for (let i = 0; i < s1Arr.length; i++) {
+      	// for (let ) {
+          tempArr[i] = s1Arr[s1Arr.length-1];
+      	// } 
+      }
+      --lenCounter;
+  	}
+  }
+  else {
+      return "send me words with the same length, please"
+  }
+
+  return tempArr;
 }
+
+stringRotation('tudo','udot');
+
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};

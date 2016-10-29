@@ -17,6 +17,56 @@
  */
 
 function rotateGrid(grid, n) {
+  let result = [];
+  let row1 = [];
+  let row2 = [];
+  let row3 = [];
+  let conter = n-1;
+
+
+  // do {
+  //   let row = [];
+  //   first = 0;
+  //   last = n-1;
+  // } while (n < 0){
+  //   console.log(first,last,n);
+  //   row.push(grid[n-1][first]);  
+  //   last--;
+  //   first++;
+  //   console.log(row, result);
+
+  //   if (last === 1) {
+  //     result.push(row);
+  //   }  
+  // }
+
+  // // for (let i = 0; i < n; i++) {
+  // //   let row = [];
+  // //   row.push(grid[counter][i]);
+  // //   counter--;
+  // //   if (i === counter) {
+  // //     result.push(row);
+  // //     counter = n-1;
+  // //   }  
+  // // }
+
+  // return result;
+
+  // row1.push(grid[2][0]);
+  // row1.push(grid[1][0]);
+  // row1.push(grid[0][0]);
+
+  // row2.push(grid[2][1]);
+  // row2.push(grid[1][1]);
+  // row2.push(grid[0][1]);
+
+  // row3.push(grid[2][2]);
+  // row3.push(grid[1][2]);
+  // row3.push(grid[0][2]);
+  
+  // result.push(row1,row2,row3);
+
+  return result;
 
 }
 

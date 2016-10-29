@@ -21,7 +21,31 @@
  */
 
 function EventEmitter() {
+  this.storage = {};
+  this.on = (eventName, callback) => {
+    this.storage[eventName] = callback;
+    return this.storage[eventName];
+  };
 
+  this.trigger = (eventName) => {
+    return (this.storage[eventName])();
+  };
+}
+
+function HashTable() {
+  this.SIZE = 16;
+  this.storage = new Array(this.SIZE);
+}
+
+function hashCode(string, size){
+  var hash = 0;
+  if (string.length == 0) return hash;
+  for (i = 0; i < string.length; i++) {
+    var letter = string.charCodeAt(i);
+    hash = ((hash<<5)-hash)+letter;
+    hash = hash & hash; // Convert to 32bit integer
+  }
+  return Math.abs(hash) % size ;
 }
 
 module.exports = EventEmitter;
