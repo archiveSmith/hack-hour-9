@@ -40,18 +40,26 @@
 // - if any part of the date string is missing then you can consider it an invalid date
 
 function parseDates(str) {
-  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  const words = str.split(' ');
-  if (words.length === 4) {
-    const month = months.indexOf(words[0]);
-    let day = +words[1].split('').filter((el) => !isNaN(el)).join('');
-    let time = words[2].split(':');
-    let hours = +time[0];
-    let minutes = +time[1];
-    return new Date(2016, month, day, hours, minutes).toString();
-  } else if (words.length === 3) {
-    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  }
+  // const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  // const words = str.split(' ');
+  // if (words.length === 4) {
+  //   const month = months.indexOf(words[0]);
+  //   let day = +words[1].split('').filter((el) => !isNaN(el)).join('');
+  //   if (!words[2].includes(':')) {
+  //     return new Date();
+  //   }
+  //   let time = words[2].split(':');
+  //   let hours = +time[0];
+  //   let minutes = +time[1];
+  //   return new Date(2016, month, day, hours, minutes).toString();
+  // } else if (words.length === 3) {
+  //   const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  //   if (daysOfWeek.includes(words[0])) {
+  //     let today = new Date();
+  //   } else if (words[0] === 'Today') {
+
+  //   }
+  // }
 }
 
 
