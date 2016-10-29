@@ -32,7 +32,6 @@ function commonElements(array1, array2, array3, array4) {
         currentValues.push(currentArr[j]);
       }
     }
-
     // update list of common values
     commonValues = currentValues;
   }
