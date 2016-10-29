@@ -10,7 +10,37 @@
 */
 
 function solveKnapsack(items, weightAvailable) {
+  const numsCombo = Math.pow(2, items.length);
+  let maxVal = 0;
 
-};
+  for (let i = 0; i < numsCombo; i++) {
+    const binNum = padWithZeros(i.toString(2), items.length);
+    let currVal = 0;
+    let currWeight = 0;
+
+    for (let j = 0; j < items.length; j++) {
+      if (binNum[j] === '1') {
+        currVal += items[j].value;
+        currWeight += items[j].weight;
+      }
+    }
+
+    if (currWeight <= weightAvailable && currVal > maxVal) {
+      maxVal = currVal;
+    }
+  }
+
+  return maxVal;
+}
+
+function padWithZeros(baseNum, length) {
+  while (baseNum.length < length) {
+    baseNum = '0' + baseNum;
+  }
+  return baseNum;
+}
 
 module.exports = solveKnapsack;
+
+// items = [{ weight: 1, value: 3 }, { weight: 2, value: 4 }, { weight: 3, value: 5 }];
+// solveKnapsack(items, 5);
