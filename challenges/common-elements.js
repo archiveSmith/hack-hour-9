@@ -25,7 +25,7 @@ function commonElements(array1, array2, array3, array4){
     });
   }
   if (outArr.length < 1) {
-    return 'Nothing in Common';
+    return 'Nothing in Common!';
   }
   return outArr;
 }
