@@ -6,7 +6,7 @@
 // console.log(countTwos(3)); //  -> 1
 // console.log(countTwos(13)); // -> 2
 // console.log(countTwos(1000)); // -> 300
-// console.log(countTwos(10760));  // -> 4483
+// console.log(countTwos(110293712937212));  // -> 4483
 
 
 function countTwos(num) {
@@ -20,5 +20,7 @@ function range(number, prev = []) {
     prev :
     range(number - 1, prev.concat(number));
 }
+
+
 
 module.exports = countTwos;
