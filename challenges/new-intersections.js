@@ -16,8 +16,22 @@
  * 	 
  */
 
-function newIntersections(x, y){
-
+function newIntersections(x, y) {
+    let count = 0;
+    for (let i = 0; i < x.length - 1; i++) {
+        for (let j = 0; j < x.length - 1; j++) {
+            if (x[j] === x[i] && y[j] < y[i]) {
+                for (let k = 0; k < x.length - 1; k++) {
+                    for (let l = 0; l < x.length - 1; l++) {
+                        if (y[k] === y[l] && x[k] > x[i]) {
+                            count++;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return count;
 }
 
 module.exports = newIntersections;

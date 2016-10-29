@@ -3,7 +3,15 @@
  */
 
 function countStairs(n) {
-
+return fib(n + 1);
 }
+
+function fib(x) {
+   if (x <= 1) {
+      return x;
+   }
+   return fib(x-1) + fib(x-2);
+}
+
 
 module.exports = countStairs;

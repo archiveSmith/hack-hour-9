@@ -10,7 +10,18 @@
  *
  */
 function uniqueNumber(array) {
-
+  let storage = {}
+  for (let i = 0; i < array.length; i++) {
+    if (!storage[array[i]]) {
+      storage[array[i]] = array[i]
+    } else {
+      delete storage[array[i]]
+    }
+  }
+  //No iteration required below. Thefor loop returns immediately since only one property in the object exists
+  for (var num in storage) {
+    return storage[num];
+  }
 }
 
 module.exports = uniqueNumber;

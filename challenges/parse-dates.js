@@ -40,7 +40,38 @@
 // - if any part of the date string is missing then you can consider it an invalid date
 
 function parseDates(str) {
-  
+  let today = new Date();
+  let todayMonth = today.getMonth();
+  let todayDay = today.getDay();
+  let months = {Jan:1,Feb:2,Mar:3,Apr:4,May:5,Jun:6,Jul:7,Aug:8,Sep:9,Oct:10,Nov:11,Dec:12}
+  let year;
+  let month;
+  let day;
+  let hour;
+  let minute;
+  let second;
+  let timeSplit;
+  let dateArray = str.split(' ');
+
+
+  if (dateArray[0].length === 3) {
+    month = months[dateArray[0]];
+    day = dateArray[1].match(/\d+/);
+    year = 2016;
+    timeSplit = dateArray[2].split(':')
+    hour = timeSplit[0];
+    minute = timeSplit[1];
+  } else {
+    if (todayMonth )
+
+    month = todayMonth;
+    day = todayDay;
+
+  }
+
+
+
+  return new Date (year,month,day,hour,minute,0);
 }
 
 module.exports = parseDates;

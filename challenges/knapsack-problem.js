@@ -10,7 +10,20 @@
 */
 
 function solveKnapsack(items, weightAvailable) {
-
+  let max = 0;
+  for (let i = 0; i < items.length; i++) {
+    let valueSum = 0;
+    items.reduce((total, item) =>{
+      if (total < weightAvailable) {
+        total = total + item[weight];
+        valueSum += items[i][value]
+        if (total > max) {
+          max = valueSum
+        }
+      }
+    },0)
+  }
+  return valueSum
 };
 
 module.exports = solveKnapsack;

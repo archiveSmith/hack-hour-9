@@ -15,6 +15,18 @@ function BinaryTree(value) {
 
 function superbalanced(tree) {
 
+  return Math.abs(sideDepth(tree.left) - sideDepth(tree.right)) <= 1;
 }
 
-module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
+function sideDepth(side, depth) {
+  if (!side) {
+    return depth
+  }
+  return sideDepth(tree.right)
+}
+
+
+module.exports = {
+  BinaryTree: BinaryTree,
+  superbalanced: superbalanced
+};

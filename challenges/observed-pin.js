@@ -43,6 +43,27 @@ expectations = {
 
 
 function getPINs(observed) {
+  let result = []
+  for (let i = 0; i < observed.length; i++) {
+
+    // if (observed.charAt(i) ==== '1' || observed.charAt(i) === '4' || observed.charAt(i) === '7') {
+    //   result.push(observed.charAt(i));
+    //   result.push(observed.charAt(i) + 1);
+    //   if (observed.charAt(i) !== '7') result.push(observed.charAt(i) + 3);
+    //   if (observed.charAt(i) !== '1') result.push(observed.charAt(i) - 3);
+    // }
+    // if (observed.charAt(i) ==== '2' || observed.charAt(i) === '5' || observed.charAt(i) === '8') {
+    //   result.push(observed.charAt(i));
+    //   result.push(observed.charAt(i) + 1);
+    //   result.push(observed.charAt(i) - 1);
+    //   if (observed.charAt(i) !== '1') {
+    //     result.push(observed.charAt(i) - 3);
+    //   }
+    // }
+
+    
+
+  }
 
 }
 

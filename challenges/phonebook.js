@@ -19,12 +19,15 @@
 */
 
 function findName(jazbook, name) {
-  
-  return number;
+  let realBook = makeJazBookIntoARealPhoneBookObject(jazbook);
+  return realBook[name];
 }
 
-function makeJazBookIntoARealPhoneBookObject(jazbook){
-
+function makeJazBookIntoARealPhoneBookObject(jazbook) {
+  let phonebook = {};
+  for (let i = 0; i < jazbook.length; i++) {
+    phonebook[jazbook[i][0]] = jazbook[i][1];
+  }
   return phonebook;
 }
 
@@ -34,4 +37,4 @@ var objectToExport = {
   makeJazBookIntoARealPhoneBookObject: makeJazBookIntoARealPhoneBookObject
 };
 
-module.exports=objectToExport;
+module.exports = objectToExport;
