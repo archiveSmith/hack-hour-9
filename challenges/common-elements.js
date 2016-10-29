@@ -12,7 +12,7 @@
 
 // if there are no common numbers or strings return the string "Nothing in Common!"
 
-function commonElements(array1, array2, array3, array4){
+function commonElements(array1, array2, array3, array4) {
   return [array1, array2, array3, array4]
     .reduce((a, b) => a.filter((el) => b.includes(el)))
     .filter((el, i, array) => array.indexOf(el) === i)
