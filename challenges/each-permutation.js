@@ -18,6 +18,20 @@ eachPermutation([1, 2, 3], function(perm) {
 
 function eachPermutation(arr, callback) {
 
+  function permute(array, prev = []) {
+    let len = array.length,
+      cur,
+      i;
+    for (i = 0; i < len; i++) {
+      cur = array.splice(i, 1);
+      if (array.length === 0) {
+        callback(prev.concat(cur))
+      }
+      permute(array.slice(), prev.concat(cur));
+      array.splice(i, 0, cur[0]);
+    }
+  }
+  permute(arr)
 }
 
 
