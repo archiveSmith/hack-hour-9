@@ -47,11 +47,5 @@ function deleteBy(fn, element, array) {
     [];
 }
 
-eachPermutation([1, 2, 3], (perm) => {
-  console.log(perm);
-})
-
-
-
 
 module.exports = eachPermutation;
