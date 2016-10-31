@@ -17,8 +17,34 @@ eachPermutation([1, 2, 3], function(perm) {
 */
 
 function eachPermutation(arr, callback) {
-
+  permutations(arr).forEach(permutation => callback(permutation));
 }
+
+function permutations(arr) {
+  if (arr.length === 0) return [];
+  if (arr.length === 1) return [arr];
+
+  return permutations(arr.slice(1))
+    .reduce((acc, permutation) => {
+      permutation.forEach((_, i) => {
+        acc.push(
+          permutation.slice(0, i).concat([arr[0]]).concat(permutation.slice(i))
+        )
+      })
+
+      acc.push(permutation.concat([arr[0]]))
+
+      return acc;
+    }, [])
+    .filter((permutation, i, array) => 
+      array.slice(0, i).every(perm => !deepEquals(perm, permutation)))
+}
+
+function deepEquals(arr1, arr2) {
+  return arr1.every((element, i) => arr1[i] === arr2[i])
+}
+
+eachPermutation([1, 2, 2], permutation => console.log(permutation));
 
 
 
