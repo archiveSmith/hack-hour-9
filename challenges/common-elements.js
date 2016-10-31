@@ -3,10 +3,10 @@
 // duplicates are only counted once;
 // for example == given the following input
 
-  var array11 = [1,4,6,7,'ferret',12,12,99,2000,'dog','dog',99,1000];
-  var array22  = [15,9,9,'ferret',9,26,12,12,'dog'];
-  var array33 = [23,12,12,77,'ferret',9,88,100,'dog'];
-  var array44 = ['ferret',12,12,45,9,66,77,78,2000];
+  // var array11 = [1,4,6,7,'ferret',12,12,99,2000,'dog','dog',99,1000];
+  // var array22  = [15,9,9,'ferret',9,26,12,12,'dog'];
+  // var array33 = [23,12,12,77,'ferret',9,88,100,'dog'];
+  // var array44 = ['ferret',12,12,45,9,66,77,78,2000];
 
 // your output would be [ 12, 'ferret']
 
@@ -24,10 +24,7 @@ function commonElements(array1, array2, array3, array4){
       }
     });
   }
-  if (outArr.length < 1) {
-    return 'Nothing in Common!';
-  }
-  return outArr;
+  return outArr.length - 1 < 1 ? 'Nothing in Common!' : outArr;
 }
 
 
