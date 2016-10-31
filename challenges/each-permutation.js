@@ -18,8 +18,30 @@ eachPermutation([1, 2, 3], function(perm) {
 
 function eachPermutation(arr, callback) {
 
+	let permutations = permute(arr);
+
+	return permutations.forEach((item) => callback(item))
 }
 
+function permute(input) {
+	var permArr = [],
+  usedChars = [],
+  i,
+  ch;
+  
+  for (i = 0; i < input.length; i++) {
+    ch = input.splice(i, 1)[0];
+    usedChars.push(ch);
+    if (input.length == 0) {
+      permArr.push(usedChars.slice());
+    }
+    permute(input);
+    input.splice(i, 0, ch);
+    usedChars.pop();
+  }
+  return permArr
+};
 
 
-module.exports = eachPermutation;
+
+module.exports = {eachPermutation, permute};
