@@ -13,22 +13,31 @@
 // if there are no common numbers or strings return the string "Nothing in Common!"
 
 function commonElements(array1, array2, array3, array4){
-  let newArgs = [...arguments].sort(function(a,b){
-    return a.length - b.length;
-  });
-  let common = [];
-  for (let i = 0; i < newArgs[0].length; i += 1) {
-    let count = 1;
-    for (let j = 1; j < newArgs.length; j += 1) {
-      if (newArgs[j].includes(newArgs[0][i])) {
-        count++;
-      }
-      if (count === newArgs.length && !common.includes(newArgs[0][i])) {
-        common.push(newArgs[0][i]);
-      }
+  let cache = {};
+  let arrCache = [];
+  console.log(arguments);
+  for(let i = 0; i < arguments[0].length; i+=1) {
+    cache[arguments[0][i]] = cache[arguments[0][i]] ? 1 : 1;
+  }
+  for(let i = 0; i < arguments[1].length; i+=1) {
+    if(cache[arguments[1][i]] === 1 ) cache[arguments[1][i]] = 2; 
+  }
+  for(let i = 0; i < arguments[2].length; i+=1) {
+    if(cache[arguments[2][i]] === 2) cache[arguments[2][i]] = 3; 
+  }
+  for(let i = 0; i < arguments[3].length; i+=1) {
+    if(cache[arguments[3][i]] === 3) cache[arguments[3][i]] = 4; 
+  }
+  console.log(cache);
+
+  for(let prop in cache) {
+    if(cache[prop] === 4) {
+      if(isNaN(prop)) arrCache.push(prop);
+      else arrCache.push(parseInt(prop));
     }
   }
-  return common.length > 0 ? common : 'Nothing in Common!';
+
+  return arrCache.length > 0 ? arrCache : "Nothing in Common!";
 }
 
 module.exports = commonElements;
