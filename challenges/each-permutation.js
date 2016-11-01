@@ -8,6 +8,7 @@ every element from the array. Permutations must not repeat any of the array elem
 eachPermutation([1, 2, 3], function(perm) {
   console.log(perm)
 });
+
 [ 1, 2, 3 ]
 [ 1, 3, 2 ]
 [ 2, 1, 3 ]
@@ -19,7 +20,6 @@ eachPermutation([1, 2, 3], function(perm) {
 function eachPermutation(arr, callback) {
 
 }
-
 
 
 module.exports = eachPermutation;
