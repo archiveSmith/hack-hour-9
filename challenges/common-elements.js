@@ -23,7 +23,7 @@ function commonElements(...args){
 		}
 	}
 
-	return intersects.length ? intersects.reverse() : "Nothing in Common!";
+	return intersects.length ? intersects : "Nothing in Common!";
 
 }
 
