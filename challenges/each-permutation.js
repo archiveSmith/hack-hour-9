@@ -20,13 +20,13 @@ function eachPermutation(arr, callback) {
 
   function helper(array, rest) {
     if (array.length <= 0) {
-      callback(rest);
+      return callback(rest);
     }
 
     for (let i = 0; i < array.length; i++) {
       const copyArr = array.slice();
       const newRest = copyArr.splice(i, 1);
-      newRest.concat(copyArr);
+      newRest.push(copyArr);
       console.log('copyArr ', copyArr)
       console.log('newRest ', newRest)
       helper(copyArr, newRest);
