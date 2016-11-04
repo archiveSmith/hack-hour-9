@@ -17,33 +17,34 @@ eachPermutation([1, 2, 3], function(perm) {
 */
 
 function eachPermutation(arr, callback) {
-  let result = permutator(arr);
-  let returnResult = [];
-  for (let j = 0; j < arr.length; j++) {
-    returnResult.push(callback(result[j]));
+
+  var indexesUsed = []; 
+
+   // can't repeat elements, so keep track of the indexes of the elements we've already used
+
+  for (var i = 0; i < arr.length; i++) {
+    indexesUsed.push(false);
   }
-  return result;
 
-  function permutator(inputArr) {
-    var results = [];
+  permUtil([], indexesUsed);
+  function permUtil(path, indexesUsed) {
 
-    function permute(arr, memo) {
-      var cur, memo = memo || [];
-
-      for (var i = 0; i < arr.length; i++) {
-        cur = arr.splice(i, 1);
-        if (arr.length === 0) {
-          results.push(memo.concat(cur));
-        }
-        permute(arr.slice(), memo.concat(cur));
-        arr.splice(i, 0, cur[0]);
-      }
-
-      return results;
+    // base case. done building up path
+    if (path.length === arr.length) { 
+      return callback(path);
     }
 
-    return permute(inputArr);
+    for (var i = 0; i < arr.length; i++) {
+      if (indexesUsed[i] === false) {
+        var indexesUsedClone = indexesUsed.slice();
+        indexesUsedClone[i] = true;
+    // the concat method creates a new array, rather than pushing to the existing array
+        permUtil(path.concat(arr[i]), indexesUsedClone); 
+    
+      }
+    }
   }
+
 }
 
 
