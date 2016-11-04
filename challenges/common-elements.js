@@ -38,7 +38,7 @@ function commonElements(...arrays) {
     }
   }
 
-  return results;
+  return results.length ? results : 'Nothing in Common!';
 }
 
 module.exports = commonElements;
