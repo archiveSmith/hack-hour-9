@@ -7,7 +7,9 @@
 require "test/unit"
 
 def gcd(a, b)
-
+  # determine larger of 2 nums
+  # check if larger is divisible by smaller, then smaller / 2, then smaller / primes < smaller
+  # return if any hits.
 end
 
 class TestGcd < Test::Unit::TestCase
