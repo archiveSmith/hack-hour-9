@@ -3,7 +3,24 @@
  */
 
 function countStairs(n) {
-
+  let ways = 0;
+  let sumstairs = 0;
+  function helper(sumstairs){
+    if (sumstairs > n){
+      return;
+    }
+    if (sumstairs === n){
+      ways += 1;
+      return sumstairs;
+    }
+    else if ((helper(sumstairs + 1) === n) || (helper(sumstairs + 2) === n)){
+      return;
+    } 
+    return sumstairs;
+  }
+  helper(0);
+  return ways;
 }
+console.log(countStairs(4));
 
 module.exports = countStairs;

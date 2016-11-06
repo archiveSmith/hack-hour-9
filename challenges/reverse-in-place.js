@@ -12,7 +12,34 @@
  */
 
 function reverseInPlace(array) {
+	// for(var i = 0; i < array.length; i++){
+		//take last item and insert it in position i
+	// 	array.splice(i,0,array[(array.length-1)]);
+	// splice returns an empty array which isn't saved.
+	// 
+	// 	array.pop();
+
+	// };
+	
+	//solution without array methods
+	var len = array.length; 
+	if (len % 2 === 0){
+		var numtoswitch = len / 2;
+	}
+	if (len % 2 === 1){
+		var numtoswitch = (Math.ceil(len/2));
+	}
+	for(var i = 0; i < numtoswitch; i++){
+		var x = array[i];
+		var y = array[array.length - 1 - i]
+		array[i] = y;
+		array[array.length - 1 - i] = x;	
+	}
 
 }
+
+
+
+
 
 module.exports = reverseInPlace;

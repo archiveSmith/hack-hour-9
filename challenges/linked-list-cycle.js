@@ -33,6 +33,13 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
+	try{
+		JSON.stringify(head);
+	}
+	catch(err){
+		return true;
+	}
+	return false;
 
 }
 

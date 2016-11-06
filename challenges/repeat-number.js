@@ -12,6 +12,12 @@
 
 function repeatNumbers(array) {
 
+  for(let i = 0; i < array.length; i++){
+    if(array.indexOf(array[i]) != array.lastIndexOf(array[i])){
+      return array[i];
+    }
+  }
+
 }
 
 module.exports = repeatNumbers;

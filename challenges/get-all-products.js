@@ -8,9 +8,33 @@
  *
  * do not use division, becuase zero might be in the array and you cannot divide by zero
  */
+<<<<<<< HEAD
+function getAllProducts(array) {
+  let output = [];
+  if (array.length === 0){
+    return [0];
+  }
+  if (array.length === 1){
+    return array;
+  }
+  for (let i = 0; i < array.length; i++){
+    output.push(array.reduce(function(prev, curr, index){
+      if(index != i){
+        return curr * prev;
+      }
+      else {
+        return prev*1;
+      }
+    }))
+  }
+  return output;
+}
+module.exports = getAllProducts;
+=======
 
 function getAllProducts(array) {
 
 }
 
 module.exports = getAllProducts;
+>>>>>>> 72cb4a8ff4445f50af34aba53fcf550f3e3debb9

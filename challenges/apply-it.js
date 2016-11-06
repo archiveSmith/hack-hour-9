@@ -27,6 +27,10 @@
 
 function applyIt(func, args) {
 
+	for(let i = 0; i < args.length; i ++){
+		arguments[i + 1] = args[i];
+	}
+	return(func.bind(func, args));
 }
 
 module.exports = applyIt;

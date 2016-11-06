@@ -10,6 +10,15 @@
 */
 
 function solveKnapsack(items, weightAvailable) {
+  // for each combination of items that fits in the knapsack, what is the maximum value
+  const comboweights = [];
+  const combovalues = [];
+  //find all the combinations that fit in the knapsack
+  //find all combinations, then eliminate those that weigh too much
+  
+
+  //then out of the remaining combinations, pick the combo with the max value
+
 
 };
 
