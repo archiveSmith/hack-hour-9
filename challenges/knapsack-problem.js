@@ -12,19 +12,20 @@
 function solveKnapsack(items, weightAvailable) {
   // console.log(items)
   // console.log(items[0]["weight"])
-  let value = 0;
-  let currentWeight;
-  
-  for(let index = items.length-1; index > 0; index--){
-  	// console.log(index)
-  	if(weightAvailable >= items[index]["weight"]){
-  		// console.log("weightAvailable", weightAvailable)
-  		// console.log("curr item weight ", items[index]["weight"])
-  		value += items[index]["value"];
-  		weightAvailable -= items[index]["weight"];
-  	}
+  if (items.length === 0 || weightAvailable === 0) {
+    return 0;
   }
-  // console.log('max value ', value)
+
+  if (items[0].weight > weightAvailable) {
+    return solveKnapsack(items.slice(1), weightAvailable)
+  }
+
+  else {
+    let left = items.slice(1);
+    let takeIt = items[0].value + solveKnapsack(left, weightAvailable - items[0].weight)
+    let leaveIt = solveKnapsack(left, weightAvailable)
+    return (takeIt > leaveIt) ? takeIt : leaveIt;
+  }
 };
 
 module.exports = solveKnapsack;
