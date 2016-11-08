@@ -19,32 +19,74 @@
 */
 
 function poker(hand1, hand2) {
-	let handOneObj = {"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0, "13":0, '14': 0, "hand":null};
-	let handTwoObj = {"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0, "13":0, '14': 0, "hand":null};
+ if( !hand1 || !hand2 ) return undefined;
+ if( hand1.length !== 5 || hand2.length !== 5 ) return undefined;
+ 
 
-	// Four of a kind = 0
-	// full house = 1 
-	// straight = 2 
-	// 3-of-a-kind = 3
-	// 2-pair = 4 
-	// 1-pair = 5 
-	// high card = 6
+ var handRanks = {
+   empty: 0,
+   pair: 1,
+   twoPair: 2,
+   threeKind: 3,
+   straight: 4,
+   fullHouse: 5,
+   fourKind: 6
+ };
 
-	for (let i = 0; i < 5; i++){
-		handOneObj[hand1[i]]++;
-	
-		if(handOneObj[hand1[i]] === 3){
-			handOneObj.hand = 3;
-		}
-		
-		if(handOneObj[hand1[i]] === 4){
-			handOneObj.hand = 0;
-		}
-		
-	}
-	
-	
-	return handOneObj;
+
+ var player1 = emptyHand();
+ var player2 = emptyHand();
+
+
+ hand1.forEach(function(elem) {
+   player1[elem] += 1;
+ });
+ hand2.forEach(function(elem) {
+   player2[elem] += 1;
+ });
+
+
+ var player1Hand = playerToHand(player1);
+ var player2Hand = playerToHand(player2);
+ var player1Rank = handRanker( handRanks, player1Hand, hand1);
+ var player2Rank = handRanker( handRanks, player2Hand, hand2);
+ if( player1Rank > player2Rank ) return 'Player 1 wins';
+ if( player1Rank < player2Rank ) return 'Player 2 wins';
+ if( player1Rank === player2Rank ) {
+   Math.max.apply(0, hand1) > Math.max.apply(0, hand2) ? 'Player 1 wins' : Math.max.apply(0, hand1) === Math.max.apply(0, hand2) ? 'Draw' : 'Player 2 wins';
+ }
+}
+
+function emptyHand() {
+ var obj = {};
+ for ( var i = 2; i <= 14; i++) {
+   obj[i] = 0;
+ }
+ return obj;
+}
+
+function playerToHand( obj ) {
+ var arr = [];
+ for ( var keys in obj ) {
+   if( obj[keys] !== 0 ) arr.push( obj[keys] );
+ }
+ arr.sort(function( a, b ){ return a < b } )
+ return arr;
+}
+
+function handRanker( possibleHands, playerHand, originalArray ) {
+ if( playerHand[0] === 4 ) return possibleHands.fourKind;
+ if( playerHand[0] === 3 ) {
+   return playerHand[1] === 2 ? possibleHands.fullHouse : possibleHands.threeKind
+ }
+ if ( playerHand[0] === 2 ) {
+   return playerHand[1] === 2 ? possibleHands.twoPair : possibleHands.pair;
+ }
+ originalArray.sort( function( a, b ) { return a > b });
+ for (var i = 0; i < originalArray.length - 1; i++ ) {
+   if(originalArray[i + 1] - originalArray[i] !== 1) return possibleHands.empty;
+ }
+ return possibleHands.straight;
 }
 
 module.exports = poker;
