@@ -89,4 +89,5 @@ function handRanker( possibleHands, playerHand, originalArray ) {
  return possibleHands.straight;
 }
 
+
 module.exports = poker;
