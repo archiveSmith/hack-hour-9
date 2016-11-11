@@ -55,7 +55,7 @@ function poker(hand1, hand2) {
  if( player1Rank === player2Rank ) {
    Math.max.apply(0, hand1) > Math.max.apply(0, hand2) ? 'Player 1 wins' : Math.max.apply(0, hand1) === Math.max.apply(0, hand2) ? 'Draw' : 'Player 2 wins';
  }
-}
+
 
 function emptyHand() {
  var obj = {};
@@ -88,6 +88,10 @@ function handRanker( possibleHands, playerHand, originalArray ) {
  }
  return possibleHands.straight;
 }
+
+}
+
+
 
 
 module.exports = poker;
