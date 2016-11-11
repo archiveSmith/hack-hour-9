@@ -17,19 +17,22 @@ eachPermutation([1, 2, 3], function(perm) {
 */
 
 function eachPermutation(arr, callback) {
-  const outArr = [];
-  function helper(first, rest) {
-    if (rest.length <= 0) return outArr.push(first);
 
-    for (let i = 0; i < rest.length; i++) {
-      console.log('calling hellper on - ', arr[i], ' ', rest.slice(i));
-      console.log('rest[i] = ', rest[i])
-      first.concat(rest[i]);
-      helper(first, rest.slice(i + 1));
+  function helper(array, rest) {
+    if (array.length <= 0) {
+      return callback(rest);
+    }
+
+    for (let i = 0; i < array.length; i++) {
+      const copyArr = array.slice();
+      const newRest = copyArr.splice(i, 1);
+      newRest.push(copyArr);
+      console.log('copyArr ', copyArr)
+      console.log('newRest ', newRest)
+      helper(copyArr, newRest);
     }
   }
-  helper(arr.slice(0, 1), arr.slice(1));
-  return outArr;
+  helper(arr, []);
 }
 
 console.log(eachPermutation([1, 2, 3], function(perm) {
