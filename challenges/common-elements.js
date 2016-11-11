@@ -23,5 +23,6 @@ function commonElements(array1, array2, array3, array4){
 		return arr.indexOf(el) === i;
 	})
 }
+//WEYLIN IS A NERD
 
 module.exports = commonElements;
