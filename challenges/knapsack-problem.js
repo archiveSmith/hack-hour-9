@@ -10,16 +10,16 @@
 */
 
 function solveKnapsack(items, weightAvailable) {
-  // for each combination of items that fits in the knapsack, what is the maximum value
-  const comboweights = [];
-  const combovalues = [];
-  //find all the combinations that fit in the knapsack
-  //find all combinations, then eliminate those that weigh too much
-  
-
-  //then out of the remaining combinations, pick the combo with the max value
-
-
-};
+  if (items.length === 0 || weightAvailable === 0) return 0;
+  if (items[0].weight > weightAvailable) {
+    return solveKnapsack(items.slice(1), weightAvailable);
+  }
+  else {
+    let left = items.slice(1);
+    let takeItem = items[0].value + solveKnapsack(left, weightAvailable - items[0].weight);
+    let leaveItem = solveKnapsack(left, weightAvailable);
+    return (takeItem > leaveItem) ? takeItem : leaveItem;
+  }
+}
 
 module.exports = solveKnapsack;
