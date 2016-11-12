@@ -30,4 +30,4 @@ function superbalanced(tree) {
   return Math.abs(leftHeight - rightHeight) <= 1;
 }
 
-module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
+module.exports = { BinaryTree, superbalanced };
