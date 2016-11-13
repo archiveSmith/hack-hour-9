@@ -40,7 +40,13 @@
 // - if any part of the date string is missing then you can consider it an invalid date
 
 function parseDates(str) {
-  
+  const append = 'GMT-0800 (PST)';
+
 }
+
+// const testDate = new Date(Date.now());
+let testDate = new Date(Date.UTC(2016, 0, 12, 1, 9));
+
+console.log(testDate.toDateString());
 
 module.exports = parseDates;

@@ -10,7 +10,18 @@
  *
  */
 function uniqueNumber(array) {
-
+  const numberBox = {};
+  for (let i = 0; i < array.length; i++) {
+    numberBox[array[i]] = numberBox[array[i]] + 1 || 1;
+  }
+  for (let key in numberBox) {
+    if (numberBox[key] === 1) {
+      return key;
+    }
+  }
+  return false;
 }
+
+console.log(uniqueNumber([1,2,1,3,3]));
 
 module.exports = uniqueNumber;

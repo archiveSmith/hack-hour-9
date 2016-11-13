@@ -14,7 +14,25 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+  
+
 
 }
+
+let first = new Node(3);
+let sec = new Node(1);
+let thir = new Node(5);
+
+first.next = sec;
+first.next.next = thir;
+
+let first2 = new Node(5);
+let sec2 = new Node(9);
+let thir2 = new Node(2);
+
+first2.next = sec2;
+first2.next.next = thir2;
+
+addLinkedList(first, first2);
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};

@@ -20,9 +20,35 @@ function Node(val) {
   this.value = val;
   this.next = null;
 }
+//takes an number and head of a linked list
+//goes through the linked list
+//returns the value at the kth node.
 
-function kthToLastNode(k, head) {
 
+function kthToLastNode(k, head) { 
+  var finalVal;
+  
+  if (k <= 0 || head.value === null){
+    return undefined;
+  }
+
+  while (k > 0){
+    finalVal = head.value;
+    head = head.next;
+    k--;
+  }
+  return finalVal;
 }
+
+var node1 = new Node(1);
+var node2 = new Node(2);
+var node3 = new Node(3);
+var node4 = new Node(4);
+
+node1.next = node2;
+node2.next = node3;
+node3.next = node4;
+
+console.log(kthToLastNode(0,node1));
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};

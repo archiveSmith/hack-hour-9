@@ -23,9 +23,24 @@
  *
  *
  */
+//grab each openning parentheses
+//check for a closing parentheses
+//if the last thing pushed on the openning paren array does not match the closing paren array return false
 
-function balancedParens(input){
-
+function balancedParens(input) {
+  var matches = {'[':']', '{':'}', '(':')'};
+  var brackets = [];
+  for (var i = 0; i < input.length; i++) {
+    var char = input[i];
+    if (char in matches) {
+      brackets.push(char);
+    } else if (char === ']' || char === ')' || char === '}'){
+      if (matches[brackets.pop()] !== char){
+        return false;
+      }
+    }
+  }
+  return !brackets.length;
 }
 
 module.exports = balancedParens;

@@ -21,7 +21,32 @@
  */
 
 function EventEmitter() {
-
+  return {
+    callbacks: {},
+    on(trigName, callback) {
+      this.callbacks[trigName] = callback;
+    },
+    trigger(triggName) {
+      for (let key in this.callbacks) {
+        if (key === triggName) {
+          this.callbacks[key]();
+        }
+      }
+    }
+  };
 }
+
+// let instance = new EventEmitter();
+// var counter = 0;
+//
+//  instance.on('increment', function() {
+//    counter++;
+//  }); // counter should be 0
+//  console.log(counter);
+//  instance.trigger('increment'); // counter should be 1
+//  console.log(counter);
+//  instance.trigger('increment'); // counter should be 2
+// console.log(counter);
+
 
 module.exports = EventEmitter;

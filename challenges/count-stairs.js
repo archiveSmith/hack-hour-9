@@ -3,7 +3,9 @@
  */
 
 function countStairs(n) {
-
+  
 }
+
+console.log(countStairs(3));
 
 module.exports = countStairs;

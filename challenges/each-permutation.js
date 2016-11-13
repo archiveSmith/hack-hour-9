@@ -18,7 +18,26 @@ eachPermutation([1, 2, 3], function(perm) {
 
 function eachPermutation(arr, callback) {
 
+  function helper(array, rest) {
+    if (array.length <= 0) {
+      return callback(rest);
+    }
+
+    for (let i = 0; i < array.length; i++) {
+      const copyArr = array.slice();
+      const newRest = copyArr.splice(i, 1);
+      newRest.push(copyArr);
+      console.log('copyArr ', copyArr)
+      console.log('newRest ', newRest)
+      helper(copyArr, newRest);
+    }
+  }
+  helper(arr, []);
 }
+
+console.log(eachPermutation([1, 2, 3], function(perm) {
+  console.log(perm);
+}))
 
 
 

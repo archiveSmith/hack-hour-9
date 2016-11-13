@@ -1,3 +1,37 @@
+<<<<<<< HEAD
+/* Accepts an array of integers and returns an array of all the possible products made by
+ * multiplying all but one number. In other words, find all the products of multiplying any
+ * array.length-1 numbers in the array.
+ *
+ * ex: getProducts([1, 7, 3, 4]); ->  [84, 12, 28, 21]
+ * this is done via:
+ * [7*3*4, 1*3*4, 1*7*4, 1*7*3]
+ *
+ * do not use division, becuase zero might be in the array and you cannot divide by zero
+ */
+function getAllProducts(array) {
+  const outArr = [];
+
+  for (let i = 0; i < array.length; i++) {
+    let total = 1;
+    const tempOne = array[i];
+    array[i] = 1;
+
+    total = array.reduce((tot, num) => {
+      return tot * num;
+    }, total);
+
+    outArr.push(total);
+
+    array[i] = tempOne;
+  }
+  return outArr;
+}
+
+
+module.exports = getAllProducts;
+||||||| merged common ancestors
+=======
 /* Accepts an array of integers and returns an array of all the possible products made by
  * multiplying all but one number. In other words, find all the products of multiplying any
  * array.length-1 numbers in the array.
@@ -14,3 +48,4 @@ function getAllProducts(array) {
 }
 
 module.exports = getAllProducts;
+>>>>>>> 72cb4a8ff4445f50af34aba53fcf550f3e3debb9
