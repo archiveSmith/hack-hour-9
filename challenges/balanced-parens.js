@@ -27,7 +27,7 @@
 //check for a closing parentheses
 //if the last thing pushed on the openning paren array does not match the closing paren array return false
 
-function balancedParens(input){
+function balancedParens(input) {
   var matches = {'[':']', '{':'}', '(':')'};
   var brackets = [];
   for (var i = 0; i < input.length; i++) {
@@ -42,7 +42,5 @@ function balancedParens(input){
   }
   return !brackets.length;
 }
-
-console.log(balancedParens('[](){}'))
 
 module.exports = balancedParens;
