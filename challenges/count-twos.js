@@ -10,17 +10,10 @@
 
 
 function countTwos(num) {
-  return range(num)
+  return Array.from({ length: num + 1 }, (el, index) => index)
     .reduce((a, b) => a.toString() + b.toString())
     .split('')
     .filter((el) => el === '2').length;
 }
-function range(number, prev = []) {
-  return number === 0 ?
-    prev :
-    range(number - 1, prev.concat(number));
-}
-
-
 
 module.exports = countTwos;
