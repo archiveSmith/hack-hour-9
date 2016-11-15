@@ -62,7 +62,7 @@ link1.next.next = new Node(9);
 
 var link2 = new Node(9);
 link2.next = new Node(9);
-// link2.next.next = new Node(9);
+link2.next.next = new Node(9);
 //console.log(link2)
 
 addLinkedList(link1, link2)
