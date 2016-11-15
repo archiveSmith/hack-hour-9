@@ -35,6 +35,7 @@ function superbalanced(tree) {
 // var myBST = new BinaryTree(1)
 // myBST.left = new BinaryTree(4)
 // myBST.right = new BinaryTree(7)
+
 // myBST.left.left = new BinaryTree(11)
 // myBST.left.right = new BinaryTree(1)
 // myBST.right.left = new BinaryTree(6)
