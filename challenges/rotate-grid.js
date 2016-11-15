@@ -18,6 +18,21 @@
 
 function rotateGrid(grid, n) {
   //wrote stuff on paper, didn't get code down yet
+  for (let i = 0; i < Math.floor(n/2); i++){
+    let first = i;
+    let last = n - 1 - i;
+    for (let j = first; j < last; j++){
+      let adjust = j - first;
+      let top = grid[first][j];
+      // left -> top
+      grid[first][j] = grid[last-adjust][first];
+      //bottom -> left
+      grid[last-adjust][first] = grid[last][last-adjust];
+      grid[last][last-adjust] = grid[j][last];
+      grid[j][last] = top;
+    }
+  }
+  return grid;
 }
 
 module.exports = rotateGrid;
