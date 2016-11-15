@@ -25,8 +25,8 @@ function superbalanced(tree) {
     }
     return Math.max(helper(node.right), helper(node.left));
   }
-  let leftHeight = helper(tree.left);
-  let rightHeight = helper(tree.right);
+  const leftHeight = helper(tree.left);
+  const rightHeight = helper(tree.right);
   return Math.abs(leftHeight - rightHeight) <= 1;
 }
 
