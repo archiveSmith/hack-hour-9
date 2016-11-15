@@ -9,20 +9,15 @@
 // countTwos(11420);  -> 4483
 
 
-function countTwos() {
+function countTwos(num) {
   let counter = 0;
-  for (let i = 0; i <= 107653400376320956; i++) {
-    // let arr = JSON.stringify(i).split('');
-    // arr.forEach((item) => {
-    //   if (item == '2') {
-    //     counter++;
-    //   }
-    // })
-    counter++;
+
+  for (let i = 0; i <= num; i++) {
+    if (i.toString().split('').indexOf('2') >= 0) {
+      counter++;
+    }
   }
   return counter;
 }
-
-console.log(countTwos());
 
 module.exports = countTwos;
