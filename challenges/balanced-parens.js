@@ -24,41 +24,20 @@
  *
  */
 
-function balancedParens (str) {
-	let arr = [];
-	for (let i = 0 ; i < str.length; i++){
-		if (str[i] === '(' || str[i] === '[' || str[i] === '{'){
-			arr.push(str[i])
-		} else if (str[i] === ')' || str[i] === '}' || str[i] === ']'){
-			if (arr.length === 0){
-				return false
-			}
-			if(str[i].charCodeAt(0) - arr[arr.length-1].charCodeAt(0) !== 2){
-				return false
-			}
-			arr.pop();
-		}
-	}
-	return arr.length === 0
+function balancedParens(input){
+  var matches = {'[':']', '{':'}', '(':')'};
+  var brackets = [];
+  for (var i = 0; i < input.length; i++) {
+    var char = input[i];
+    if (char in matches) {
+      brackets.push(char);
+    } else if (char === ']' || char === ')' || char === '}'){
+      if (matches[brackets.pop()] !== char){
+        return false;
+      }
+    }
+  }
+  return !brackets.length;
 }
- 
-//  Hack Hour Solution:
-//  function balancedParens(input){
-//   var open = '';
 
-//   const symbols = input.match(/[\[|\]|(|)|{|}]/g) || [];
-
-//   for (let i = 0; i < input.length; i++) {
-//     if (/[\[|\(|{]/.test(input[i])) open = input[i] + open;
-//     else if (/[\]|\)|}]/.test(input[i])) {
-//       if (input[i].charCodeAt(0) - open.charCodeAt(0) > 2) {
-//         return false;
-//       } else {
-//         open = open.slice(1);
-//       }
-//     }
-//   }
-//   //  If there are any openSyms left unclosed, parens are not balanced
-//   return !open;
-// }
 module.exports = balancedParens;
