@@ -24,23 +24,23 @@
  *
  */
 
- function balancedParens(input){
- 	let up = 0;
- 	let down = input.length;
- 	while (up < down){
- 		if(input[up] != '('){
- 			up++
- 		}
- 			if(input[down] != ')'){
- 			down--
- 		}
- 		if (input[up] === '(' && input[down] === ')'){
- 		return true;
- 	}
- }
-
- 	return false;
- }
+function brackets (str) {
+	let arr = [];
+	for (let i = 0 ; i < str.length; i++){
+		if (str[i] === '(' || str[i] === '[' || str[i] === '{'){
+			arr.push(str[i])
+		} else if (str[i] === ')' || str[i] === '}' || str[i] === ']'){
+			if (arr.length === 0){
+				return false
+			}
+			if(str[i].charCodeAt(0) - arr[arr.length-1].charCodeAt(0) !== 2){
+				return false
+			}
+			arr.pop();
+		}
+	}
+	return arr.length === 0
+}
  
 //  Hack Hour Solution:
 //  function balancedParens(input){
