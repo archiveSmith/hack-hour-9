@@ -15,14 +15,17 @@
 // for each array check the first number compared to all the other numbers
 
 function mergeRanges(array) {
-  const sortedArr = array.sort((a, b) => a - b);
+  const sortedArr = array.sort((a, b) => a[0] - b[0]);
   const outArr = [array[0]];
+  console.log(sortedArr)
 
-  for (let i = 1; i < sortedArr.length - 1; i++) {
-    if (sortedArr[i - 1][1] > sortedArr[i][0]) {
+  for (let i = 1; i < sortedArr.length; i++) {
+    console.log(sortedArr[i - 1][1], '? > || = ?', sortedArr[i][0]);
+    if (sortedArr[i - 1][1] >= sortedArr[i][0]) {
       const outNum = Math.max(sortedArr[i - 1][1], sortedArr[i][1]);
       const tempArr = [].concat(sortedArr[i - 1][0], outNum);
-      outArr[i - 1] = tempArr;
+      console.log('i - 1 = ', i - 1)
+      outArr[outArr.length - 1] = tempArr;
     } else {
       outArr.push(sortedArr[i]);
     }
