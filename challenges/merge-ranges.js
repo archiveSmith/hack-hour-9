@@ -18,7 +18,6 @@ function mergeRanges(array) {
   array = array.sort((a, b) => a[0] - b[0]);
   const result = [];
   for (let i = 0; i < array.length; i++) {
-    console.log('new i = ', i);
     const curr = array[i];
     console.log('new curr = ', array[i]);
     const last = result[result.length - 1];
@@ -32,7 +31,8 @@ function mergeRanges(array) {
           console.log('last[1] = ', last[1], 'which is now = ', curr[1]);
           last[1] = curr[1];
         }
-        console.log('hit continue');
+        console.log('hit continue, avoided pushing - ', curr    );
+
         continue;
       }
     }
@@ -41,6 +41,8 @@ function mergeRanges(array) {
   }
   return result;
 }
+
+console.log(mergeRanges([[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]]));
 
 // function mergeRanges(array) {
 //   const sortedArr = array.sort((a, b) => a[0] - b[0]);
