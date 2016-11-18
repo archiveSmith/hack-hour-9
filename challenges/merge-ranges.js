@@ -15,22 +15,47 @@
 // for each array check the first number compared to all the other numbers
 
 function mergeRanges(array) {
-  const sortedArr = array.sort((a, b) => a[0] - b[0]);
-  const outArr = [array[0]];
-  console.log(sortedArr)
-
-  for (let i = 1; i < sortedArr.length; i++) {
-    console.log(sortedArr[i - 1][1], '? > || = ?', sortedArr[i][0]);
-    if (sortedArr[i - 1][1] >= sortedArr[i][0]) {
-      const outNum = Math.max(sortedArr[i - 1][1], sortedArr[i][1]);
-      const tempArr = [].concat(sortedArr[i - 1][0], outNum);
-      console.log('i - 1 = ', i - 1)
-      outArr[outArr.length - 1] = tempArr;
-    } else {
-      outArr.push(sortedArr[i]);
+  array = array.sort((a, b) => a[0] - b[0]);
+  const result = [];
+  for (let i = 0; i < array.length; i++) {
+    console.log('new i = ', i);
+    const curr = array[i];
+    console.log('new curr = ', array[i]);
+    const last = result[result.length - 1];
+    console.log('new last = ', last);
+    if (result.length > 0) {
+      console.log('result has a length');
+      if (curr[0] <= last[1]) {
+        console.log('curr[0] <= last[1]');
+        if (curr[1] > last[1]) {
+          console.log('curr[1] > last[1]');
+          console.log('last[1] = ', last[1], 'which is now = ', curr[1]);
+          last[1] = curr[1];
+        }
+        console.log('hit continue');
+        continue;
+      }
     }
+    console.log('pushing ', curr, ' onto result = ', result);
+    result.push(curr);
   }
-  return outArr;
+  return result;
 }
+
+// function mergeRanges(array) {
+//   const sortedArr = array.sort((a, b) => a[0] - b[0]);
+//   const outArr = [array[0]];
+//
+//   for (let i = 1; i < sortedArr.length; i++) {
+//     if (sortedArr[i - 1][1] >= sortedArr[i][0]) {
+//       const outNum = Math.max(sortedArr[i - 1][1], sortedArr[i][1]);
+//       const tempArr = [].concat(sortedArr[i - 1][0], outNum);
+//       outArr[outArr.length - 1] = tempArr;
+//     } else {
+//       outArr.push(sortedArr[i]);
+//     }
+//   }
+//   return outArr;
+// }
 
 module.exports = mergeRanges;
