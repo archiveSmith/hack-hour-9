@@ -25,5 +25,7 @@ function mergeRanges(array) {
 	return array;
 }
 
+
+
 module.exports = mergeRanges;
 
