@@ -16,9 +16,7 @@ function reverseInPlace(array) {
 		//take last item and insert it in position i
 	// 	array.splice(i,0,array[(array.length-1)]);
 	// splice returns an empty array which isn't saved.
-	// 
 	// 	array.pop();
-
 	// };
 	
 	//solution without array methods
