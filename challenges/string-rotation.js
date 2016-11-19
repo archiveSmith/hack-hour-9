@@ -12,30 +12,17 @@
  */
 
 function isSubstring(s1, s2) {
-  return s1.indexOf(s2) >= 0;
+  return s2.indexOf(s1) >= 0;
 }
 
 function stringRotation(s1, s2) {
-  return s1.indexOf(s2) >= 0;
-}
-
-function stringRotation(s1, s2) {
+	if(!s1 || !s2) return false; 
 	if(s1.length !== s2.length) return false; 
-	let index; 
-	for(var i = 0; i < s1.length; i++) {
-		if(s1[i] === s2[0]) {
-			index = i; 
-			break; 
-		}
-	}
-	var sliceEnd = s1.slice(index);
-	var sliceStart = s1.slice(0, index);
-if(!isSubstring(s2, sliceStart)){
-	return false; 
+	let rotatedStr = s2 + s2;
+	return rotatedStr.includes(s1);
+	// console.log(tempStr.includes(s1));
+	// console.log(tempStr.indexOf(s1));
 }
 
-return true; 
-
-}
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
