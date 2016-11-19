@@ -24,8 +24,6 @@
  *
  */
 
- //Misunderstood prompt
-
 function balancedParens(input){
   let parens = input.match(/[^a-z;:=. ]+/g).join('');
   let container = [];

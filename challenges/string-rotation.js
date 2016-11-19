@@ -20,9 +20,11 @@ function stringRotation(s1, s2) {
 	if(s1.length !== s2.length) return false; 
 	let rotatedStr = s2 + s2;
 	return rotatedStr.includes(s1);
-	// console.log(tempStr.includes(s1));
-	// console.log(tempStr.indexOf(s1));
 }
 
+	//includes returns bool 
+	//indexOf returns index and -1 if not found
+	// console.log(tempStr.includes(s1));
+	// console.log(tempStr.indexOf(s1));
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
