@@ -27,27 +27,19 @@
  //Misunderstood prompt
 
 function balancedParens(input){
-let leftPar = 0;
-let rightPar = 0;
-let leftBra = 0;
-let rightBra = 0;
-let leftCur = 0;
-let rightCur = 0;
-
-let index = 0;
-while(index < input.length) {
-	
-	if(input[index] === "(") leftPar++;
-	else if(input[index] === ")") rightPar++;
-	else if(input[index] === "[") leftBra++;
-	else if(input[index] === "]") rightBra++;
-	else if(input[index] === "{") leftCur++;
-	else if(input[index] === "}") rightCur++;
-	
-	index++; 
-}
-return (leftPar === rightPar) && (leftBra === rightBra) && (leftCur === rightCur);
-
+  let parens = input.match(/[^a-z;:=. ]+/g).join('');
+  let container = [];
+  for(let i = 0; i < parens.length; i += 1) {
+    let temp = parens[i];
+    if(temp === '(' || temp === '[' || temp === '{') {
+      container.push(temp); 
+    } else {
+      if (temp === ')' && container[container.length - 1] === '(') container.pop();
+      else if (temp === '}' && container[container.length - 1] ) container.pop();
+      else if (temp === ']' && container[container.length - 1] ) container.pop(); 
+    }
+  }
+  return container.length ? false : true; 
 }
 
 module.exports = balancedParens;
