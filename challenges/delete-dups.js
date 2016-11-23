@@ -11,15 +11,18 @@
  */
 
 function deleteDups(head) {
-  const vals = [];
-  let tempHead = head;
-  while (tempHead) {
-    if (vals.indexOf(tempHead.next.value) < 0) {
-      vals.push(tempHead.next.value);
-      tempHead = tempHead.next.next;
+  const vals = {};
+  let current = head.next;
+  let prev;
+
+  while (current) {
+    if (vals[current.value]) {
+      prev.next = current.next;
     } else {
-      tempHead = tempHead.next;
+      vals[current.value] = true;
+      prev = current;
     }
+    current = current.next;
   }
   return head;
 }
