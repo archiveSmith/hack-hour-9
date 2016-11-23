@@ -10,19 +10,18 @@
  * How would you solve this problem if a temporary buffer is not allowed?
  */
 
-function Node(val) {
-  this.value = val;
-  this.next = null;
-}
-
-
 function deleteDups(head) {
-  const vals = {};
-  vals[head.value] = true;
-
-  while(head) {
-    
+  const vals = [];
+  let tempHead = head;
+  while (tempHead) {
+    if (vals.indexOf(tempHead.next.value) < 0) {
+      vals.push(tempHead.value);
+      tempHead.next = tempHead.next.next;
+    } else {
+      tempHead = tempHead.next;
+    }
   }
+  return head;
 }
 
 module.exports = deleteDups;
