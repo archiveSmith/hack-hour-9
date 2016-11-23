@@ -15,7 +15,7 @@ function deleteDups(head) {
   let tempHead = head;
   while (tempHead) {
     if (vals.indexOf(tempHead.next.value) < 0) {
-      vals.push(tempHead.value);
+      vals.push(tempHead.next.value);
       tempHead.next = tempHead.next.next;
     } else {
       tempHead = tempHead.next;
