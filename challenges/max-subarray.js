@@ -102,7 +102,7 @@ function maxSubarray(arr) {
         return a + b;
       });
       
-      if (minisum > 0 && ((arr[i]+1)>0)){
+      if (minisum > 0 && ((arr[i+1])>0)){
         sum += minisum;
         group = false;
       } 
