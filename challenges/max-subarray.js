@@ -75,7 +75,6 @@ function maxSubarray(arr) {
   }
   
   if(!atLeastOnePositive) {
-    console.log('there are no positives');
     return largestNum;
   }
   
