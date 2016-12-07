@@ -25,7 +25,6 @@ function Stack() {
   this.getMax = function() {
     return this.max
   };
-
 }
 
 module.exports = Stack;
