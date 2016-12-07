@@ -13,7 +13,35 @@
 // if there are no common numbers or strings return the string "Nothing in Common!"
 
 function commonElements(array1, array2, array3, array4){
+	let matches = [];
+  array1 = uniq(array1)
+  array2 = uniq(array2)
+  array3 = uniq(array3)
+  array4 = uniq(array4)
 
+	let combo = array1.concat(array2).concat(array3).concat(array4).sort()
+	let count = 1,
+	prevChar = combo[0],
+	currChar;
+  for(let i = 1; i < combo.length; i++) {
+    currChar = combo[i];
+    
+    if(currChar === prevChar) count++;
+    
+    if(currChar !== prevChar) count = 1;
+    
+    if(count === 4) matches.push(currChar);
+    
+    prevChar = combo[i];
+  }
+	
+	return matches.length > 0 ? matches : 'Nothing in Common!'
 }
 
-module.exports = commonElements;
+function uniq(array) {
+  return array.sort().filter(function(item, pos, ary) {
+	  return !pos || item != ary[pos - 1];
+	})
+}
+
+module.exports = { commonElements, uniq };
