@@ -14,6 +14,13 @@
 
 function commonElements(array1, array2, array3, array4){
 	let matches = [];
+
+	function uniq(array) {
+  return array.sort().filter(function(item, pos, ary) {
+	  return !pos || item != ary[pos - 1];
+		})
+	}
+
   array1 = uniq(array1)
   array2 = uniq(array2)
   array3 = uniq(array3)
@@ -38,10 +45,6 @@ function commonElements(array1, array2, array3, array4){
 	return matches.length > 0 ? matches : 'Nothing in Common!'
 }
 
-function uniq(array) {
-  return array.sort().filter(function(item, pos, ary) {
-	  return !pos || item != ary[pos - 1];
-	})
-}
 
-module.exports = { commonElements, uniq };
+
+module.exports = { commonElements };
