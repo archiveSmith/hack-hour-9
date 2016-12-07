@@ -7,6 +7,7 @@
  */
 
 function Stack() {
+<<<<<<< HEAD
   this.storage = [];
   this.length = 0;
   this.max = Number.NEGATIVE_INFINITY
@@ -26,6 +27,9 @@ function Stack() {
     return this.max
   };
 
+=======
+  // body...
+>>>>>>> ff42f218227c1e5339b9e5019186e1b0316c24af
 }
 
 module.exports = Stack;
