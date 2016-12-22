@@ -22,6 +22,34 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+let len = 1;
+let difference;
+let currentNode = head;
+
+//Check to see if head exists else return false
+//Grab the length by looping through the list
+//Grab the difference from the length to k 
+//loop through from the head to the difference
+//return the value that distance from head
+
+if(head === null || k < 1){
+	return null; 
+}
+
+while(currentNode.next) {
+	currentNode = currentNode.next;
+	len += 1;
+}
+
+	difference = len - k; 
+	currentNode = head;
+	
+	for(i = 0; i < difference; i++) {
+		currentNode = currentNode.next;
+	}
+    
+    return currentNode.value;
+
 
 }
 

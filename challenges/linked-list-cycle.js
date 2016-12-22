@@ -30,10 +30,21 @@
 var Node = function(value) {
   this.value = value;
   this.next = null;
+  this.flag = false; 
 }
 
 function hasCycle(head) {
+ if(!head) return null; 
 
+ 	temp = head;
+ 	while(temp) {
+ 		if(temp.flag) {
+ 			return true; 
+ 		}
+ 		temp.flag = true;
+ 		temp = temp.next;
+ 	}
+ 	return false; 
 }
 
 module.exports = {Node: Node, hasCycle: hasCycle}

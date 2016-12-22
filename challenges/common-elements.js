@@ -13,7 +13,30 @@
 // if there are no common numbers or strings return the string "Nothing in Common!"
 
 function commonElements(array1, array2, array3, array4){
+  let cache = {};
+  let arrCache = [];
+  
+  for(let i = 0; i < arguments[0].length; i+=1) {
+    cache[arguments[0][i]] = cache[arguments[0][i]] ? 1 : 1;
+  }
+  for(let i = 0; i < arguments[1].length; i+=1) {
+    if(cache[arguments[1][i]] === 1 ) cache[arguments[1][i]] = 2;
+  }
+  for(let i = 0; i < arguments[2].length; i+=1) {
+    if(cache[arguments[2][i]] === 2) cache[arguments[2][i]] = 3;
+  }
+  for(let i = 0; i < arguments[3].length; i+=1) {
+    if(cache[arguments[3][i]] === 3) cache[arguments[3][i]] = 4;
+  }
+  
+  for(let prop in cache) {
+    if(cache[prop] === 4) {
+      if(isNaN(prop)) arrCache.push(prop);
+      else arrCache.push(parseInt(prop));
+    }
+  }
 
+  return arrCache.length > 0 ? arrCache : "Nothing in Common!";
 }
 
 module.exports = commonElements;

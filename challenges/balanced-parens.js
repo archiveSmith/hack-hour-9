@@ -25,7 +25,19 @@
  */
 
 function balancedParens(input){
-
+  let parens = input.match(/[^a-z;:=. ]+/g).join('');
+  let container = [];
+  for(let i = 0; i < parens.length; i += 1) {
+    let temp = parens[i];
+    if(temp === '(' || temp === '[' || temp === '{') {
+      container.push(temp); 
+    } else {
+      if (temp === ')' && container[container.length - 1] === '(') container.pop();
+      else if (temp === '}' && container[container.length - 1] ) container.pop();
+      else if (temp === ']' && container[container.length - 1] ) container.pop(); 
+    }
+  }
+  return container.length ? false : true; 
 }
 
 module.exports = balancedParens;

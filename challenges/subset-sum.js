@@ -9,7 +9,36 @@
  */
 
 function subsetSum(array, target) {
-
+  //declare a subset variable; 
+  let sub = [[]];
+  let result = [];
+  for(let i = 0; i < array.length; i++){
+  	for(let j = 0, len = sub.length; j < len; j++){
+  		let temp = sub[j].concat(array[i]);
+  		sub.push(temp);
+  		let testing = temp.reduce(function(x,y){ 
+  			return x + y;
+  		});
+  		if(testing === target){
+  			return true;
+  		}
+  	}
+  }
+  return false;
 }
+
+//Recommended
+// function subsetSum(array, target) {
+
+//     if (!target) {
+//         return true;
+//     }
+
+//     if (!array.length) {
+//         return false;
+//     }
+
+//     return subsetSum(array.slice(1), target - array[0]) || subsetSum(array.slice(1), target);
+// }
 
 module.exports = subsetSum;

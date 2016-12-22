@@ -10,7 +10,29 @@
 */
 
 function solveKnapsack(items, weightAvailable) {
-
+  let max = 0;
+  items = items.filter((element) => {
+    return element.weight <= weightAvailable;
+  }).sort((a,b) => {
+    return b.value - a.value;
+  });
+  
+  for(let i = 0; i < items.length; i += 1) {
+    let wLimit = 0;
+    let count = 0;
+    for(let j = i; j < items.length; j += 1) {
+        wLimit += items[j].weight; 
+        if(wLimit <= weightAvailable) {
+          count += items[j].value;
+          if(count > max) {
+            max = count; 
+          }
+        } else {
+          break; 
+        }
+    }
+  }
+  return max; 
 };
 
 module.exports = solveKnapsack;
