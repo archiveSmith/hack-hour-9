@@ -12,6 +12,25 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
+function bestProfit(prices) {
+if(!prices) return 0; 
+let buyPoint = prices[0];
+let sellPoint;
+let profit = 0; 
+for(let i = 0; i < prices.length - 1; i++) {
+	sellPoint = prices[i + 1];
+	
+	if(buyPoint > sellPoint) {
+		buyPoint = sellPoint;
+	} 
+	else if(sellPoint > buyPoint) {
+		let temp = sellPoint - buyPoint;
+		if(profit < temp) {
+			profit = temp; 
+		}
+	}
+}
+return profit; 
 function bestProfit(stock_prices_yesterday) {
 
 }

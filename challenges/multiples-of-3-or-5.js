@@ -7,6 +7,27 @@
 
 function sumMultiples3Or5Below1000() {
   let sum = 0;
+<<<<<<< HEAD
+	for(let i = 3; i < 1000; i++) {
+		if(i % 3 === 0 || i % 5 === 0) {
+			sum += i;
+		}
+	}	
+  return sum;
+}
+
+// sumMultiples3Or5Below1000();
+// extension make it dynamic function that takes input x,y,z
+// and returns the sum of multiples of x and y below z
+ 
+function sumMultiplesXOrYBelowZ(x, y, z) {
+  let sum = 0;
+  for(let i = 0; i < z; i++) {
+  	if(i % x === 0 || i % y === 0) {
+  		sum += i;
+  	} 
+  }
+
 
   return sum;
 }

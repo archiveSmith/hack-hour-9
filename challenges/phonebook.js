@@ -19,15 +19,42 @@
 */
 
 function findName(jazbook, name) {
-  
-  return number;
+	for(let i = 0; i < jazbook.length; i++) {
+		if(jazbook[i][0] === name) {
+			return jazbook[i][1];
+		}
+	}
+	return false; 
 }
 
 function makeJazBookIntoARealPhoneBookObject(jazbook){
-
+	let phonebook = {};
+	for(let i = 0; i < jazbook.length; i++) {
+		phonebook[jazbook[i][0]] = jazbook[i][1];
+	}
   return phonebook;
 }
 
+
+function JazzBook() {
+	this.phonebook = {};
+}
+
+JazzBook.prototype.add = function(nameArr) {
+	this.phonebook[nameArr[0]] = nameArr[1];
+};
+
+JazzBook.prototype.remove = function(name) {
+	let removed = this.phonebook[name];
+	delete this.phonebook[name];
+	return removed; 
+};
+
+// let phoneBook = new JazzBook(); 
+// phoneBook.add(['alex','301-844-3421']);
+// phoneBook.add(['jae','301-844-1211']);
+// phoneBook.remove('jae');
+// console.log(phoneBook);
 
 var objectToExport = {
   findName: findName,

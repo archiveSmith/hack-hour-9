@@ -14,7 +14,31 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+	if(l1 === null && l2 === null) return undefined;
+	sumL1 = parseInt(reverseLinkedList(l1));
+	sumL2 = parseInt(reverseLinkedList(l2));
+	total = sumL1 + sumL2;
+	let reverseL = JSON.stringify(total).split("").reverse();
 
+	let resultL = new Node();
+	let temp = resultL;
+	for(let i = 0; i < reverseL.length; i++) {
+		temp.value = reverseL[i];
+		temp.next = i === reverseL.length - 1 ? null : new Node();
+		temp = temp.next; 
+	}
+	return resultL;
+}
+
+function reverseLinkedList(head) {
+	if(head === null) return "0"; 
+	let newAr = [];
+	let currentNode = head;
+	while(currentNode) {
+		newAr.push(currentNode.value);
+		currentNode = currentNode.next; 
+	}
+	return newAr.reverse().join(''); 
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};

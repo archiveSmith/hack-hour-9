@@ -11,6 +11,17 @@
  */
 function uniqueNumber(array) {
 
+	// O(nlogn) solution 
+	// other solution would be cache O(n) time and space complexity
+	array = array.sort(function(a, b) { return a - b; })
+	for(let i = 0; i < array.length; i++) {
+		
+		//check if the current element is different from the previous and next element
+		if(array[i] !== array[i + 1]  && array[i] !== array[i - 1]) {
+			return array[i];
+		} 
+	}
+
 }
 
 module.exports = uniqueNumber;

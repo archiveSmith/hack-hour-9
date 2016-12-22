@@ -11,7 +11,27 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
-
+	//let match = str.match(/\d+/gi);
+  let x = parseInt(str[1]); //or 1 + to coerce 
+  let y = parseInt(str[3]); //or +str[3] to coerce
+  let moves = 0;
+  
+  if(x > 8 || y > 8 || x <= 0 || y <= 0) {
+    return 0;
+  }
+  
+  if(y + 2 <= 8 && x - 1 > 0) moves++;
+  if(y + 2 <= 8 && x + 1 <= 8) moves++;
+  if(y + 1 <= 8 && x - 2 > 0) moves++;
+  if(y + 1 <= 8 && x + 2 <= 8) moves++;
+  
+  if(y - 2 > 0 && x - 1 > 0) moves++;
+  if(y - 2 > 0 && x + 1 <= 8) moves++;
+  if(y - 1 > 0 && x - 2 > 0) moves++;
+  if(y - 1 > 0 && x + 2 <= 8) moves++;
+  
+  return moves; 
+  
 }
 
 module.exports = knightjumps;
