@@ -18,18 +18,12 @@
  */
 
 function H(letters) {
-
+ return 'H' + letters ? letters : '';
 }
 
 // OR
 
 // const H = (letters) =>;
-
-
-
-
-
-
 
 /*
  * PART 2
@@ -42,23 +36,20 @@ function H(letters) {
  */
 
 function e(letters) {
-
+  return 'e' + letters ? letters : '';
 }
 
 function l(letters) {
-
+  return 'l' + letters ? letters : '';
 }
 
 function o(letters) {
-
+  return 'o' + letters ? letters : '';
 }
 
 // const e = (letters) =>;
 // const l = (letters) =>;
 // const o = (letters) =>;
-
-
-
 
 
 /*
@@ -75,7 +66,7 @@ function o(letters) {
  */
 
 function pipe(functions) {
-
+  //tbd
 }
 
 // OR
