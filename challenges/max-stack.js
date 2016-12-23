@@ -8,6 +8,7 @@
  */
 
 function Stack() {
+
   this.storage = {};
   this.maxAr = []; 
   this.index = 0;

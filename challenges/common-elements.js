@@ -15,21 +15,20 @@
 function commonElements(array1, array2, array3, array4){
   let cache = {};
   let arrCache = [];
-  console.log(arguments);
+  
   for(let i = 0; i < arguments[0].length; i+=1) {
     cache[arguments[0][i]] = cache[arguments[0][i]] ? 1 : 1;
   }
   for(let i = 0; i < arguments[1].length; i+=1) {
-    if(cache[arguments[1][i]] === 1 ) cache[arguments[1][i]] = 2; 
+    if(cache[arguments[1][i]] === 1 ) cache[arguments[1][i]] = 2;
   }
   for(let i = 0; i < arguments[2].length; i+=1) {
-    if(cache[arguments[2][i]] === 2) cache[arguments[2][i]] = 3; 
+    if(cache[arguments[2][i]] === 2) cache[arguments[2][i]] = 3;
   }
   for(let i = 0; i < arguments[3].length; i+=1) {
-    if(cache[arguments[3][i]] === 3) cache[arguments[3][i]] = 4; 
+    if(cache[arguments[3][i]] === 3) cache[arguments[3][i]] = 4;
   }
-  console.log(cache);
-
+  
   for(let prop in cache) {
     if(cache[prop] === 4) {
       if(isNaN(prop)) arrCache.push(prop);
