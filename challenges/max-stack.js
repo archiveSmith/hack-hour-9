@@ -7,12 +7,16 @@
  */
 
 function Stack() {
+
 	this.newstack = [];
 	this.push = function(input){return this.newstack.push(input)};
 	this.pop = function(){return this.newstack.pop()};
 	this.getMax = function(){
 		return Math.max(...this.newstack)};
 }
-//sjdfkjf
+
+  // body...
+}
+
 
 module.exports = Stack;
