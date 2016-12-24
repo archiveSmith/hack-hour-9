@@ -28,13 +28,7 @@ function repeatNumbers(array) {
 			return array[i]; 
 		}
 	}
-	// let result;
-	// array.sort(function(a, b) { 
-	// 	if(a === b) {
-	// 		result = a;
-	// 	}
-	// });
-	
+	return array; 
 	
 }
 
