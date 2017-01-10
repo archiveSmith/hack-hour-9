@@ -16,8 +16,19 @@ eachPermutation([1, 2, 3], function(perm) {
 [ 3, 2, 1 ]
 */
 
-function eachPermutation(arr, callback) {
-
+function eachPermutation(array, callback) {
+   function helper(array, newArr) {
+    if(!array.length) {
+      callback(newArr);
+    }    
+    for (let i = 0; i < array.length; i++) {
+      let buildArr = array.slice();
+      buildArr.splice(i, 1);
+      helper(buildArr, newArr.concat(array[i]))
+    }
+    
+  }
+  helper(array, [])
 }
 
 
