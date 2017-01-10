@@ -26,6 +26,14 @@ Challange:
   ** keep in mind time complexity
 */
 function missingNum(Array) {
+  let sum = 0; 
+  let result = Array.reduce( (prev, curr) => {
+    return prev + curr;
+  }); 
+  for(let i = 0; i < Array.length + 2; i += 1) {
+    sum += i; 
+  }
+  return sum - result;
 }
 
 module.exports = missingNum;

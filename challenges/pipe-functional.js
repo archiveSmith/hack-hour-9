@@ -18,18 +18,15 @@
  */
 
 function H(letters) {
-
+  return letters ? 'H' + letters : 'H';
 }
 
 // OR
 
 // const H = (letters) =>;
+  //return letters ? 'H' + letters : 'H';
 
-
-
-
-
-
+// }
 
 /*
  * PART 2
@@ -42,15 +39,15 @@ function H(letters) {
  */
 
 function e(letters) {
-
+  return letters ? 'e' + letters : 'e';
 }
 
 function l(letters) {
-
+  return letters ? 'l' + letters : 'l';
 }
 
 function o(letters) {
-
+  return letters ? 'o' + letters : 'o';
 }
 
 // const e = (letters) =>;
@@ -75,7 +72,7 @@ function o(letters) {
  */
 
 function pipe(functions) {
-
+  //currying?
 }
 
 // OR
