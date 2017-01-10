@@ -23,7 +23,7 @@ function height(treeBranch) {
 }
 
 function superbalanced(tree) {
-  return Math.abs(height(tree.right), height(tree.left));
+  return Math.abs(height(tree.right), height(tree.left)) >= 1;
 }
 
 
