@@ -25,19 +25,28 @@ function Node(val) {
 //returns the value at the kth node.
 
 
-function kthToLastNode(k, head) { 
-  var finalVal;
-  
-  if (k <= 0 || head.value === null){
-    return undefined;
-  }
+function kthToLastNode(k, head) {
+    var length = 0;
+    var curr = head;
 
-  while (k > 0){
-    finalVal = head.value;
-    head = head.next;
-    k--;
-  }
-  return finalVal;
+    while (curr) {
+        length += 1;
+        curr = curr.next;
+    }
+
+    var i = length - k;
+    curr = head;
+
+    if (i < 0) {
+        return undefined;
+    }
+
+    while (i) {
+        curr = curr.next;
+        i -= 1;
+    }
+
+    return curr.value;
 }
 
 var node1 = new Node(1);
@@ -49,6 +58,6 @@ node1.next = node2;
 node2.next = node3;
 node3.next = node4;
 
-console.log(kthToLastNode(0,node1));
+console.log(kthToLastNode(2, node1));
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};

@@ -12,7 +12,7 @@
 
 function deleteDups(head) {
   const vals = {};
-  let current = head.next;
+  let current = head;
   let prev;
 
   while (current) {
