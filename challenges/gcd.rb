@@ -7,14 +7,25 @@
 require "test/unit"
 
 def gcd(a, b)
+  large = a > b ? a : b
+  small = large == a ? b : a
+  large_sqrt = Math.sqrt(large).floor
+  max_divisor = large_sqrt > small ? large_sqrt : small
 
+  return small if small == large || large % small == 0
+
+  (2..max_divisor).reverse_each do |i|
+    return i if large.to_f % i == 0 && small.to_f % i == 0
+  end
+
+  1
 end
 
 class TestGcd < Test::Unit::TestCase
 
   def test_1
-    assert_equal(4, gcd(44, 8), "should find greatest common denominator of 44 and 8").to.be(4);
-    assert_equal(4, gcd(8, 44), "should find greatest common denominator of 44 and 8").to.be(4);
+    assert_equal(4, gcd(44, 8), "should find greatest common denominator of 44 and 8")
+    assert_equal(4, gcd(8, 44), "should find greatest common denominator of 44 and 8")
   end
 
   def test_2
