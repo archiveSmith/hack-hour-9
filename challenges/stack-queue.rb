@@ -4,10 +4,62 @@ require "test/unit"
 
 class Stack
 
+  attr_reader :cache, :index
+
+  def initialize(*args)
+    @cache = args
+    @index = args.length
+  end
+
+  def push(el)
+    @cache[@index] = el
+    @index += 1
+    @cache
+  end
+
+  def pop
+    return nil if @index == 0
+    @index -= 1
+    popped_el = @cache[@index]
+    @cache.delete_at(@index)
+    popped_el
+  end
+
+  def empty?
+    @index == 0
+  end
 end
 
 class Queue
+  def initialize(*args)
+    @in_stack = Stack.new
+    @out_stack = Stack.new
 
+    args.each { |el| @in_stack.push el }
+  end
+
+  def in_stack
+    @in_stack.cache
+  end
+
+  def out_stack
+    @out_stack.cache
+  end
+
+  def enqueue(el)
+    @in_stack.push el
+    nil
+  end
+
+  def dequeue
+    if @out_stack.empty?
+      while !@in_stack.empty?
+        @out_stack.push @in_stack.pop
+      end
+    end
+    
+    @out_stack.pop
+  end
 end
 
 # --- tests ---
