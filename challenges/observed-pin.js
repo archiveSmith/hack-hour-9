@@ -40,10 +40,34 @@ expectations = {
 */
 
 
-
-
 function getPINs(observed) {
+  if (observed.length === 1) return findAdjacentNums(observed);
+  const prevCombo = getPINs(observed.slice(0, observed.length - 1));
+  const currCombo = findAdjacentNums(observed[observed.length - 1]);
+  let results = [];
+  for (let i = 0; i < prevCombo.length; i += 1) {
+    let str = prevCombo[i].toString();
+    for (let j = 0; j < currCombo.length; j += 1) {
+      results.push(str.concat(currCombo[j].toString()));
+    }
+  }
+  return results;
+}
 
+function findAdjacentNums(num) {
+  const table = {
+    "0": [0, 8],
+    "1": [1,2,4],
+    "2": [1,2,3,5],
+    "3": [2,3,6],
+    "4": [1,4,5,7],
+    "5": [2, 4, 5, 6, 8],
+    "6": [3,5,6,9],
+    "7": [4,7,8],
+    "8": [5, 7, 8, 9, 0],
+    "9": [6,8,9]
+  };
+  return table[num];
 }
 
 

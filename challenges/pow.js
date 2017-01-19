@@ -3,6 +3,16 @@
  */
 
 function pow(base, power) {
+//base case is when power = 0 return 1 
+if(power === 0){
+	return 1; 
+}
+
+//power is base * multiplication(base)
+return base * pow(base, power - 1);
+//2 x power(2, 2)
+// 2 x power(2, 1)
+//  2 x power(2, 0) = 1 
 
 }
 

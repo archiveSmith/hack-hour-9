@@ -21,7 +21,25 @@
  */
 
 function EventEmitter() {
-
+	this.events = {}; 
 }
 
+EventEmitter.prototype.on = function(type, listener) {
+	if(!this.events[type]) {
+		this.events[type] = [listener];
+	} else {
+		this.events[type].push(listener);
+	}
+}
+
+EventEmitter.prototype.trigger = function(type, ...args) {
+	let event = this.events[type];
+  	if (!event) {
+    	return;
+  	} else {
+		  for (var i = 0; i < event.length; i++) {
+	    	event[i].apply(this, args);
+	  	}
+  	}
+}
 module.exports = EventEmitter;
