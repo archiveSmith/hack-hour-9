@@ -24,14 +24,14 @@ function EventEmitter() {
   this.events = {};
 }
 
-EventEmitter.prototype.on = function(event, callback) {
+EventEmitter.prototype.on = function(event, func) {
   if (!this.events[event]) this.events[event] = [];
-  this.events[event].push(callback);
+  this.events[event].push(func);
 };
 
 EventEmitter.prototype.trigger = function(event, ...args) {
   if (this.events[event]) {
-    this.events[event].forEach((item) => this.events[item](...args));
+    this.events[event].forEach(func => func(...args));
   }
 };
 
@@ -44,8 +44,8 @@ EventEmitter.prototype.trigger = function(event, ...args) {
 //  console.log(counter);
 //  instance.trigger('increment'); // counter should be 1
 //  console.log(counter);
-//  instance.trigger('increment'); // counter should be 2
-// console.log(counter);
+// //  instance.trigger('increment'); // counter should be 2
+// // console.log(counter);
 
 
 module.exports = EventEmitter;
