@@ -21,20 +21,19 @@
  */
 
 function EventEmitter() {
-  return {
-    callbacks: {},
-    on(trigName, callback) {
-      this.callbacks[trigName] = callback;
-    },
-    trigger(triggName) {
-      for (let key in this.callbacks) {
-        if (key === triggName) {
-          this.callbacks[key]();
-        }
-      }
-    }
-  };
+  this.events = {};
 }
+
+EventEmitter.prototype.on = function(event, callback) {
+  if (!this.events[event]) this.events[event] = [];
+  this.events[event].push(callback);
+};
+
+EventEmitter.prototype.trigger = function(event, ...args) {
+  if (this.events[event]) {
+    this.events[event].forEach((item) => this.events[item](...args));
+  }
+};
 
 // let instance = new EventEmitter();
 // var counter = 0;
