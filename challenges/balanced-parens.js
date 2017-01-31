@@ -24,20 +24,28 @@
  *
  */
 
-function balancedParens(input){
-  var matches = {'[':']', '{':'}', '(':')'};
-  var brackets = [];
-  for (var i = 0; i < input.length; i++) {
-    var char = input[i];
-    if (char in matches) {
-      brackets.push(char);
-    } else if (char === ']' || char === ')' || char === '}'){
-      if (matches[brackets.pop()] !== char){
+function balancedParens(string){
+  var parentheses = "[]{}()",
+    stack = [],
+    i, character, bracePosition;
+
+  for(i = 0; character = string[i]; i++) {
+    bracePosition = parentheses.indexOf(character);
+
+    if(bracePosition === -1) {
+      continue;
+    }
+
+    if(bracePosition % 2 === 0) {
+      stack.push(bracePosition + 1); // push next expected brace position
+    } else {
+      if(stack.length === 0 || stack.pop() !== bracePosition) {
         return false;
       }
     }
   }
-  return !brackets.length;
+
+  return stack.length === 0;
 }
 
 module.exports = balancedParens;
