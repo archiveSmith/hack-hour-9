@@ -21,7 +21,7 @@ function commonElements(array1, array2, array3, array4) {
         if (!seen[item]) {
           seen[item] = 1;
         } else {
-          seen[itfem]++;
+          seen[item]++;
         }
         if (seen[item] === 4) {
           common.push(item);
@@ -30,6 +30,15 @@ function commonElements(array1, array2, array3, array4) {
     }
   })
   return common;
+}
+
+commonElements(...arrs) => {
+  arrs.reduce((a,b) => a.concat(b), [])
+  .reduce((a,b) => {
+    a[b] = a[b] ? a[b] + 1 : 1;
+    if (a[b] === 4) a[_allFour].push(b);
+    return a;
+  },{_allFour: []})._allFour;
 }
 
 module.exports = commonElements;

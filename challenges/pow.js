@@ -18,6 +18,54 @@ function pow(base, power, current = 1) {
     return pow(base, power + 1, (current / base));
   }
 }
+
+
+
+
+function pow1(base, power) {
+  let result = base;
+  let powerLeft = power; // why is this good practice?
+  while (powerLeft > 1) {
+    result *= base;
+    powerLeft -= 1; // why not use -- ?
+  }
+  return result;
+}
+
+
+
+function pow2(base, power) {
+  if (power <= 1) return base; // why use <= ?
+  return base * pow2(base, power - 1);
+}
+
+
+
+
+function pow3(base, power, current = 1) {
+  if (power <= 0) return current;
+  return pow3(base, power - 1, current * base);
+}
+
+
+
+'use strict';
+function pow4(base, power, current = 1) {
+  if (power <= 0) return current;
+  return pow4(base, power - 1, current * base);
+}
+
+
+
+
+
+
+
+
+pow1();
+pow2();
+pow3();
+pow4();
 module.exports = pow;
 
 //testing efficiency

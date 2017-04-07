@@ -16,22 +16,16 @@ eachPermutation([1, 2, 3], function(perm) {
 [ 3, 2, 1 ]
 */
 
-function eachPermutation(arr, callback) {
-
-  function permute(array, prev = []) {
-    let len = array.length,
-      cur,
-      i;
-    for (i = 0; i < len; i++) {
-      cur = array.splice(i, 1);
-      if (array.length === 0) {
-        callback(prev.concat(cur))
-      }
-      permute(array.slice(), prev.concat(cur));
-      array.splice(i, 0, cur[0]);
-    }
+function eachPermutation(array, callback, cur = []) {
+  let len = array.length, i;
+  if (array.length === 0) {
+      return callback(cur);
   }
-  permute(arr)
+  for (i = 0; i < len; i++) {
+    let item = array.splice(i, 1)[0];
+    eachPermutation(array.slice(), callback, cur.concat(item));
+    array.splice(i, 0, item);
+  }
 }
 
 

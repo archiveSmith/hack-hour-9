@@ -13,7 +13,7 @@ function permPalin(str) {
   strArr = str.trim().toLowerCase().split('');
   const perms = []
 
-  function permutations(charArr, prev =[]) {
+  function permutations(charArr, prev = []) {
     let cur;
     for (let i = 0; i < charArr.length; i++) {
       cur = charArr.splice(i, 1);
@@ -29,6 +29,20 @@ function permPalin(str) {
   }
   permutations(strArr);
   return perms.some(palin);
+}
+
+const permPalin2 = (str) => {
+  const leftOver = str.split('').reduce((prev, char) => {
+    if (!prev[char]) {
+      prev[char] = true;
+      return prev;
+    }
+    if (prev[char]) {
+      delete prev[char]
+      return prev;
+    }
+  }, {});
+  return Object.keys(leftOver).length <= 1;
 }
 
 module.exports = permPalin;

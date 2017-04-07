@@ -10,6 +10,21 @@
  * Since strings are immutable in javascript, we will be reversing an array of characters instead.
  *
  */
+
+// strategy just make it work
+function reverseInPlace(array) {
+  let len = array.length;
+  for (let i = len - 1; i >= 0; i -= 1) {
+    array.push(array[i]);
+  }
+  while (len > 0) {
+    array.shift();
+    len -= 1;
+  }
+  return array;
+}
+
+
 function reverseInPlace(array) {
   let len = array.length,
     mid = Math.floor(len / 2);
