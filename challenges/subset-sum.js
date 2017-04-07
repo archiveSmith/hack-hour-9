@@ -11,17 +11,17 @@
 function subsetSum(array, target) {
   const sums = {};
   sums[target] = true;
-  let newSums = {}
+  let keys;
+  let diff;
   for (let curNum of array) {
     if (sums[curNum]) {
       return true;
-    } else {
-      newSums = {}
-      for (let sum in sums) {
-        if (newSums[parseInt(sum) - parseInt(curNum)]) return true;
-        newSums[parseInt(sum) - parseInt(curNum)] = true;
-      }
-      Object.assign(sums, newSums);
+    }
+    keys = Object.keys(sums);
+    for (let sum of keys) {
+      diff = Number(sum) - Number(curNum);
+      if (sums[diff]) return true;
+      sums[diff] = true;
     }
   }
   return false;

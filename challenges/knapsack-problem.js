@@ -33,4 +33,18 @@ function solveKnapsack(items, weightAvailable, curValue = 0, index = 0) {
     solveKnapsack(items, weightAvailable, curValue, index + 1));
 }
 
+function solveKnapsack2(items, wLeft) {
+  return items.map(({value, weight}) => ({value, weight, ratio: (value/weight)}))
+        .sort((a,b) => b.ratio - a.ratio)
+        .reduce((cur, item) => {
+          if (cur.wLeft >= item.weight) {
+            cur.wLeft -= item.weight;
+            cur.value += item.value;
+          }
+          return cur;
+        }, {wLeft, value: 0}).wLeft;
+}
+// doesn't get maximum : ( but gets close!
+
+
 module.exports = solveKnapsack;

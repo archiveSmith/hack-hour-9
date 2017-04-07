@@ -1,7 +1,8 @@
 /**
  *  Circle Country is a country that contains several circular-shaped districts.
  *  Some districts may be situated inside other districts, but their borders do not intersect or touch.
- *  Tyus is a resident of Circle Country. When he travels between two locations, he always tries to cross the fewest number of district borders as possible.
+ *  Tyus is a resident of Circle Country. When he travels between two locations, 
+ * he always tries to cross the fewest number of district borders as possible.
  *
  *  You are given an array x, an array y, and an array r
  *
@@ -37,6 +38,43 @@ function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
   return borderCount;
 }
 
+
+function circleCountry2(x, y, r, start_x, start_y, end_x, end_y) {
+  function checkIfInside(cx, cy, cr, tx, ty) {
+    return Math.sqrt(Math.pow(tx - cx) + Math.pow(ty - cy)) < cr;
+  }
+  // add one for every circle that the start point is in, but the destination is not
+  // add one for every circle that the end point is in, but the start is not
+  let borderCount = 0;
+  const len = x.length;
+  let result;
+  for (let i = 0; i < len; i++) {
+    // bitwise or
+    result = checkIfInside(x[i], y[i], r[i], start_x, start_y) ^ checkIfInside(x[i], y[i], r[i], end_x, end_y);
+    borderCount += result;
+  }
+  return borderCount;
+}
+
+function circleCountry1(x, y, r, start_x, start_y, end_x, end_y) {
+  function checkIfInside(cx, cy, cr, tx, ty) {
+    return Math.sqrt(Math.pow(tx - cx) + Math.pow(ty - cy)) < cr;
+  }
+  // add one for every circle that the start point is in, but the destination is not
+  // add one for every circle that the end point is in, but the start is not
+  let borderCount = 0;
+  const len = x.length;
+  let result;
+  for (let i = 0; i < len; i++) {
+    // XOR
+    result = !checkIfInside(x[i], y[i], r[i], start_x, start_y) !== !checkIfInside(x[i], y[i], r[i], end_x, end_y);
+    borderCount += result;
+  }
+  return borderCount;
+}
+
+circleCountry1();
+circleCountry2();
 module.exports = circleCountry;
 
 
