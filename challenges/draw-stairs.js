@@ -11,10 +11,28 @@
  *****
 ******
 
-*/
-
-function drawStairs(n) {
-
+// console.log("a defined?" + (typeof a !== 'undefined'))
+//console.log('hi')
+function drawStairs(input){
+	let numSteps = 0;
+	let stars = 1;
+	let spaces = input - stars; 
+	let step = '';
+	
+	while(numSteps < input){
+	
+	for(let index = 0; index < spaces; index++){
+		step += ' ';
+	}
+	for(let index = 0; index< stars; index++){
+		step += '*'
+	}
+	step += "\n"
+	stars++;
+	numSteps++;
+	spaces--;
+	}
+	console.log(step)
 }
 
 

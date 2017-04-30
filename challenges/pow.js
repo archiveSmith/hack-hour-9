@@ -3,7 +3,14 @@
  */
 
 function pow(base, power) {
+  // All numbers to the power of 0 equal 1
+  if (power === 0) return 1;
 
+  // Base Case. Start rebuilding when power = 1
+  if (power === 1) return base;
+
+  // Recursive call, keep
+  return pow(base, power - 1) * base;
 }
 
 module.exports = pow;
