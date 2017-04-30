@@ -25,7 +25,7 @@
  */
 
 function balancedParens(input){
-
+  //do stuff
 }
 
 module.exports = balancedParens;
