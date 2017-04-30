@@ -24,8 +24,21 @@
  *
  */
 
-function balancedParens(input){
+ function balancedParens(input){
+ 	let up = 0;
+ 	let down = input.length;
+ 	while (up < down){
+ 		if(input[up] != '('){
+ 			up++
+ 		}
+ 			if(input[down] != ')'){
+ 			down--
+ 		}
+ 		if (input[up] === '(' && input[down] === ')'){
+ 		return true;
+ 	}
+ }
 
-}
-
+ 	return false;
+ }
 module.exports = balancedParens;
