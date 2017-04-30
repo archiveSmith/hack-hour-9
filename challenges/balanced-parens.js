@@ -25,7 +25,33 @@
  */
 
 function balancedParens(input){
+  if (typeof input !== 'string'){
+    return undefined
+  }
+  
+  var counter = 0;
+  var leftMoon = 0;
+  var rightMoon = 0;
+  var rightCurl = 0;
+  var leftCurl = 0;
 
+  for (var i = 0; i < input.length;i++){
+    if (input[i] == ')'){
+      leftMoon++;
+    } else if(input[i] ==  '(' ){
+      rightMoon++;
+    } else if (input[i] == '{' ){
+      rightCurl++;
+    } else if(input[i] == '}'){
+      leftCurl++;
+    }
+  }
+
+  if(leftMoon === rightMoon && leftCurl === rightCurl){
+    return true
+  } else {
+    return false;
+  }
 }
 
 module.exports = balancedParens;
