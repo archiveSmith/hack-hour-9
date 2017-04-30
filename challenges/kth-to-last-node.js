@@ -16,13 +16,36 @@
  * kthToLastNode(2,a); -> returns the node with the value 'D' (the second to last node)
  */
 
-function Node(val) {
-  this.value = val;
-  this.next = null;
-}
+ function LinkedList() {
+   this.head = null;
+   this.tail = null;
+   this.count = 0;
+ }
 
-function kthToLastNode(k, head) {
+ function Node(val) {
+   this.value = val;
+   this.next = null;
+ }
 
-}
+ LinkedList.prototype.kthToLastNode = function(k) {
+   const kthIndex = this.count - k;
+   let currentNode = this.head;
+   for (let i = 0; i < kthIndex; i++) {
+     currentNode = currentNode.next;
+   }
+   return currentNode;
+ };
+
+ // adds node to end of list
+ LinkedList.prototype.push = function(value) {
+   const newNode = new Node(value);
+   this.count++;
+   if (this.head === null) {
+     this.head = newNode;
+   } else {
+     this.tail.next = newNode;
+   }
+   this.tail = newNode;
+ };
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
