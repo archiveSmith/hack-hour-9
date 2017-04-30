@@ -22,7 +22,24 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-
+	var nextNode = head.next;
+	var counter = 0;
+	if(!nextNode){
+		console.log("nothing in this list");
+	}
+	else {
+		
+		for(; nextNode.next; nextNode = nextNode.next){
+			counter ++;
+		}
+	}
+	var nodeToReturn = counter + 3 - k;
+	var nodeNum = 2;
+	var returnNode = head.next;
+	for(; nodeNum < nodeToReturn; returnNode = returnNode.next){
+		nodeNum ++;
+	}
+	return returnNode.value;
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
