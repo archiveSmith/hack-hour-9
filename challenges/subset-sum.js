@@ -9,7 +9,22 @@
  */
 
 function subsetSum(array, target) {
-
+  const sums = {};
+  sums[target] = true;
+  let newSums = {}
+  for (let curNum of array) {
+    if (sums[curNum]) {
+      return true;
+    } else {
+      newSums = {}
+      for (let sum in sums) {
+        if (newSums[parseInt(sum) - parseInt(curNum)]) return true;
+        newSums[parseInt(sum) - parseInt(curNum)] = true;
+      }
+      Object.assign(sums, newSums);
+    }
+  }
+  return false;
 }
 
 module.exports = subsetSum;
