@@ -8,7 +8,20 @@
 
 
 function countTwos(num) {
-
+  let inc = 0;
+  let numCounter = 0;
+  let arr;
+  while (inc <= num) {
+    arr = ("" + inc).split("");
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === 2) {
+        numCounter += 1;
+      }
+    }
+    inc++;
+  }
+  return numCounter;
 }
+
 
 module.exports = countTwos;
