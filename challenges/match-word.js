@@ -7,8 +7,37 @@
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
 
-function matchWord(str) {
 
+function matchWord(str) {
+  let mutatedStr = str,
+    firstWord = '',
+    lastWord = '';
+  //if length is 0 return true
+  if (mutatedStr.length === 0) {
+    return true;
+  }
+  //replace all non letters with a hash. 
+  mutatedStr = mutatedStr.replace(/[^0-9a-z]/gi, ' ');
+  //remove all starting or trailing hashes. 
+  mutatedStr = mutatedStr.trim();
+  //loop through string.
+  //if starting index is a letter, then add to first word. if not a letter than stop loop. 
+  //in the same loop, move backwards. if index is a letter add to last word. if not a letter stop loop. 
+  for (let endIndex = mutatedStr.length - 1,
+      i = 0; i < mutatedStr.length; i++, endIndex--) {
+    if (mutatedStr[i] === ' ' && mutatedStr[endIndex] === ' ') {
+      break
+    } else {
+      firstWord += mutatedStr[i];
+      lastWord += mutatedStr[endIndex]
+    }
+  }
+  //check if first word and last word are ===
+  if (firstWord.toLowerCase() === lastWord.toLowerCase()) {
+    return true;
+  } else {
+    return false;
+  };
 }
 
 module.exports = matchWord;
