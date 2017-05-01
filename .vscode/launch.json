@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "node",
+            "type": "node",
+            "request": "launch",
+            "url": "http://localhost:8080",
+            "sourceMaps": true,
+            "webRoot": "${workspaceRoot}/challenges/perm-palin"
+        },
+        {
+            "name": "Attach to Chrome, with sourcemaps",
+            "type": "node",
+            "request": "attach",
+            "port": 9222,
+            "sourceMaps": true,
+            "webRoot": "${workspaceRoot}/challenges/perm-palin"
+        }
+    ]
+}
