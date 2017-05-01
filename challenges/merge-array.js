@@ -14,7 +14,33 @@
  */
 
 function mergeArrays(arr1, arr2) {
-
+  let newArr = [];
+  if (arr1.length < arr2.length) {
+    for (let i = 0; i < arr1.length; i++) {
+      if (arr1[i] <= arr2[i]) {
+        newArr.push(arr1[i]);
+        newArr.push(arr2[i]);
+      } else {
+        newArr.push(arr2[i]);
+        newArr.push(arr1[i]);
+      }
+    }
+    arr2 = arr2.slice(arr1.length);
+    newArr = newArr.concat(arr2);
+  } else {
+    for (let i = 0; i < arr2.length; i++) {
+      if (arr1[i] <= arr2[i]) {
+        newArr.push(arr1[i]);
+        newArr.push(arr2[i]);
+      } else {
+        newArr.push(arr2[i]);
+        newArr.push(arr1[i]);
+      }
+    }
+    arr1 = arr1.slice(arr2.length);
+    newArr = newArr.concat(arr1);
+  }
+  return newArr;
 }
 
 module.exports = mergeArrays;

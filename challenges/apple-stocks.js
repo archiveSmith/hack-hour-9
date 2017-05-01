@@ -11,9 +11,40 @@
  *
  *  Return 0 if no profit is possible OR if input is invalid.
  */
-
+'use strict';
 function bestProfit(stock_prices_yesterday) {
+  if (!Array.isArray(stock_prices_yesterday)) {
+    return 0;
+  }
+  let greatest = -Infinity;
+  let greatestIndex = -Infinity;
+  let smallest = Infinity;
+  let smallestIndex = -Infinity;
 
+  for (let i = 0; i < stock_prices_yesterday.length; i++) {
+    if (stock_prices_yesterday[i] > greatest) {
+      greatest = stock_prices_yesterday[i];
+      greatestIndex = i;
+    } else if (stock_prices_yesterday[i] < smallest) {
+      smallest = stock_prices_yesterday[i];
+      smallestIndex = i;
+    }
+  }
+  if (greatestIndex > smallestIndex) {
+    return 0;
+  }
+  return greatest - smallest;
 }
+
+var stocks = [];
+
+stocks[30] = 50;
+stocks[60] = 200;
+stocks[90] = 100;
+stocks[120] = 300;
+stocks[150] = 300;
+stocks[180] = 100;
+
+console.log(bestProfit(stocks));
 
 module.exports = bestProfit;
