@@ -17,7 +17,22 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-
+  let result = [];
+  for (let i = 1; i <= num; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      result.push('fizzbuzz');
+    } else if (i % 3 === 0) {
+      result.push('fizz');
+    } else if (i % 5 === 0) {
+      result.push('buzz');
+    } else {
+      result.push(i);
+    }
+  }
+  if (num < 1 || typeof num !== 'number') {
+    return "please use an integer greater than 0 as the input";
+  }
+  return result;
 }
 
 module.exports = fizzbuzz;
