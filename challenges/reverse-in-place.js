@@ -12,7 +12,12 @@
  */
 
 function reverseInPlace(array) {
-
+	for(var i = 0, mid = Math.floor(array.length / 2), end = (array.length - 1); i < mid; i++) {
+		let val = array[i];
+		array[i] = array[end - i];
+		array[end - i] = val;
+	}
+	return array
 }
 
 module.exports = reverseInPlace;

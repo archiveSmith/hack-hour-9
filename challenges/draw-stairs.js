@@ -13,8 +13,16 @@
 
 */
 
-function drawStairs(n) {
 
+
+function drawStairs(n) {
+	var leng = n;
+	for (var i = 1; i <= n; i++) {
+	    leng--
+	    console.log(" ".repeat(leng) + "*".repeat(i));
+	}
+	
+	return i
 }
 
 

@@ -9,6 +9,24 @@
 
 function matchWord(str) {
 
-}
+	str = str.replace(/[\W_]/g, ' ')
+	.split('')
+	.join('')
+	.toUpperCase()
+	.trim()
+	.replace(/\s\s+/g, ' ')
+	.split(' ');
 
+	for(var i = 0; i < str.length - 1;) {
+		if(str[i] === str[i + 1].split('').reverse().join('')) {
+			str.splice(i, 2);
+			i = 0;
+		} else {
+			i++
+		}
+	}
+	
+	return str.length === 0 ? true: false;
+	
+}
 module.exports = matchWord;
