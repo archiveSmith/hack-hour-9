@@ -9,7 +9,22 @@
  */
 
 function subsetSum(array, target) {
+	let tempArr = array;
+	tempArr = tempArr.sort(function(a, b) {
+		return a-b;
+	});
 
+	while (tempArr.length > 0) {
+		let temp = tempArr;
+		let sum = 0;
+		for (let i = 0; i < tempArr.length; i++) {
+			
+		}
+
+
+		tempArr.shift();
+	}
+	return true;
 }
 
 module.exports = subsetSum;

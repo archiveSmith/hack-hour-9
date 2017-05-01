@@ -8,7 +8,34 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+  let tempStr = str.split('');
+  for (let i = 0; i < tempStr.length; i++) {
+    if (tempStr[i].toUpperCase() === tempStr[i].toLowerCase()) {
+      tempStr[i] = ' ';
+    }
+  }
+  tempStr = tempStr.join('').split(' ');
 
+  const temp = [];
+  for (let i = 0; i < tempStr.length; i++) {
+    if (tempStr[i] !== '') {
+      temp.push(tempStr[i].toLowerCase());
+    }
+  }
+    
+  if (temp.length % 2 !== 0) return false;
+  for (let i = 0; i < temp.length / 2; i++) {
+    if (temp[i].length !== temp[temp.length - i - 1].length) return false;
+    for (let j = 0; j < temp[i].length; j++) {
+      if (temp[temp.length - i - 1].indexOf(temp[i][j]) === -1) {
+        return false;
+      }
+    }
+    temp.pop();
+    temp.shift();
+  }
+
+  return true;
 }
 
 module.exports = matchWord;
