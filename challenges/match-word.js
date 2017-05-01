@@ -8,7 +8,17 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+  let words = str.toLowerCase().match(/[a-z]+/g) || [];
+  let wordCache = [];
 
+  for (let i = 0; i < words.length; i++) {
+    let reversed = words[i].split('').reverse().join('');
+
+    if (wordCache[wordCache.length - 1] !== reversed) wordCache.push(words[i]);
+    else wordCache.pop();
+  }
+
+  return !wordCache.length;
 }
 
 module.exports = matchWord;

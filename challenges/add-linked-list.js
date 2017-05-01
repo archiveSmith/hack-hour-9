@@ -14,7 +14,49 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+  const num1 = calcNumFromLinkedList(l1);
+  const num2 = calcNumFromLinkedList(l2);
+  const sumString = (num1 + num2).toString();
 
+  let currNode = new Node(Number(sumString[sumString.length - 1]));
+  const sumListHead = currNode;
+
+  for (let i = sumString.length - 2; i >= 0; i--) {
+    const digit = Number(sumString[i]);
+    currNode.next = new Node(digit);
+    currNode = currNode.next;
+  }
+
+  return sumListHead;
 }
 
-module.exports = {Node: Node, addLinkedList: addLinkedList};
+function calcNumFromLinkedList(list) {
+  let number = '';
+
+  while (list) {
+    number = list.value.toString() + number;
+    list = list.next;
+  }
+
+  return Number(number);
+}
+
+// const a1 = new Node(3);
+// const a2 = new Node(1);
+// const a3 = new Node(6);
+
+// a2.next = a3;
+// a1.next = a2;
+
+// const b0 = new Node(2);
+// const b1 = new Node(5);
+// const b2 = new Node(9);
+// const b3 = new Node(2);
+
+// b2.next = b3;
+// b1.next = b2;
+// b0.next = b1;
+
+// addLinkedList(a1, b0);
+
+module.exports = { Node, addLinkedList };
