@@ -10,6 +10,24 @@
 
 function subsetSum(array, target) {
 
+	function find(start) {
+		if (start === target)
+			return true;
+		else if (target > start) 
+			return null;
+		else for (let i = 0; i < array.length; i++) {
+			return find(start + array[i]) || 
+			find(start - array[i]);
+		}
+	}
+	return find(0, '0') || false;
 }
+//recursively
+//start from 0 and build up
+//recursively search on each added value
+//loop through the array and recur on start + array[i]
+//we stop when we hit the target
+// 
+
 
 module.exports = subsetSum;

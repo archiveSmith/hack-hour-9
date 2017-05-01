@@ -17,7 +17,13 @@ function Node(val) {
 Adds a node to the end of the list
  */
 LinkedList.prototype.add = function(val) {
-  
+  //if head and tail already exist, just update the tail
+  if (this.tail)
+  	let newNode = new Node(val);
+  	this.tail.next = newNode;
+  	newNode.prev = this.tail;
+  	let oldTail = this.tail;
+  	this.tail = newNode;
 };
 
 /*
@@ -27,4 +33,4 @@ LinkedList.prototype.remove = function(val) {
   
 };
 
-module.exports = LinkedList;
+module.exports = { LinkedList, Node };

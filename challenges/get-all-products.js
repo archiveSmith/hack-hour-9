@@ -10,7 +10,30 @@
  */
 
 function getAllProducts(array) {
+	//loop thru the array and multiply every element except the one you are iterating on.
+	if (array.length === 0) return 0;
+	if (array.length === 1) return array;
 
+	let arr = [];
+
+	for (let i = 0; i < array.length; i++) {
+		let product = 1;
+
+		for (let j = 0; j < array.length; j++) {
+			if (j === i) continue;
+			product *= array[j];
+		}
+		arr.push(product);
+	}
+
+	// let arr2 = [];
+	// let totalProduct = array.reduce((prev, curr) => prev * curr);
+
+	// array.forEach((ele) => {
+	// 	if (ele !== 0) arr2.push(totalProduct / ele)
+	// });
+
+	return arr;
 }
 
 module.exports = getAllProducts;

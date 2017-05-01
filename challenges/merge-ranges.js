@@ -12,6 +12,25 @@
 
 function mergeRanges(array) {
 
+	//sort given array by first element in each subarray
+	//iterate thru sorted array and check if the first element is contained in the previous subarray
+	//if so, assign second element to the second element of previous array and continue;
+	let sorted = [];
+	sorted = array.sort(function(a, b) {return a[0] - b[0];});
+
+	for (let i = 1; i < sorted.length; i++) {
+		if (sorted[i - 1] && sorted[i][0] <= sorted[i-1][1]) {
+			sorted[i-1][1] = sorted[i][1];
+			delete sorted[i];
+		}
+	}
+	
+	let merged = [];
+	for (let i = 0; i < sorted.length; i++){
+		if (sorted[i]) merged.push(sorted[i]);
+	}
+	
+	return merged;
 }
 
 module.exports = mergeRanges;

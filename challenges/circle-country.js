@@ -23,6 +23,10 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+	//the min # of borders to cross is the sum of
+	//circles that surround A but not B and circles that surround B but not A
+	//check if the distance between A/B and each point is < than teh respective radius for that point. We want to count when this is true
+	// if distance(A, )
 
 }
 
