@@ -4,7 +4,21 @@
 
 
 function Stack() {
-
+	this.stack = [];
+  this.length = 0;
+  
+  this.push = (data) => {
+    this.stack[this.length] = data;
+    this.length++;
+  }
+  
+  this.pop = () => {
+  	if(this.length === 0) return undefined;
+    const result = this.stack[this.length - 1];
+  	delete this.stack[this.length - 1];
+    this.length--;
+    return result;
+  }
 }
 
 

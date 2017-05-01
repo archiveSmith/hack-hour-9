@@ -25,7 +25,29 @@
  */
 
 function balancedParens(input){
+	let openParens = input.match(/\(/g);
+	let closeParens = input.match(/\)/g);
+	let openBracket = input.match(/\[/g);
+	let closeBracket = input.match(/\]/g);
+	let openCurly = input.match(/\{/g);
+	let closeCurly = input.match(/\}/g);
 
+	if(input.indexOf(')') < input.indexOf('(') ||
+		input.indexOf(']') < input.indexOf('[') ||
+		input.indexOf('}') < input.indexOf('{')) return false;
+	
+	// refactor to function
+	if(!openParens) openParens = [];
+	if(!closeParens) closeParens = [];
+	if(!openBracket) openBracket = [];
+	if(!closeBracket) closeBracket = [];
+	if(!openCurly) openCurly = [];
+	if(!closeCurly) closeCurly = [];
+	
+	return openParens.length === closeParens.length && 
+		openBracket.length === closeBracket.length && 
+		openCurly.length === closeCurly.length;
 }
+
 
 module.exports = balancedParens;

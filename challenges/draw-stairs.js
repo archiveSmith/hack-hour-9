@@ -12,9 +12,19 @@
 ******
 
 */
-
 function drawStairs(n) {
+	let stars = '';
 
+	for (let i = 0; i < n; i++) {
+		let spaces = n - i;
+		let tempSpaces = '';
+		stars += '*';
+		while(spaces > 1) {
+			tempSpaces += ' ';
+			spaces--;
+		}		
+		console.log(tempSpaces + stars)
+	}
 }
 
 

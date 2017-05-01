@@ -1,4 +1,5 @@
-/* You are given an array of integers and a target number. Write a function that returns true if
+/* You are given an array of integers and a target number. 
+   Write a function that returns true if
  * there is a subset of the array that sums up to the target and returns false otherwise. A subset
  * can be any size and the elements do not have to appear consecutively in the array.
  * 
@@ -9,7 +10,16 @@
  */
 
 function subsetSum(array, target) {
+	let combinations = [];
+	for (let i = 0; i < array.length; i++) {
+		let og = array[i];
+		let counter = array.length;
+		while(counter > 0) {
+			
 
+		}
+	}
+	console.log(combinations)
 }
 
 module.exports = subsetSum;

@@ -11,10 +11,21 @@
 function Node(value) {
     this.value = value;
     this.next = null;
+    this.prev = null;
 }
 
 function reverseLinkedList(head) {
-
+	let backTracker = new Node(head.value);
+	while(head.next) {
+		temp = backTracker;
+		backTracker.prev = new Node(head.next.value);
+		backTracker = backTracker.prev;
+		backTracker.next = temp;
+		head = head.next;
+	}
+	let newHead = head;
+	newHead.next = backTracker;
+	return newHead;
 }
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
