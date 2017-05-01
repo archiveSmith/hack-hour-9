@@ -9,6 +9,20 @@
  */
 
 function subsetSum(array, target) {
+// loop through the array, starting at the first value
+  // loop through the array, and sum the first value with each of the elements
+  // loop again, summing the first two values and summing with each of the other elements
+  // continue adding elements and looping through the array
+// if the first loop didn't pass, pop off the first element and add to the end, then repeat
+  let values = array.slice();
+  for (let i = 0; i < values.length; i++ ) {
+    if (values[0] === target) return true;
+    for (let j = 1; j < values.length) {
+      
+    }
+    
+  }
+
 
 }
 

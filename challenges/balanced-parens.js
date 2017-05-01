@@ -25,7 +25,22 @@
  */
 
 function balancedParens(input){
+  let bracketString = input.replace(/[^\(\)]/g, '');
+  if (bracketString.length % 2 !== 0 || bracketString[0] !== '(' || bracketString[bracketString.length - 1] !== ')') return false;
+  
+  if (bracketString === '()') return true;  
+  
+  let innerString = bracketString.slice(1, bracketString.length - 1)
+  let leftParenCountOnLeft = 0;
+  let rightParenCountOnLeft = 0;
 
+  let midpoint = innerString.length / 2;
+  for (let i = 0; i < midpoint; i++) {
+    if (innerString[i] === '(') leftParenCountOnLeft++;
+    if (innerString[i] === ')') rightParenCountOnLeft++;
+  }
+
+  return leftParenCountOnLeft > rightParenCountOnLeft;
 }
 
 module.exports = balancedParens;
