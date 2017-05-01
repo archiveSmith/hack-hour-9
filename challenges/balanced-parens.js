@@ -24,7 +24,22 @@
  *
  */
 
+
+
+
+
 function balancedParens(input){
+	function balancedParens(input){
+	let isOpen = ['{','[','('];
+	let isClosed = ['}',']',')'];
+	input = input.split('').filter(function(x){return (isOpen.indexOf(x) !== -1 || isClosed.indexOf(x) !== -1)});
+	if (input.length %2 !== 0 || isOpen.indexOf(input[1]) !== -1) return false;
+	
+	for (var i = 0; i < input.length; i++){
+		
+		
+	}
+}
 
 }
 
