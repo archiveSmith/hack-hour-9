@@ -13,7 +13,24 @@
  */
 
 function numToWords(num) {
-
+	console.log(num);
+	console.log(typeof num);
+	
+	console.log()
+	
+	numDigits = Math.floor(num % 10)
+	numTens = Math.floor(num / 10) 
+	numHundreds = Math.floor(num / 100)
+	numThousands = Math.floor(num / 1000)
+	console.log("numDigits", numDigits)
+	console.log("numTens ", numTens)
+	console.log("numHundreds ", numHundreds)
+	console.log("numThousands ", numThousands)
+	
+	resultString = '';
+	smallMatch= {0:"Zero", 1:"One", 2:"Two", 3:"Three", 4:"Four", 5:"Five",6:"Six", 7:"Seven", 8:"Eight", 9:"Nine", 10:"Ten", 11:"Eleven",12:"Twelve",13:"Thirteen",14:"Fourteen",15:"Fifteen",16:"Sixteen",17:"Seventeen",18:"Eighteen",19:"Nineteen"};
+	
+	console.log(smallMatch[num])
 }
 
 module.exports = numToWords;
