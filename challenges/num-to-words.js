@@ -13,7 +13,19 @@
  */
 
 function numToWords(num) {
+var a = [
+  "one", "two", "three", "four", "five",
+  "six", "seven", "eight", "nine", "ten",
+  "eleven", "twelve", "thirteen", "fourteen", "fifteen",
+  "sixteen", "seventeen", "eighteen", "nineteen"
+];
 
+var b = [
+  "ten", "twenty", "thirty", "forty", "fifty",
+  "sixty", "seventy", "eighty", "ninety"
+];
+
+var g = ["thousand", "million", "billion", "trillion"];
 }
 
 module.exports = numToWords;

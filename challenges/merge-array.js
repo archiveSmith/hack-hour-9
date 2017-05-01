@@ -13,8 +13,27 @@
  *
  */
 
-function mergeArrays(arr1, arr2) {
-
+function mergeArrays(a = [],b = []){
+if(!a.length && !b.length) return undefined;
+if (!a.length){
+	return b;
+} else if (!b.length){
+	return a;
+}
+var merged= [];
+	while(a.length && b.length){
+		if(b[0] <= a[0]) {
+			merged.push(b[0]);
+			b.shift();
+			
+		} else {
+			merged.push(a[0]);
+			a.shift();
+		}
+	}
+	if (a.length) merged.push(...a);
+	if (b.length) merged.push(...b)
+	return merged;
 }
 
 module.exports = mergeArrays;

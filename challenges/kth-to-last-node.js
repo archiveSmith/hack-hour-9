@@ -20,9 +20,34 @@ function Node(val) {
   this.value = val;
   this.next = null;
 }
+  
+function llLength(head){
+	let len = 0;
+	let currHead = head;
+	while(currHead !== null){
+		len++;
+		currHead = currHead.next;
+	}
+	return len;
+}
 
 function kthToLastNode(k, head) {
-
+	if (head === null || k < 1){
+		return false;
+	}
+	let len = llLength(head);
+	if (k === len){
+		return head.value;
+	}
+	let currHead = head;
+	while(currHead !== null){
+		len--;
+		currHead = currHead.next;
+		if(len === k){
+			return currHead.value;
+		}
+	}
 }
+//console.log(kthToLastNode(2,a)); --> 'D'
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
