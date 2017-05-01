@@ -13,6 +13,26 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+  if (!Array.isArray(stock_prices_yesterday) || stock_prices_yesterday.length < 2) {
+    return 0;
+  }
+  const calc = stock_prices_yesterday.reduce((memo, item, index) => { 
+     if (item > memo.high) {
+
+       memo.high = item;
+       let diff = memo.high - memo.low
+       if (diff > memo.profit && diff > 0) {
+         memo.profit = memo.high - memo.low;
+       }
+    }
+    if (item < memo.low) {
+      memo.low = item;
+      memo.high = item;
+     }
+    return memo;
+   
+  }, { profit: 0, low: stock_prices_yesterday[0], high: 0 });
+  return (calc.profit> 0 ) ? calc.profit : 0;
 
 }
 
