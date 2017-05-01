@@ -15,6 +15,7 @@
  *
  * kthToLastNode(2,a); -> returns the node with the value 'D' (the second to last node)
  */
+'use strict'
 
 function Node(val) {
   this.value = val;
@@ -22,7 +23,46 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-
+  if (k <= 0 || !head) {
+    console.log("invalid input");
+    if (k <= 0) {
+      console.log('please provide a positive interger input for the first argument');
+    } else {
+      console.log('please provide a valid list reference');
+    }
+    return false;
+  }
+  const history = [];
+  let currentNode = head;
+  let ending = '';
+  if (k === 1) {
+    ending = 'st';
+  } else if (k === 2) {
+    ending = 'nd';
+  } else if (k === 3) {
+    ending = 'rd';
+  } else {
+    ending = 'th';
+  }
+  while (history.length < k) {
+    if (!currentNode) {
+      console.log("there is no " + k + ending + " node");
+      return false;
+    }
+    history.push(currentNode);
+    currentNode = currentNode.next;
+  }
+  while (currentNode) {
+    history.shift();
+    history.push(currentNode);
+    currentNode = currentNode.next;
+  }
+  if (history.length === k) {
+    return history.shift().value;
+  }
 }
 
-module.exports = {Node: Node, kthToLastNode: kthToLastNode};
+module.exports = {
+  Node: Node,
+  kthToLastNode: kthToLastNode
+};
