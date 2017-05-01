@@ -21,7 +21,27 @@
  */
 
 function EventEmitter() {
-
+	this.events = {};
+	
+	this.on = function (eventName, func) {
+		//if eventName isnt in the object, create a new array and push it
+		
+		if (Object.keys(this.events).indexOf(eventName) === -1) {
+			this.events[eventName] = [];
+			this.events[eventName].push(func);
+		} else {
+			this.events[eventName].push(func);
+		}
+	};
+	
+	this.trigger = function (eventName, ...args) {
+		// console.log(args);
+		if (Object.keys(this.events).indexOf(eventName) === -1) return;
+		let arrayOfFuncs = this.events[eventName];
+		arrayOfFuncs.forEach(function (func) {
+			func(...args);
+		});
+	};
 }
 
 module.exports = EventEmitter;

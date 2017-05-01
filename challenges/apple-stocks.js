@@ -13,7 +13,42 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-
+	if (!Array.isArray(stock_prices_yesterday)) {
+		return 0;
+	}
+	
+	let arr = stock_prices_yesterday;
+	let currMin = arr[0];
+	let len = arr.length;
+	let diffArr = [];
+	let maxProfit = 0;
+	
+	for (let i = 0; i < len; i++) {
+		//check for invalid input
+		if (typeof arr[i] != 'number' || arr[i] < 0) {
+			return 0;
+		}
+		
+		//store value of lowest min so far
+		if (arr[i] < currMin) {
+			currMin = arr[i];
+		}		
+		
+		//store differences in new Array
+		diffArr.push(arr[i] - currMin);
+		
+		//store maxProfit so far
+		if (arr[i] - currMin > maxProfit) {
+			maxProfit = arr[i] - currMin;
+		}
+	}
+	
+	if (maxProfit > 0) {
+		return maxProfit;
+	} else {
+		return 0;
+	}
 }
 
+//track lowest value so far and calculate difference as you iterate. keep lowest value updated. store differences in new array. 
 module.exports = bestProfit;
