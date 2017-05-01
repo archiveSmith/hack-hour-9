@@ -13,8 +13,32 @@
 
 */
 
-function drawStairs(n) {
+// iterate from 1 to n
+  // at each iteration:
+  // # stars = index
+  // # preceding blanks = n - index
+  // no extra whitespace at beginning or end
 
+function drawStairs(n) {
+  n = (n > 100) ? 100 : n;
+  let stairs = '';
+
+  for (let i = 1; i <= n; i++) {
+    let step = '';
+
+    for (let j = 0; j < n - i; j++) {
+      step += ' ';
+    }
+
+    for (let k = 0; k < i; k++) {
+      step += '*';
+    }
+
+    if (i < n) step += '\n';
+    stairs += step;
+  }
+
+  console.log(stairs);
 }
 
 
