@@ -12,11 +12,44 @@
  */
 
 function isSubstring(s1, s2) {
-  return s1.indexOf(s2) >= 0;
+    return s1.indexOf(s2) >= 0;
 }
 
 function stringRotation(s1, s2) {
+	if (!isSubstring(s1,s2)) {
+		return false
+	}
+
+    //identify first letter in s1.
+    let firstLetter = s1[0]
+        //find the index of this first letter in s2. 
+    let s2firstLetterIndex = s2.indexOf(firstLetter);
+
+    if (s2firstLetterIndex === false) {
+        return false;
+    }
+    //reorder s2 so that the first letter is index 0. 
+    let news2 = "";
+    for (var i = s2firstLetterIndex; i < s2.length; i++) {
+        news2 += s2[i]
+    }
+
+    for (var i = 0; i < s2firstLetterIndex; i++) {
+        news2 += s2[i]
+
+    }
+
+    //compare s2 to s1. 
+    if (news2 === s1) {
+        return true;
+    } else {
+        return false;
+    }
+
 
 }
+
+console.log(stringRotation('hello', 'lhel'));
+
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
