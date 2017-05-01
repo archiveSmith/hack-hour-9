@@ -26,7 +26,16 @@
  */
 
 function applyIt(func, args) {
-
+  let argString = '';
+  for (let i = 0; i < args.length; i++) {
+    argString += JSON.stringify(args[i]);
+    if (i == args.length -1) break;
+    argString += ',';
+  }
+  let callStr = 'func(' + argString + ')';
+  return function() {
+  	return eval(callStr);
+  }
 }
 
 module.exports = applyIt;

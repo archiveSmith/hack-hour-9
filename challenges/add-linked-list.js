@@ -14,7 +14,33 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
-
+  function getNum(list) {
+  let str = '', cur = list;
+  while (cur) {
+    str = cur.value + str;
+    cur = cur.next;
+  }
+  return Number(str)
 }
+  const numOne = getNum(l1), numTwo = getNum(l2);
+  const result = numOne ? (numTwo ? numOne + numTwo : numOne) : (numTwo ? numTwo : 0);
+  const str = result.toString();
+  const head = new Node(str[str.length-1]);
+  let cur = head;
+  for (let i = str.length-2; i >= 0; i--) {
+    cur.next = new Node(Number(str[i]));
+    cur = cur.next;
+  }
+  return head;
+  
+}
+// function getNum(list) {
+//   let str = '', cur = list;
+//   while (cur) {
+//     str = cur.value + str;
+//     cur = cur.next;
+//   }
+//   return Number(str)
+// }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
