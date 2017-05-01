@@ -8,7 +8,27 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+	if (typeof str !== "string") return false;
+	if (str.length === 0) return true;
+	var words = str.toLowerCase()
+			 .replace(/[^0-9a-z]/gi, ' ')
+			 .split(" ")
+			 .filter((word) => word !== "")
+			 
+	let wordStack = [];
+	for (word of words) {
+		if (wordStack.length === 0) { 
+			wordStack.push(word);
+		} else {
+			var tempword = word.split("").reverse().join("");
+			if (tempword == wordStack[wordStack.length - 1]) {
+			wordStack.pop();
+			} else {
+			wordStack.push(word);
+			}
+		}
+	}
+	return wordStack.length === 0
 }
 
 module.exports = matchWord;
