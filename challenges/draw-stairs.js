@@ -14,7 +14,20 @@
 */
 
 function drawStairs(n) {
+    //if n is greater than 1 and less than 100.
+    if (n > 1 && n < 100) {
+        //set spaces = n;
+        var spaces = n;
+        //create loop where i is equal to how many stars is to be logged. 
+        //increase i while decreasing spaces
+        for (var i = 1; i <= n; i++) {
+            spaces--
+            console.log(" ".repeat(spaces) + "*".repeat(i));
+        }
+    }
 
+
+    return i
 }
 
 

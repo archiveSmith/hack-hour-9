@@ -9,6 +9,17 @@
  */
 
 function subsetSum(array, target) {
+	let temp = [];
+	// create array of all possible permutations. 
+
+	//select first in index
+	//add second item, if over target then remove and add third one. 
+
+	//select second index 
+
+	for (var i = 0; i < array.length; i++) {
+		let arrSliced = array.splice(1,0)
+	}
 
 }
 
